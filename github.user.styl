@@ -760,6 +760,17 @@ SA = _sc_a
             &-addition .x { c: white 0 b43 }
             &-deletion .x { c: white 0 b13 }
         }
+
+        /// Rich diff. @upstream
+        /.prose-diff {
+            .changed {
+                .added, ins, ins code, ins pre { c: 0 b43 b45 }
+            }
+            .rich-diff-level-zero.added,
+            .markdown-body > ins {
+                b: inset 4px 0 0 b43 i
+            }
+        }
     }
 
     // Notes -> Resets.
