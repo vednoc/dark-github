@@ -811,4 +811,64 @@ SA = _sc_a
         [style*='#30a14e'] { c: 0 0 ac0; opacity: 0.75 }
         [style*='#216e39'] { c: 0 0 ac0; opacity: 1.00 }
     }
+
+    /// Extension -> Gitako.
+    /// TODO: Maybe switch to different background colors.
+    .gitako-ready {
+        /// Colors.
+        /.gitako-side-bar {
+            a { c: ac0 }
+
+            /// Resets.
+            &-body { c: 0 bg5 bg2 }
+            .header .meta-bar {
+                min-height: 60px i
+                c: 0 0 bg3
+                [class*='BranchName-'] { c: fg3 0 bg4 }
+            }
+
+            /// Files.
+            .file-explorer {
+                .search-input {
+                    c: fg1 bg5 bg2
+                    border-left: none
+                    border-right: none
+                    padding: 6px 0
+                }
+                .node-item {
+                    c: fg1 bg4 bg2
+                    &:hover { c: 0 0 bg3 }
+                    &:active, &.focused { c: 0 0 bg4 }
+                }
+                mark { c: white 0 ac0 }
+            }
+
+            /// Footer.
+            .gitako-settings-bar {
+                c: 0 0 bg2
+                .header-row { c: 0 bg5 }
+            }
+
+            /// Buttons.
+            .close-side-bar-button { c: 0 0 bg3 }
+            .settings-button { c: 0 0 bg2 }
+            .octicon { c: fg3 }
+
+            /// Resize.
+            .gitako-resize-handler { c: 0 bg5 bg3 }
+        }
+
+        /// Fixes for experimental "shrink" feature.
+        &.shrink-github-header {
+            /// Adjust header/icon sizes.
+            @media (min-width: 1280px) {
+                .Header { padding: 16px i }
+                .gitako-toggle-show-button { height: 60px i }
+             }
+
+             /// Reset backgrounds for header and navigation.
+            .js-header-wrapper { c: 0 0 bg3 }
+            main > :first-child { box-shadow: inset 0 -1px 0 bg5 }
+        }
+    }
 }
