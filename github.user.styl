@@ -472,7 +472,7 @@ SA = _sc_a
         --color-border-primary: bg5 //#e1e4e8;
         --color-border-secondary: bg3 #eaecef;
         --color-border-tertiary: bg4 //#d1d5da;
-        --color-border-inverse: #fff;
+        --color-border-inverse: bg1 //#fff;
         --color-border-info: #0366d6;
         --color-border-danger: #d73a49;
         --color-border-success: #34d058;
@@ -483,7 +483,7 @@ SA = _sc_a
         --color-bg-canvas-inverse: bg3 //#24292e; Navbar
         --color-bg-primary: bg1 //#fff;           Sidebar
         --color-bg-secondary: bg2 //#fafbfc;      Navigation/notices
-        --color-bg-tertiary: bg0 //#f6f8fa;       Background
+        --color-bg-tertiary: bg3 //#f6f8fa;       Background
         --color-bg-overlay: #fff;
         --color-bg-info: b65 //#f1f8ff;
         --color-bg-info-inverse: b63 //#0366d6;
@@ -602,8 +602,8 @@ SA = _sc_a
         --color-box-blue-border: b63 //#c8e1ff;
         --color-box-row-yellow-bg: #fffbdd;
         --color-box-row-blue-bg: #f1f8ff;
-        --color-dropdown-border: #1b1f2326;
-        --color-popover-border: #1b1f2326;
+        --color-dropdown-border: bg5 //#1b1f2326;
+        --color-popover-border: bg5 //#1b1f2326;
         --color-branch-name-text: #1b1f2399;
         --color-branch-name-bg: #eaf5ff;
         --color-branch-name-icon: #a8bbd0;
@@ -682,13 +682,37 @@ SA = _sc_a
 
         body {
             /// Application background.
-            &, .application-main { c: 0 0 bg0 }
+            &, &.bg-gray { c: 0 0 bg0 }
+            .application-main { box-shadow: 0 -24px bg1 }
         }
     }
 
-    /// Navbar.
+    // Navbar.
     .js-header-wrapper {
         border-bottom: 1px solid bg5
+
+        /// Search. @upstream
+        .header-search-wrapper {
+            c: 0 0 bg4
+        }
+
+        /// Notifications. @upstream
+        .mail-status {
+            background-image: none i
+            c: 0 0 ac0
+        }
+    }
+
+    // Navigation. @upstream
+    .UnderlineNav-item.selected,
+    .UnderlineNav-item[aria-current]:not([aria-current="false"]),
+    .UnderlineNav-item[role="tab"][aria-selected="true"] {
+        c: 0 ac0
+    }
+
+    // Project -> Tags. @upstream
+    .topic-tag-link:hover { c: 0 0 b64 }
+
     }
 
     // Diff -> Changes. @upstream
