@@ -705,6 +705,47 @@ SA = _sc_a
         }
     }
 
+    // Better checkbox/radio inputs.
+    input {
+        r       = unquote
+        prefix  = 'data:image/svg+xml;utf8,'
+        prefix += '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">'
+
+        &[type='radio'],
+        &[type='checkbox'] {
+            &, &:focus, &:hover:active, &:disabled, &:hover:active:disabled {
+                -webkit-appearance: none i
+                -moz-appearance: none i
+                appearance: none i
+                height: 1rem i
+                width: 1rem i
+                border: 1px solid bg5 i
+                background-size: cover i
+                c: fg1 0 bg4
+            }
+            &:hover { box-shadow: 0 0 0 1px bg5 i }
+        }
+
+        &[type='radio']:checked {
+            z = '<circle cx="256" cy="256" r="128" fill="white"/>'
+            background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
+            border-radius: 100% i
+            &:checked { c: 0 ac0 ac0 }
+        }
+
+        &[type='checkbox']:checked {
+            z ='<path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>'
+            background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
+            c: 0 ac0 ac0
+        }
+
+        &[type='checkbox']:indeterminate {
+            z = '<rect x="128" y="192" width="256" height="96" fill="white"/>'
+            background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
+            c: 0 b10 b10
+        }
+    }
+
     // Navbar.
     .js-header-wrapper {
         border-bottom: 1px solid bg5
