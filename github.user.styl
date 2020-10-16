@@ -28,6 +28,7 @@
 @var text     f_ui         'UI font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
 
+@var checkbox latest_commit 'Use neutral colors in latest commit' 0
 @var checkbox readme_header 'Use old readme header design' 0
 
 @var color    _red         'Base red color              ' #f07178
@@ -734,6 +735,17 @@ SA = _sc_a
 
                 /// Fix padding in the body.
                 + .Box-body { padding-top: 32px i }
+            }
+        }
+
+        /// Feat -> Neutral colors in latest commit.
+        if (latest_commit) {
+            &-header--blue { c: 0 bg5 bg2 }
+
+            /// Commit details.
+            /.full-commit {
+                c: 0 0 bg2
+                p.commit-title { c: fg1 }
             }
         }
     }
