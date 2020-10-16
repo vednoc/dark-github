@@ -276,7 +276,7 @@ SA = _sc_a
         --color-scale-white: #fff;
         --color-scale-gray-0: #fafbfc;
         --color-scale-gray-1: bg5 //#f6f8fa;
-        --color-scale-gray-2: #e1e4e8;
+        --color-scale-gray-2: bg4 //#e1e4e8;
         --color-scale-gray-3: #d1d5da;
         --color-scale-gray-4: #959da5;
         --color-scale-gray-5: #6a737d;
@@ -358,7 +358,7 @@ SA = _sc_a
         --color-auto-white: bg0 //#fff;
         --color-auto-gray-0: #fafbfc;
         --color-auto-gray-1: bg5 //#f6f8fa;
-        --color-auto-gray-2: #e1e4e8;
+        --color-auto-gray-2: bg4 //#e1e4e8;
         --color-auto-gray-3: #d1d5da;
         --color-auto-gray-4: #959da5;
         --color-auto-gray-5: #6a737d;
@@ -392,7 +392,7 @@ SA = _sc_a
         --color-auto-yellow-3: #ffea7f;
         --color-auto-yellow-4: #ffdf5d;
         --color-auto-yellow-5: #ffd33d;
-        --color-auto-yellow-6: #f9c513;
+        --color-auto-yellow-6: b33 //#f9c513;
         --color-auto-yellow-7: #dbab09;
         --color-auto-yellow-8: #b08800;
         --color-auto-yellow-9: #735c0f;
@@ -412,7 +412,7 @@ SA = _sc_a
         --color-auto-red-3: #f97583;
         --color-auto-red-4: #ea4a5a;
         --color-auto-red-5: #d73a49;
-        --color-auto-red-6: #cb2431;
+        --color-auto-red-6: b13 //#cb2431;
         --color-auto-red-7: #b31d28;
         --color-auto-red-8: #9e1c23;
         --color-auto-red-9: #86181d;
@@ -439,16 +439,16 @@ SA = _sc_a
 
         --color-text-primary: fg1 //#24292e;
         --color-text-secondary: fg3 //#586069;
-        --color-text-tertiary: fg#6a737d;
+        --color-text-tertiary: fg4 //#6a737d;
         --color-text-placeholder: fg5 //#6a737d;
         --color-text-disabled: fg5 //#6a737d;
         --color-text-inverse: fg1 //#fff;
         --color-text-link-primary: ac0 //#0366d6;
         --color-text-link-secondary: fg2 //#24292e;
         --color-text-link-tertiary: fg4 //#586069;
-        --color-text-danger: #cb2431;
-        --color-text-success: #22863a;
-        --color-text-warning: #b08800;
+        --color-text-danger: b10 //#cb2431;
+        --color-text-success: b40 //#22863a;
+        --color-text-warning: b30 //#b08800;
 
         --color-icon-primary: #24292e;
         --color-icon-secondary: #586069;
@@ -487,11 +487,11 @@ SA = _sc_a
         --color-bg-overlay: #fff;
         --color-bg-info: b65 //#f1f8ff;
         --color-bg-info-inverse: b63 //#0366d6;
-        --color-bg-danger: #ffeef0;
+        --color-bg-danger: b15 //#ffeef0;
         --color-bg-danger-inverse: #d73a49;
-        --color-bg-success: #dcffe4;
+        --color-bg-success: b45 //#dcffe4;
         --color-bg-success-inverse: #28a745;
-        --color-bg-warning: #fff5b1;
+        --color-bg-warning: b35 //#fff5b1;
         --color-bg-warning-inverse: #ffd33d;
 
         --color-shadow-small: 0 1px 0 rgba(27,31,35,0.04);
@@ -605,12 +605,12 @@ SA = _sc_a
         --color-dropdown-border: bg5 //#1b1f2326;
         --color-popover-border: bg5 //#1b1f2326;
         --color-branch-name-text: #1b1f2399;
-        --color-branch-name-bg: #eaf5ff;
+        --color-branch-name-bg: bg3 //#eaf5ff;
         --color-branch-name-icon: #a8bbd0;
-        --color-markdown-code-bg: #1b1f230d;
+        --color-markdown-code-bg: bg3 //#1b1f230d;
         --color-markdown-frame-border: #dfe2e5;
-        --color-markdown-blockquote-border: #dfe2e5;
-        --color-markdown-table-border: #dfe2e5;
+        --color-markdown-blockquote-border: bg4 //#dfe2e5;
+        --color-markdown-table-border: bg5 //#dfe2e5;
         --color-markdown-table-tr-border: #c6cbd1;
         --color-header-text: fg3 //#ffffffb3;
         --color-filter-item-bar-bg: #eff3f6;
@@ -682,7 +682,7 @@ SA = _sc_a
 
         body {
             /// Application background.
-            &, &.bg-gray { c: 0 0 bg0 }
+            &, .application-main > .bg-gray { c: 0 0 bg0 }
             .application-main { box-shadow: 0 -24px bg1 }
         }
     }
@@ -713,6 +713,16 @@ SA = _sc_a
     // Project -> Tags. @upstream
     .topic-tag-link:hover { c: 0 0 b64 }
 
+    // Project -> File tree.
+    .Box {
+        /// Use lighter background color for focused items.
+        &-row--focus-gray.navigation-focus { c: 0 0 bg2 }
+
+        /// Border color for modals.
+        &--overlay { c: 0 bg5 }
+
+        /// Tree items.
+        &-row.js-navigation-item { c: 0 bg4 }
     }
 
     // Diff -> Changes. @upstream
