@@ -702,4 +702,20 @@ SA = _sc_a
             &-deletion .x { c: white 0 b13 }
         }
     }
+
+    // Profile -> Calendar graph. @upstream
+    .calendar-graph {
+        rect[fill*='#ebedf0'] { v: bg1 }
+        rect[fill*='#9be9a8'] { v: ac0; fill-opacity: 0.25 }
+        rect[fill*='#40c463'] { v: ac0; fill-opacity: 0.50 }
+        rect[fill*='#30a14e'] { v: ac0; fill-opacity: 0.75 }
+        rect[fill*='#216e39'] { v: ac0; fill-opacity: 1.00 }
+    }
+    .legend {
+        [style*='#ebedf0'] { c: 0 0 bg1 }
+        [style*='#9be9a8'] { c: 0 0 ac0; opacity: 0.25 }
+        [style*='#40c463'] { c: 0 0 ac0; opacity: 0.50 }
+        [style*='#30a14e'] { c: 0 0 ac0; opacity: 0.75 }
+        [style*='#216e39'] { c: 0 0 ac0; opacity: 1.00 }
+    }
 }
