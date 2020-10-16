@@ -1,0 +1,293 @@
+/* ==UserStyle==
+@name         Dark-GitHub
+@namespace    github.com/vednoc/dark-github
+@description  Dark and light, very customizable theme for GitHub.
+@author       vednoc <vednoc@pm.me> (https://github.com/vednoc)
+@homepageURL  https://github.com/vednoc/dark-github
+@supportURL   https://github.com/vednoc/dark-github/issues
+@updateURL    https://github.com/vednoc/dark-github/raw/master/github.user.styl
+@version      0.0.0
+@license      MIT
+@preprocessor stylus
+
+@var checkbox cg_debug     'Color generator debug' 0
+@var select   cg_theme     'Base color-scheme toggle' {
+    'Custom colors   *': 'custom',
+    'Dark blue (old)  ': 'old',
+    'Dark gray (new)  ': 'new',
+}
+@var color    cg_bg        'Base background color' #1f232a
+@var color    cg_fg        'Base foreground color' #eeeeee
+@var color    cg_ac        'Base accent color    ' #7289da
+
+@var range    _bg_a        'Adjust background color tones' [0, -25, 25, 0.1, '%']
+@var range    _fg_a        'Adjust foreground color tones' [0, -25, 25, 0.1, '%']
+@var range    _ac_a        'Adjust accent color tones    ' [0,   0, 25,   1, '%']
+@var range    _sc_a        'Adjust syntax color tones    ' [0,   0, 25,   1, '%']
+
+@var text     f_ui         'UI font' ''font_name''
+@var text     f_mono       'Monospace font' ''font_name''
+
+@var color    _red         'Base red color              ' #f07178
+@var color    _orange      'Base orange color           ' #f78c6c
+@var color    _yellow      'Base yellow color           ' #ffcb6b
+@var color    _green       'Base green color            ' #aede62
+@var color    _cyan        'Base cyan color             ' #89ddff
+@var color    _blue        'Base blue color             ' #82aaff
+@var color    _magenta     'Base magenta color          ' #9a91ea
+@var color    _violet      'Base violet color           ' #c792ea
+@var color    _gray        'Gray color                  ' #bbbbbb
+@var color    _white       'White color                 ' #ffffff
+@var color    _sh          'Shadow color                ' #00000025
+==/UserStyle== */
+
+// Color mixin.
+/// All colors: `c: fg bd bg`
+/// Only border-color: `c: 0 bd`
+c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
+    if x != 0 && x != '_' {            color: xi is 0 ? x : x i }
+    if y != 0 && y != '_' {     border-color: yi is 0 ? y : y i }
+    if z != 0 && z != '_' { background-color: zi is 0 ? z : z i }
+}
+
+// SVG colors.
+v(x, y = 0, xi = 1, yi = 1) {
+    if x != 0 && x != '_' {   fill: xi is 0 ? x : x i }
+    if y != 0 && y != '_' { stroke: yi is 0 ? y : y i }
+}
+
+// Pseudo-element builder.
+P(a, _z = 0, _c = '', _p = absolute) {
+    z-index:  _z;
+    content:  _c;
+    position: _p;
+    if a[0] is a 'call' or a[0] is a 'unit' {    top: a[0] }
+    if a[1] is a 'call' or a[1] is a 'unit' {  right: a[1] }
+    if a[2] is a 'call' or a[2] is a 'unit' { bottom: a[2] }
+    if a[3] is a 'call' or a[3] is a 'unit' {   left: a[3] }
+}
+
+// Bare RGB mixin.
+/// Converts HEX to bare rrr-ggg-bbb format.
+to_rgb(input) {
+    unquote(slice(s('%s', rgba(input, 0)), 5, -3))
+}
+
+// Raw RGBA mixin.
+/// Combine `*-rgb` vars and alpha value.
+to_rgba(input, alpha) {
+    unquote(s('rgba(var(--%s-rgb), %s)', unquote(input), alpha))
+}
+
+// Border radius mixin.
+r() { border-radius: arguments }
+
+// Box-shadow mixin.
+b() { box-shadow: arguments }
+
+/// Remove old browser prefixes.
+vendors = official
+
+/// Feat -> Base color-scheme toggle. #32
+if (cg_theme == 'custom') {
+    BG = cg_bg
+    FG = cg_fg
+    AC = cg_ac
+} else if (cg_theme == 'old') {
+    BG = #1f232a
+    FG = #eeeeee
+    AC = #7289da
+} else if (cg_theme == 'new') {
+    BG = #292929
+    FG = #e6e6e6
+    AC = #d47d3f
+}
+
+/// Helpers.
+t  = transparent
+i  = !important
+BA = _bg_a
+FA = _fg_a
+AA = _ac_a
+SA = _sc_a
+
+// Color generator.
+/// NOTE: Fix the scope to avoid conflicts.
+/{
+    g = global
+
+    /// Generator rules.
+    if (dark(BG)) {
+        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 70); a5 = (AA + 80)
+        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 70); s5 = (SA + 80)
+        b1 = (BA + 10); b2 = (BA - 05); b3 = (BA - 10); b4 = (BA - 15); b5 = (BA - 20)
+        f1 = (FA - 10); f2 = (FA + 10); f3 = (FA + 20); f4 = (FA + 30); f5 = (FA + 40)
+    } else {
+        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
+        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 65); s5 = (SA + 75)
+        b1 = (BA - 10); b2 = (BA + 08); b3 = (BA + 16); b4 = (BA + 24); b5 = (BA + 32)
+        f1 = (FA - 05); f2 = (FA - 10); f3 = (FA - 15); f4 = (FA - 20); f5 = (FA - 30)
+    }
+
+    /// Generate tones for base colors.
+    C = {
+        bg: {
+            '0': darken(BG, b1),
+            '1': darken(BG, 0%),
+            '2': darken(BG, b2),
+            '3': darken(BG, b3),
+            '4': darken(BG, b4),
+            '5': darken(BG, b5),
+        },
+        fg: {
+            '0': darken(FG, f1),
+            '1': darken(FG, 0%),
+            '2': darken(FG, f2),
+            '3': darken(FG, f3),
+            '4': darken(FG, f4),
+            '5': darken(FG, f5),
+        },
+        ac: {
+            '0': mix(darken(BG,  0%), AC, 0%),
+            '1': mix(darken(BG, 40%), AC, a1),
+            '2': mix(darken(BG, 40%), AC, a2),
+            '3': mix(darken(BG, 40%), AC, a3),
+            '4': mix(darken(BG, 65%), AC, a4),
+            '5': mix(darken(BG, 50%), AC, a5),
+        },
+        b1: {
+            '0': spin(_red,  0deg - 0%)
+            '1': spin(_red, 15deg - s1)
+            '2': spin(_red, 30deg - s2)
+            '3': mix(darken(BG, 20%), _red, s3)
+            '4': mix(darken(BG, 40%), _red, s4)
+            '5': mix(darken(BG, 40%), _red, s5)
+        },
+        b2: {
+            '0': spin(_orange,  0deg - 0%)
+            '1': spin(_orange, 15deg - s1)
+            '2': spin(_orange, 30deg - s2)
+            '3': mix(darken(BG, 20%), _orange, s3)
+            '4': mix(darken(BG, 40%), _orange, s4)
+            '5': mix(darken(BG, 40%), _orange, s5)
+        },
+        b3: {
+            '0': spin(_yellow,  0deg - 0%)
+            '1': spin(_yellow, 15deg - s1)
+            '2': spin(_yellow, 30deg - s2)
+            '3': mix(darken(BG, 20%), _yellow, s3)
+            '4': mix(darken(BG, 40%), _yellow, s4)
+            '5': mix(darken(BG, 40%), _yellow, s5)
+        },
+        b4: {
+            '0': spin(_green,  0deg - 0%)
+            '1': spin(_green, 15deg - s1)
+            '2': spin(_green, 30deg - s2)
+            '3': mix(darken(BG, 20%), _green, s3)
+            '4': mix(darken(BG, 40%), _green, s4)
+            '5': mix(darken(BG, 40%), _green, s5)
+        },
+        b5: {
+            '0': spin(_cyan,  0deg - 0%)
+            '1': spin(_cyan, 15deg - s1)
+            '2': spin(_cyan, 30deg - s2)
+            '3': mix(darken(BG, 20%), _cyan, s3)
+            '4': mix(darken(BG, 40%), _cyan, s4)
+            '5': mix(darken(BG, 40%), _cyan, s5)
+        },
+        b6: {
+            '0': spin(_blue,  0deg - 0%)
+            '1': spin(_blue, 15deg - s1)
+            '2': spin(_blue, 30deg - s2)
+            '3': mix(darken(BG, 20%), _blue, s3)
+            '4': mix(darken(BG, 40%), _blue, s4)
+            '5': mix(darken(BG, 40%), _blue, s5)
+        },
+        b7: {
+            '0': spin(_magenta,  0deg - 0%)
+            '1': spin(_magenta, 15deg - s1)
+            '2': spin(_magenta, 30deg - s2)
+            '3': mix(darken(BG, 20%), _magenta, s3)
+            '4': mix(darken(BG, 40%), _magenta, s4)
+            '5': mix(darken(BG, 40%), _magenta, s5)
+        },
+        b8: {
+            '0': spin(_violet,  0deg - 0%)
+            '1': spin(_violet, 15deg - s1)
+            '2': spin(_violet, 30deg - s2)
+            '3': mix(darken(BG, 20%), _violet, s3)
+            '4': mix(darken(BG, 40%), _violet, s4)
+            '5': mix(darken(BG, 40%), _violet, s5)
+        }
+    }
+
+    /// Generate Stylus-lang variables.
+    define('bg-' + key, val, g) for key, val in C.bg
+    define('fg-' + key, val, g) for key, val in C.fg
+    define('ac-' + key, val, g) for key, val in C.ac
+    define('b1-' + key, val, g) for key, val in C.b1
+    define('b2-' + key, val, g) for key, val in C.b2
+    define('b3-' + key, val, g) for key, val in C.b3
+    define('b4-' + key, val, g) for key, val in C.b4
+    define('b5-' + key, val, g) for key, val in C.b5
+    define('b6-' + key, val, g) for key, val in C.b6
+    define('b7-' + key, val, g) for key, val in C.b7
+    define('b8-' + key, val, g) for key, val in C.b8
+
+    /// Generate Stylus-lang helpers for CSS variables.
+    define('bg' + key, s('var(--bg-%s)', unquote(key)), g) for key, val in C.bg
+    define('fg' + key, s('var(--fg-%s)', unquote(key)), g) for key, val in C.fg
+    define('ac' + key, s('var(--ac-%s)', unquote(key)), g) for key, val in C.ac
+    define('b1' + key, s('var(--b1-%s)', unquote(key)), g) for key, val in C.b1
+    define('b2' + key, s('var(--b2-%s)', unquote(key)), g) for key, val in C.b2
+    define('b3' + key, s('var(--b3-%s)', unquote(key)), g) for key, val in C.b3
+    define('b4' + key, s('var(--b4-%s)', unquote(key)), g) for key, val in C.b4
+    define('b5' + key, s('var(--b5-%s)', unquote(key)), g) for key, val in C.b5
+    define('b6' + key, s('var(--b6-%s)', unquote(key)), g) for key, val in C.b6
+    define('b7' + key, s('var(--b7-%s)', unquote(key)), g) for key, val in C.b7
+    define('b8' + key, s('var(--b8-%s)', unquote(key)), g) for key, val in C.b8
+}
+
+@-moz-document regexp('https?://github?.com(/.*)?') {
+    /// Show debug.
+    if (cg_debug) {
+        body > div:first-child {
+            margin-top: 2rem
+            &::before {
+                P: -2rem 0 calc(100vh - 3rem) 0, 0
+                content: \
+                    '  ⭐ BG: ' + luminosity(BG) + \
+                    '  ⭐ FG: ' + luminosity(FG) + \
+                    '  🌟 bg1: ' + bg-1 + \
+                    '  🌟 fg1: ' + fg-1 + \
+                    '  🌟 ac1: ' + ac-1
+                text-align: center
+                line-height: 2rem
+                c: fg1 0 bg3
+                b: 0 1px bg5
+            }
+        }
+    }
+
+    :root {
+        /// Userstyle info.
+        --note: 'Dark-GitHub v0.0.0'
+
+        /// Custom fonts.
+        --f-mono  : f_code, Consolas, Liberation Mono, Menlo, Courier, monospace
+        --f-ui    : f_ui, Whitney, Helvetica Neue, Helvetica, Arial, sans-serif
+
+        /// Generate color variables.
+        for _v in (bg fg ac b1 b2 b3 b4 b5 b6 b7 b8) {
+            for _i in 0..5 {
+                key = s('--%s-%s', _v, _i)
+                /// Escape `\` for `*-0` vars.
+                val = _v + \- + _i
+
+                /// Generate CSS variables.
+                { key }: val i
+                { key + '-rgb' }: to_rgb(val)
+            }
+        }
+    }
+}
