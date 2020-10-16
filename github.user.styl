@@ -868,6 +868,19 @@ SA = _sc_a
         [style*='#216e39'] { c: 0 0 ac0; opacity: 1.00 }
     }
 
+    // Code -> Syntax highlighting.
+    .pl- {
+        &k { color: b10 }
+        &c { color: fg4 }
+        &ent { color: b40 }
+        &e, &en { color: b70 }
+        &smw, &v { color: b20 }
+        &c1, &s &v { color: b60 }
+        &s, &s1, &smi { color: fg3 }
+        &s &s1, &smi { color: fg3 }
+        &pds, &s, &s &pse &s1, &sr, &sr &cce, &sr &sra, &sr &sre { color: b61 }
+    }
+
     /// Extension -> Gitako.
     /// TODO: Maybe switch to different background colors.
     .gitako-ready {
