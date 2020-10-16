@@ -366,9 +366,9 @@ SA = _sc_a
         --color-auto-gray-7: fg3 //#444d56;
         --color-auto-gray-8: #2f363d;
         --color-auto-gray-9: #24292e;
-        --color-auto-blue-0: #f1f8ff;
+        --color-auto-blue-0: bg2 //#f1f8ff;
         --color-auto-blue-1: b64 //#dbedff;
-        --color-auto-blue-2: #c8e1ff;
+        --color-auto-blue-2: ac3 //#c8e1ff;
         --color-auto-blue-3: #79b8ff;
         --color-auto-blue-4: #2188ff;
         --color-auto-blue-5: #0366d6;
@@ -592,9 +592,9 @@ SA = _sc_a
         --color-avatar-child-shadow: -2px -2px 0 hsla(0,0%,100%,0.8);
         --color-toast-ic-bg-loading: #586069;
         --color-timeline-text: fg3 //#444d56;
-        --color-timeline-badge-bg: #e1e4e8;
-        --color-timeline-target-badge-border: #2188ff;
-        --color-timeline-target-badge-shadow: #c8e1ff;
+        --color-timeline-badge-bg: bg3 //#e1e4e8;
+        --color-timeline-target-badge-border: ac3 //#2188ff;
+        --color-timeline-target-badge-shadow: ac5 //#c8e1ff;
         --color-select-menu-backdrop-bg: #1b1f2380;
         --color-select-menu-shadow: 0 0 18px rgba(27,31,35,0.4);
         --color-select-menu-tap-highlight: #d1d5da80;
@@ -725,6 +725,29 @@ SA = _sc_a
             &-addition .x { c: white 0 b43 }
             &-deletion .x { c: white 0 b13 }
         }
+    }
+
+    // Notes -> Resets.
+    .timeline-comment {
+        &--caret {
+            &::before { border-right-color: bg5 }
+            &::after { border-right-color: bg3 }
+        }
+
+        /// Reset header background.
+        &-header { c: 0 0 bg2 }
+
+        /// Remove borders from input box.
+        &-wrapper { c: 0 t }
+
+        /// Remove header/input backgrounds.
+        /.gh-header, /.discussion-timeline-actions { c: 0 0 t }
+
+        /// Badges.
+        /.TimelineItem-badge { --color-bg-canvas: var(--bg-0) }
+
+        /// Subscribe to updates.
+        /.thread-subscription-status { c: 0 bg5 t }
     }
 
     // Profile -> Calendar graph. @upstream
