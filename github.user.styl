@@ -30,6 +30,7 @@
 
 @var checkbox latest_commit 'Use neutral colors in latest commit' 0
 @var checkbox readme_header 'Use old readme header design' 0
+@var checkbox short_headers 'Use shorter headers' 0
 
 @var color    _red         'Base red color              ' #f07178
 @var color    _orange      'Base orange color           ' #f78c6c
@@ -802,6 +803,25 @@ SA = _sc_a
             /.full-commit {
                 c: 0 0 bg2
                 p.commit-title { c: fg1 }
+            }
+        }
+
+        /// Feat -> Shorter headers.
+        if (short_headers) {
+            condition = (readme_header == 1) ? '' : ':not(.border-bottom-0)'
+            &-header{ condition } {
+                padding-top: 8px
+                padding-bottom: 7px
+
+                /// Smaller avatars.
+                .avatar[style*='width:24px'] {
+                    margin-top: 2px
+                    margin-left: 2px
+                    &, img {
+                        width: 20px i
+                        height: @width
+                    }
+                }
             }
         }
     }
