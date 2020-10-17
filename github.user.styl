@@ -474,7 +474,7 @@ SA = _sc_a
         --color-state-selected-primary-icon: #fff;
 
         --color-border-primary: bg5 //#e1e4e8;
-        --color-border-secondary: bg3 #eaecef;
+        --color-border-secondary: bg3 //#eaecef;
         --color-border-tertiary: bg4 //#d1d5da;
         --color-border-inverse: bg1 //#fff;
         --color-border-info: #0366d6;
@@ -764,10 +764,22 @@ SA = _sc_a
     }
 
     // Navigation. @upstream
-    .UnderlineNav-item.selected,
-    .UnderlineNav-item[aria-current]:not([aria-current="false"]),
-    .UnderlineNav-item[role="tab"][aria-selected="true"] {
-        c: 0 ac0
+    .UnderlineNav-item {
+        &.selected,
+        &[role="tab"][aria-selected="true"],
+        &[aria-current]:not([aria-current="false"]) {
+            c: 0 ac0
+        }
+        &:focus, &:hover { c: 0 bg5 }
+    }
+
+    // Reset colors for tabs.
+    .tabnav-tab {
+        &.selected,
+        &[aria-selected="true"],
+        &[aria-current]:not([aria-current="false"]) {
+            c: 0 0 bg0
+        }
     }
 
     // Project -> Tags. @upstream
@@ -825,6 +837,25 @@ SA = _sc_a
             }
         }
     }
+
+    // Project -> Insights.
+    .menu-item {
+        c: 0 bg5
+        &.selected::before,
+        &[aria-selected="true"]::before,
+        &[aria-current]:not([aria-current="false"])::before {
+            c: 0 0 ac0
+        }
+
+        /// Contributors.
+        /.graphs {
+            .tint-box, .capped-card-content {
+                c: 0 0 bg2
+            }
+            line[stroke*='#000'] { v: 0 bg4 }
+        }
+    }
+
 
     // Diff -> Changes. @upstream
     .blob {
