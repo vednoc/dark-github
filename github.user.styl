@@ -506,12 +506,12 @@ SA = _sc_a
         --color-shadow-inset: inset 0 1px 0 #0002 //rgba(225,228,232,0.2);
         --color-shadow-focus: 0 0 0 3px rgba(3,102,214,0.3);
 
-        --color-fade-black-10: #1b1f231a;
-        --color-fade-black-15: #1b1f2326;
+        --color-fade-black-10: #ffffff10 //#1b1f231a;
+        --color-fade-black-15: #ffffff20 //#1b1f2326;
         --color-fade-black-30: #ffffff30 //#1b1f234d;
-        --color-fade-black-50: #1b1f2380;
+        --color-fade-black-50: #ffffff50 //#1b1f2380;
         --color-fade-black-70: #ffffff90 //#1b1f23b3;
-        --color-fade-black-85: #1b1f23d9;
+        --color-fade-black-85: #ffffff85 //#1b1f23d9;
         --color-fade-white-10: #ffffff1a;
         --color-fade-white-15: #ffffff26;
         --color-fade-white-30: #ffffff4d;
@@ -627,8 +627,8 @@ SA = _sc_a
         --color-header-bg: bg3 //#24292e;
         --color-header-logo: fg1 //#fff;
         --color-filter-item-bar-bg: #eff3f6;
-        --color-hidden-text-expander-bg: #dfe2e5;
-        --color-hidden-text-expander-bg-hover: #c6cbd1;
+        --color-hidden-text-expander-bg: bg4 //#dfe2e5;
+        --color-hidden-text-expander-bg-hover: bg4 //#c6cbd1;
         --color-drag-and-drop-border: #c3c8cf;
         --color-upload-enabled-border: bg5 //#dfe2e5;
         --color-upload-enabled-border-focused: #4a9eff;
@@ -758,6 +758,15 @@ SA = _sc_a
             z = '<rect x="128" y="192" width="256" height="96" fill="white"/>'
             background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
             c: 0 b10 b10
+        }
+    }
+
+    // Global -> Background color overrides.
+    /// NOTE: Remaps bg1 to bg0.
+    .profile-timeline-year-list,
+    .tabnav {
+        &.bg-white {
+            c: 0 0 bg0
         }
     }
 
@@ -919,14 +928,14 @@ SA = _sc_a
 
     // Profile -> Calendar graph. @upstream
     .calendar-graph {
-        rect[fill*='#ebedf0'] { v: bg1 }
+        rect[fill*='#ebedf0'] { v: bg2 }
         rect[fill*='#9be9a8'] { v: ac0; fill-opacity: 0.25 }
         rect[fill*='#40c463'] { v: ac0; fill-opacity: 0.50 }
         rect[fill*='#30a14e'] { v: ac0; fill-opacity: 0.75 }
         rect[fill*='#216e39'] { v: ac0; fill-opacity: 1.00 }
     }
     .legend {
-        [style*='#ebedf0'] { c: 0 0 bg1 }
+        [style*='#ebedf0'] { c: 0 0 bg2 }
         [style*='#9be9a8'] { c: 0 0 ac0; opacity: 0.25 }
         [style*='#40c463'] { c: 0 0 ac0; opacity: 0.50 }
         [style*='#30a14e'] { c: 0 0 ac0; opacity: 0.75 }
