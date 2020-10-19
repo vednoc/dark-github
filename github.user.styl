@@ -769,6 +769,7 @@ SA = _sc_a
             c: 0 0 bg0
         }
     }
+    .form-actions .bg-gray-light { c: 0 0 bg1 }
 
     // Navbar.
     .js-header-wrapper {
@@ -819,6 +820,9 @@ SA = _sc_a
         /// Tree items.
         &-row.js-navigation-item { c: 0 bg4 }
 
+        /// Remove background from avatar groups.
+        /.AvatarStack-body { c: 0 0 t }
+
         /// Feat -> Old readme header design.
         if (readme_header) {
             &-header.border-bottom-0 {
@@ -856,6 +860,11 @@ SA = _sc_a
                         width: 20px i
                         height: @width
                     }
+                }
+
+                /// Fix close buttons.
+                ~ [data-close-dialog].top-0.right-0 {
+                    top: -8px i
                 }
             }
         }
@@ -907,11 +916,11 @@ SA = _sc_a
     .timeline-comment {
         &--caret {
             &::before { border-right-color: bg5 }
-            &::after { border-right-color: bg3 }
+            &::after { border-right-color: bg3 i }
         }
 
         /// Reset header background.
-        &-header { c: 0 0 bg2 }
+        &-header { c: 0 0 bg3 }
 
         /// Remove borders from input box.
         &-wrapper { c: 0 t }
