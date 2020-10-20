@@ -811,7 +811,13 @@ SA = _sc_a
     }
 
     // Project -> Tags. @upstream
-    .topic-tag-link:hover { c: 0 0 b64 }
+    .topic-tag {
+        &-action, &-link {
+            border: 1px solid b63 i
+            c: fg2
+            &:hover { c: 0 0 b64 }
+        }
+    }
 
     // Project -> File tree.
     .Box {
