@@ -883,15 +883,38 @@ SA = _sc_a
             c: 0 0 ac0
         }
 
-        /// Contributors.
+        /// Graphs -> Contributors.
         /.graphs {
             .tint-box, .capped-card-content {
                 c: 0 0 bg2
             }
             line[stroke*='#000'] { v: 0 bg4 }
         }
-    }
 
+        /// Graphs -> Traffic.
+        /.traffic-graph {
+            text[fill='#000'] { fill: fg1 }
+            line[stroke='#000'] { stroke: bg4 }
+
+            /// Add whitespace. @upstream
+            &-stats {
+                c: 0 bg5
+                ul > li {
+                    padding: 1rem
+                    text-align: center
+                    c: fg1 0 bg2
+                    &:first-of-type {
+                        border-radius: 0 0 0 6px
+                        border-right: 1px solid bg5
+                    }
+                    &:last-of-type { border-radius: 0 0 6px 0 }
+                }
+            }
+        }
+
+        /// Tables.
+        /.gutter table.capped-list th { c: 0 bg4 }
+    }
 
     // Diff -> Changes. @upstream
     .blob {
