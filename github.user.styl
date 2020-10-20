@@ -914,6 +914,18 @@ SA = _sc_a
                 b: inset 4px 0 0 b43 i
             }
         }
+
+        /// Line numbers.
+        &-num {
+            c: fg5
+            &:hover { c: fg3 }
+        }
+
+        /// Line highlight.
+        /table.highlight > tbody > tr {
+            &:hover > td { c: 0 0 bg2 }
+            &:hover > td.highlighted { c: 0 0 b34 }
+        }
     }
 
     // Notes -> Resets.
