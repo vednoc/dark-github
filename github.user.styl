@@ -386,7 +386,7 @@ SA = _sc_a
         --color-auto-green-3: #85e89d;
         --color-auto-green-4: #34d058;
         --color-auto-green-5: b43 //#28a745;
-        --color-auto-green-6: #22863a;
+        --color-auto-green-6: b43 //#22863a;
         --color-auto-green-7: #176f2c;
         --color-auto-green-8: #165c26;
         --color-auto-green-9: #144620;
@@ -425,7 +425,7 @@ SA = _sc_a
         --color-auto-purple-2: #d1bcf9;
         --color-auto-purple-3: #b392f0;
         --color-auto-purple-4: #8a63d2;
-        --color-auto-purple-5: #6f42c1;
+        --color-auto-purple-5: b70 //#6f42c1;
         --color-auto-purple-6: #5a32a3;
         --color-auto-purple-7: #4c2889;
         --color-auto-purple-8: #3a1d6e;
@@ -446,7 +446,7 @@ SA = _sc_a
         --color-text-tertiary: fg4 //#6a737d;
         --color-text-placeholder: fg5 //#6a737d;
         --color-text-disabled: fg5 //#6a737d;
-        --color-text-inverse: #fff;
+        --color-text-inverse: bg0 //#fff;
         --color-text-link-primary: ac0 //#0366d6;
         --color-text-link-secondary: fg2 //#24292e;
         --color-text-link-tertiary: fg4 //#586069;
@@ -552,8 +552,8 @@ SA = _sc_a
         --color-btn-primary-bg: b40 //#2ea44f;
         --color-btn-primary-border: #1b1f2326;
         --color-btn-primary-border-disabled: b44 //#1b1f231a;
-        --color-btn-primary-text: #fff;
-        --color-btn-primary-ic: #fffc;
+        --color-btn-primary-text: bg0 //#fff;
+        --color-btn-primary-ic: bg3 //#fffc;
         --color-btn-primary-shadow: 0 1px 0 rgba(27,31,35,0.1);
         --color-btn-primary-shadow-highlight: inset 0 1px 0 hsla(0,0%,100%,0.03);
         --color-btn-primary-shadow-selected: inset 0 1px 0 rgba(20,70,32,0.2);
@@ -615,7 +615,7 @@ SA = _sc_a
         --color-box-header-blue-border: #c8e1ff;
         --color-dropdown-border: bg5 //#1b1f2326;
         --color-popover-border: bg5 //#1b1f2326;
-        --color-branch-name-text: #1b1f2399;
+        --color-branch-name-text: fg3 //#1b1f2399;
         --color-branch-name-bg: bg3 //#eaf5ff;
         --color-branch-name-icon: #a8bbd0;
         --color-markdown-code-bg: bg3 //#1b1f230d;
@@ -643,12 +643,12 @@ SA = _sc_a
         --color-hl-author-border: #c8e1ff;
         --color-logo-subdued: #d1d5da;
         --color-discussion-border: #a2cbac;
-        --color-diff-neutral-bg: #d1d5da;
-        --color-diff-deletion-bg: #cb2431;
+        --color-diff-neutral-bg: bg5 //#d1d5da;
+        --color-diff-deletion-bg: b10 //#cb2431;
         --color-diff-deletion-bg-strong: #1b1f23;
         --color-diff-deletion-border: #1b1f23;
         --color-diff-deletion-border-strong: #1b1f23;
-        --color-diff-addition-bg: #2cbe4e;
+        --color-diff-addition-bg: b40 //#2cbe4e;
         --color-diff-addition-bg-strong: #1b1f23;
         --color-diff-addition-border: #1b1f23;
         --color-diff-addition-border-strong: #1b1f23;
@@ -768,6 +768,10 @@ SA = _sc_a
         &.bg-white {
             c: 0 0 bg0
         }
+    }
+    .diffbar,
+    .TimelineItem-break {
+        c: 0 0 bg0
     }
     .form-actions .bg-gray-light { c: 0 0 bg1 }
 
@@ -917,6 +921,15 @@ SA = _sc_a
         &--caret {
             &::before { border-right-color: bg5 }
             &::after { border-right-color: bg3 i }
+        }
+
+        /// Merged pull requests. @upstream
+        /.branch-action {
+            &-state-merged &-body {
+                c: 0 b73
+                &[class*='-caret']::before { border-right-color: b70 i }
+                &[class*='-caret']::after { border-right-color: bg1 i }
+            }
         }
 
         /// Reset header background.
