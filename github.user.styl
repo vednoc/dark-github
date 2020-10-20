@@ -377,7 +377,7 @@ SA = _sc_a
         --color-auto-blue-4: #2188ff;
         --color-auto-blue-5: b63 //#0366d6;
         --color-auto-blue-6: #005cc5;
-        --color-auto-blue-7: #044289;
+        --color-auto-blue-7: b60 //#044289;
         --color-auto-blue-8: #032f62;
         --color-auto-blue-9: b60 //#05264c;
         --color-auto-green-0: #f0fff4;
@@ -618,7 +618,7 @@ SA = _sc_a
         --color-branch-name-text: fg3 //#1b1f2399;
         --color-branch-name-bg: bg3 //#eaf5ff;
         --color-branch-name-icon: #a8bbd0;
-        --color-markdown-code-bg: bg3 //#1b1f230d;
+        --color-markdown-code-bg: bg2 //#1b1f230d;
         --color-markdown-frame-border: #dfe2e5;
         --color-markdown-blockquote-border: bg4 //#dfe2e5;
         --color-markdown-table-border: bg5 //#dfe2e5;
@@ -709,9 +709,10 @@ SA = _sc_a
             font-family: ui
 
             /// Feat -> Code font.
-            /// Diff linum/code, utility class.
+            /// Diff linum/code, commit reference, utility class.
             /.blob-num,
             /.blob-code-inner,
+            /.commit-ref,
             /.text-mono {
                 mono = f_mono, SFMono-Regular, Consolas, \
                        Liberation Mono, Menlo, monospace i
@@ -1005,6 +1006,12 @@ SA = _sc_a
         [style*='#216e39'] { c: 0 0 ac0; opacity: 1.00 }
     }
 
+
+    // Markdown.
+    .markdown-body {
+        code, tt { border: 1px solid bg5 }
+    }
+
     // Code -> Syntax highlighting.
     .pl- {
         &k { color: b10 }
@@ -1086,7 +1093,7 @@ SA = _sc_a
         }
     }
 
-    /// Extension -> GitHub Isomorphic contributions.
+    // Extension -> GitHub Isomorphic contributions.
     .original-streak {
         .contrib-number { c: fg1 }
         .text-muted { c: fg3 }
