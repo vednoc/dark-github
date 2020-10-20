@@ -811,6 +811,12 @@ SA = _sc_a
         }
     }
 
+    // Modals -> Overlay.
+    .details-overlay-dark[open] > summary::before {
+        opacity: 0.5
+        c: 0 0 bg1
+    }
+
     // Project -> Tags. @upstream
     .topic-tag {
         &-action, &-link {
