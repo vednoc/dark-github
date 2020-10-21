@@ -28,6 +28,7 @@
 @var text     f_ui         'UI font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
 
+@var checkbox navbar_sticky 'Use sticky position for the navbar' 0
 @var checkbox latest_commit 'Use neutral colors in latest commit' 0
 @var checkbox readme_header 'Use old readme header design' 0
 @var checkbox short_headers 'Use shorter headers' 0
@@ -784,6 +785,16 @@ SA = _sc_a
     // Navbar.
     .js-header-wrapper {
         border-bottom: 1px solid bg5
+
+        /// Feat -> Sticky navbar.
+        if (navbar_sticky) {
+            position: sticky i
+            z-index: 99
+            top: 0 i
+
+            /// Dashboard -> Tweak top offset for sidebar items.
+            /.dashboard-sidebar.is-stuck { margin-top: 60px i }
+        }
 
         /// Search. @upstream
         .header-search-wrapper {
