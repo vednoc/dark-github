@@ -252,7 +252,7 @@ SA = _sc_a
     define('b8' + key, s('var(--b8-%s)', unquote(key)), g) for key, val in C.b8
 }
 
-@-moz-document regexp('https?://github?.com(/.*)?') {
+@-moz-document regexp('https?://((gist)\.)?github?.com(/.*)?') {
     /// Show debug.
     if (cg_debug) {
         body > div:first-child {
