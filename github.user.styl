@@ -1035,6 +1035,19 @@ SA = _sc_a
         &pds, &s, &s &pse &s1, &sr, &sr &cce, &sr &sra, &sr &sre { color: b40 }
     }
 
+    // Code -> CodeMirror editor.
+    .CodeMirror {
+        &[class*='github-light'] {
+            c: fg1 0 bg1
+            r: 0 0 6px 6px
+        }
+        &-lines, &-gutters { c: 0 0 bg1 }
+        &-linenumber { c: fg4 }
+
+        /// Gist -> Editor backaground.
+        /.file.js-code-editor { c: 0 0 bg1 }
+    }
+
     // Extension -> Gitako.
     /// TODO: Maybe switch to different background colors.
     .gitako-ready {
