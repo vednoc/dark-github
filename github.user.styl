@@ -808,6 +808,12 @@ SA = _sc_a
             background-image: none i
             c: 0 0 ac0
         }
+
+        /// Logged out style.
+        .header-logged-out {
+            padding-top: 3px i
+            padding-bottom: 3px i
+        }
     }
 
     // Navigation. @upstream
@@ -1074,9 +1080,10 @@ SA = _sc_a
             /// Resets.
             &-body { c: 0 bg5 bg2 }
             .header .meta-bar {
-                min-height: 60px i
+                min-height: 62px i
                 c: 0 0 bg3
                 [class*='BranchName-'] { c: fg3 0 bg4 }
+                [class*='Breadcrumb']::after { c: fg3 }
             }
 
             /// Files.
