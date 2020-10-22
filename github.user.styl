@@ -888,8 +888,8 @@ SA = _sc_a
 
         /// Feat -> Shorter headers.
         if (short_headers) {
-            condition = (readme_header == 1) ? '' : ':not(.border-bottom-0)'
-            &-header{ condition } {
+            condition = (readme_header == 1) ? '' : '--blue'
+            /.repository-content &-header{ condition } {
                 padding-top: 8px
                 padding-bottom: 7px
 
@@ -901,11 +901,6 @@ SA = _sc_a
                         width: 20px i
                         height: @width
                     }
-                }
-
-                /// Fix close buttons.
-                ~ [data-close-dialog].top-0.right-0 {
-                    top: -8px i
                 }
             }
         }
