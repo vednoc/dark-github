@@ -974,8 +974,8 @@ SA = _sc_a
 
         /// Graphs -> Traffic.
         /.traffic-graph {
-            text[fill='#000'] { fill: fg1 }
-            line[stroke='#000'] { stroke: bg4 }
+            text[fill='#000'] { v: fg1 }
+            line[stroke='#000'] { v: 0 bg4 }
 
             /// Add whitespace. @upstream
             &-stats {
@@ -991,6 +991,12 @@ SA = _sc_a
                     &:last-of-type { border-radius: 0 0 6px 0 }
                 }
             }
+        }
+
+        /// Graphs -> Pulse.
+        /.graph-canvas {
+            text[fill='#000'] { v: fg1 }
+            line[stroke*='#000'] { v: 0 bg4 }
         }
 
         /// Tables.
