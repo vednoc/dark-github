@@ -654,8 +654,18 @@ SA = _sc_a
         --color-upload-enabled-border-focused: b60 //#4a9eff;
         --color-previewable-comment-form-border: #c3c8cf;
         --color-previewable-comment-form-bg: t //#fff; /// @upstream
-        --color-underline-nav-text-active: fg1 //#24292e;
-        --color-underline-nav-text: fg3 //#24292e;
+
+        --color-underlinenav-border: rgba(209,213,218,0);
+        --color-underlinenav-border-hover: bg5 //#d1d5da;
+        --color-underlinenav-border-active: ac0 //#f9826c;
+        --color-underlinenav-text: fg4 //#24292e;
+        --color-underlinenav-text-hover: fg3 //#24292e;
+        --color-underlinenav-text-active: fg1 //#24292e;
+        --color-underlinenav-icon: fg4 //#959da5;
+        --color-underlinenav-icon-hover: fg3 //#959da5;
+        --color-underlinenav-icon-active: fg1 //#24292e;
+        --color-underlinenav-counter-text: fg1 //#24292e;
+
         --color-social-count-bg: bg2 //#fff;
         --color-header-search-bg: fg3 //#24292e;
         --color-header-search-border: bg5 //#444d56;
@@ -844,6 +854,7 @@ SA = _sc_a
             c: 0 ac0
         }
         &:focus, &:hover { c: 0 bg5 }
+        /.UnderlineNav { b: inset 0 -1px 0 bg3 }
     }
 
     // Reset colors for tabs.
@@ -1146,7 +1157,7 @@ SA = _sc_a
 
              /// Reset backgrounds for header and navigation.
             .js-header-wrapper { c: 0 0 bg3 }
-            main > :first-child { box-shadow: inset 0 -1px 0 bg5 }
+            main > :first-child { b: inset 0 -1px 0 bg3 }
         }
 
         /// Clippy in code blocks.
