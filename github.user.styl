@@ -536,9 +536,11 @@ SA = _sc_a
         --color-alert-success-icon: #176f2ccc;
         --color-alert-success-bg: #dcffe4;
         --color-alert-success-border: #176f2c33;
-        --color-autocomplete-bg: #fff;
-        --color-autocomplete-border: #e1e4e8;
-        --color-autocomplete-row-border: #eaecef;
+
+        --color-autocomplete-bg: bg3 //#fff;
+        --color-autocomplete-border: bg5 //#e1e4e8;
+        --color-autocomplete-row-border: bg4 //#eaecef;
+        --color-autocomplete-shadow: 0 3px 6px #0002 //rgba(149,157,165,0.15);
         --color-blankslate-icon: #a3aab1;
 
         --color-btn-bg: bg3 //#fafbfc;
@@ -649,8 +651,9 @@ SA = _sc_a
         --color-hidden-text-expander-bg-hover: bg4 //#c6cbd1;
         --color-drag-and-drop-border: #c3c8cf;
         --color-upload-enabled-border: bg5 //#dfe2e5;
-        --color-upload-enabled-border-focused: #4a9eff;
+        --color-upload-enabled-border-focused: b60 //#4a9eff;
         --color-previewable-comment-form-border: #c3c8cf;
+        --color-previewable-comment-form-bg: t //#fff; /// @upstream
         --color-underline-nav-text-active: fg1 //#24292e;
         --color-underline-nav-text: fg3 //#24292e;
         --color-social-count-bg: bg2 //#fff;
@@ -876,7 +879,12 @@ SA = _sc_a
         &--overlay { c: 0 bg5 }
 
         /// Tree items.
-        &-row.js-navigation-item { c: 0 bg4 }
+        &-row.js-navigation-item {
+            c: 0 bg4
+
+            /// Fix double border in issues.
+            &:first-of-type { c: 0 t }
+        }
 
         /// Remove background from avatar groups.
         /.AvatarStack-body { c: 0 0 t }
