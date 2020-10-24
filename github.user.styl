@@ -766,6 +766,10 @@ SA = _sc_a
         /.Skeleton {
             background-image: linear-gradient(270deg, bg3, bg2, bg2, bg3)
         }
+
+        /// Diff -> 'Display the rich diff' loader. @upstream
+        .render-container { c: 0 0 bg1 }
+        img.octospinner[src] { filter: opacity(0.6) }
     }
 
     // Better checkbox/radio inputs.
@@ -1193,5 +1197,16 @@ SA = _sc_a
     .original-streak {
         .contrib-number { c: fg1 }
         .text-muted { c: fg3 }
+    }
+}
+
+@-moz-document regexp('https?://render\.githubusercontent?.com(/.*)?') {
+    :root { --bg-1: bg-1 }
+    .render-shell {
+        img[src*='svg']:hover { filter: invert() hue-rotate(180deg) }
+        &, /body {
+            background-image: none
+            c: 0 0 bg1
+        }
     }
 }
