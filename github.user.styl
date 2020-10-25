@@ -877,12 +877,27 @@ SA = _sc_a
         /.UnderlineNav { b: inset 0 -1px 0 bg3 }
     }
 
+    // Sub-navigation. @upstream
+    .site-subnav {
+        b: 0 1px 0 bg3
+
+        /.subnav-link {
+            c: fg4
+            &:hover { c: fg2 bg5 }
+            &.selected { c: fg1 ac0 }
+        }
+    }
+
     // Reset colors for tabs.
     .tabnav-tab {
         &.selected,
         &[aria-selected="true"],
         &[aria-current]:not([aria-current="false"]) {
             c: 0 0 bg0
+        }
+        /[aria-current]:not(#z), /// Explore: topics/tag
+        &.selected.write-tab {
+            c: 0 0 bg1
         }
     }
 
