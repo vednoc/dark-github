@@ -684,13 +684,14 @@ SA = _sc_a
         --color-logo-subdued: #d1d5da;
         --color-discussion-border: #a2cbac;
         --color-diff-neutral-bg: bg5 //#d1d5da;
+        --color-diff-neutral-border: bg5 //#d1d5da;
         --color-diff-deletion-bg: b10 //#cb2431;
         --color-diff-deletion-bg-strong: #1b1f23;
-        --color-diff-deletion-border: #1b1f23;
+        --color-diff-deletion-border: b10 //#1b1f23;
         --color-diff-deletion-border-strong: #1b1f23;
         --color-diff-addition-bg: b40 //#2cbe4e;
         --color-diff-addition-bg-strong: #1b1f23;
-        --color-diff-addition-border: #1b1f23;
+        --color-diff-addition-border: b40 //#1b1f23;
         --color-diff-addition-border-strong: #1b1f23;
         --color-global-nav-logo: #fff;
         --color-global-nav-bg: #24292e;
@@ -766,6 +767,7 @@ SA = _sc_a
         /// Skeleton.
         /.Skeleton {
             background-image: linear-gradient(270deg, bg3, bg2, bg2, bg3)
+            /path.js-diff-placeholder { v: bg2 }
         }
 
         /// Diff -> 'Display the rich diff' loader. @upstream
@@ -1072,7 +1074,7 @@ SA = _sc_a
         /.TimelineItem-badge { --color-bg-canvas: var(--bg-0) }
 
         /// Subscribe to updates.
-        /.thread-subscription-status { c: 0 bg5 t }
+        /.thread-subscription-status { c: 0 bg5 }
     }
 
     // Profile -> Calendar graph. @upstream
