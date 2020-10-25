@@ -816,9 +816,10 @@ SA = _sc_a
         }
     }
 
-    // Global -> Background color overrides.
+    // Global -> Color overrides.
     /// NOTE: Remaps bg1 to bg0.
     .profile-timeline-year-list,
+    .notification-navigation,
     .tabnav {
         &.bg-white {
             c: 0 0 bg0
@@ -829,6 +830,16 @@ SA = _sc_a
         c: 0 0 bg0
     }
     .form-actions .bg-gray-light { c: 0 0 bg1 }
+    /// Topics -> Background.
+    [style*='background-color: #fcfdfd'] {
+        c: 0 0 bg0
+    }
+    /// Topics -> Issues.
+    [style*='(255\,255\,255\,1)\, rgba(255\,255\,255\,0))'] {
+        background: linear-gradient(to top, bg1, t) i
+    }
+    .btn.text-white { c: bg0 }
+    .vcard-username { c: fg4 }
 
     // Navbar.
     .js-header-wrapper {
