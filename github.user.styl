@@ -13,8 +13,8 @@
 @var checkbox cg_debug     'Color generator debug' 0
 @var select   cg_theme     'Base color-scheme toggle' {
     'Custom colors   *': 'custom',
-    'Dark blue (old)  ': 'old',
-    'Dark gray (new)  ': 'new',
+    'Dark blue (old)  ': 'old-colors',
+    'Dark gray (new)  ': 'new-colors',
 }
 @var color    cg_bg        'Base background color' #1f232a
 @var color    cg_fg        'Base foreground color' #eeeeee
@@ -93,19 +93,21 @@ b() { box-shadow: arguments }
 /// Remove old browser prefixes.
 vendors = official
 
-/// Feat -> Base color-scheme toggle. #32
-if (cg_theme == 'custom') {
-    BG = cg_bg
-    FG = cg_fg
-    AC = cg_ac
-} else if (cg_theme == 'old') {
-    BG = #1f232a
-    FG = #eeeeee
-    AC = #7289da
-} else if (cg_theme == 'new') {
-    BG = #292929
-    FG = #e6e6e6
-    AC = #d47d3f
+// Generator -> Color-schemes.
+ColorSchemes = {
+    'custom':      { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
+    'old-colors':  { BG: #1f232a, FG: #eeeeee, AC: #7289da }
+    'new-colors':  { BG: #292929, FG: #e6e6e6, AC: #d47d3f }
+}
+
+// Generator -> Active color-scheme.
+for selected in ColorSchemes {
+    if (selected == cg_theme) {
+        // main { dbg: s('%s %s', selected, cg_theme) }
+        define('BG', ColorSchemes[selected].BG, global)
+        define('FG', ColorSchemes[selected].FG, global)
+        define('AC', ColorSchemes[selected].AC, global)
+    }
 }
 
 /// Helpers.
