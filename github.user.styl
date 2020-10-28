@@ -1032,6 +1032,18 @@ SA = _sc_a
                 c: 0 0 bg2
             }
             line[stroke*='#000'] { v: 0 bg4 }
+            text[fill='#6a737d'] { v: fg4 }
+
+            /// Commits -> Day names.
+            text[text-anchor='middle'] { v: fg3 }
+
+            /// Network -> Invert colors.
+            if (dark(BG)) {
+                /#network > .Box {
+                    c: 0 0 #333333
+                    canvas { filter: invert(0.8) hue-rotate(180deg) }
+                }
+            }
         }
 
         /// Graphs -> Traffic.
