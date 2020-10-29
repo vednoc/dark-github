@@ -893,6 +893,7 @@ SA = _sc_a
 
     // Global -> Color overrides.
     /// NOTE: Remaps bg1 to bg0.
+    .profile-timeline-month-heading,
     .profile-timeline-year-list,
     .notification-navigation,
     .tabnav {
@@ -1210,6 +1211,11 @@ SA = _sc_a
         &[style*='graph-day-L2'] { opacity: 0.50 }
         &[style*='graph-day-L3'] { opacity: 0.75 }
         &[style*='graph-day-L4'] { opacity: 1.00 }
+    }
+
+    // Profile -> Activity overview.
+    .activity-overview {
+        &-axis, &-point { v: 0 ac3 }
     }
 
     // Markdown.
