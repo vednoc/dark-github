@@ -449,11 +449,12 @@ SA = _sc_a
         --color-text-tertiary: fg4 //#6a737d;
         --color-text-placeholder: fg5 //#6a737d;
         --color-text-disabled: fg5 //#6a737d;
-        --color-text-inverse: fg1 //#fff;
+        --color-text-inverse: #fff;
         --color-text-link: ac0 //#0366d6;
         --color-text-danger: b10 //#cb2431;
         --color-text-success: b40 //#22863a;
         --color-text-warning: b30 //#b08800;
+        --color-text-white: #fff;
 
         --color-icon-primary: fg1 //#24292e;
         --color-icon-secondary: fg4 //#586069;
@@ -545,52 +546,75 @@ SA = _sc_a
         --color-autocomplete-shadow: 0 3px 6px #0002 //rgba(149,157,165,0.15);
         --color-blankslate-icon: fg5 //#a3aab1;
 
+        --color-btn-text: fg1 //#24292e;
         --color-btn-bg: bg3 //#fafbfc;
-        --color-btn-border: bg5 //#1b1f2326;
-        --color-btn-text: #24292e;
-        --color-btn-ic: #6a737d;
-        --color-btn-shadow: 0 1px 0 rgba(27,31,35,0.04);
-        --color-btn-shadow-highlight: inset 0 1px 0 #fff0 //hsla(0,0%,100%,0.25);
-        --color-btn-bg-hover: bg4 //#f3f4f6;
-        --color-btn-bg-active: bg5 //#edeff2;
-        --color-btn-shadow-active: inset 0 0.15em 0.3em rgba(27,31,35,0.15);
+        --color-btn-border: bg5 //rgba(27,31,35,0.15);
+        --color-btn-shadow: 0 1px 0 #00000010 //rgba(27,31,35,0.04);
+        --color-btn-inset-shadow: inset 0 1px 0 #00000010 //hsla(0,0%,100%,0.25);
+        --color-btn-hover-bg: bg4 //#f3f4f6;
+        --color-btn-hover-border: bg5 //rgba(27,31,35,0.15);
+        --color-btn-selected-bg: bg5 //#edeff2;
+        --color-btn-focus-bg: bg5 //#fafbfc;
+        --color-btn-focus-border: bg5 //rgba(27,31,35,0.15);
+        --color-btn-focus-shadow: 0 0 0 3px b64 //rgba(3,102,214,0.3);
+        --color-btn-shadow-active: inset 0 0.15em 0.3em #00000010 //rgba(27,31,35,0.15);
         --color-btn-shadow-input-focus: 0 0 0 0.2em rgba(3,102,214,0.3);
-        --color-btn-primary-bg: b40 //#2ea44f;
-        --color-btn-primary-border: #1b1f2326;
-        --color-btn-primary-border-disabled: b44 //#1b1f231a;
-        --color-btn-primary-text: bg0 //#fff;
-        --color-btn-primary-ic: bg3 //#fffc;
-        --color-btn-primary-shadow: 0 1px 0 rgba(27,31,35,0.1);
-        --color-btn-primary-shadow-highlight: inset 0 1px 0 hsla(0,0%,100%,0.03);
-        --color-btn-primary-shadow-selected: inset 0 1px 0 rgba(20,70,32,0.2);
-        --color-btn-primary-bg-hover: b43 //#2c974b;
-        --color-btn-primary-bg-active: b44 //#2a8f47;
-        --color-btn-primary-bg-disabled: b45 //#94d3a2;
-        --color-btn-primary-disabled-text: #fffc;
-        --color-btn-primary-disabled-shadow: 0 0 0 3px rgba(46,164,79,0.4);
-        --color-btn-primary-counter-bg: #fff3;
-        --color-btn-inverse-on-hover-border: #1b1f2326;
-        --color-btn-inverse-on-hover-shadow: 0 1px 0 rgba(27,31,35,0.1);
-        --color-btn-inverse-on-hover-shadow-inset: inset 0 1px 0 hsla(0,0%,100%,0.03);
-        --color-btn-inverse-on-hover-counter-bg: #fff3;
-        --color-btn-danger-text: #d73a49;
-        --color-btn-danger-text-disabled: #d73a4980;
-        --color-btn-danger-bg-hover: #cb2431;
-        --color-btn-danger-bg-active: #be222e;
-        --color-btn-danger-shadow: inset 0 1px 0 rgba(134,24,29,0.2);
-        --color-btn-danger-shadow-focus: 0 0 0 3px rgba(203,36,49,0.4);
-        --color-btn-danger-counter-bg: #d73a491a;
-        --color-btn-danger-counter-bg-disabled: #d73a490d;
-        --color-btn-outline-text: b60 //#0366d6;
-        --color-btn-outline-text-disabled: b63 //#0366d680;
-        --color-btn-outline-bg-hover: b63 //#0366d6;
-        --color-btn-outline-bg-active: b60 //#035fc7;
-        --color-btn-outline-shadow: inset 0 1px 0 rgba(5,38,76,0.2);
-        --color-btn-outline-shadow-focus: 0 0 0 3px rgba(0,92,197,0.4);
-        --color-btn-outline-counter-bg: #0366d61a;
-        --color-btn-outline-counter-bg-disabled: #0366d60d;
-        --color-btn-counter-bg: #1b1f2314;
 
+        --color-btn-primary-text: #fff;
+        --color-btn-primary-bg: b40 //#2ea44f;
+        --color-btn-primary-border: rgba(27,31,35,0.15);
+        --color-btn-primary-shadow: 0 1px 0 rgba(27,31,35,0.1);
+        --color-btn-primary-inset-shadow: inset 0 1px 0 hsla(0,0%,100%,0.03);
+        --color-btn-primary-hover-bg: b43 //#2c974b;
+        --color-btn-primary-hover-border: b40 //rgba(27,31,35,0.15);
+        --color-btn-primary-selected-bg: b44 //#2a8f47;
+        --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(20,70,32,0.2);
+        --color-btn-primary-disabled-text: fg3 //hsla(0,0%,100%,0.8);
+        --color-btn-primary-disabled-bg: b45 //#94d3a2;
+        --color-btn-primary-disabled-border: rgba(27,31,35,0.1);
+        --color-btn-primary-focus-bg: b43 //#2ea44f;
+        --color-btn-primary-focus-border: b40 //rgba(27,31,35,0.15);
+        --color-btn-primary-focus-shadow: 0 0 0 3px b44 //rgba(46,164,79,0.4);
+        --color-btn-primary-icon: hsla(0,0%,100%,0.8);
+        --color-btn-primary-counter-bg: hsla(0,0%,100%,0.2);
+
+        --color-btn-outline-text: b60 //#0366d6;
+        --color-btn-outline-hover-text: #fff;
+        --color-btn-outline-hover-bg: b63 //#0366d6;
+        --color-btn-outline-hover-border: b60 //rgba(27,31,35,0.15);
+        --color-btn-outline-hover-shadow: 0 1px 0 rgba(27,31,35,0.1);
+        --color-btn-outline-hover-inset-shadow: inset 0 1px 0 hsla(0,0%,100%,0.03);
+        --color-btn-outline-hover-counter-bg: hsla(0,0%,100%,0.2);
+        --color-btn-outline-selected-text: #fff;
+        --color-btn-outline-selected-bg: b64 //#035fc7;
+        --color-btn-outline-selected-border: b60 //rgba(27,31,35,0.15);
+        --color-btn-outline-selected-shadow: inset 0 1px 0 rgba(5,38,76,0.2);
+        --color-btn-outline-disabled-text: fg3 //rgba(3,102,214,0.5);
+        --color-btn-outline-disabled-bg: bg2 //#fafbfc;
+        --color-btn-outline-disabled-counter-bg: rgba(3,102,214,0.05);
+        --color-btn-outline-focus-border: b60 //rgba(27,31,35,0.15);
+        --color-btn-outline-focus-shadow: 0 0 0 3px b64 //rgba(0,92,197,0.4);
+        --color-btn-outline-counter-bg: rgba(3,102,214,0.1);
+
+        --color-btn-danger-text: b10 //#d73a49;
+        --color-btn-danger-hover-text: #fff;
+        --color-btn-danger-hover-bg: b13 //#cb2431;
+        --color-btn-danger-hover-border: b10 //rgba(27,31,35,0.15);
+        --color-btn-danger-hover-shadow: 0 1px 0 rgba(27,31,35,0.1);
+        --color-btn-danger-hover-inset-shadow: inset 0 1px 0 hsla(0,0%,100%,0.03);
+        --color-btn-danger-hover-counter-bg: hsla(0,0%,100%,0.2);
+        --color-btn-danger-selected-text: #fff;
+        --color-btn-danger-selected-bg: b10 //#d42d3d;
+        --color-btn-danger-selected-border: b10 //rgba(27,31,35,0.15);
+        --color-btn-danger-selected-shadow: inset 0 1px 0 rgba(134,24,29,0.2);
+        --color-btn-danger-disabled-text: fg3 //rgba(215,58,73,0.5);
+        --color-btn-danger-disabled-bg: b15 //#fafbfc;
+        --color-btn-danger-disabled-counter-bg: rgba(215,58,73,0.05);
+        --color-btn-danger-focus-border: b10 //rgba(27,31,35,0.15);
+        --color-btn-danger-focus-shadow: 0 0 0 3px b14 //rgba(203,36,49,0.4);
+        --color-btn-danger-counter-bg: rgba(215,58,73,0.1);
+
+        --color-btn-counter-bg: #1b1f2314;
         --color-counter-text: fg1 //#24292e;
         --color-counter-bg: bg5 //#d1d5da80;
         --color-counter-border: #d1d5da80;
@@ -889,7 +913,6 @@ SA = _sc_a
         background: linear-gradient(to top, bg1, t) i
     }
     button.close-button { color: fg1 }
-    .btn.text-white { c: bg0 }
     .vcard-username { c: fg4 }
 
     // Navbar.
