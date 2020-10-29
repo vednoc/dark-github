@@ -361,7 +361,7 @@ SA = _sc_a
         --color-scale-pink-7: #b93a86;
         --color-scale-pink-8: #99306f;
         --color-scale-pink-9: #6d224f;
-        --color-auto-black: #1b1f23;
+        --color-auto-black: fg1 //#1b1f23;
         --color-auto-white: bg0 //#fff;
         --color-auto-gray-0: bg5 //#fafbfc;
         --color-auto-gray-1: bg5 //#f6f8fa;
@@ -481,14 +481,15 @@ SA = _sc_a
         --color-border-secondary: bg3 //#eaecef;
         --color-border-tertiary: bg4 //#d1d5da;
         --color-border-inverse: bg1 //#fff;
-        --color-border-info: #0366d6;
-        --color-border-danger: #d73a49;
-        --color-border-success: #34d058;
-        --color-border-warning: #f9c513;
+        --color-border-info: b60 //#0366d6;
+        --color-border-danger: b10 //#d73a49;
+        --color-border-success: b40 //#34d058;
+        --color-border-warning: b30 //#f9c513;
 
         --color-bg-canvas: bg1 //#fff;            Main elements
         --color-bg-canvas-mobile: #fff;
         --color-bg-canvas-inverse: bg3 //#24292e; Navbar
+        --color-bg-canvas-inset: bg3 //#f6f8fa;
         --color-bg-primary: bg1 //#fff;           Sidebar
         --color-bg-secondary: bg2 //#fafbfc;      Navigation/notices
         --color-bg-tertiary: bg3 //#f6f8fa;       Background
@@ -948,6 +949,9 @@ SA = _sc_a
         .header-logged-out {
             padding-top: 3px i
             padding-bottom: 3px i
+
+            /// Default one uses white color.
+            --color-text-white: fg1
         }
     }
 
