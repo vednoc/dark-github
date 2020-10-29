@@ -695,21 +695,41 @@ SA = _sc_a
         --color-social-count-bg: bg2 //#fff;
         --color-header-search-bg: fg3 //#24292e;
         --color-header-search-border: bg5 //#444d56;
+
+        --color-diffstat-neutral-bg: bg5 //#d1d5da;
+        --color-diffstat-neutral-border: bg5 //#d1d5da;
+        --color-diffstat-deletion-bg: b10 //#d73a49;
+        --color-diffstat-deletion-border: b10 //#d73a49;
+        --color-diffstat-addition-bg: b40 //#28a745;
+        --color-diffstat-addition-border: b40 //#28a745;
+
         --color-icon-folder: ac2 //#79b8ff;
         --color-hl-author-bg: #f1f8ff;
         --color-hl-author-border: #c8e1ff;
         --color-logo-subdued: #d1d5da;
         --color-discussion-border: #a2cbac;
-        --color-diff-neutral-bg: bg5 //#d1d5da;
-        --color-diff-neutral-border: bg5 //#d1d5da;
-        --color-diff-deletion-bg: b10 //#cb2431;
-        --color-diff-deletion-bg-strong: #1b1f23;
-        --color-diff-deletion-border: b10 //#1b1f23;
-        --color-diff-deletion-border-strong: #1b1f23;
-        --color-diff-addition-bg: b40 //#2cbe4e;
-        --color-diff-addition-bg-strong: #1b1f23;
-        --color-diff-addition-border: b40 //#1b1f23;
-        --color-diff-addition-border-strong: #1b1f23;
+
+        --color-diff-blob-num-text: fg3 //rgba(27,31,35,0.3);
+        --color-diff-blob-num-hover-text: fg1 //rgba(27,31,35,0.6);
+        --color-diff-blob-addition-num-bg: b44 //#cdffd8;
+        --color-diff-blob-addition-line-bg: b45 //#e6ffed;
+        --color-diff-blob-addition-word-bg: b43 //#acf2bd;
+        --color-diff-blob-deletion-num-bg: b14 //#ffdce0;
+        --color-diff-blob-deletion-line-bg: b15 //#ffeef0;
+        --color-diff-blob-deletion-word-bg: b13 //#fdb8c0;
+        --color-diff-blob-hunk-text: fg4 //rgba(27,31,35,0.7);
+        --color-diff-blob-hunk-num-bg: bg4 //#dbedff;
+        --color-diff-blob-hunk-line-bg: bg3 //#f1f8ff;
+        --color-diff-blob-empty-block-bg: bg2 //#fafbfc;
+        --color-diff-blob-selected-line-highlight-bg: b70 //rgba(255,223,93,0.2);
+        --color-diff-blob-selected-line-highlight-border: b70 //#ffd33d;
+        --color-diff-blob-expander-icon: fg2 //#586069;
+        --color-diff-blob-expander-hover-icon: #fff;
+        --color-diff-blob-expander-hover-bg: ac3 //#0366d6;
+        --color-diff-blob-comment-button-icon: #fff;
+        --color-diff-blob-comment-button-bg: ac1 //#0366d6;
+        --color-diff-blob-comment-button-gradient-bg: ac3 //#0372ef;
+
         --color-global-nav-logo: #fff;
         --color-global-nav-bg: #24292e;
         --color-global-nav-text: #fff;
@@ -1081,13 +1101,13 @@ SA = _sc_a
 
     // Diff -> Changes. @upstream
     .blob {
-        &-num-addition { c: 0 0 b44 }
-        &-code {
-            &-addition { c: 0 0 b45 }
+        /// File background.
+        /.file { c: 0 0 bg1 }
 
-            /// Inline diffs.
-            &-addition .x { c: white 0 b43 }
-            &-deletion .x { c: white 0 b13 }
+        /// Inline diffs.
+        &-code {
+            &-addition .x { c: white }
+            &-deletion .x { c: white }
         }
 
         /// Rich diff. @upstream
@@ -1099,12 +1119,6 @@ SA = _sc_a
             .markdown-body > ins {
                 b: inset 4px 0 0 b43 i
             }
-        }
-
-        /// Line numbers.
-        &-num {
-            c: fg5
-            &:hover { c: fg3 }
         }
 
         /// Line highlight.
