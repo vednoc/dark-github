@@ -995,9 +995,9 @@ SA = _sc_a
     // Project -> Tags. @upstream
     .topic-tag {
         &-action, &-link {
-            border: 1px solid b63 i
-            c: b60
-            &:hover { c: 0 0 b64 }
+            border: 1px solid ac3 i
+            c: ac1 0 ac5
+            &:hover { c: ac0 0 ac4 }
         }
     }
 
@@ -1180,7 +1180,10 @@ SA = _sc_a
         /.TimelineItem-badge { --color-bg-canvas: var(--bg-0) }
 
         /// Subscribe to updates.
-        /.thread-subscription-status { c: 0 bg5 }
+        /.thread-subscription-status {
+            c: 0 bg5
+            /.sidebar-notifications & { c: 0 0 bg0 }
+        }
     }
 
     // Profile -> Calendar graph. @upstream
