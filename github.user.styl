@@ -32,6 +32,7 @@
 @var checkbox latest_commit 'Use neutral colors in latest commit' 0
 @var checkbox readme_header 'Use old readme header design' 0
 @var checkbox short_headers 'Use shorter headers' 0
+@var checkbox gitako_shrink 'Fix hidden navigation caused by shrink feature in Gitako' 0
 
 @var color    _red         'Base red color              ' #f07178
 @var color    _orange      'Base orange color           ' #f78c6c
@@ -1316,6 +1317,14 @@ SA = _sc_a
             /// Adjust header/icon sizes.
             @media (min-width: 1280px) {
                 .Header { padding: 16px i }
+
+                /// Feat -> Fix glitchy Gitako feature.
+                if (gitako_shrink) {
+                    .UnderlineNav {
+                        a[style*='visibility: hidden'] { visibility: unset i }
+                        > ul + div[style] { visibility: hidden i }
+                    }
+                }
              }
 
              /// Reset backgrounds for header and navigation.
