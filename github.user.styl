@@ -800,11 +800,11 @@ SA = _sc_a
 
         /// Feat -> Custom monospace font.
         --f-mono: f_code, SFMono-Regular, Consolas, Liberation Mono, Menlo, \
-                  monospace i
+                  Fira Code, monospace
 
         /// Feat -> Custom user interface font.
         --f-ui: f_ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, \
-                Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji i
+                Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji
 
         /// Generate color variables.
         for _v in (bg fg ac b1 b2 b3 b4 b5 b6 b7 b8) {
@@ -830,7 +830,9 @@ SA = _sc_a
             &.page-profile .application-main { b: 0 -24px bg1 }
 
             /// Feat -> UI font.
-            font-family: var(--f-ui)
+            &, /.markdown-body {
+                font-family: var(--f-ui) i
+            }
 
             /// Feat -> Code font.
             /// Diff linum/code, CodeMirror, commit reference, utility class.
@@ -839,7 +841,7 @@ SA = _sc_a
             /.CodeMirror-lines,
             /.commit-ref,
             /.text-mono {
-                font-family: var(--f-mono)
+                font-family: var(--f-mono) i
             }
         }
 
