@@ -1227,7 +1227,8 @@ SA = _sc_a
 
     // Markdown.
     .markdown-body {
-        code, tt { border: 1px solid bg5 }
+        /// Add border around code and commit references.
+        code, tt, /.commit-ref { border: 1px solid bg5 }
     }
 
     // Code -> Syntax highlighting.
