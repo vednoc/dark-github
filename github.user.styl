@@ -1209,15 +1209,10 @@ SA = _sc_a
         rect[fill*='graph-day-L3'] { opacity: 0.75 }
         rect[fill*='graph-day-L4'] { opacity: 1.00 }
     }
-    .legend {
-        li[style*='graph-day-L1'] { opacity: 0.25 }
-        li[style*='graph-day-L2'] { opacity: 0.50 }
-        li[style*='graph-day-L3'] { opacity: 0.75 }
-        li[style*='graph-day-L4'] { opacity: 1.00 }
-    }
 
-    // Profile -> Contributions in activity.
-    .progress-bar {
+    // Profile -> Calendar legends and contributions in activity.
+    .progress-bar,
+    .legend li {
         &[style*='graph-day-L1'] { opacity: 0.25 }
         &[style*='graph-day-L2'] { opacity: 0.50 }
         &[style*='graph-day-L3'] { opacity: 0.75 }
