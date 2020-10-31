@@ -624,9 +624,10 @@ SA = _sc_a
         --color-counter-text: fg1 //#24292e;
         --color-counter-bg: bg5 //#d1d5da80;
         --color-counter-border: #d1d5da80;
-        --color-topic-tag-bg: #f1f8ff;
-        --color-topic-tag-border: #f1f8ff;
-        --color-topic-tag-text: #0366d6;
+        --color-topic-tag-text: ac0 //#0366d6;
+        --color-topic-tag-bg: ac5 //#f1f8ff;
+        --color-topic-tag-hover-bg: ac4 //#def;
+        --color-topic-tag-active-bg: ac3 //#e7f3ff;
 
         --color-input-bg: bg2 //#fff;
         --color-input-contrast-bg: bg3 //#fafbfc;
@@ -1020,11 +1021,7 @@ SA = _sc_a
 
     // Project -> Tags. @upstream
     .topic-tag {
-        &-action, &-link {
-            border: 1px solid ac3 i
-            c: ac1 0 ac5
-            &:hover { c: ac0 0 ac4 }
-        }
+        &-action, &-link { c: 0 ac3 }
     }
 
     // Project -> File tree.
