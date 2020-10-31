@@ -787,6 +787,10 @@ SA = _sc_a
         --color-calendar-graph-day-L3-border: #88888810 //#1b1f230f;
         --color-calendar-graph-day-L2-border: #88888810 //#1b1f230f;
         --color-calendar-graph-day-L1-border: #88888810 //#1b1f230f;
+        --color-calendar-halloween-graph-day-L1-bg: darken(b3-0, 20%) //#ffee4a;
+        --color-calendar-halloween-graph-day-L2-bg: darken(b3-0, 20%) //#ffc501;
+        --color-calendar-halloween-graph-day-L3-bg: darken(b3-1, 00%) //#fe9600;
+        --color-calendar-halloween-graph-day-L4-bg: darken(b3-0, 95%) //#03001c;
 
         --color-footer-invertocat-octicon: fg3 //#d1d5da;
         --color-footer-invertocat-octicon-hover: fg5 //#6a737d;
@@ -1231,8 +1235,9 @@ SA = _sc_a
     }
 
     // Profile -> Activity overview.
-    .activity-overview {
-        &-axis, &-point { v: 0 ac3 }
+    .halloween-activity-overview {
+        .activity-overview { &-axis, &-point { v: 0 b33 }}
+        /.activity-overview { &-axis, &-point { v: 0 ac3 }}
     }
 
     // Markdown.
