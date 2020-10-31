@@ -1314,6 +1314,29 @@ SA = _sc_a
                 .header-row { c: 0 bg5 }
             }
 
+            /// Settings -> Header.
+            .gitako-settings-bar-title {
+                c: 0 bg5 bg3
+                b: inset 0 -1px bg5 i
+
+                /// Remove background.
+                + div > .shadow-shelter { c: 0 0 t }
+            }
+
+
+            /// Settings -> Buttons and inputs.
+            select,
+            .TextInput-wrapper,
+            [class*='ButtonBase-'] {
+                c: fg1 bg5 bg3
+                b: none i
+                &:hover { c: 0 0 bg4 }
+                &:focus-within {
+                    c: 0 ac0
+                    b: 0 0 0 2px ac3 i
+                }
+            }
+
             /// Buttons.
             .close-side-bar-button { c: 0 0 bg3 }
             .settings-button { c: 0 0 bg2 }
