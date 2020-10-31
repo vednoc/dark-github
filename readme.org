@@ -11,7 +11,7 @@ might fully replace the use of GitHub Dark for me personally.
 ** Installation
 If you'd like to try it out, here's the install link:
 
-[[https://raw.githubusercontent.com/vednoc/dark-github/master/github.user.styl][https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat]]
+[[https://raw.githubusercontent.com/vednoc/dark-github/main/github.user.styl][https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat]]
 
 ** Supported extensions
 - [[https://github.com/EnixCoda/Gitako][Gitako]]
