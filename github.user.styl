@@ -671,6 +671,10 @@ SA = _sc_a
         --color-box-row-blue-bg: b65 //#f1f8ff;
         --color-box-header-blue-bg: b65 //#f1f8ff;
         --color-box-header-blue-border: b63 //#c8e1ff;
+        --color-box-border-info: b64 //rgba(3,102,214,0.2);
+        --color-box-bg-info: b65 //#f1f8ff;
+        --color-box-border-warning: b34 //rgba(255,211,61,0.4);
+        --color-box-bg-warning: b35 //#fffdef;
 
         --color-dropdown-bg: bg1 //#fff;
         --color-dropdown-border: bg5 //#e1e4e8;
@@ -1172,6 +1176,14 @@ SA = _sc_a
         &--caret {
             &::before { border-right-color: bg5 }
             &::after { border-right-color: bg3 i }
+            &.current-user {
+                &::before { border-right-color: b63 i }
+                &::after { border-right-color: b65 i }
+            }
+            &.branch-action-body {
+                &::after { border-right-color: bg1 i }
+            }
+            /:target &::before { border-right-color: var(--color-auto-blue-4) i }
         }
 
         /// Merged pull requests. @upstream
@@ -1182,9 +1194,6 @@ SA = _sc_a
                 &[class*='-caret']::after { border-right-color: bg1 i }
             }
         }
-
-        /// Reset header background.
-        &-header { c: 0 0 bg3 }
 
         /// Remove borders from input box.
         &-wrapper { c: 0 t }
