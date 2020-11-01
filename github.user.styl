@@ -1007,8 +1007,9 @@ SA = _sc_a
         &[aria-current]:not([aria-current="false"]) {
             c: 0 0 bg0
         }
-        &[aria-current='true'], /// Explore: topics/tag
-        &.selected.write-tab {
+        &[aria-current="true"], /// Explore: topics/tag
+        &[aria-selected="true"].write-tab:not(#z),
+        &[aria-selected="true"].preview-tab:not(#z) {
             c: 0 0 bg1
         }
     }
