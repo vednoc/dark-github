@@ -1169,9 +1169,18 @@ SA = _sc_a
 
         /// Line highlight.
         /table.highlight > tbody > tr {
+            c: 0 0 bg1
             &:hover > td { c: 0 0 bg2 }
             &:hover > td.highlighted { c: 0 0 b34 }
+            &.divider:hover > td { c: 0 0 bg3 }
         }
+
+        /// Code snippet dividers. @upstream
+        /.divider &-num { c: 0 0 bg3 }
+        /.divider &-code { c: 0 0 bg2 }
+
+        /// Code search dividers. @upstream
+        /.code-list { & &-item { c: 0 bg3 }}
     }
 
     // Notes -> Resets.
@@ -1255,6 +1264,7 @@ SA = _sc_a
         &s &s1, &smi { color: b80 }
         &pds, &s, &s &pse &s1, &sr, &sr &cce, &sr &sra, &sr &sre { color: b40 }
         &ii { c: white 0 b10 }
+        &corl { c: b61 } // Links.
         &mi1 { c: b40 0 b44 }
         &md { c: b10 0 b14 }
         &mb { c: fg1 }
