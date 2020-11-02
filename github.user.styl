@@ -927,6 +927,7 @@ SA = _sc_a
     .TimelineItem-break {
         c: 0 0 bg0
     }
+    .commit-form,
     .form-actions .bg-gray-light { c: 0 0 bg1 }
     /// Topics -> Background.
     [style*='background-color: #fcfdfd'] {
@@ -1014,6 +1015,8 @@ SA = _sc_a
             c: 0 0 bg0
         }
         &[aria-current="true"], /// Explore: topics/tag
+        &[aria-current="true"].code,
+        &[aria-current="true"].preview,
         &[aria-selected="true"].write-tab:not(#z),
         &[aria-selected="true"].preview-tab:not(#z) {
             c: 0 0 bg1
@@ -1192,7 +1195,7 @@ SA = _sc_a
 
     // Notes -> Resets.
     .timeline-comment {
-        &--caret {
+        &[class*='--caret'] {
             &::before { border-right-color: bg5 }
             &::after { border-right-color: bg3 i }
             &.current-user {
