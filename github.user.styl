@@ -35,6 +35,7 @@
 @var checkbox readme_header 'Use old readme header design' 0
 @var checkbox short_headers 'Use shorter headers' 0
 @var checkbox gitako_shrink 'Fix hidden navigation caused by shrink feature in Gitako' 0
+@var checkbox code_borders  'Add borders around code blocks and similar elements' 1
 
 @var color    _red         'Base red color              ' #f07178
 @var color    _orange      'Base orange color           ' #f78c6c
@@ -1256,10 +1257,12 @@ SA = _sc_a
         /.activity-overview { &-axis, &-point { v: 0 ac3 }}
     }
 
-    // Markdown.
-    .markdown-body {
+    // Feat -> Add borders around code blocks and similar elements.
+    if (code_borders) {
         /// Add border around code and commit references.
-        code, tt, /.commit-ref { border: 1px solid bg5 }
+        .markdown-body { code, tt, pre { border: 1px solid bg5 }}
+        .commit { &-ref, &-sha { border: 1px solid bg5 }}
+        .branch-name { border: 1px solid bg5 }
     }
 
     // Code -> Syntax highlighting.
