@@ -97,6 +97,14 @@ b() { box-shadow: arguments }
 /// Remove old browser prefixes.
 vendors = official
 
+to_hsla(input) {
+    $h = {}
+    $h.hue = unquote(split('deg', '%s' % ceil(hue(input), 2))[0])
+    $h.saturation = ceil(saturation(input), 2)
+    $h.lightness = ceil(lightness(input), 2)
+    s('hsla(%s,%s,%s,1)', $h.hue, $h.saturation, $h.lightness)
+}
+
 // Generator -> Color-schemes.
 ColorSchemes = {
     'custom':      { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
@@ -168,97 +176,52 @@ SA = _sc_a
             '4': mix(darken(BG, 65%), AC, a4),
             '5': mix(darken(BG, 50%), AC, a5),
         },
-        b1: {
-            '0': spin(_red,  0deg - 0%)
-            '1': spin(_red, 15deg - s1)
-            '2': spin(_red, 30deg - s2)
-            '3': mix(darken(BG, 20%), _red, s3)
-            '4': mix(darken(BG, 40%), _red, s4)
-            '5': mix(darken(BG, 40%), _red, s5)
-        },
-        b2: {
-            '0': spin(_orange,  0deg - 0%)
-            '1': spin(_orange, 15deg - s1)
-            '2': spin(_orange, 30deg - s2)
-            '3': mix(darken(BG, 20%), _orange, s3)
-            '4': mix(darken(BG, 40%), _orange, s4)
-            '5': mix(darken(BG, 40%), _orange, s5)
-        },
-        b3: {
-            '0': spin(_yellow,  0deg - 0%)
-            '1': spin(_yellow, 15deg - s1)
-            '2': spin(_yellow, 30deg - s2)
-            '3': mix(darken(BG, 20%), _yellow, s3)
-            '4': mix(darken(BG, 40%), _yellow, s4)
-            '5': mix(darken(BG, 40%), _yellow, s5)
-        },
-        b4: {
-            '0': spin(_green,  0deg - 0%)
-            '1': spin(_green, 15deg - s1)
-            '2': spin(_green, 30deg - s2)
-            '3': mix(darken(BG, 20%), _green, s3)
-            '4': mix(darken(BG, 40%), _green, s4)
-            '5': mix(darken(BG, 40%), _green, s5)
-        },
-        b5: {
-            '0': spin(_cyan,  0deg - 0%)
-            '1': spin(_cyan, 15deg - s1)
-            '2': spin(_cyan, 30deg - s2)
-            '3': mix(darken(BG, 20%), _cyan, s3)
-            '4': mix(darken(BG, 40%), _cyan, s4)
-            '5': mix(darken(BG, 40%), _cyan, s5)
-        },
-        b6: {
-            '0': spin(_blue,  0deg - 0%)
-            '1': spin(_blue, 15deg - s1)
-            '2': spin(_blue, 30deg - s2)
-            '3': mix(darken(BG, 20%), _blue, s3)
-            '4': mix(darken(BG, 40%), _blue, s4)
-            '5': mix(darken(BG, 40%), _blue, s5)
-        },
-        b7: {
-            '0': spin(_magenta,  0deg - 0%)
-            '1': spin(_magenta, 15deg - s1)
-            '2': spin(_magenta, 30deg - s2)
-            '3': mix(darken(BG, 20%), _magenta, s3)
-            '4': mix(darken(BG, 40%), _magenta, s4)
-            '5': mix(darken(BG, 40%), _magenta, s5)
-        },
-        b8: {
-            '0': spin(_violet,  0deg - 0%)
-            '1': spin(_violet, 15deg - s1)
-            '2': spin(_violet, 30deg - s2)
-            '3': mix(darken(BG, 20%), _violet, s3)
-            '4': mix(darken(BG, 40%), _violet, s4)
-            '5': mix(darken(BG, 40%), _violet, s5)
-        }
     }
 
     /// Generate Stylus-lang variables.
     define('bg-' + key, val, g) for key, val in C.bg
     define('fg-' + key, val, g) for key, val in C.fg
     define('ac-' + key, val, g) for key, val in C.ac
-    define('b1-' + key, val, g) for key, val in C.b1
-    define('b2-' + key, val, g) for key, val in C.b2
-    define('b3-' + key, val, g) for key, val in C.b3
-    define('b4-' + key, val, g) for key, val in C.b4
-    define('b5-' + key, val, g) for key, val in C.b5
-    define('b6-' + key, val, g) for key, val in C.b6
-    define('b7-' + key, val, g) for key, val in C.b7
-    define('b8-' + key, val, g) for key, val in C.b8
 
     /// Generate Stylus-lang helpers for CSS variables.
     define('bg' + key, s('var(--bg-%s)', unquote(key)), g) for key, val in C.bg
     define('fg' + key, s('var(--fg-%s)', unquote(key)), g) for key, val in C.fg
     define('ac' + key, s('var(--ac-%s)', unquote(key)), g) for key, val in C.ac
-    define('b1' + key, s('var(--b1-%s)', unquote(key)), g) for key, val in C.b1
-    define('b2' + key, s('var(--b2-%s)', unquote(key)), g) for key, val in C.b2
-    define('b3' + key, s('var(--b3-%s)', unquote(key)), g) for key, val in C.b3
-    define('b4' + key, s('var(--b4-%s)', unquote(key)), g) for key, val in C.b4
-    define('b5' + key, s('var(--b5-%s)', unquote(key)), g) for key, val in C.b5
-    define('b6' + key, s('var(--b6-%s)', unquote(key)), g) for key, val in C.b6
-    define('b7' + key, s('var(--b7-%s)', unquote(key)), g) for key, val in C.b7
-    define('b8' + key, s('var(--b8-%s)', unquote(key)), g) for key, val in C.b8
+}
+
+/{
+C = {
+    c1: { hue: 000deg, }, //red
+    c2: { hue: 030deg, }, //orange
+    c3: { hue: 060deg, }, //yellow
+    c4: { hue: 120deg, }, //green
+    c5: { hue: 180deg, }, //cyan
+    c6: { hue: 210deg, }, //blue
+    c7: { hue: 270deg, }, //magenta
+    c8: { hue: 300deg, }, //violet
+    c9: { hue: 000deg, }, //gray
+}
+
+for c, i in C {
+    $hue = C[c].hue
+    // $dbg = 'k: ' + c + ' ::: i: ' + i + ' ::: val: ' + $hue
+    for num in 0..9 {
+        $res = ''
+        if (c != 'c9') {
+            $h = C[c].hue + num / 2
+            $s = 100 - num * 8
+            $offset = (num < 2) ? 1 : 1.5
+            $l = 5 + (num + $offset) * 5
+            $res = hsl($h, $s, $l)
+            $res = mix(BG, $res, 10%)
+        } else {
+            $res = hsl(C[c].hue, 0, (num + 2) * 8)
+        }
+        $res = to_hsla($res)
+        // $dbg = c + '-' + num + ' ::: ' + $res
+        define(c + num, $res, global)
+    }
+}
 }
 
 @-moz-document regexp('https?://((gist)\.)?github?.com(/.*)?') {
@@ -271,12 +234,12 @@ SA = _sc_a
                 content: \
                     '  ⭐ BG: ' + luminosity(BG) + \
                     '  ⭐ FG: ' + luminosity(FG) + \
-                    '  🌟 bg1: ' + bg-1 + \
-                    '  🌟 fg1: ' + fg-1 + \
-                    '  🌟 ac1: ' + ac-1
+                    '  🌟 c40: ' + c40 + \
+                    '  🌟 c41: ' + c41 + \
+                    '  🌟 c42: ' + c42
                 text-align: center
                 line-height: 2rem
-                c: fg1 0 bg3
+                c: fg1 0 bg4
                 b: 0 1px bg5
             }
         }
@@ -298,7 +261,7 @@ SA = _sc_a
         --color-scale-gray-8: #2f363d;
         --color-scale-gray-9: #24292e;
         --color-scale-blue-0: #f1f8ff;
-        --color-scale-blue-1: b64 //#dbedff;
+        --color-scale-blue-1: c64 //#dbedff;
         --color-scale-blue-2: #c8e1ff;
         --color-scale-blue-3: #79b8ff;
         --color-scale-blue-4: #2188ff;
@@ -306,7 +269,7 @@ SA = _sc_a
         --color-scale-blue-6: #005cc5;
         --color-scale-blue-7: #044289;
         --color-scale-blue-8: #032f62;
-        --color-scale-blue-9: b60 //#05264c;
+        --color-scale-blue-9: c60 //#05264c;
         --color-scale-green-0: #f0fff4;
         --color-scale-green-1: #dcffe4;
         --color-scale-green-2: #bef5cb;
@@ -337,8 +300,8 @@ SA = _sc_a
         --color-scale-orange-7: #d15704;
         --color-scale-orange-8: #c24e00;
         --color-scale-orange-9: #a04100;
-        --color-scale-red-0: b15 //#ffeef0;
-        --color-scale-red-1: b14 //#ffdce0;
+        --color-scale-red-0: c15 //#ffeef0;
+        --color-scale-red-1: c14 //#ffdce0;
         --color-scale-red-2: #fdaeb7;
         --color-scale-red-3: #f97583;
         --color-scale-red-4: #ea4a5a;
@@ -380,32 +343,32 @@ SA = _sc_a
         --color-auto-gray-8: fg4 //#2f363d;
         --color-auto-gray-9: fg4 //#24292e;
         --color-auto-blue-0: bg2 //#f1f8ff;
-        --color-auto-blue-1: b64 //#dbedff;
-        --color-auto-blue-2: b64 //#c8e1ff;
+        --color-auto-blue-1: c64 //#dbedff;
+        --color-auto-blue-2: c64 //#c8e1ff;
         --color-auto-blue-3: #79b8ff;
         --color-auto-blue-4: #2188ff;
-        --color-auto-blue-5: b63 //#0366d6;
-        --color-auto-blue-6: b63 //#005cc5;
-        --color-auto-blue-7: b60 //#044289;
+        --color-auto-blue-5: c63 //#0366d6;
+        --color-auto-blue-6: c63 //#005cc5;
+        --color-auto-blue-7: c60 //#044289;
         --color-auto-blue-8: #032f62;
-        --color-auto-blue-9: b60 //#05264c;
+        --color-auto-blue-9: c69 //#05264c;
         --color-auto-green-0: #f0fff4;
         --color-auto-green-1: #dcffe4;
         --color-auto-green-2: #bef5cb;
         --color-auto-green-3: #85e89d;
         --color-auto-green-4: #34d058;
-        --color-auto-green-5: b43 //#28a745;
-        --color-auto-green-6: b43 //#22863a;
+        --color-auto-green-5: c45 //#28a745;
+        --color-auto-green-6: c46 //#22863a;
         --color-auto-green-7: #176f2c;
         --color-auto-green-8: #165c26;
         --color-auto-green-9: #144620;
         --color-auto-yellow-0: #fffdef;
-        --color-auto-yellow-1: b35 //#fffbdd;
+        --color-auto-yellow-1: c31 //#fffbdd;
         --color-auto-yellow-2: #fff5b1;
         --color-auto-yellow-3: #ffea7f;
         --color-auto-yellow-4: #ffdf5d;
         --color-auto-yellow-5: #ffd33d;
-        --color-auto-yellow-6: b33 //#f9c513;
+        --color-auto-yellow-6: c36 //#f9c513;
         --color-auto-yellow-7: #dbab09;
         --color-auto-yellow-8: #b08800;
         --color-auto-yellow-9: #735c0f;
@@ -419,13 +382,13 @@ SA = _sc_a
         --color-auto-orange-7: #d15704;
         --color-auto-orange-8: #c24e00;
         --color-auto-orange-9: #a04100;
-        --color-auto-red-0: b15 //#ffeef0;
-        --color-auto-red-1: b14 //#ffdce0;
+        --color-auto-red-0: c15 //#ffeef0;
+        --color-auto-red-1: c14 //#ffdce0;
         --color-auto-red-2: #fdaeb7;
         --color-auto-red-3: #f97583;
         --color-auto-red-4: #ea4a5a;
-        --color-auto-red-5: b13 //#d73a49;
-        --color-auto-red-6: b13 //#cb2431;
+        --color-auto-red-5: c13 //#d73a49;
+        --color-auto-red-6: c13 //#cb2431;
         --color-auto-red-7: #b31d28;
         --color-auto-red-8: #9e1c23;
         --color-auto-red-9: #86181d;
@@ -434,7 +397,7 @@ SA = _sc_a
         --color-auto-purple-2: #d1bcf9;
         --color-auto-purple-3: #b392f0;
         --color-auto-purple-4: #8a63d2;
-        --color-auto-purple-5: b80 //#6f42c1;
+        --color-auto-purple-5: c85 //#6f42c1;
         --color-auto-purple-6: #5a32a3;
         --color-auto-purple-7: #4c2889;
         --color-auto-purple-8: #3a1d6e;
@@ -457,18 +420,18 @@ SA = _sc_a
         --color-text-disabled: fg5 //#6a737d;
         --color-text-inverse: #fff;
         --color-text-link: ac0 //#0366d6;
-        --color-text-danger: b10 //#cb2431;
-        --color-text-success: b40 //#22863a;
-        --color-text-warning: b30 //#b08800;
+        --color-text-danger: c15 //#cb2431;
+        --color-text-success: c45 //#22863a;
+        --color-text-warning: c25 //#b08800;
         --color-text-white: #fff;
 
         --color-icon-primary: fg1 //#24292e;
         --color-icon-secondary: fg4 //#586069;
         --color-icon-tertiary: fg3 //#959da5;
-        --color-icon-info: #0366d6;
-        --color-icon-danger: #d73a49;
-        --color-icon-success: #22863a;
-        --color-icon-warning: #b08800;
+        --color-icon-info: c65 //#0366d6;
+        --color-icon-danger: c15 //#d73a49;
+        --color-icon-success: c45 //#22863a;
+        --color-icon-warning: c35 //#b08800;
 
         --color-state-hover-primary-bg: ac4 //#0366d6;
         --color-state-hover-primary-border: ac4 //#0366d6;
@@ -480,17 +443,17 @@ SA = _sc_a
         --color-state-selected-primary-border: ac3 //#0366d6;
         --color-state-selected-primary-text: #fff;
         --color-state-selected-primary-icon: #fff;
-        --color-state-focus-border: b60 //#0366d6;
-        --color-state-focus-shadow: 0 0 0 3px b65 //rgba(3,102,214,0.3);
+        --color-state-focus-border: c66 //#0366d6;
+        --color-state-focus-shadow: 0 0 0 3px c63 //rgba(3,102,214,0.3);
 
         --color-border-primary: bg5 //#e1e4e8;
         --color-border-secondary: bg3 //#eaecef;
         --color-border-tertiary: bg4 //#d1d5da;
         --color-border-inverse: bg1 //#fff;
-        --color-border-info: b60 //#0366d6;
-        --color-border-danger: b10 //#d73a49;
-        --color-border-success: b40 //#34d058;
-        --color-border-warning: b30 //#f9c513;
+        --color-border-info: c63 //#0366d6;
+        --color-border-danger: c13 //#d73a49;
+        --color-border-success: c43 //#34d058;
+        --color-border-warning: c33 //#f9c513;
 
         --color-bg-canvas: bg1 //#fff;            Main elements
         --color-bg-canvas-mobile: #fff;
@@ -500,13 +463,13 @@ SA = _sc_a
         --color-bg-secondary: bg2 //#fafbfc;      Navigation/notices
         --color-bg-tertiary: bg3 //#f6f8fa;       Background
         --color-bg-overlay: #fff;
-        --color-bg-info: b65 //#f1f8ff;
-        --color-bg-info-inverse: b63 //#0366d6;
-        --color-bg-danger: b15 //#ffeef0;
+        --color-bg-info: c61 //#f1f8ff;
+        --color-bg-info-inverse: c63 //#0366d6;
+        --color-bg-danger: c15 //#ffeef0;
         --color-bg-danger-inverse: #d73a49;
-        --color-bg-success: b45 //#dcffe4;
+        --color-bg-success: c41 //#dcffe4;
         --color-bg-success-inverse: #28a745;
-        --color-bg-warning: b35 //#fff5b1;
+        --color-bg-warning: c31 //#fff5b1;
         --color-bg-warning-inverse: #ffd33d;
 
         --color-shadow-small: 0 1px 0 #0002 //rgba(27,31,35,0.04);
@@ -531,21 +494,21 @@ SA = _sc_a
         --color-fade-white-85: #ffffffd9;
 
         --color-alert-info-text: fg1 //#24292e;
-        --color-alert-info-icon: fg1 //rgba(4,66,137,0.6);
-        --color-alert-info-bg: b65 //#dbedff;
-        --color-alert-info-border: b64 //rgba(4,66,137,0.2);
+        --color-alert-info-icon: c67 //rgba(4,66,137,0.6);
+        --color-alert-info-bg: c61 //#dbedff;
+        --color-alert-info-border: c63 //rgba(4,66,137,0.2);
         --color-alert-warn-text: fg1 //#24292e;
-        --color-alert-warn-icon: b30 //#b08800;
-        --color-alert-warn-bg: b35 //#fffbdd;
-        --color-alert-warn-border: b34 //rgba(176,136,0,0.2);
+        --color-alert-warn-icon: c37 //#b08800;
+        --color-alert-warn-bg: c31 //#fffbdd;
+        --color-alert-warn-border: c33 //rgba(176,136,0,0.2);
         --color-alert-error-text: fg1 //#24292e;
-        --color-alert-error-icon: b10 //rgba(158,28,35,0.6);
-        --color-alert-error-bg: b15 //#ffe3e6;
-        --color-alert-error-border: b14 //rgba(158,28,35,0.2);
+        --color-alert-error-icon: c17 //rgba(158,28,35,0.6);
+        --color-alert-error-bg: c11 //#ffe3e6;
+        --color-alert-error-border: c13 //rgba(158,28,35,0.2);
         --color-alert-success-text: fg1 //#24292e;
-        --color-alert-success-icon: b40 //rgba(23,111,44,0.8);
-        --color-alert-success-bg: b45 //#dcffe4;
-        --color-alert-success-border: b44 //rgba(23,111,44,0.2);
+        --color-alert-success-icon: c47 //rgba(23,111,44,0.8);
+        --color-alert-success-bg: c41 //#dcffe4;
+        --color-alert-success-border: c43 //rgba(23,111,44,0.2);
 
         --color-autocomplete-bg: bg3 //#fff;
         --color-autocomplete-border: bg5 //#e1e4e8;
@@ -563,62 +526,62 @@ SA = _sc_a
         --color-btn-selected-bg: bg5 //#edeff2;
         --color-btn-focus-bg: bg5 //#fafbfc;
         --color-btn-focus-border: bg5 //rgba(27,31,35,0.15);
-        --color-btn-focus-shadow: 0 0 0 3px b64 //rgba(3,102,214,0.3);
+        --color-btn-focus-shadow: 0 0 0 3px c62 //rgba(3,102,214,0.3);
         --color-btn-shadow-active: inset 0 0.15em 0.3em #00000010 //rgba(27,31,35,0.15);
         --color-btn-shadow-input-focus: 0 0 0 0.2em rgba(3,102,214,0.3);
 
         --color-btn-primary-text: #fff;
-        --color-btn-primary-bg: b40 //#2ea44f;
-        --color-btn-primary-border: rgba(27,31,35,0.15);
+        --color-btn-primary-bg: c42 //#2ea44f;
+        --color-btn-primary-border: c45 //rgba(27,31,35,0.15);
         --color-btn-primary-shadow: 0 1px 0 rgba(27,31,35,0.1);
         --color-btn-primary-inset-shadow: inset 0 1px 0 hsla(0,0%,100%,0.03);
-        --color-btn-primary-hover-bg: b43 //#2c974b;
-        --color-btn-primary-hover-border: b40 //rgba(27,31,35,0.15);
-        --color-btn-primary-selected-bg: b44 //#2a8f47;
+        --color-btn-primary-hover-bg: c43 //#2c974b;
+        --color-btn-primary-hover-border: c45 //rgba(27,31,35,0.15);
+        --color-btn-primary-selected-bg: c44 //#2a8f47;
         --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(20,70,32,0.2);
-        --color-btn-primary-disabled-text: fg3 //hsla(0,0%,100%,0.8);
-        --color-btn-primary-disabled-bg: b45 //#94d3a2;
-        --color-btn-primary-disabled-border: rgba(27,31,35,0.1);
-        --color-btn-primary-focus-bg: b43 //#2ea44f;
-        --color-btn-primary-focus-border: b40 //rgba(27,31,35,0.15);
-        --color-btn-primary-focus-shadow: 0 0 0 3px b44 //rgba(46,164,79,0.4);
+        --color-btn-primary-disabled-text: fg4 //hsla(0,0%,100%,0.8);
+        --color-btn-primary-disabled-bg: c40 //#94d3a2;
+        --color-btn-primary-disabled-border: c41 //rgba(27,31,35,0.1);
+        --color-btn-primary-focus-bg: c43 //#2ea44f;
+        --color-btn-primary-focus-border: c45 //rgba(27,31,35,0.15);
+        --color-btn-primary-focus-shadow: 0 0 0 3px c41 //rgba(46,164,79,0.4);
         --color-btn-primary-icon: hsla(0,0%,100%,0.8);
         --color-btn-primary-counter-bg: hsla(0,0%,100%,0.2);
 
-        --color-btn-outline-text: b60 //#0366d6;
+        --color-btn-outline-text: c66 //#0366d6;
         --color-btn-outline-hover-text: #fff;
-        --color-btn-outline-hover-bg: b63 //#0366d6;
-        --color-btn-outline-hover-border: b60 //rgba(27,31,35,0.15);
+        --color-btn-outline-hover-bg: c63 //#0366d6;
+        --color-btn-outline-hover-border: c64 //rgba(27,31,35,0.15);
         --color-btn-outline-hover-shadow: 0 1px 0 rgba(27,31,35,0.1);
         --color-btn-outline-hover-inset-shadow: inset 0 1px 0 hsla(0,0%,100%,0.03);
         --color-btn-outline-hover-counter-bg: hsla(0,0%,100%,0.2);
         --color-btn-outline-selected-text: #fff;
-        --color-btn-outline-selected-bg: b64 //#035fc7;
-        --color-btn-outline-selected-border: b60 //rgba(27,31,35,0.15);
+        --color-btn-outline-selected-bg: c64 //#035fc7;
+        --color-btn-outline-selected-border: c65 //rgba(27,31,35,0.15);
         --color-btn-outline-selected-shadow: inset 0 1px 0 rgba(5,38,76,0.2);
-        --color-btn-outline-disabled-text: fg3 //rgba(3,102,214,0.5);
+        --color-btn-outline-disabled-text: fg4 //rgba(3,102,214,0.5);
         --color-btn-outline-disabled-bg: bg2 //#fafbfc;
         --color-btn-outline-disabled-counter-bg: rgba(3,102,214,0.05);
-        --color-btn-outline-focus-border: b60 //rgba(27,31,35,0.15);
-        --color-btn-outline-focus-shadow: 0 0 0 3px b64 //rgba(0,92,197,0.4);
+        --color-btn-outline-focus-border: c66 //rgba(27,31,35,0.15);
+        --color-btn-outline-focus-shadow: 0 0 0 3px c62 //rgba(0,92,197,0.4);
         --color-btn-outline-counter-bg: rgba(3,102,214,0.1);
 
-        --color-btn-danger-text: b10 //#d73a49;
+        --color-btn-danger-text: c16 //#d73a49;
         --color-btn-danger-hover-text: #fff;
-        --color-btn-danger-hover-bg: b13 //#cb2431;
-        --color-btn-danger-hover-border: b10 //rgba(27,31,35,0.15);
+        --color-btn-danger-hover-bg: c11 //#cb2431;
+        --color-btn-danger-hover-border: c13 //rgba(27,31,35,0.15);
         --color-btn-danger-hover-shadow: 0 1px 0 rgba(27,31,35,0.1);
         --color-btn-danger-hover-inset-shadow: inset 0 1px 0 hsla(0,0%,100%,0.03);
         --color-btn-danger-hover-counter-bg: hsla(0,0%,100%,0.2);
         --color-btn-danger-selected-text: #fff;
-        --color-btn-danger-selected-bg: b10 //#d42d3d;
-        --color-btn-danger-selected-border: b10 //rgba(27,31,35,0.15);
+        --color-btn-danger-selected-bg: c12 //#d42d3d;
+        --color-btn-danger-selected-border: c14 //rgba(27,31,35,0.15);
         --color-btn-danger-selected-shadow: inset 0 1px 0 rgba(134,24,29,0.2);
-        --color-btn-danger-disabled-text: fg3 //rgba(215,58,73,0.5);
-        --color-btn-danger-disabled-bg: b15 //#fafbfc;
+        --color-btn-danger-disabled-text: fg4 //rgba(215,58,73,0.5);
+        --color-btn-danger-disabled-bg: c15 //#fafbfc;
         --color-btn-danger-disabled-counter-bg: rgba(215,58,73,0.05);
-        --color-btn-danger-focus-border: b10 //rgba(27,31,35,0.15);
-        --color-btn-danger-focus-shadow: 0 0 0 3px b14 //rgba(203,36,49,0.4);
+        --color-btn-danger-focus-border: c15 //rgba(27,31,35,0.15);
+        --color-btn-danger-focus-shadow: 0 0 0 3px c11 //rgba(203,36,49,0.4);
         --color-btn-danger-counter-bg: rgba(215,58,73,0.1);
 
         --color-btn-counter-bg: #1b1f2314;
@@ -636,8 +599,8 @@ SA = _sc_a
         --color-input-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
         --color-input-disabled-bg: bg1 //#fff;
         --color-input-disabled-border: bg3 //#e1e4e8;
-        --color-input-warning-border: b30 //#f9c513;
-        --color-input-error-border: b10 //#cb2431;
+        --color-input-warning-border: c30 //#f9c513;
+        --color-input-error-border: c10 //#cb2431;
 
         --color-input-tooltip-success-text: #144620;
         --color-input-tooltip-success-bg: #dcffe4;
@@ -668,15 +631,15 @@ SA = _sc_a
         --color-select-menu-tap-highlight: rgba(209,213,218,0.5);
         --color-select-menu-tap-focus-bg: #dbedff;
 
-        --color-box-blue-border: b63 //#c8e1ff;
-        --color-box-row-yellow-bg: b35 //#fffbdd;
-        --color-box-row-blue-bg: b65 //#f1f8ff;
-        --color-box-header-blue-bg: b65 //#f1f8ff;
-        --color-box-header-blue-border: b63 //#c8e1ff;
-        --color-box-border-info: b64 //rgba(3,102,214,0.2);
-        --color-box-bg-info: b65 //#f1f8ff;
-        --color-box-border-warning: b34 //rgba(255,211,61,0.4);
-        --color-box-bg-warning: b35 //#fffdef;
+        --color-box-blue-border: c64 //#c8e1ff;
+        --color-box-row-yellow-bg: c31 //#fffbdd;
+        --color-box-row-blue-bg: c61 //#f1f8ff;
+        --color-box-header-blue-bg: c61 //#f1f8ff;
+        --color-box-header-blue-border: c64 //#c8e1ff;
+        --color-box-border-info: c64 //rgba(3,102,214,0.2);
+        --color-box-bg-info: c61 //#f1f8ff;
+        --color-box-border-warning: c34 //rgba(255,211,61,0.4);
+        --color-box-bg-warning: c31 //#fffdef;
 
         --color-dropdown-bg: bg1 //#fff;
         --color-dropdown-border: bg5 //#e1e4e8;
@@ -713,7 +676,7 @@ SA = _sc_a
         --color-hidden-text-expander-bg-hover: bg4 //#c6cbd1;
         --color-drag-and-drop-border: #c3c8cf;
         --color-upload-enabled-border: bg5 //#dfe2e5;
-        --color-upload-enabled-border-focused: b60 //#4a9eff;
+        --color-upload-enabled-border-focused: c60 //#4a9eff;
         --color-previewable-comment-form-border: #c3c8cf;
         --color-previewable-comment-form-bg: t //#fff; /// @upstream
 
@@ -728,7 +691,7 @@ SA = _sc_a
         --color-underlinenav-icon-active: fg1 //#24292e;
         --color-underlinenav-counter-text: fg1 //#24292e;
 
-        --color-verified-badge-text: b40 //#22863a;
+        --color-verified-badge-text: c40 //#22863a;
         --color-verified-badge-bg: bg2 //#fff;
         --color-verified-badge-border: bg5 //#e1e4e8;
 
@@ -738,10 +701,10 @@ SA = _sc_a
 
         --color-diffstat-neutral-bg: bg5 //#d1d5da;
         --color-diffstat-neutral-border: bg5 //#d1d5da;
-        --color-diffstat-deletion-bg: b10 //#d73a49;
-        --color-diffstat-deletion-border: b10 //#d73a49;
-        --color-diffstat-addition-bg: b40 //#28a745;
-        --color-diffstat-addition-border: b40 //#28a745;
+        --color-diffstat-deletion-bg: c15 //#d73a49;
+        --color-diffstat-deletion-border: c15 //#d73a49;
+        --color-diffstat-addition-bg: c45 //#28a745;
+        --color-diffstat-addition-border: c45 //#28a745;
 
         --color-icon-folder: ac2 //#79b8ff;
         --color-hl-author-bg: #f1f8ff;
@@ -751,18 +714,18 @@ SA = _sc_a
 
         --color-diff-blob-num-text: fg3 //rgba(27,31,35,0.3);
         --color-diff-blob-num-hover-text: fg1 //rgba(27,31,35,0.6);
-        --color-diff-blob-addition-num-bg: b44 //#cdffd8;
-        --color-diff-blob-addition-line-bg: b45 //#e6ffed;
-        --color-diff-blob-addition-word-bg: b43 //#acf2bd;
-        --color-diff-blob-deletion-num-bg: b14 //#ffdce0;
-        --color-diff-blob-deletion-line-bg: b15 //#ffeef0;
-        --color-diff-blob-deletion-word-bg: b13 //#fdb8c0;
+        --color-diff-blob-addition-num-bg: c41 //#cdffd8;
+        --color-diff-blob-addition-line-bg: c40 //#e6ffed;
+        --color-diff-blob-addition-word-bg: c42 //#acf2bd;
+        --color-diff-blob-deletion-num-bg: c11 //#ffdce0;
+        --color-diff-blob-deletion-line-bg: c10 //#ffeef0;
+        --color-diff-blob-deletion-word-bg: c12 //#fdb8c0;
         --color-diff-blob-hunk-text: fg4 //rgba(27,31,35,0.7);
         --color-diff-blob-hunk-num-bg: bg4 //#dbedff;
         --color-diff-blob-hunk-line-bg: bg3 //#f1f8ff;
         --color-diff-blob-empty-block-bg: bg2 //#fafbfc;
-        --color-diff-blob-selected-line-highlight-bg: b70 //rgba(255,223,93,0.2);
-        --color-diff-blob-selected-line-highlight-border: b70 //#ffd33d;
+        --color-diff-blob-selected-line-highlight-bg: c70 //rgba(255,223,93,0.2);
+        --color-diff-blob-selected-line-highlight-border: c70 //#ffd33d;
         --color-diff-blob-expander-icon: fg2 //#586069;
         --color-diff-blob-expander-hover-icon: #fff;
         --color-diff-blob-expander-hover-bg: ac3 //#0366d6;
@@ -789,10 +752,10 @@ SA = _sc_a
         --color-calendar-graph-day-L3-border: #88888825 //#1b1f230f;
         --color-calendar-graph-day-L2-border: #88888825 //#1b1f230f;
         --color-calendar-graph-day-L1-border: #88888825 //#1b1f230f;
-        --color-calendar-halloween-graph-day-L1-bg: darken(b3-0, 20%) //#ffee4a;
-        --color-calendar-halloween-graph-day-L2-bg: darken(b3-0, 20%) //#ffc501;
-        --color-calendar-halloween-graph-day-L3-bg: darken(b3-1, 00%) //#fe9600;
-        --color-calendar-halloween-graph-day-L4-bg: darken(b3-0, 95%) //#03001c;
+        --color-calendar-halloween-graph-day-L1-bg: c29 //#ffee4a;
+        --color-calendar-halloween-graph-day-L2-bg: c26 //#ffc501;
+        --color-calendar-halloween-graph-day-L3-bg: c23 //#fe9600;
+        --color-calendar-halloween-graph-day-L4-bg: c20 //#03001c;
 
         --color-footer-invertocat-octicon: fg3 //#d1d5da;
         --color-footer-invertocat-octicon-hover: fg5 //#6a737d;
@@ -800,13 +763,13 @@ SA = _sc_a
         --color-pr-state-draft-bg: bg5 //#6a737d;
         --color-pr-state-draft-border: transparent;
         --color-pr-state-open-text: #fff;
-        --color-pr-state-open-bg: b43 //#28a745;
+        --color-pr-state-open-bg: c43 //#28a745;
         --color-pr-state-open-border: transparent;
         --color-pr-state-merged-text: #fff;
-        --color-pr-state-merged-bg: b73 //#6f42c1;
+        --color-pr-state-merged-bg: c73 //#6f42c1;
         --color-pr-state-merged-border: transparent;
         --color-pr-state-closed-text: #fff;
-        --color-pr-state-closed-bg: b13 //#d73a49;
+        --color-pr-state-closed-bg: c13 //#d73a49;
         --color-pr-state-closed-border: transparent;
     }
 
@@ -822,9 +785,11 @@ SA = _sc_a
         /// Feat -> Custom user interface font.
         --f-ui: f_ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, \
                 Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji
+    }
 
+    :root {
         /// Generate color variables.
-        for _v in (bg fg ac b1 b2 b3 b4 b5 b6 b7 b8) {
+        for _v in (bg fg ac) {
             for _i in 0..5 {
                 key = s('--%s-%s', _v, _i)
                 /// Escape `\` for `*-0` vars.
@@ -1267,20 +1232,21 @@ SA = _sc_a
 
     // Code -> Syntax highlighting.
     .pl- {
-        &k { color: b10 }
-        &c { color: fg5 }
+        &k { color: c17 }
+        &c { color: fg4 }
         &mi { color: fg0 }
-        &ent { color: b40 }
-        &e, &en { color: b30 }
-        &smw, &v { color: b20 }
-        &c1, &s &v { color: b60 }
-        &s &s1, &smi { color: b80 }
-        &mh, &mh &en, &ms { c: b71 }
-        &pds, &s, &s &pse &s1, &sr, &sr &cce, &sr &sra, &sr &sre { color: b40 }
-        &ii { c: white 0 b10 }
-        &corl { c: b61 } // Links.
-        &mi1 { c: b40 0 b44 }
-        &md { c: b10 0 b14 }
+        &ent { color: c44 }
+        &e, &en { color: c86 }
+        &smw, &v { color: c25 }
+        &c1, &s &v { color: c67 }
+        &s &s1, &smi { color: c89 }
+        &mh, &mh &en, &ms { c: c75 }
+        &pds, &s, &s &pse &s1, &sr,
+        &sr &cce, &sr &sra, &sr &sre { color: c46 }
+        &ii { c: white 0 c15 }
+        &mi1 { c: c49 0 c41 }
+        &md { c: c19 0 c11 }
+        &corl { c: c56 }
         &mb { c: fg1 }
     }
 
