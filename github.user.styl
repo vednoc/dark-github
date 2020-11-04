@@ -691,7 +691,7 @@ for c, i in C {
         --color-underlinenav-icon-active: fg1 //#24292e;
         --color-underlinenav-counter-text: fg1 //#24292e;
 
-        --color-verified-badge-text: c40 //#22863a;
+        --color-verified-badge-text: c47 //#22863a;
         --color-verified-badge-bg: bg2 //#fff;
         --color-verified-badge-border: bg5 //#e1e4e8;
 
@@ -881,6 +881,7 @@ for c, i in C {
 
     // Global -> Color overrides.
     /// NOTE: Remaps bg1 to bg0.
+    .js-profile-timeline-year-list,
     .profile-timeline-month-heading,
     .profile-timeline-year-list,
     .notification-navigation,
@@ -890,7 +891,8 @@ for c, i in C {
         }
     }
     .diffbar,
-    .TimelineItem-break {
+    .TimelineItem-break,
+    .page-profile .Progress.color-bg-primary {
         c: 0 0 bg0
     }
     .commit-form,
@@ -1165,8 +1167,8 @@ for c, i in C {
             &::before { border-right-color: bg5 }
             &::after { border-right-color: bg3 i }
             &.current-user {
-                &::before { border-right-color: b63 i }
-                &::after { border-right-color: b65 i }
+                &::before { border-right-color: c64 i }
+                &::after { border-right-color: c61 i }
             }
             &.branch-action-body {
                 &::after { border-right-color: bg1 i }
@@ -1208,7 +1210,7 @@ for c, i in C {
     }
 
     // Profile -> Calendar legends and contributions in activity.
-    .progress-bar,
+    .Progress-item,
     .legend li {
         &[style*='graph-day-L1'] { opacity: 0.25 }
         &[style*='graph-day-L2'] { opacity: 0.50 }
