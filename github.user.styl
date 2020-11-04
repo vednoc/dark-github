@@ -60,7 +60,7 @@ c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
 }
 
 // SVG colors.
-v(x, y = 0, xi = 1, yi = 1) {
+g(x, y = 0, xi = 1, yi = 1) {
     if x != 0 && x != '_' {   fill: xi is 0 ? x : x i }
     if y != 0 && y != '_' { stroke: yi is 0 ? y : y i }
 }
@@ -830,7 +830,7 @@ for c, i in C {
         /// Skeleton.
         /.Skeleton {
             background-image: linear-gradient(270deg, bg3, bg2, bg2, bg3)
-            /path.js-diff-placeholder { v: bg2 }
+            /path.js-diff-placeholder { g: bg2 }
         }
 
         /// Diff -> 'Display the rich diff' loader. @upstream
@@ -1075,11 +1075,11 @@ for c, i in C {
             .tint-box, .capped-card-content {
                 c: 0 0 bg2
             }
-            line[stroke*='#000'] { v: 0 bg4 }
-            text[fill='#6a737d'] { v: fg4 }
+            line[stroke*='#000'] { g: 0 bg4 }
+            text[fill='#6a737d'] { g: fg4 }
 
             /// Commits -> Day names.
-            text[text-anchor='middle'] { v: fg3 }
+            text[text-anchor='middle'] { g: fg3 }
 
             /// Network -> Invert colors.
             if (dark(BG)) {
@@ -1092,8 +1092,8 @@ for c, i in C {
 
         /// Graphs -> Traffic.
         /.traffic-graph {
-            text[fill='#000'] { v: fg1 }
-            line[stroke='#000'] { v: 0 bg4 }
+            text[fill='#000'] { g: fg1 }
+            line[stroke='#000'] { g: 0 bg4 }
 
             /// Add whitespace. @upstream
             &-stats {
@@ -1113,8 +1113,8 @@ for c, i in C {
 
         /// Graphs -> Pulse.
         /.graph-canvas {
-            text[fill='#000'] { v: fg1 }
-            line[stroke*='#000'] { v: 0 bg4 }
+            text[fill='#000'] { g: fg1 }
+            line[stroke*='#000'] { g: 0 bg4 }
         }
 
         /// Tables.
@@ -1218,8 +1218,8 @@ for c, i in C {
 
     // Profile -> Activity overview.
     .halloween-activity-overview {
-        .activity-overview { &-axis, &-point { v: 0 b33 }}
-        /.activity-overview { &-axis, &-point { v: 0 ac3 }}
+        .activity-overview { &-axis, &-point { g: 0 b33 }}
+        /.activity-overview { &-axis, &-point { g: 0 ac3 }}
     }
 
     // Feat -> Add borders around code blocks and similar elements.
