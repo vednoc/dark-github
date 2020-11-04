@@ -191,15 +191,15 @@ SA = _sc_a
 
 /{
 C = {
-    c1: { hue: 000deg, }, //red
-    c2: { hue: 030deg, }, //orange
-    c3: { hue: 060deg, }, //yellow
-    c4: { hue: 120deg, }, //green
-    c5: { hue: 180deg, }, //cyan
-    c6: { hue: 210deg, }, //blue
-    c7: { hue: 270deg, }, //magenta
-    c8: { hue: 300deg, }, //violet
-    c9: { hue: 000deg, }, //gray
+    v1: { hue: 000deg, }, //red
+    v2: { hue: 030deg, }, //orange
+    v3: { hue: 060deg, }, //yellow
+    v4: { hue: 120deg, }, //green
+    v5: { hue: 180deg, }, //cyan
+    v6: { hue: 210deg, }, //blue
+    v7: { hue: 270deg, }, //magenta
+    v8: { hue: 300deg, }, //violet
+    v9: { hue: 000deg, }, //gray
 }
 
 for c, i in C {
@@ -219,7 +219,8 @@ for c, i in C {
         }
         $res = to_hsla($res)
         // $dbg = c + '-' + num + ' ::: ' + $res
-        define(c + num, $res, global)
+        define(c + num, s('var(--%s-%s)', unquote(c), num), global)
+        define(c + '-' + num, $res, global)
     }
 }
 }
@@ -234,13 +235,24 @@ for c, i in C {
                 content: \
                     '  ⭐ BG: ' + luminosity(BG) + \
                     '  ⭐ FG: ' + luminosity(FG) + \
-                    '  🌟 c40: ' + c40 + \
-                    '  🌟 c41: ' + c41 + \
-                    '  🌟 c42: ' + c42
+                    '  🌟 v40: ' + v40 + \
+                    '  🌟 v41: ' + v41 + \
+                    '  🌟 v42: ' + v42
                 text-align: center
                 line-height: 2rem
                 c: fg1 0 bg4
                 b: 0 1px bg5
+            }
+        }
+    }
+
+    :root {
+        /// Color generator variables.
+        for tone in 0..9 {
+            for number in 0..9 {
+                key = '--v%s-%s' % ((tone) (number))
+                val = '%s' % (v + tone + \- + number)
+                { key }: val
             }
         }
     }
@@ -261,7 +273,7 @@ for c, i in C {
         --color-scale-gray-8: #2f363d;
         --color-scale-gray-9: #24292e;
         --color-scale-blue-0: #f1f8ff;
-        --color-scale-blue-1: c64 //#dbedff;
+        --color-scale-blue-1: v64 //#dbedff;
         --color-scale-blue-2: #c8e1ff;
         --color-scale-blue-3: #79b8ff;
         --color-scale-blue-4: #2188ff;
@@ -269,7 +281,7 @@ for c, i in C {
         --color-scale-blue-6: #005cc5;
         --color-scale-blue-7: #044289;
         --color-scale-blue-8: #032f62;
-        --color-scale-blue-9: c60 //#05264c;
+        --color-scale-blue-9: v60 //#05264c;
         --color-scale-green-0: #f0fff4;
         --color-scale-green-1: #dcffe4;
         --color-scale-green-2: #bef5cb;
@@ -300,8 +312,8 @@ for c, i in C {
         --color-scale-orange-7: #d15704;
         --color-scale-orange-8: #c24e00;
         --color-scale-orange-9: #a04100;
-        --color-scale-red-0: c15 //#ffeef0;
-        --color-scale-red-1: c14 //#ffdce0;
+        --color-scale-red-0: v15 //#ffeef0;
+        --color-scale-red-1: v14 //#ffdce0;
         --color-scale-red-2: #fdaeb7;
         --color-scale-red-3: #f97583;
         --color-scale-red-4: #ea4a5a;
@@ -343,32 +355,32 @@ for c, i in C {
         --color-auto-gray-8: fg4 //#2f363d;
         --color-auto-gray-9: fg4 //#24292e;
         --color-auto-blue-0: bg2 //#f1f8ff;
-        --color-auto-blue-1: c64 //#dbedff;
-        --color-auto-blue-2: c64 //#c8e1ff;
+        --color-auto-blue-1: v64 //#dbedff;
+        --color-auto-blue-2: v64 //#c8e1ff;
         --color-auto-blue-3: #79b8ff;
         --color-auto-blue-4: #2188ff;
-        --color-auto-blue-5: c63 //#0366d6;
-        --color-auto-blue-6: c67 //#005cc5;
-        --color-auto-blue-7: c68 //#044289;
+        --color-auto-blue-5: v63 //#0366d6;
+        --color-auto-blue-6: v67 //#005cc5;
+        --color-auto-blue-7: v68 //#044289;
         --color-auto-blue-8: #032f62;
-        --color-auto-blue-9: c69 //#05264c;
+        --color-auto-blue-9: v69 //#05264c;
         --color-auto-green-0: #f0fff4;
         --color-auto-green-1: #dcffe4;
         --color-auto-green-2: #bef5cb;
         --color-auto-green-3: #85e89d;
         --color-auto-green-4: #34d058;
-        --color-auto-green-5: c45 //#28a745;
-        --color-auto-green-6: c46 //#22863a;
+        --color-auto-green-5: v45 //#28a745;
+        --color-auto-green-6: v46 //#22863a;
         --color-auto-green-7: #176f2c;
         --color-auto-green-8: #165c26;
         --color-auto-green-9: #144620;
         --color-auto-yellow-0: #fffdef;
-        --color-auto-yellow-1: c31 //#fffbdd;
+        --color-auto-yellow-1: v31 //#fffbdd;
         --color-auto-yellow-2: #fff5b1;
         --color-auto-yellow-3: #ffea7f;
         --color-auto-yellow-4: #ffdf5d;
         --color-auto-yellow-5: #ffd33d;
-        --color-auto-yellow-6: c36 //#f9c513;
+        --color-auto-yellow-6: v36 //#f9c513;
         --color-auto-yellow-7: #dbab09;
         --color-auto-yellow-8: #b08800;
         --color-auto-yellow-9: #735c0f;
@@ -382,13 +394,13 @@ for c, i in C {
         --color-auto-orange-7: #d15704;
         --color-auto-orange-8: #c24e00;
         --color-auto-orange-9: #a04100;
-        --color-auto-red-0: c15 //#ffeef0;
-        --color-auto-red-1: c14 //#ffdce0;
+        --color-auto-red-0: v15 //#ffeef0;
+        --color-auto-red-1: v14 //#ffdce0;
         --color-auto-red-2: #fdaeb7;
         --color-auto-red-3: #f97583;
         --color-auto-red-4: #ea4a5a;
-        --color-auto-red-5: c13 //#d73a49;
-        --color-auto-red-6: c13 //#cb2431;
+        --color-auto-red-5: v13 //#d73a49;
+        --color-auto-red-6: v13 //#cb2431;
         --color-auto-red-7: #b31d28;
         --color-auto-red-8: #9e1c23;
         --color-auto-red-9: #86181d;
@@ -397,7 +409,7 @@ for c, i in C {
         --color-auto-purple-2: #d1bcf9;
         --color-auto-purple-3: #b392f0;
         --color-auto-purple-4: #8a63d2;
-        --color-auto-purple-5: c85 //#6f42c1;
+        --color-auto-purple-5: v85 //#6f42c1;
         --color-auto-purple-6: #5a32a3;
         --color-auto-purple-7: #4c2889;
         --color-auto-purple-8: #3a1d6e;
@@ -420,18 +432,18 @@ for c, i in C {
         --color-text-disabled: fg5 //#6a737d;
         --color-text-inverse: #fff;
         --color-text-link: ac0 //#0366d6;
-        --color-text-danger: c16 //#cb2431;
-        --color-text-success: c46 //#22863a;
-        --color-text-warning: c26 //#b08800;
+        --color-text-danger: v16 //#cb2431;
+        --color-text-success: v46 //#22863a;
+        --color-text-warning: v26 //#b08800;
         --color-text-white: #fff;
 
         --color-icon-primary: fg1 //#24292e;
         --color-icon-secondary: fg4 //#586069;
         --color-icon-tertiary: fg3 //#959da5;
-        --color-icon-info: c65 //#0366d6;
-        --color-icon-danger: c15 //#d73a49;
-        --color-icon-success: c45 //#22863a;
-        --color-icon-warning: c35 //#b08800;
+        --color-icon-info: v65 //#0366d6;
+        --color-icon-danger: v15 //#d73a49;
+        --color-icon-success: v45 //#22863a;
+        --color-icon-warning: v35 //#b08800;
 
         --color-state-hover-primary-bg: ac4 //#0366d6;
         --color-state-hover-primary-border: ac4 //#0366d6;
@@ -443,17 +455,17 @@ for c, i in C {
         --color-state-selected-primary-border: ac3 //#0366d6;
         --color-state-selected-primary-text: #fff;
         --color-state-selected-primary-icon: #fff;
-        --color-state-focus-border: c66 //#0366d6;
-        --color-state-focus-shadow: 0 0 0 3px c63 //rgba(3,102,214,0.3);
+        --color-state-focus-border: v66 //#0366d6;
+        --color-state-focus-shadow: 0 0 0 3px v63 //rgba(3,102,214,0.3);
 
         --color-border-primary: bg5 //#e1e4e8;
         --color-border-secondary: bg3 //#eaecef;
         --color-border-tertiary: bg4 //#d1d5da;
         --color-border-inverse: bg1 //#fff;
-        --color-border-info: c63 //#0366d6;
-        --color-border-danger: c13 //#d73a49;
-        --color-border-success: c43 //#34d058;
-        --color-border-warning: c33 //#f9c513;
+        --color-border-info: v63 //#0366d6;
+        --color-border-danger: v13 //#d73a49;
+        --color-border-success: v43 //#34d058;
+        --color-border-warning: v33 //#f9c513;
 
         --color-bg-canvas: bg1 //#fff;            Main elements
         --color-bg-canvas-mobile: #fff;
@@ -463,13 +475,13 @@ for c, i in C {
         --color-bg-secondary: bg2 //#fafbfc;      Navigation/notices
         --color-bg-tertiary: bg3 //#f6f8fa;       Background
         --color-bg-overlay: #fff;
-        --color-bg-info: c61 //#f1f8ff;
-        --color-bg-info-inverse: c63 //#0366d6;
-        --color-bg-danger: c15 //#ffeef0;
+        --color-bg-info: v61 //#f1f8ff;
+        --color-bg-info-inverse: v63 //#0366d6;
+        --color-bg-danger: v15 //#ffeef0;
         --color-bg-danger-inverse: #d73a49;
-        --color-bg-success: c41 //#dcffe4;
+        --color-bg-success: v41 //#dcffe4;
         --color-bg-success-inverse: #28a745;
-        --color-bg-warning: c31 //#fff5b1;
+        --color-bg-warning: v31 //#fff5b1;
         --color-bg-warning-inverse: #ffd33d;
 
         --color-shadow-small: 0 1px 0 #0002 //rgba(27,31,35,0.04);
@@ -494,21 +506,21 @@ for c, i in C {
         --color-fade-white-85: #ffffffd9;
 
         --color-alert-info-text: fg1 //#24292e;
-        --color-alert-info-icon: c67 //rgba(4,66,137,0.6);
-        --color-alert-info-bg: c61 //#dbedff;
-        --color-alert-info-border: c63 //rgba(4,66,137,0.2);
+        --color-alert-info-icon: v67 //rgba(4,66,137,0.6);
+        --color-alert-info-bg: v61 //#dbedff;
+        --color-alert-info-border: v63 //rgba(4,66,137,0.2);
         --color-alert-warn-text: fg1 //#24292e;
-        --color-alert-warn-icon: c37 //#b08800;
-        --color-alert-warn-bg: c31 //#fffbdd;
-        --color-alert-warn-border: c33 //rgba(176,136,0,0.2);
+        --color-alert-warn-icon: v37 //#b08800;
+        --color-alert-warn-bg: v31 //#fffbdd;
+        --color-alert-warn-border: v33 //rgba(176,136,0,0.2);
         --color-alert-error-text: fg1 //#24292e;
-        --color-alert-error-icon: c17 //rgba(158,28,35,0.6);
-        --color-alert-error-bg: c11 //#ffe3e6;
-        --color-alert-error-border: c13 //rgba(158,28,35,0.2);
+        --color-alert-error-icon: v17 //rgba(158,28,35,0.6);
+        --color-alert-error-bg: v11 //#ffe3e6;
+        --color-alert-error-border: v13 //rgba(158,28,35,0.2);
         --color-alert-success-text: fg1 //#24292e;
-        --color-alert-success-icon: c47 //rgba(23,111,44,0.8);
-        --color-alert-success-bg: c41 //#dcffe4;
-        --color-alert-success-border: c43 //rgba(23,111,44,0.2);
+        --color-alert-success-icon: v47 //rgba(23,111,44,0.8);
+        --color-alert-success-bg: v41 //#dcffe4;
+        --color-alert-success-border: v43 //rgba(23,111,44,0.2);
 
         --color-autocomplete-bg: bg3 //#fff;
         --color-autocomplete-border: bg5 //#e1e4e8;
@@ -526,62 +538,62 @@ for c, i in C {
         --color-btn-selected-bg: bg5 //#edeff2;
         --color-btn-focus-bg: bg5 //#fafbfc;
         --color-btn-focus-border: bg5 //rgba(27,31,35,0.15);
-        --color-btn-focus-shadow: 0 0 0 3px c62 //rgba(3,102,214,0.3);
+        --color-btn-focus-shadow: 0 0 0 3px v62 //rgba(3,102,214,0.3);
         --color-btn-shadow-active: inset 0 0.15em 0.3em #00000010 //rgba(27,31,35,0.15);
         --color-btn-shadow-input-focus: 0 0 0 0.2em rgba(3,102,214,0.3);
 
         --color-btn-primary-text: #fff;
-        --color-btn-primary-bg: c42 //#2ea44f;
-        --color-btn-primary-border: c45 //rgba(27,31,35,0.15);
+        --color-btn-primary-bg: v42 //#2ea44f;
+        --color-btn-primary-border: v45 //rgba(27,31,35,0.15);
         --color-btn-primary-shadow: 0 1px 0 rgba(27,31,35,0.1);
         --color-btn-primary-inset-shadow: inset 0 1px 0 hsla(0,0%,100%,0.03);
-        --color-btn-primary-hover-bg: c43 //#2c974b;
-        --color-btn-primary-hover-border: c45 //rgba(27,31,35,0.15);
-        --color-btn-primary-selected-bg: c44 //#2a8f47;
+        --color-btn-primary-hover-bg: v43 //#2c974b;
+        --color-btn-primary-hover-border: v45 //rgba(27,31,35,0.15);
+        --color-btn-primary-selected-bg: v44 //#2a8f47;
         --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(20,70,32,0.2);
         --color-btn-primary-disabled-text: fg4 //hsla(0,0%,100%,0.8);
-        --color-btn-primary-disabled-bg: c40 //#94d3a2;
-        --color-btn-primary-disabled-border: c41 //rgba(27,31,35,0.1);
-        --color-btn-primary-focus-bg: c43 //#2ea44f;
-        --color-btn-primary-focus-border: c45 //rgba(27,31,35,0.15);
-        --color-btn-primary-focus-shadow: 0 0 0 3px c41 //rgba(46,164,79,0.4);
+        --color-btn-primary-disabled-bg: v40 //#94d3a2;
+        --color-btn-primary-disabled-border: v41 //rgba(27,31,35,0.1);
+        --color-btn-primary-focus-bg: v43 //#2ea44f;
+        --color-btn-primary-focus-border: v45 //rgba(27,31,35,0.15);
+        --color-btn-primary-focus-shadow: 0 0 0 3px v41 //rgba(46,164,79,0.4);
         --color-btn-primary-icon: hsla(0,0%,100%,0.8);
         --color-btn-primary-counter-bg: hsla(0,0%,100%,0.2);
 
-        --color-btn-outline-text: c66 //#0366d6;
+        --color-btn-outline-text: v66 //#0366d6;
         --color-btn-outline-hover-text: #fff;
-        --color-btn-outline-hover-bg: c63 //#0366d6;
-        --color-btn-outline-hover-border: c64 //rgba(27,31,35,0.15);
+        --color-btn-outline-hover-bg: v63 //#0366d6;
+        --color-btn-outline-hover-border: v64 //rgba(27,31,35,0.15);
         --color-btn-outline-hover-shadow: 0 1px 0 rgba(27,31,35,0.1);
         --color-btn-outline-hover-inset-shadow: inset 0 1px 0 hsla(0,0%,100%,0.03);
         --color-btn-outline-hover-counter-bg: hsla(0,0%,100%,0.2);
         --color-btn-outline-selected-text: #fff;
-        --color-btn-outline-selected-bg: c64 //#035fc7;
-        --color-btn-outline-selected-border: c65 //rgba(27,31,35,0.15);
+        --color-btn-outline-selected-bg: v64 //#035fc7;
+        --color-btn-outline-selected-border: v65 //rgba(27,31,35,0.15);
         --color-btn-outline-selected-shadow: inset 0 1px 0 rgba(5,38,76,0.2);
         --color-btn-outline-disabled-text: fg4 //rgba(3,102,214,0.5);
         --color-btn-outline-disabled-bg: bg2 //#fafbfc;
         --color-btn-outline-disabled-counter-bg: rgba(3,102,214,0.05);
-        --color-btn-outline-focus-border: c66 //rgba(27,31,35,0.15);
-        --color-btn-outline-focus-shadow: 0 0 0 3px c62 //rgba(0,92,197,0.4);
+        --color-btn-outline-focus-border: v66 //rgba(27,31,35,0.15);
+        --color-btn-outline-focus-shadow: 0 0 0 3px v62 //rgba(0,92,197,0.4);
         --color-btn-outline-counter-bg: rgba(3,102,214,0.1);
 
-        --color-btn-danger-text: c16 //#d73a49;
+        --color-btn-danger-text: v16 //#d73a49;
         --color-btn-danger-hover-text: #fff;
-        --color-btn-danger-hover-bg: c11 //#cb2431;
-        --color-btn-danger-hover-border: c13 //rgba(27,31,35,0.15);
+        --color-btn-danger-hover-bg: v11 //#cb2431;
+        --color-btn-danger-hover-border: v13 //rgba(27,31,35,0.15);
         --color-btn-danger-hover-shadow: 0 1px 0 rgba(27,31,35,0.1);
         --color-btn-danger-hover-inset-shadow: inset 0 1px 0 hsla(0,0%,100%,0.03);
         --color-btn-danger-hover-counter-bg: hsla(0,0%,100%,0.2);
         --color-btn-danger-selected-text: #fff;
-        --color-btn-danger-selected-bg: c12 //#d42d3d;
-        --color-btn-danger-selected-border: c14 //rgba(27,31,35,0.15);
+        --color-btn-danger-selected-bg: v12 //#d42d3d;
+        --color-btn-danger-selected-border: v14 //rgba(27,31,35,0.15);
         --color-btn-danger-selected-shadow: inset 0 1px 0 rgba(134,24,29,0.2);
         --color-btn-danger-disabled-text: fg4 //rgba(215,58,73,0.5);
-        --color-btn-danger-disabled-bg: c15 //#fafbfc;
+        --color-btn-danger-disabled-bg: v15 //#fafbfc;
         --color-btn-danger-disabled-counter-bg: rgba(215,58,73,0.05);
-        --color-btn-danger-focus-border: c15 //rgba(27,31,35,0.15);
-        --color-btn-danger-focus-shadow: 0 0 0 3px c11 //rgba(203,36,49,0.4);
+        --color-btn-danger-focus-border: v15 //rgba(27,31,35,0.15);
+        --color-btn-danger-focus-shadow: 0 0 0 3px v11 //rgba(203,36,49,0.4);
         --color-btn-danger-counter-bg: rgba(215,58,73,0.1);
 
         --color-btn-counter-bg: #1b1f2314;
@@ -599,8 +611,8 @@ for c, i in C {
         --color-input-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
         --color-input-disabled-bg: bg1 //#fff;
         --color-input-disabled-border: bg3 //#e1e4e8;
-        --color-input-warning-border: c30 //#f9c513;
-        --color-input-error-border: c10 //#cb2431;
+        --color-input-warning-border: v30 //#f9c513;
+        --color-input-error-border: v10 //#cb2431;
 
         --color-input-tooltip-success-text: #144620;
         --color-input-tooltip-success-bg: #dcffe4;
@@ -631,15 +643,15 @@ for c, i in C {
         --color-select-menu-tap-highlight: rgba(209,213,218,0.5);
         --color-select-menu-tap-focus-bg: #dbedff;
 
-        --color-box-blue-border: c64 //#c8e1ff;
-        --color-box-row-yellow-bg: c31 //#fffbdd;
-        --color-box-row-blue-bg: c61 //#f1f8ff;
-        --color-box-header-blue-bg: c61 //#f1f8ff;
-        --color-box-header-blue-border: c64 //#c8e1ff;
-        --color-box-border-info: c64 //rgba(3,102,214,0.2);
-        --color-box-bg-info: c61 //#f1f8ff;
-        --color-box-border-warning: c34 //rgba(255,211,61,0.4);
-        --color-box-bg-warning: c31 //#fffdef;
+        --color-box-blue-border: v64 //#c8e1ff;
+        --color-box-row-yellow-bg: v31 //#fffbdd;
+        --color-box-row-blue-bg: v61 //#f1f8ff;
+        --color-box-header-blue-bg: v61 //#f1f8ff;
+        --color-box-header-blue-border: v64 //#c8e1ff;
+        --color-box-border-info: v64 //rgba(3,102,214,0.2);
+        --color-box-bg-info: v61 //#f1f8ff;
+        --color-box-border-warning: v34 //rgba(255,211,61,0.4);
+        --color-box-bg-warning: v31 //#fffdef;
 
         --color-dropdown-bg: bg1 //#fff;
         --color-dropdown-border: bg5 //#e1e4e8;
@@ -676,7 +688,7 @@ for c, i in C {
         --color-hidden-text-expander-bg-hover: bg4 //#c6cbd1;
         --color-drag-and-drop-border: #c3c8cf;
         --color-upload-enabled-border: bg5 //#dfe2e5;
-        --color-upload-enabled-border-focused: c60 //#4a9eff;
+        --color-upload-enabled-border-focused: v60 //#4a9eff;
         --color-previewable-comment-form-border: #c3c8cf;
         --color-previewable-comment-form-bg: t //#fff; /// @upstream
 
@@ -691,7 +703,7 @@ for c, i in C {
         --color-underlinenav-icon-active: fg1 //#24292e;
         --color-underlinenav-counter-text: fg1 //#24292e;
 
-        --color-verified-badge-text: c47 //#22863a;
+        --color-verified-badge-text: v47 //#22863a;
         --color-verified-badge-bg: bg2 //#fff;
         --color-verified-badge-border: bg5 //#e1e4e8;
 
@@ -701,10 +713,10 @@ for c, i in C {
 
         --color-diffstat-neutral-bg: bg5 //#d1d5da;
         --color-diffstat-neutral-border: bg5 //#d1d5da;
-        --color-diffstat-deletion-bg: c15 //#d73a49;
-        --color-diffstat-deletion-border: c15 //#d73a49;
-        --color-diffstat-addition-bg: c45 //#28a745;
-        --color-diffstat-addition-border: c45 //#28a745;
+        --color-diffstat-deletion-bg: v15 //#d73a49;
+        --color-diffstat-deletion-border: v15 //#d73a49;
+        --color-diffstat-addition-bg: v45 //#28a745;
+        --color-diffstat-addition-border: v45 //#28a745;
 
         --color-icon-folder: ac2 //#79b8ff;
         --color-hl-author-bg: #f1f8ff;
@@ -714,18 +726,18 @@ for c, i in C {
 
         --color-diff-blob-num-text: fg3 //rgba(27,31,35,0.3);
         --color-diff-blob-num-hover-text: fg1 //rgba(27,31,35,0.6);
-        --color-diff-blob-addition-num-bg: c41 //#cdffd8;
-        --color-diff-blob-addition-line-bg: c40 //#e6ffed;
-        --color-diff-blob-addition-word-bg: c42 //#acf2bd;
-        --color-diff-blob-deletion-num-bg: c11 //#ffdce0;
-        --color-diff-blob-deletion-line-bg: c10 //#ffeef0;
-        --color-diff-blob-deletion-word-bg: c12 //#fdb8c0;
+        --color-diff-blob-addition-num-bg: v41 //#cdffd8;
+        --color-diff-blob-addition-line-bg: v40 //#e6ffed;
+        --color-diff-blob-addition-word-bg: v42 //#acf2bd;
+        --color-diff-blob-deletion-num-bg: v11 //#ffdce0;
+        --color-diff-blob-deletion-line-bg: v10 //#ffeef0;
+        --color-diff-blob-deletion-word-bg: v12 //#fdb8c0;
         --color-diff-blob-hunk-text: fg4 //rgba(27,31,35,0.7);
         --color-diff-blob-hunk-num-bg: bg4 //#dbedff;
         --color-diff-blob-hunk-line-bg: bg3 //#f1f8ff;
         --color-diff-blob-empty-block-bg: bg2 //#fafbfc;
-        --color-diff-blob-selected-line-highlight-bg: c70 //rgba(255,223,93,0.2);
-        --color-diff-blob-selected-line-highlight-border: c70 //#ffd33d;
+        --color-diff-blob-selected-line-highlight-bg: v70 //rgba(255,223,93,0.2);
+        --color-diff-blob-selected-line-highlight-border: v70 //#ffd33d;
         --color-diff-blob-expander-icon: fg2 //#586069;
         --color-diff-blob-expander-hover-icon: #fff;
         --color-diff-blob-expander-hover-bg: ac3 //#0366d6;
@@ -752,10 +764,10 @@ for c, i in C {
         --color-calendar-graph-day-L3-border: #88888825 //#1b1f230f;
         --color-calendar-graph-day-L2-border: #88888825 //#1b1f230f;
         --color-calendar-graph-day-L1-border: #88888825 //#1b1f230f;
-        --color-calendar-halloween-graph-day-L1-bg: c29 //#ffee4a;
-        --color-calendar-halloween-graph-day-L2-bg: c26 //#ffc501;
-        --color-calendar-halloween-graph-day-L3-bg: c23 //#fe9600;
-        --color-calendar-halloween-graph-day-L4-bg: c20 //#03001c;
+        --color-calendar-halloween-graph-day-L1-bg: v29 //#ffee4a;
+        --color-calendar-halloween-graph-day-L2-bg: v26 //#ffc501;
+        --color-calendar-halloween-graph-day-L3-bg: v23 //#fe9600;
+        --color-calendar-halloween-graph-day-L4-bg: v20 //#03001c;
 
         --color-footer-invertocat-octicon: fg3 //#d1d5da;
         --color-footer-invertocat-octicon-hover: fg5 //#6a737d;
@@ -763,13 +775,13 @@ for c, i in C {
         --color-pr-state-draft-bg: bg5 //#6a737d;
         --color-pr-state-draft-border: transparent;
         --color-pr-state-open-text: #fff;
-        --color-pr-state-open-bg: c43 //#28a745;
+        --color-pr-state-open-bg: v43 //#28a745;
         --color-pr-state-open-border: transparent;
         --color-pr-state-merged-text: #fff;
-        --color-pr-state-merged-bg: c73 //#6f42c1;
+        --color-pr-state-merged-bg: v73 //#6f42c1;
         --color-pr-state-merged-border: transparent;
         --color-pr-state-closed-text: #fff;
-        --color-pr-state-closed-bg: c13 //#d73a49;
+        --color-pr-state-closed-bg: v13 //#d73a49;
         --color-pr-state-closed-border: transparent;
     }
 
@@ -1167,8 +1179,8 @@ for c, i in C {
             &::before { border-right-color: bg5 }
             &::after { border-right-color: bg3 i }
             &.current-user {
-                &::before { border-right-color: c64 i }
-                &::after { border-right-color: c61 i }
+                &::before { border-right-color: v64 i }
+                &::after { border-right-color: v61 i }
             }
             &.branch-action-body {
                 &::after { border-right-color: bg1 i }
@@ -1234,21 +1246,21 @@ for c, i in C {
 
     // Code -> Syntax highlighting.
     .pl- {
-        &k { color: c17 }
+        &k { color: v17 }
         &c { color: fg4 }
         &mi { color: fg0 }
-        &ent { color: c44 }
-        &e, &en { color: c86 }
-        &smw, &v { color: c25 }
-        &c1, &s &v { color: c67 }
-        &s &s1, &smi { color: c89 }
-        &mh, &mh &en, &ms { c: c75 }
+        &ent { color: v44 }
+        &e, &en { color: v86 }
+        &smw, &v { color: v25 }
+        &c1, &s &v { color: v67 }
+        &s &s1, &smi { color: v89 }
+        &mh, &mh &en, &ms { c: v75 }
         &pds, &s, &s &pse &s1, &sr,
-        &sr &cce, &sr &sra, &sr &sre { color: c46 }
-        &ii { c: white 0 c15 }
-        &mi1 { c: c49 0 c41 }
-        &md { c: c19 0 c11 }
-        &corl { c: c56 }
+        &sr &cce, &sr &sra, &sr &sre { color: v46 }
+        &ii { c: white 0 v15 }
+        &mi1 { c: v49 0 v41 }
+        &md { c: v19 0 v11 }
+        &corl { c: v56 }
         &mb { c: fg1 }
     }
 
