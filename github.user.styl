@@ -246,8 +246,33 @@ for c, i in C {
         }
     }
 
+    // Userstyle variables.
     :root {
-        /// Color generator variables.
+        /// Userstyle info.
+        --note: 'Dark-GitHub v0.12.0'
+
+        /// Feat -> Custom monospace font.
+        --f-mono: f_code, SFMono-Regular, Consolas, Liberation Mono, Menlo, \
+                  Fira Code, monospace
+
+        /// Feat -> Custom user interface font.
+        --f-ui: f_ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, \
+                Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji
+
+        /// Generate v1 color variables.
+        for _v in (bg fg ac) {
+            for _i in 0..5 {
+                key = s('--%s-%s', _v, _i)
+                /// Escape `\` for `*-0` vars.
+                val = _v + \- + _i
+
+                /// Generate CSS variables.
+                { key }: val
+                // { key + '-rgb' }: to_rgb(val)
+            }
+        }
+
+        /// Generate v2 color variables.
         for tone in 0..9 {
             for number in 0..9 {
                 key = '--v%s-%s' % ((tone) (number))
@@ -783,35 +808,6 @@ for c, i in C {
         --color-pr-state-closed-text: #fff;
         --color-pr-state-closed-bg: v13 //#d73a49;
         --color-pr-state-closed-border: transparent;
-    }
-
-    // Dark-GitLab variables.
-    :root {
-        /// Userstyle info.
-        --note: 'Dark-GitHub v0.12.0'
-
-        /// Feat -> Custom monospace font.
-        --f-mono: f_code, SFMono-Regular, Consolas, Liberation Mono, Menlo, \
-                  Fira Code, monospace
-
-        /// Feat -> Custom user interface font.
-        --f-ui: f_ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, \
-                Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji
-    }
-
-    :root {
-        /// Generate color variables.
-        for _v in (bg fg ac) {
-            for _i in 0..5 {
-                key = s('--%s-%s', _v, _i)
-                /// Escape `\` for `*-0` vars.
-                val = _v + \- + _i
-
-                /// Generate CSS variables.
-                { key }: val
-                // { key + '-rgb' }: to_rgb(val)
-            }
-        }
     }
 
     html {
