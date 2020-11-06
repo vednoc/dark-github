@@ -818,7 +818,7 @@ for c, i in C {
         body {
             /// Application background.
             &, .application-main > .bg-gray { c: 0 0 bg0 }
-            &.page-profile .application-main { b: 0 -24px bg1 }
+            &.page-profile .application-main { b: 0 -24px bg2 }
 
             /// Feat -> UI font.
             &, /.markdown-body {
@@ -906,6 +906,10 @@ for c, i in C {
     }
     .commit-form,
     .form-actions .bg-gray-light { c: 0 0 bg1 }
+    /// Profile -> Navigation.
+    #js-pjax-container > .bg-white:first-child {
+        c: 0 0 bg2
+    }
     /// Topics -> Background.
     [style*='background-color: #fcfdfd'] {
         c: 0 0 bg0
