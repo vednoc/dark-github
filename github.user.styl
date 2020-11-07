@@ -912,6 +912,15 @@ for c, i in C {
             c: 0 0 bg1
         }
 
+        /// NOTE: Remap bg3 to bg2.
+        .bg-gray {
+            .notification-archived,
+            .notification-read {
+                c: 0 0 bg2
+                &:hover { c: 0 0 v61 }
+            }
+        }
+
         /// Profile -> Navigation.
         #js-pjax-container > .bg-white:first-child {
             c: 0 0 bg2
