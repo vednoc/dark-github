@@ -1418,6 +1418,10 @@ for c, i in C {
         --bg-5: bg-5
         --fg-1: fg-1
         --fg-3: fg-5
+        --v1-5: v1-5 // red
+        --v1-6: v1-6
+        --v4-5: v4-5 // green
+        --v4-6: v4-6
     }
 
     /// Diff -> Image background.
@@ -1428,7 +1432,19 @@ for c, i in C {
             c: 0 0 bg1
         }
         img, img.asset { c: 0 bg1 }
+
+        /// Rich diff -> Border/text colors.
+        .deleted-frame { c: 0 v15; &::before { c: v16 }}
+        .added-frame { c: 0 v45; &::before { c: v46 }}
         .shell p { c: fg3 }
+
+        if (dark(BG)) {
+            /// Rich diff -> Invert controls.
+            .swipe .swipe-bar,
+            .onion-skin .controls > * {
+                filter: invert(0.95) brightness(150%)
+            }
+        }
     }
 
     // Diff -> Images diff bar.
