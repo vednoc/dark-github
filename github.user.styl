@@ -22,10 +22,10 @@
 @var color    cg_fg        'Base foreground color' #eeeeee
 @var color    cg_ac        'Base accent color    ' #7289da
 
-@var range    _bg_a        'Adjust background color tones' [0, -25, 25, 0.1, '%']
-@var range    _fg_a        'Adjust foreground color tones' [0, -25, 25, 0.1, '%']
-@var range    _ac_a        'Adjust accent color tones    ' [0,   0, 25,   1, '%']
-@var range    _sc_a        'Adjust syntax color tones    ' [0,   0, 25,   1, '%']
+@var range    cg_bg_a      'Adjust background color tones' [0, -25, 25, 0.1, '%']
+@var range    cg_fg_a      'Adjust foreground color tones' [0, -25, 25, 0.1, '%']
+@var range    cg_ac_a      'Adjust accent color tones    ' [0,   0, 25,   1, '%']
+@var range    cg_sc_a      'Adjust syntax color tones    ' [0,   0, 25,   1, '%']
 
 @var text     f_ui         'UI font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
@@ -127,10 +127,10 @@ for selected in ColorSchemes {
 /// Helpers.
 t  = transparent
 i  = !important
-BA = _bg_a
-FA = _fg_a
-AA = _ac_a
-SA = _sc_a
+BA = cg_bg_a
+FA = cg_fg_a
+AA = cg_ac_a
+SA = cg_sc_a
 
 // Color generator.
 /// NOTE: Fix the scope to avoid conflicts.
@@ -139,7 +139,7 @@ SA = _sc_a
 
     /// Generator rules.
     if (dark(BG)) {
-        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 70); a5 = (AA + 80)
+        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 60); a5 = (AA + 75)
         s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 70); s5 = (SA + 80)
         b1 = (BA + 15); b2 = (BA - 04); b3 = (BA - 08); b4 = (BA - 13); b5 = (BA - 18)
         f1 = (FA - 10); f2 = (FA + 10); f3 = (FA + 20); f4 = (FA + 30); f5 = (FA + 40)
