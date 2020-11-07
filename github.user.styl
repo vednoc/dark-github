@@ -25,7 +25,7 @@
 @var range    cg_bg_a      'Adjust background color tones' [0, -25, 25, 0.1, '%']
 @var range    cg_fg_a      'Adjust foreground color tones' [0, -25, 25, 0.1, '%']
 @var range    cg_ac_a      'Adjust accent color tones    ' [0,   0, 25,   1, '%']
-@var range    cg_sc_a      'Adjust syntax color tones    ' [0,   0, 25,   1, '%']
+@var range    cg_sc_a      'Adjust syntax color tones    ' [0, -25, 25, 0.1, '%']
 
 @var text     f_ui         'UI font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
@@ -217,6 +217,7 @@ for c, i in C {
         } else {
             $res = hsl(C[c].hue, 0, (num + 2) * 8)
         }
+        $res = darken($res, SA)
         $res = to_hsla($res)
         // $dbg = c + '-' + num + ' ::: ' + $res
         define(c + num, s('var(--%s-%s)', unquote(c), num), global)
