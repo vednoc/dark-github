@@ -1444,6 +1444,13 @@ for c, i in C {
             .onion-skin .controls > * {
                 filter: invert(0.95) brightness(150%)
             }
+
+            /// OpenStreetMap.
+            .leaflet {
+                &-bar, &-control-layers { c: 0 #ddd }
+                &-bar > a:last-child { border-bottom: none }
+                &-container { filter: invert(0.95) hue-rotate(180deg) brightness(150%) }
+            }
         }
     }
 
