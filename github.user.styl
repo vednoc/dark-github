@@ -967,6 +967,18 @@ for c, i in C {
         .header-search-wrapper {
             c: 0 0 bg4
             input { c: fg1 }
+
+            /// Fix styles for focused state.
+            &.focus {
+                border-bottom-left-radius: 0 i
+                border-bottom-right-radius: 0 i
+
+                /// Reset results.
+                .Box {
+                    margin-left: -1px
+                    width: calc(100% + 2px) i
+                }
+            }
         }
 
         /// Notifications. @upstream
