@@ -579,7 +579,7 @@ for c, i in C {
         --color-btn-primary-hover-border: v45 //rgba(27,31,35,0.15);
         --color-btn-primary-selected-bg: v44 //#2a8f47;
         --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(20,70,32,0.2);
-        --color-btn-primary-disabled-text: fg4 //hsla(0,0%,100%,0.8);
+        --color-btn-primary-disabled-text: v95 //hsla(0,0%,100%,0.8);
         --color-btn-primary-disabled-bg: v40 //#94d3a2;
         --color-btn-primary-disabled-border: v41 //rgba(27,31,35,0.1);
         --color-btn-primary-focus-bg: v43 //#2ea44f;
@@ -617,7 +617,7 @@ for c, i in C {
         --color-btn-danger-selected-bg: v12 //#d42d3d;
         --color-btn-danger-selected-border: v14 //rgba(27,31,35,0.15);
         --color-btn-danger-selected-shadow: inset 0 1px 0 rgba(134,24,29,0.2);
-        --color-btn-danger-disabled-text: fg4 //rgba(215,58,73,0.5);
+        --color-btn-danger-disabled-text: v95 //rgba(215,58,73,0.5);
         --color-btn-danger-disabled-bg: v15 //#fafbfc;
         --color-btn-danger-disabled-counter-bg: rgba(215,58,73,0.05);
         --color-btn-danger-focus-border: v15 //rgba(27,31,35,0.15);
@@ -1451,7 +1451,8 @@ for c, i in C {
         .text-muted { c: fg3 }
     }
 }
-@-moz-document regexp('https?://((docs)\\.)?github?.com(/.*)?') {
+
+@-moz-document regexp('https?://((docs)\\.)github?.com(/.*)?') {
     body {
         &, p { c: fg1 }
         a { color: ac0 }
@@ -1587,6 +1588,7 @@ for c, i in C {
         &:focus { b: 0 0 0 3px ac4 }
     }
 }
+
 @-moz-document regexp('https?://render\.githubusercontent?.com(/.*)?') {
     :root {
         --bg-1: bg-1
