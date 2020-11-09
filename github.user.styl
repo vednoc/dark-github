@@ -30,6 +30,7 @@
 @var text     f_ui         'UI font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
 
+@var checkbox custom_font   'Use custom font overrides' 1
 @var checkbox navbar_sticky 'Use sticky position for the navbar' 0
 @var checkbox latest_commit 'Use neutral colors in latest commit' 1
 @var checkbox readme_header 'Use old readme header design' 0
@@ -822,19 +823,21 @@ for c, i in C {
             &, .application-main > .bg-gray { c: 0 0 bg0 }
             &.page-profile .application-main { b: 0 -24px bg2 }
 
-            /// Feat -> UI font.
-            &, /.markdown-body {
-                font-family: var(--f-ui) i
-            }
+            if custom_font {
+                /// Feat -> UI font.
+                &, /.markdown-body {
+                    font-family: var(--f-ui) i
+                }
 
-            /// Feat -> Code font.
-            /// Diff linum/code, CodeMirror, commit reference, utility class.
-            /.blob-num,
-            /.blob-code-inner,
-            /.CodeMirror-lines,
-            /.commit-ref,
-            /.text-mono {
-                font-family: var(--f-mono) i
+                /// Feat -> Code font.
+                /// Diff linum/code, CodeMirror, commit reference, utility class.
+                /.blob-num,
+                /.blob-code-inner,
+                /.CodeMirror-lines,
+                /.commit-ref,
+                /.text-mono {
+                    font-family: var(--f-mono) i
+                }
             }
         }
 
