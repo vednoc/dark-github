@@ -1232,13 +1232,20 @@ for c, i in C {
             /:target &::before { border-right-color: var(--color-auto-blue-4) i }
         }
 
-        /// Merged pull requests. @upstream
+        /// PR -> Merged pull requests. @upstream
         /.branch-action {
             &-state-merged &-body {
                 c: 0 v73
-                &[class*='-caret']::before { border-right-color: v71 i }
+                &[class*='-caret']::before { border-right-color: v75 i }
                 &[class*='-caret']::after { border-right-color: bg1 i }
             }
+        }
+
+        /// PR -> CLI instructions.
+        /.merge-branch-manually { c: 0 bg5 }
+        /.copyable-terminal {
+            border: 1px solid bg5
+            c: 0 0 bg1
         }
 
         /// Remove borders from input box.
