@@ -226,7 +226,7 @@ for c, i in C {
 }
 }
 
-@-moz-document regexp('https?://((gist)\.)?github?.com(/.*)?') {
+@-moz-document regexp('https?://((gist|docs)\.)?github?.com(/.*)?') {
     // Show debug.
     if (cg_debug) {
         body > div:first-child {
@@ -1441,7 +1441,142 @@ for c, i in C {
         .text-muted { c: fg3 }
     }
 }
+@-moz-document regexp('https?://((docs)\\.)?github?.com(/.*)?') {
+    body {
+        &, p { c: fg1 }
+        a { color: ac0 }
+    }
+    header {
+        & #search-results-container {
+            background: var(--color-bg-tertiary)
+            box-shadow: 0 1px 15px bg2
+        }
+    }
 
+    .dropdown-withArrow svg.arrow[stroke*="#1277eb"] {
+      stroke: var(--color-icon-primary)
+    }
+
+    .sidebar {
+        background-color: var(--color-bg-secondary)
+        &-maptopic {
+            & .sidebar-article {
+                &::before {
+                    border-left: 1px solid ac4
+                }
+                &.active {
+                    &::before {
+                        border-left: 3px solid ac4;
+                    }
+                }
+            }
+       }
+       &-background-color {
+            background-color: var(--color-bg-tertiary)
+       }
+       &-category {
+           &.active {
+               background-color:  var(--color-bg-tertiary)
+           }
+       }
+    }
+    .sidebar-category > a, .sidebar-category summary a,
+    .sidebar-product > a, .sidebar-product summary a,
+    .sidebar-product.is-current-page > a, .sidebar-category.is-current-page > a,
+    .sidebar-maptopic.is-current-page > a, .sidebar-article.is-current-page > a {
+      color: ac2
+    }
+    .sidebar-products a:hover,
+    .sidebar-products .arrow:hover {
+      color: ac1
+    }
+
+    .bg-blue-light {
+	      background-color: var(--v6-0) i
+    }
+    .border-blue {
+	      border-color: var(--v6-3) i
+    }
+    .markdown-body {
+        & table {
+            & tr {
+                background-color: var(--color-bg-secondary)
+                border-top-color: var(--color-border-secondary)
+            }
+            & th {
+                background-color: var(--color-bg-primary)
+                box-shadow: 0 3px 0 0 var(--color-border-primary);
+            }
+        }
+        & .highlight pre,
+        & pre {
+            background-color: var(--color-bg-secondary)
+        & .hljs {
+           color: var(--color-alert-info-text)
+        }
+     }
+   }
+
+   .text {
+       &-gray-dark { c: fg1 }
+   }
+
+   .link-gray-dark {
+        c: var(--color-text-secondary)
+        &:hover { c: ac1 }
+   }
+
+   .border-bottom {
+       c: 0 var(--color-border-primary)
+   }
+   .border-top {
+       border-top-color: var(--color-border-primary) i;
+   }
+   .border-gray-light {
+       border-color: var(--color-border-primary) i;
+   }
+
+   .btn {
+       color: var(--color-btn-primary-text)
+       border-color: var(--color-btn-border)
+       background-color: var(--color-btn-bg)
+       transition: color, background 0.2s
+       &:hover {
+           background-color: var(--color-btn-hover-bg)
+           border-color: var(--color-btn-hover-border)
+       }
+       &-outline {
+           c: ac0 bg5 bg2
+           b: none
+           &:hover { c: 0 0 bg3 }
+           &:focus { box-shadow: 0 0 0 3px ac4 }
+
+           &-mktg {
+               c: ac1 ac1 bg1 0
+               &:hover { color: ac1; }
+               &:focus { box-shadow: 0 0 0 3px ac4 }
+           }
+       }
+    }
+
+    #landing[style*="background-color: #fafbfc"],
+    .js-support-banner[style*="background-color: #fafbfc"] {
+        c: fg1 0 var(--color-bg-canvas)
+    }
+
+    .underline-dashed {
+        background-image: linear-gradient(to right, bg5 50%, bg0 0%) i
+    }
+    .UnderlineNav-item {
+        color: var(--color-menu-heading-text)
+    }
+
+    .ais-SearchBox-input {
+        c: 0 var(--color-border-secondary) bg2
+        b: var(--color-shadow-small)
+        &:focus { b: 0 0 0 3px ac4 }
+    }
+}
 @-moz-document regexp('https?://render\.githubusercontent?.com(/.*)?') {
     :root {
         --bg-1: bg-1
