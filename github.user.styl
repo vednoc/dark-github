@@ -1548,52 +1548,87 @@ for c, i in C {
         & .highlight pre,
         & pre {
             background-color: var(--color-bg-secondary)
-        & .hljs {
-           color: var(--color-alert-info-text)
+            & .hljs {
+                color: var(--color-alert-info-text)
+            }
         }
-     }
-   }
+    }
 
-   .text {
+    .text {
        &-gray-dark { c: fg1 }
+       &-gray { c: fg3 }
+       &-gray-light { c: fg3 }
    }
 
    .link-gray-dark {
         c: var(--color-text-secondary)
         &:hover { c: ac1 }
-   }
+    }
 
-   .border-bottom {
-       c: 0 var(--color-border-primary)
-   }
-   .border-top {
-       border-top-color: var(--color-border-primary) i;
-   }
-   .border-gray-light {
-       border-color: var(--color-border-primary) i;
-   }
+    .bg-white {
+        c: 0 0 bg2
+    }
 
-   .btn {
-       color: var(--color-btn-primary-text)
-       border-color: var(--color-btn-border)
-       background-color: var(--color-btn-bg)
-       transition: color, background 0.2s
-       &:hover {
-           background-color: var(--color-btn-hover-bg)
-           border-color: var(--color-btn-hover-border)
-       }
-       &-outline {
-           c: ac0 bg5 bg2
-           b: none
-           &:hover { c: 0 0 bg3 }
-           &:focus { box-shadow: 0 0 0 3px ac4 }
+    .box-shadow-large {
+        box-shadow: 0 8px 20px bg2 i;
+    }
 
-           &-mktg {
-               c: ac1 ac1 bg1 0
-               &:hover { color: ac1; }
-               &:focus { box-shadow: 0 0 0 3px ac4 }
-           }
-       }
+    .border-bottom {
+        c: 0 var(--color-border-primary)
+    }
+    .border-top {
+        border-top-color: var(--color-border-primary) i;
+    }
+    .border-gray-light {
+        border-color: var(--color-border-primary) i;
+    }
+
+    [open] > .btn {
+        border-color: var(--color-btn-border)
+        background-color: var(--color-btn-bg)
+    }
+    .btn {
+        color: var(--color-btn-primary-text)
+        border-color: var(--color-btn-border)
+        background-color: var(--color-btn-bg)
+        transition: color, background 0.2s
+        &.disabled,
+        &:disabled,
+        &[aria-disabled="true"] {
+            color: var(--color-text-disabled)
+            background-color: var(--color-btn-bg)
+            border-color: var(--color-btn-border)
+        }
+        &.hover,
+        &:hover {
+            background-color: var(--color-btn-hover-bg)
+            border-color: var(--color-btn-hover-border)
+        }
+        &-outline {
+            color: ac5
+            border-color: var(--bg2)
+            &:hover { background-color: bg3 }
+            &:focus { box-shadow: 0 0 0 3px ac4 }
+            &.disabled,
+            &:disabled,
+            &[aria-disabled="true"] {
+                color: var(--color-btn-outline-disabled-text)
+                background-color: var(--color-btn-bg)
+                border-color: var(--color-btn-border)
+            }
+
+            &-mktg {
+                color: var(--ac-1)
+                border-color: var(--ac-1)
+                background-color: var(--bg-0)
+                &:hover { color: ac0; border-color: ac0 }
+                &:focus { box-shadow: 0 0 0 3px ac4 }
+            }
+        }
+    }
+
+    :checked + .x-radio-label {
+      background: ac3;
     }
 
     #landing[style*="background-color: #fafbfc"],
@@ -1609,10 +1644,18 @@ for c, i in C {
     }
 
     .ais-SearchBox-input {
+        color: var(--color-text-secondary)
         c: 0 var(--color-border-secondary) bg2
         b: var(--color-shadow-small)
         &:focus { b: 0 0 0 3px ac4 }
     }
+    .ais-Hits-item:hover {
+	      background: var(--color-alert-success-bg);
+    }
+    .search-result-title mark, .search-result-title .ais-Highlight-highlighted {
+	      color: ac1;
+    }
+}
 }
 
 @-moz-document regexp('https?://render\.githubusercontent?.com(/.*)?') {
