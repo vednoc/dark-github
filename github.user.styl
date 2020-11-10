@@ -503,6 +503,7 @@ for c, i in C {
         --color-bg-secondary: bg2 //#fafbfc;      Navigation/notices
         --color-bg-tertiary: bg3 //#f6f8fa;       Background
         --color-bg-overlay: bg1 //#fff;
+        --color-bg-backdrop: rgba(27,31,35,0.5)
         --color-bg-info: ac5 //#f1f8ff;
         --color-bg-info-inverse: var(--color-state-hover-primary-bg)
         --color-bg-danger: v11 //#ffeef0;
@@ -633,6 +634,38 @@ for c, i in C {
         --color-topic-tag-hover-bg: ac4 //#def;
         --color-topic-tag-active-bg: ac3 //#e7f3ff;
 
+        --color-topic-tag-active-bg: #e7f3ff;
+        --color-merge-box-success-icon-bg: #28a745;
+        --color-merge-box-success-icon-text: #fff;
+        --color-merge-box-success-icon-border: transparent;
+        --color-merge-box-success-indicator-bg: #28a745;
+        --color-merge-box-success-indicator-border: transparent;
+        --color-merge-box-merged-icon-bg: #6f42c1;
+        --color-merge-box-merged-icon-text: #fff;
+        --color-merge-box-merged-icon-border: transparent;
+        --color-merge-box-merged-box-border: #6f42c1;
+        --color-merge-box-neutral-icon-bg: #6a737d;
+        --color-merge-box-neutral-icon-text: #fff;
+        --color-merge-box-neutral-icon-border: transparent;
+        --color-merge-box-neutral-indicator-bg: #6a737d;
+        --color-merge-box-neutral-indicator-border: transparent;
+        --color-merge-box-warning-icon-bg: #dbab09;
+        --color-merge-box-warning-icon-text: #fff;
+        --color-merge-box-warning-icon-border: transparent;
+        --color-merge-box-warning-box-border: #ffd33d;
+        --color-merge-box-warning-merge-highlight: transparent;
+        --color-merge-box-error-icon-bg: #d73a49;
+        --color-merge-box-error-icon-text: #fff;
+        --color-merge-box-error-icon-border: transparent;
+        --color-merge-box-error-indicator-bg: #d73a49;
+        --color-merge-box-error-indicator-border: transparent;
+
+        --color-project-card-bg: #fff;
+        --color-project-header-bg: #24292e;
+        --color-project-sidebar-bg: #fff;
+        --color-project-gradient-in: #fff;
+        --color-project-gradient-out: hsla(0,0%,100%,0);
+
         --color-input-bg: bg2 //#fff;
         --color-input-contrast-bg: bg3 //#fafbfc;
         --color-input-border: bg5 //#e1e4e8;
@@ -656,7 +689,36 @@ for c, i in C {
         --color-avatar-stack-fade: #d1d5da;
         --color-avatar-stack-fade-more: #e1e4e8;
         --color-avatar-child-shadow: -2px -2px 0 hsla(0,0%,100%,0.8);
-        --color-toast-ic-bg-loading: #586069;
+
+        --color-toast-text: #24292e;
+        --color-toast-bg: #fff;
+        --color-toast-border: #e1e4e8;
+        --color-toast-shadow: 0 8px 24px rgba(149,157,165,0.2);
+        --color-toast-icon: #fff;
+        --color-toast-icon-bg: #0366d6;
+        --color-toast-icon-border: transparent;
+        --color-toast-success-text: #24292e;
+        --color-toast-success-border: #e1e4e8;
+        --color-toast-success-icon: #fff;
+        --color-toast-success-icon-bg: #28a745;
+        --color-toast-success-icon-border: transparent;
+        --color-toast-warning-text: #24292e;
+        --color-toast-warning-border: #e1e4e8;
+        --color-toast-warning-icon: #24292e;
+        --color-toast-warning-icon-bg: #ffd33d;
+        --color-toast-warning-icon-border: transparent;
+        --color-toast-danger-text: #24292e;
+        --color-toast-danger-border: #e1e4e8;
+        --color-toast-danger-icon: #fff;
+        --color-toast-danger-icon-bg: #d73a49;
+        --color-toast-danger-icon-border: transparent;
+        --color-toast-loading-text: #24292e;
+        --color-toast-loading-border: #e1e4e8;
+        --color-toast-loading-icon: #fff;
+        --color-toast-loading-icon-bg: #586069;
+        --color-toast-loading-icon-border: transparent;
+
+
         --color-timeline-text: fg3 //#444d56;
         --color-timeline-badge-bg: bg3 //#e1e4e8;
         --color-timeline-target-badge-border: ac3 //#2188ff;
@@ -684,6 +746,21 @@ for c, i in C {
         --color-dropdown-bg: bg1 //#fff;
         --color-dropdown-border: bg5 //#e1e4e8;
         --color-dropdown-shadow: 0 8px 24px #0002 //rgba(149,157,165,0.2);
+
+        --color-label-border: #e1e4e8;
+        --color-label-primary-text: #24292e;
+        --color-label-primary-border: #6a737d;
+        --color-label-secondary-text: #586069;
+        --color-label-secondary-border: #e1e4e8;
+        --color-label-info-text: #0366d6;
+        --color-label-info-border: #0366d6;
+        --color-label-success-text: #22863a;
+        --color-label-success-border: #28a745;
+        --color-label-warning-text: #735c0f;
+        --color-label-warning-border: #b08800;
+        --color-label-danger-text: #d73a49;
+        --color-label-danger-border: #cb2431;
+
         --color-counter-primary-text: fg1 //#fff;
         --color-counter-primary-bg: bg5 //#6a737d;
         --color-counter-secondary-text: bg5 //#6a737d;
@@ -705,6 +782,7 @@ for c, i in C {
 
         --color-menu-heading-text: fg1 //#24292e;
         --color-menu-border-active: ac0 //#f9826c;
+        --color-menu-bg-active: transparent;
         --color-sidenav-selected-bg: bg1 //#fff;
         --color-sidenav-border-active: ac0 //#f9826c;
         --color-tabnav-selected-bg: bg1 //#fff;
@@ -751,6 +829,7 @@ for c, i in C {
         --color-hl-author-border: #c8e1ff;
         --color-logo-subdued: #d1d5da;
         --color-discussion-border: #a2cbac;
+        --color-discussion-bg-success: #28a745;
 
         --color-diff-blob-num-text: fg3 //rgba(27,31,35,0.3);
         --color-diff-blob-num-hover-text: fg1 //rgba(27,31,35,0.6);
