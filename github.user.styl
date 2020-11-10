@@ -227,7 +227,7 @@ for c, i in C {
 }
 }
 
-@-moz-document regexp('https?://((gist|docs)\.)?github?.com(/.*)?') {
+@-moz-document regexp('https?://((gist|docs|support)\\.)?github?.com(/.*)?') {
     // Show debug.
     if (cg_debug) {
         body > div:first-child {
@@ -1656,6 +1656,149 @@ for c, i in C {
 	      color: ac1;
     }
 }
+
+@-moz-document regexp('https?://((support)\\.)github?.com(/.*)?') {
+    body {
+        color: fg2
+        a { color: ac3 }
+    }
+    .Header {
+        background-color: bg3
+        &-item {
+            & img {
+                filter: invert(1)
+            }
+        }
+        & .Header-link {
+            color: ac1
+        }
+    }
+
+    hr, .rule { border-color: var(--color-border-primary) }
+
+    .bg-blue { background-color: ac3 i }
+    
+    .text {
+        &-blue { c: ac1 0 0 }
+        &-gray { color: fg1 i }
+        &-gray-dark { color: fg2 i }
+        &-gray-light { color: fg1 i }
+    }
+
+    .link-gray {
+        color: fg5 i
+        &:hover {
+            color: ac1 i
+        }
+    }
+    .btn {
+        color: var(--color-btn-primary-text)
+        border-color: var(--color-btn-border)
+        background-color: var(--color-btn-bg)
+        &:focus,
+        &.focus {
+             box-shadow: 0 0 0 0.2px fg5 
+        }
+        &:hover { 
+            background-color: var(--color-btn-hover-bg)
+        }
+        &-mktg {
+            color: var(--color-btn-primary-icon)
+            border: 1px solid ac2
+            &:focus {
+                box-shadow: 0 0 0 0.2em ac5
+            }
+            &:hover {
+                border: 1px solid ac2
+            }
+      }
+      &-primary {
+          color: var(--color-btn-primary-text)
+          background-color: var(--color-btn-primary-bg)
+          box-shadow: 0 1px 0 rgba(27,31,35,0.1),inset 0 1px 0 rgba(255,255,255,0.03);
+          &:hover { 
+              background-color: var(--color-btn-primary-focus-bg) }
+          }
+          &:focus,
+          &.focus { 
+              box-shadow: 0 0 0 2px ac5
+          }
+      }
+
+      .Box {
+          background-color: var(--color-bg-primary)
+          border: 1px solid var(--color-border-primary)
+          &-header {
+              background-color: var(--color-bg-secondary);
+              border-color: var(--color-border-primary);
+          }
+      }
+
+      .border-bottom {
+          border-bottom: 1px solid var(--color-border-primary) i;
+      }
+
+      .form-select, .form-control {
+          color: var(--color-text-secondary)
+          background-color: var(--color-input-bg)
+          border-color: var(--color-input-border)
+          box-shadow: none;
+          &.focus,
+          &:focus {
+              border-color: ac2
+              box-shadow: 0 0 0 3px ac5;
+          }
+      }
+      .form-group {
+          & .form-control {
+              background-color: var(--color-input-bg)
+              &:focus {
+                  background-color: var(--color-input-contrast-bg)
+                  border-color: ac2
+                  box-shadow: 0 0 0 3px ac5;
+              }
+          }
+          & #q {
+              background-color: var(--color-input-bg);
+          }
+    }
+    // recolor search icon svg
+    @css {
+        #q {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="%23bebebe" fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0013 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 000-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>') no-repeat 6px
+        }
+    }
+
+    .previewable-comment-form .comment-form-head.tabnav {
+        background: bg3
+    }
+
+    .add-markdown-comment {
+      color: fg3
+      border: 1px solid var(--color-border-primary)
+    }
+
+    .tabnav {
+        border-bottom: 1px solid var(--color-border-primary)
+        &-tab {
+            color: fg3
+            &:hover {  color: fg2 }
+        }
+    }
+    .tabnav-tab.selected, .tabnav-tab[aria-selected="true"],
+    .tabnav-tab[aria-current]:not([aria-current="false"]) {
+        border-color: var(--color-border-primary)
+    }
+
+    .bg-gray-light {
+        background-color: var(--color-bg-primary) i;
+    }
+
+    .drag-and-drop {
+       color: var(--color-text-tertiary)
+       background-color: var(--color-bg-primary)
+       border: 1px solid var(--color-border-primary)
+    }
 }
 
 @-moz-document regexp('https?://render\.githubusercontent?.com(/.*)?') {
