@@ -1,0 +1,20 @@
+{
+  "name": "Dark-GitHub",
+  "title": "Dark GitHub",
+  "version": "0.17.0",
+  "license": "MIT",
+  "repository": "vednoc/Dark-GitHub",
+  "private": true,
+  "engines": {
+    "node": ">=12"
+  },
+  "devDependencies": {
+    "updates": "11.4.0",
+    "versions": "8.4.3"
+  },
+  "scripts": {
+    "patch": "versions -p -C patch github.user.styl",
+    "minor": "versions -p -C minor github.user.styl",
+    "major": "versions -p -C major github.user.styl"
+  }
+}
