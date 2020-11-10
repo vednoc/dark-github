@@ -974,7 +974,8 @@ for c, i in C {
 
     .form-group .form-control[disabled],
     .form-group .form-select[disabled] {
-        c: var(--color-text-disabled) 0 var(--color-btn-bg)
+        border-color: var(--color-text-disabled)
+        background-color: var(--color-btn-bg)
     }
 
     // Global -> Color overrides.
@@ -1043,9 +1044,13 @@ for c, i in C {
             border-color: var(--color-alert-warn-border);
         }
 
-        .subnav-item.selected,
-        .subnav-item[aria-current]:not([aria-current="false"]),
-        .subnav-item[aria-selected="true"] { c: 0 ac3 0 }
+        .subnav-item {
+            &.selected,
+            &[aria-current]:not([aria-current="false"]),
+            &[aria-selected="true"] {
+                c: 0 ac3 0
+            }
+        }
     }
     // Navbar.
     .js-header-wrapper {
@@ -1712,7 +1717,7 @@ for c, i in C {
     }
 
     :checked + .x-radio-label {
-        background: ac3;
+        background: ac3
     }
 
     #landing[style*="background-color: #fafbfc"],
