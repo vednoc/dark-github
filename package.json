@@ -15,6 +15,7 @@
   "scripts": {
     "patch": "versions -p -C patch github.user.styl",
     "minor": "versions -p -C minor github.user.styl",
-    "major": "versions -p -C major github.user.styl"
+    "major": "versions -p -C major github.user.styl",
+    "update": "updates -cuU && npm install"
   }
 }
