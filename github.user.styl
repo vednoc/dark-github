@@ -921,7 +921,7 @@ for c, i in C {
             .notification-archived,
             .notification-read {
                 c: 0 0 bg2
-                &:hover { c: 0 0 v61 }
+                &:hover { c: 0 0 ac5 }
             }
         }
 
@@ -943,6 +943,11 @@ for c, i in C {
         .vcard-username { c: fg4 }
     }
 
+        // Blue to accent color
+        .flash {
+            background-image: linear-gradient(ac5 , ac5);
+            border-color: ac4
+        }
     // Navbar.
     .js-header-wrapper {
         border-bottom: 1px solid bg5
@@ -987,7 +992,7 @@ for c, i in C {
         /// Notifications. @upstream
         .mail-status {
             background-image: none i
-            c: 0 0 ac0
+            c: 0 0 ac1
         }
 
         /// Logged out style.
@@ -999,6 +1004,8 @@ for c, i in C {
             --color-text-white: fg1
         }
     }
+
+    .notifications-list-item.notification-unread .notification-list-item-unread-indicator { c: 0 0 ac1 }
 
     // Navigation. @upstream
     .UnderlineNav-item {
