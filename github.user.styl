@@ -1681,6 +1681,12 @@ for c, i in C {
         border-color: var(--color-btn-border)
         background-color: var(--color-btn-bg)
         transition: color, background 0.2s
+        &:active,
+        &.selected,
+        &[aria-selected="true"] {
+            background-color: var(--color-btn-hover-bg) i
+            box-shadow: var(--color-shadow-inset)
+        }
         &.disabled,
         &:disabled,
         &[aria-disabled="true"] {
@@ -1694,8 +1700,9 @@ for c, i in C {
             border-color: var(--color-btn-hover-border)
         }
         &-outline {
-            color: ac5
-            border-color: var(--bg2)
+            color: ac2
+            border-color: bg5
+            background-color: var(--color-btn-bg)
             &:hover { background-color: bg3 }
             &:focus { box-shadow: 0 0 0 3px ac4 }
             &.disabled,
@@ -1788,6 +1795,12 @@ for c, i in C {
         &.focus {
             box-shadow: 0 0 0 0.2px fg5
         }
+        &:active,
+        &.selected,
+        &[aria-selected="true"] {
+            background-color: var(--color-btn-focus-bg)
+            box-shadow: var(--color-shadow-inset)
+        }
         &:hover {
             background-color: var(--color-btn-hover-bg)
         }
@@ -1806,11 +1819,17 @@ for c, i in C {
         background-color: var(--color-btn-primary-bg)
         box-shadow: 0 1px 0 rgba(27,31,35,0.1),inset 0 1px 0 rgba(255,255,255,0.03);
         &:hover {
-            background-color: var(--color-btn-primary-focus-bg) }
+            background-color: var(--color-btn-primary-hover-bg) }
         }
         &:focus,
         &.focus {
             box-shadow: 0 0 0 2px ac5
+        }
+        &:active,
+        &.selected,
+        &[aria-selected="true"] {
+            background-color: var(--color-btn-primary-focus-bg)
+            box-shadow: var(--color-shadow-inset)
         }
     }
 
