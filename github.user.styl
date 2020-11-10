@@ -971,11 +971,82 @@ for c, i in C {
             c: 0 v16 v16
         }
     }
-
+    // Form fixes
     .form-group .form-control[disabled],
     .form-group .form-select[disabled] {
         border-color: var(--color-text-disabled)
         background-color: var(--color-btn-bg)
+    }
+
+    // Actions
+    .CheckStep {
+        & a {
+            &:hover {
+                color: var(--color-text-white) i;
+            }
+        }
+        &[open] {
+            & .CheckStep-header {
+                color: var(--color-text-white)
+                background-color: var(--color-hidden-text-expander-bg-hover)
+                box-shadow: none
+                &-label { color: var(--color-text-white) }
+            }
+        }
+        &-line {
+            color: var(--color-diff-blob-num-text)
+            & .CheckStep {
+                &-line-number {
+                    color: var(--color-diff-blob-num-text)
+                }
+            }
+            &:hover {
+                color: var(--color-text-white)
+                background-color: var(--color-hidden-text-expander-bg-hover);
+            }
+            & .CheckStep {
+                &-line {
+                    &-content {
+                        & a {
+                            color: ac1
+                        }
+                    }
+                }
+            }
+        }
+        &-header {
+            background-color: var(--color-hidden-text-expander-bg-hover)
+            box-shadow: none
+            &:hover {
+                background-color: var(--color-hidden-text-expander-bg-hover)
+                box-shadow: none
+            }
+            &-label {
+                color: fg2
+            }
+        }
+    }
+    .CheckRun {
+        background-color: var(--color-bg-primary)
+        &-header {
+            border-bottom: 1px solid bg5
+            .CheckRun {
+                &-search-input {
+                    color: var(--color-text-secondary);
+                    background-color: var(--color-input-bg);
+                    &:focus {
+                        color: var(--color-text-primary);
+                    }
+                }
+            }
+            &-counter {
+                color: var(--color-text-secondary);
+                background-color: var(--color-counter-bg);
+            }
+        }
+        &-log-title {
+            color: fg3;
+        }
     }
 
     // Global -> Color overrides.
