@@ -1051,6 +1051,22 @@ for c, i in C {
                 c: 0 ac3 0
             }
         }
+
+        /// Image fixes
+        //  Actions e.g. https://github.com/vednoc/dark-github/actions/new
+        .repo {
+            &-actions-hero {
+                filter: invert(0.95) hue-rotate(180deg) brightness(1.2)
+                mix-blend-mode: lighten
+            }
+        }
+        //  Marketplace e.g. https://github.com/marketplace
+        .MarketplaceBackground-recommendations {
+            /img[src*="marketplace-illustration"] {
+                filter: invert(0.95) hue-rotate(180deg) brightness(1.2)
+                mix-blend-mode: lighten
+            }
+        }
     }
     // Navbar.
     .js-header-wrapper {
@@ -1572,6 +1588,21 @@ for c, i in C {
         & #search-results-container {
             background: var(--color-bg-tertiary)
             box-shadow: 0 1px 15px bg2
+        }
+    }
+    /// Image fixes
+    //  All procedural images
+    .procedural-image-wrapper {
+        /img {
+            filter: invert(.93) hue-rotate(180deg) brightness(1.3)
+            mix-blend-mode: lighten
+        }
+    }
+    // Landing svg
+    #landing {
+        \[data-name="octocat header"] {
+            filter: invert(.93) hue-rotate(180deg) brightness(1.3)
+            mix-blend-mode: lighten
         }
     }
 
