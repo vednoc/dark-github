@@ -1921,9 +1921,10 @@ for c, i in C {
 
             /// OpenStreetMap.
             .leaflet {
-                &-bar, &-control-layers { c: 0 #ddd }
+                &-bar, &-control-layers { c: 0 fg1 }
                 &-bar > a:last-child { border-bottom: none }
                 &-container { filter: invert(0.95) hue-rotate(180deg) brightness(150%) }
+                &-popup-content { overflow-y: auto }
             }
         }
     }
