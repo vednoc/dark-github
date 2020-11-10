@@ -255,7 +255,7 @@ for c, i in C {
 
         /// Feat -> Custom monospace font.
         --f-mono: f_mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, \
-                  Fira Code, monospace
+                Fira Code, monospace
 
         /// Feat -> Custom user interface font.
         --f-ui: f_ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, \
@@ -974,7 +974,7 @@ for c, i in C {
 
     .form-group .form-control[disabled],
     .form-group .form-select[disabled] {
-      c: var(--color-text-disabled) 0 var(--color-btn-bg)
+        c: var(--color-text-disabled) 0 var(--color-btn-bg)
     }
 
     // Global -> Color overrides.
@@ -1535,9 +1535,9 @@ for c, i in C {
                         > ul + div[style] { visibility: hidden i }
                     }
                 }
-             }
+            }
 
-             /// Reset backgrounds for header and navigation.
+            /// Reset backgrounds for header and navigation.
             .js-header-wrapper { c: 0 0 bg3 }
             main > :first-child { b: inset 0 -1px 0 bg4 }
         }
@@ -1571,7 +1571,7 @@ for c, i in C {
     }
 
     .dropdown-withArrow svg.arrow[stroke*="#1277eb"] {
-      stroke: var(--color-icon-primary)
+        stroke: var(--color-icon-primary)
     }
 
     .sidebar {
@@ -1587,32 +1587,32 @@ for c, i in C {
                     }
                 }
             }
-       }
-       &-background-color {
+        }
+        &-background-color {
             background-color: var(--color-bg-tertiary)
-       }
-       &-category {
-           &.active {
-               background-color:  var(--color-bg-tertiary)
-           }
-       }
+        }
+        &-category {
+            &.active {
+                background-color:  var(--color-bg-tertiary)
+            }
+        }
     }
     .sidebar-category > a, .sidebar-category summary a,
     .sidebar-product > a, .sidebar-product summary a,
     .sidebar-product.is-current-page > a, .sidebar-category.is-current-page > a,
     .sidebar-maptopic.is-current-page > a, .sidebar-article.is-current-page > a {
-      color: ac2
+        color: ac2
     }
     .sidebar-products a:hover,
     .sidebar-products .arrow:hover {
-      color: ac1
+        color: ac1
     }
 
     .bg-blue-light {
-          background-color: var(--v6-0) i
+        background-color: var(--v6-0) i
     }
     .border-blue {
-          border-color: var(--v6-3) i
+        border-color: var(--v6-3) i
     }
     .markdown-body {
         & table {
@@ -1620,7 +1620,7 @@ for c, i in C {
                 background-color: var(--bg-0)
                 border-top-color: var(--color-border-secondary)
                 &:nth-child(2n) {
-                  background-color: var(--bg-0)
+                    background-color: var(--bg-0)
                 }
             }
             & th {
@@ -1639,12 +1639,12 @@ for c, i in C {
     }
 
     .text {
-       &-gray-dark { c: fg1 }
-       &-gray { c: fg3 }
-       &-gray-light { c: fg3 }
-   }
+        &-gray-dark { c: fg1 }
+        &-gray { c: fg3 }
+        &-gray-light { c: fg3 }
+    }
 
-   .link-gray-dark {
+    .link-gray-dark {
         c: var(--color-text-secondary)
         &:hover { c: ac1 }
     }
@@ -1712,7 +1712,7 @@ for c, i in C {
     }
 
     :checked + .x-radio-label {
-      background: ac3;
+        background: ac3;
     }
 
     #landing[style*="background-color: #fafbfc"],
@@ -1734,10 +1734,10 @@ for c, i in C {
         &:focus { b: 0 0 0 3px ac4 }
     }
     .ais-Hits-item:hover {
-          background: var(--color-alert-success-bg);
+        background: var(--color-alert-success-bg);
     }
     .search-result-title mark, .search-result-title .ais-Highlight-highlighted {
-          color: ac1;
+        color: ac1;
     }
 }
 
@@ -1781,7 +1781,7 @@ for c, i in C {
         background-color: var(--color-btn-bg)
         &:focus,
         &.focus {
-             box-shadow: 0 0 0 0.2px fg5
+            box-shadow: 0 0 0 0.2px fg5
         }
         &:hover {
             background-color: var(--color-btn-hover-bg)
@@ -1795,56 +1795,56 @@ for c, i in C {
             &:hover {
                 border: 1px solid ac2
             }
-      }
-      &-primary {
-          color: var(--color-btn-primary-text)
-          background-color: var(--color-btn-primary-bg)
-          box-shadow: 0 1px 0 rgba(27,31,35,0.1),inset 0 1px 0 rgba(255,255,255,0.03);
-          &:hover {
-              background-color: var(--color-btn-primary-focus-bg) }
-          }
-          &:focus,
-          &.focus {
-              box-shadow: 0 0 0 2px ac5
-          }
-      }
+    }
+    &-primary {
+        color: var(--color-btn-primary-text)
+        background-color: var(--color-btn-primary-bg)
+        box-shadow: 0 1px 0 rgba(27,31,35,0.1),inset 0 1px 0 rgba(255,255,255,0.03);
+        &:hover {
+            background-color: var(--color-btn-primary-focus-bg) }
+        }
+        &:focus,
+        &.focus {
+            box-shadow: 0 0 0 2px ac5
+        }
+    }
 
-      .Box {
-          background-color: var(--color-bg-primary)
-          border: 1px solid var(--color-border-primary)
-          &-header {
-              background-color: var(--color-bg-secondary);
-              border-color: var(--color-border-primary);
-          }
-      }
+    .Box {
+        background-color: var(--color-bg-primary)
+        border: 1px solid var(--color-border-primary)
+        &-header {
+            background-color: var(--color-bg-secondary);
+            border-color: var(--color-border-primary);
+        }
+    }
 
-      .border-bottom {
-          border-bottom: 1px solid var(--color-border-primary) i;
-      }
+    .border-bottom {
+        border-bottom: 1px solid var(--color-border-primary) i;
+    }
 
-      .form-select, .form-control {
-          color: var(--color-text-secondary)
-          background-color: var(--color-input-bg)
-          border-color: var(--color-input-border)
-          box-shadow: none;
-          &.focus,
-          &:focus {
-              border-color: ac2
-              box-shadow: 0 0 0 3px ac5;
-          }
-      }
-      .form-group {
-          & .form-control {
-              background-color: var(--color-input-bg)
-              &:focus {
-                  background-color: var(--color-input-contrast-bg)
-                  border-color: ac2
-                  box-shadow: 0 0 0 3px ac5;
-              }
-          }
-          & #q {
-              background-color: var(--color-input-bg);
-          }
+    .form-select, .form-control {
+        color: var(--color-text-secondary)
+        background-color: var(--color-input-bg)
+        border-color: var(--color-input-border)
+        box-shadow: none;
+        &.focus,
+        &:focus {
+            border-color: ac2
+            box-shadow: 0 0 0 3px ac5;
+        }
+    }
+    .form-group {
+        & .form-control {
+            background-color: var(--color-input-bg)
+            &:focus {
+                background-color: var(--color-input-contrast-bg)
+                border-color: ac2
+                box-shadow: 0 0 0 3px ac5;
+            }
+        }
+        & #q {
+            background-color: var(--color-input-bg);
+        }
     }
     // recolor search icon svg
     @css {
@@ -1858,8 +1858,8 @@ for c, i in C {
     }
 
     .add-markdown-comment {
-      color: fg3
-      border: 1px solid var(--color-border-primary)
+    color: fg3
+    border: 1px solid var(--color-border-primary)
     }
 
     .tabnav {
