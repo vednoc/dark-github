@@ -1533,14 +1533,18 @@ for c, i in C {
     .markdown-body {
         & table {
             & tr {
-                background-color: var(--color-bg-secondary)
+                background-color: var(--bg-0)
                 border-top-color: var(--color-border-secondary)
+                &:nth-child(2n) {
+                  background-color: var(--bg-0)
+                }
             }
             & th {
-                background-color: var(--color-bg-primary)
-                box-shadow: 0 3px 0 0 var(--color-border-primary);
+                background-color: var(--bg-0)
+                box-shadow: 0 3px 0 0 var(--color-border-secondary);
             }
         }
+        & h2 { border-bottom-color: var(--color-border-primary) }
         & .highlight pre,
         & pre {
             background-color: var(--color-bg-secondary)
