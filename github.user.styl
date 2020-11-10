@@ -893,6 +893,11 @@ for c, i in C {
         }
     }
 
+    .form-group .form-control[disabled], 
+    .form-group .form-select[disabled] {
+      c: var(--color-text-disabled) 0 var(--color-btn-bg)
+    }
+
     // Global -> Color overrides.
     /{
         /// NOTE: Remaps bg1 to bg0.
@@ -953,6 +958,10 @@ for c, i in C {
             background-image: linear-gradient(ac5 , ac5);
             border-color: ac4
         }
+ 
+        .subnav-item.selected,
+        .subnav-item[aria-current]:not([aria-current="false"]),
+        .subnav-item[aria-selected="true"] { c: 0 ac3 0 }
     }
     // Navbar.
     .js-header-wrapper {
