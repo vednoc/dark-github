@@ -941,13 +941,19 @@ for c, i in C {
 
         button.close-button { color: fg1 }
         .vcard-username { c: fg4 }
-    }
+
+        // Progress loader
+        .progress-pjax-loader > .progress-pjax-loader-bar[style*="background-color"] {
+            background-color: ac2 i;
+            box-shadow: 0 0 10px ac3;
+        }
 
         // Blue to accent color
         .flash {
             background-image: linear-gradient(ac5 , ac5);
             border-color: ac4
         }
+    }
     // Navbar.
     .js-header-wrapper {
         border-bottom: 1px solid bg5
