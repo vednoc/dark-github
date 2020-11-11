@@ -1013,6 +1013,20 @@ for c, i in C {
                     }
                 }
             }
+            &.selected {
+                color: var(--color-diff-blob-num-text)
+                & .CheckStep {
+                    &-line-number {
+                        color: var(--color-diff-blob-num-text)
+                    }
+                }
+            }
+        }
+        & .log-line-command {
+            color: var(--color-auto-blue-7)
+            & .CheckStep-line-number {
+                color: var(--color-auto-blue-7)
+            }
         }
         &-header {
             background-color: var(--color-hidden-text-expander-bg-hover)
@@ -1023,6 +1037,15 @@ for c, i in C {
             }
             &-label {
                 color: fg2
+            }
+            &-dropdown {
+                &:hover {
+                    color: var(--color-text-tertiary)
+                    background-color: var(--color-hidden-text-expander-bg-hover) i
+                    & .octicon {
+                        color: var(--color-text-tertiary) i
+                    }
+                }
             }
         }
     }
@@ -1046,6 +1069,33 @@ for c, i in C {
         }
         &-log-title {
             color: fg3;
+        }
+        &-header {
+            background-color: var(--color-bg-primary) i
+            border-top: 1px solid var(--color-border-primary)
+            & .btn-link {
+                &:not([disabled]) {
+                    color: var(--color-text-tertiary)
+                    & .octicon {
+                        color: var(--color-text-tertiary)
+                    }
+                }
+            }
+            & .btn {
+                & .btn-link {
+                    &:not([disabled]) {
+                        color: var(--color-text-tertiary)
+                        & .octicon {
+                            color: var(--color-text-tertiary)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .checks-list-item {
+        &.bg-white {
+            background-color: var(--color-bg-secondary) i
         }
     }
 
