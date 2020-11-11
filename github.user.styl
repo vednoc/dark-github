@@ -1740,14 +1740,21 @@ for c, i in C {
         }
     }
 
+    /// More guides.
+    .Box {
+        border: 1px solid bg4
+        background-color: bg2
+    }
+
     .dropdown-withArrow svg.arrow[stroke*="#1277eb"] {
         stroke: var(--color-icon-primary)
     }
 
+    /// Sidebar.
     .sidebar {
         background-color: var(--color-bg-secondary)
         &-maptopic {
-            & .sidebar-article {
+            .sidebar-article {
                 &::before {
                     border-left: 1px solid ac4
                 }
@@ -1765,25 +1772,40 @@ for c, i in C {
             &.active {
                 background-color:  var(--color-bg-tertiary)
             }
+            > a { color: ac2 }
+            summary a { color: ac2 }
+        }
+        &-product {
+            > a { color: ac2 }
+            summary a { color: ac2 }
+            &s {
+                a:hover { color: ac1 }
+                arrow:hover { color: ac1 }
+            }
         }
     }
-    .sidebar-category > a, .sidebar-category summary a,
-    .sidebar-product > a, .sidebar-product summary a,
+
     .sidebar-product.is-current-page > a, .sidebar-category.is-current-page > a,
     .sidebar-maptopic.is-current-page > a, .sidebar-article.is-current-page > a {
         color: ac2
     }
-    .sidebar-products a:hover,
-    .sidebar-products .arrow:hover {
-        color: ac1
+
+    /// Backgrounds.
+    .bg {
+        &-blue-light { c: 0 0 var(--v6-0) }
+        &-blue { c: 0 0 var(--v6-3) }
+        &-purple-light { c: 0 0 var(--color-auto-purple-9) }
     }
 
-    .bg-blue-light {
-        background-color: var(--v6-0) i
+    /// Borders.
+    .border {
+        &-blue { c: 0 var(--v6-3) }
+        &-purple { c: 0 var(--color-auto-purple-6) }
+        &-top { border-top-color: var(--color-border-primary) i }
+        &-bottom { border-bottom-color: 0 var(--color-border-primary) }
+        &-gray-light { border-color: var(--color-border-primary) i }
     }
-    .border-blue {
-        border-color: var(--v6-3) i
-    }
+
     .markdown-body {
         & table {
             & tr {
@@ -1808,15 +1830,28 @@ for c, i in C {
         }
     }
 
+    /// Text colors
     .text {
         &-gray-dark { c: fg1 }
         &-gray { c: fg3 }
         &-gray-light { c: fg3 }
+        &-white { c: fg1 }
     }
 
-    .link-gray-dark {
-        c: var(--color-text-secondary)
-        &:hover { c: ac1 }
+    .color {
+        &-gray-5 { c: fg5 }
+    }
+
+    .link {
+        &-gray-dark {
+            c: var(--color-text-secondary)
+            &:hover { c: ac1 }
+        }
+        &-gray {
+            &:hover {
+                color: ac1 i
+            }
+        }
     }
 
     .bg-white {
@@ -1825,16 +1860,6 @@ for c, i in C {
 
     .box-shadow-large {
         box-shadow: 0 8px 20px bg2 i;
-    }
-
-    .border-bottom {
-        c: 0 var(--color-border-primary)
-    }
-    .border-top {
-        border-top-color: var(--color-border-primary) i;
-    }
-    .border-gray-light {
-        border-color: var(--color-border-primary) i;
     }
 
     [open] > .btn {
@@ -1915,6 +1940,12 @@ for c, i in C {
     }
     .search-result-title mark, .search-result-title .ais-Highlight-highlighted {
         color: ac1;
+    }
+    .nav-desktop {
+        &-productDropdown,
+        &-langDropdown {
+            background: var(--color-dropdown-bg)
+        }
     }
 }
 
