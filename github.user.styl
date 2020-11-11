@@ -1337,6 +1337,14 @@ for c, i in C {
                 p.commit-title { c: fg1 }
             }
         }
+        else {
+            /.full-commit {
+                p.commit-title {
+                    color: fg3
+                }
+            }
+        }
+
 
         /// Feat -> Shorter headers.
         if (short_headers) {
