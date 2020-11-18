@@ -831,6 +831,15 @@ for c, i in C {
         --color-discussion-border: #a2cbac;
         --color-discussion-bg-success: v43;
 
+        --color-diff-addition-text: v45 //#22863a;
+        --color-diff-addition-bg: v40 //#e6ffed;
+        --color-diff-addition-border: v47 //#34d058;
+        --color-diff-deletion-text: v15 //#cb2431;
+        --color-diff-deletion-bg: v10 //#ffeef0;
+        --color-diff-deletion-border: v17 //#d73a49;
+        --color-diff-change-text: v25 //#b08800;
+        --color-diff-change-bg: v20 //#fff5b1;
+        --color-diff-change-border: v27 //#f9c513;
         --color-diff-blob-num-text: fg3 //rgba(27,31,35,0.3);
         --color-diff-blob-num-hover-text: fg1 //rgba(27,31,35,0.6);
         --color-diff-blob-addition-num-bg: v41 //#cdffd8;
@@ -1440,17 +1449,6 @@ for c, i in C {
         &-code {
             &-addition .x { c: white }
             &-deletion .x { c: white }
-        }
-
-        /// Rich diff. @upstream
-        /.prose-diff {
-            .changed {
-                .added, ins, ins code, ins pre { c: 0 v43 v45 }
-            }
-            .rich-diff-level-zero.added,
-            .markdown-body > ins {
-                b: inset 4px 0 0 v43 i
-            }
         }
 
         /// Diff -> Remove blend mode from selected line.
