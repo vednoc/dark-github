@@ -854,6 +854,8 @@ for c, i in C {
         --color-diff-blob-empty-block-bg: bg2 //#fafbfc;
         --color-diff-blob-selected-line-highlight-bg: bg4 //rgba(255,223,93,0.2);
         --color-diff-blob-selected-line-highlight-border: v33 //#ffd33d;
+        --color-diff-blob-selected-line-highlight-border: v32 //#ffd33d;
+        --color-diff-blob-selected-line-highlight-mix-blend-mode: normal //multiply;
         --color-diff-blob-expander-icon: fg2 //#586069;
         --color-diff-blob-expander-hover-icon: #fff;
         --color-diff-blob-expander-hover-bg: ac3 //#0366d6;
@@ -1451,13 +1453,10 @@ for c, i in C {
             &-deletion .x { c: white }
         }
 
-        /// Diff -> Remove blend mode from selected line.
+        /// Diff -> Selected line tweaks.
         /.selected-line {
             z-index: 1
-            &::after {
-                z-index: -1
-                mix-blend-mode: normal i
-            }
+            &::after { z-index: -1 }
         }
 
         /// Line highlight.
