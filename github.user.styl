@@ -967,19 +967,19 @@ for c, i in C {
             z = '<circle cx="256" cy="256" r="128" fill="white"/>'
             background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
             border-radius: 100% i
-            &:checked { c: 0 ac4 ac4 }
+            &:checked { c: 0 ac2 ac3 }
         }
 
         &[type='checkbox']:checked {
             z ='<path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>'
             background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-            c: 0 ac4 ac4
+            c: 0 ac2 ac3
         }
 
         &[type='checkbox']:indeterminate {
-            z = '<rect x="128" y="192" width="256" height="96" fill="white"/>'
+            z = '<rect x="128" y="208" width="256" height="96" fill="white"/>'
             background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-            c: 0 v16 v16
+            c: 0 v18 v16
         }
     }
     // Form fixes
