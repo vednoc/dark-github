@@ -1134,12 +1134,13 @@ for c, i in C {
             c: 0 0 bg1
         }
 
-        /// NOTE: Remap bg3 to bg2.
+        /// NOTE: Remap bg3 to bg1.
         .bg-gray {
             .notification-archived,
+            .notification-starred,
             .notification-read {
-                c: 0 0 bg2
-                &:hover { c: 0 0 ac5 }
+                c: 0 0 bg1
+                &:hover { c: 0 0 bg2 }
             }
         }
 
