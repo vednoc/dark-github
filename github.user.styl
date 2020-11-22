@@ -1177,6 +1177,14 @@ for c, i in C {
             border-color: var(--color-alert-warn-border);
         }
 
+        /// Code blocks.
+        .markdown-body pre { c: 0 0 bg2 }
+
+        /// Releases.
+        .release-timeline-tags {
+            .tag-timeline-date::after { c: 0 bg0 }
+        }
+
         .subnav-item {
             &.selected,
             &[aria-current]:not([aria-current="false"]),
