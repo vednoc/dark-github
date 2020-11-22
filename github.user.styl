@@ -212,7 +212,7 @@ for c, i in C {
             $h = C[c].hue + num / 2
             $s = 100 - num * 8
             $offset = (num < 2) ? 0.8 : 1.6
-            $l = 5 + (num + $offset) * 5
+            $l = 5 + (num + $offset) * 6
             $res = hsl($h, $s, $l)
             $res = mix(BG, $res, 10%)
         } else {
