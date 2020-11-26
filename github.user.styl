@@ -872,12 +872,12 @@ for c, i in C {
         --color-global-nav-input-icon: #d1d5da;
         --color-global-nav-input-placeholder: #959da5;
 
-        --color-calendar-graph-day-bg: bg2 //#ebedf0;
+        --color-calendar-graph-day-bg: bg1 //#ebedf0;
         --color-calendar-graph-day-border: #88888825 //#1b1f230f;
-        --color-calendar-graph-day-L1-bg: ac0 //#9be9a8;
-        --color-calendar-graph-day-L2-bg: ac0 //#40c463;
-        --color-calendar-graph-day-L3-bg: ac0 //#30a14e;
-        --color-calendar-graph-day-L4-bg: ac0 //#216e39;
+        --color-calendar-graph-day-L1-bg: ac4 //#9be9a8;
+        --color-calendar-graph-day-L2-bg: ac3 //#40c463;
+        --color-calendar-graph-day-L3-bg: ac2 //#30a14e;
+        --color-calendar-graph-day-L4-bg: ac1 //#216e39;
         --color-calendar-graph-day-L4-border: #88888825 //#1b1f230f;
         --color-calendar-graph-day-L3-border: #88888825 //#1b1f230f;
         --color-calendar-graph-day-L2-border: #88888825 //#1b1f230f;
@@ -1526,19 +1526,26 @@ for c, i in C {
     /{
         /// Calendar graph. @upstream
         .calendar-graph {
-            rect[fill*='graph-day-L1'] { fill-opacity: 0.25 }
-            rect[fill*='graph-day-L2'] { fill-opacity: 0.50 }
-            rect[fill*='graph-day-L3'] { fill-opacity: 0.75 }
-            rect[fill*='graph-day-L4'] { fill-opacity: 1.00 }
+            rect[fill="#ebedf0"] { fill: var(--color-calendar-graph-day-bg) i}
+            rect[fill="#9be9a8"] { fill: var(--color-calendar-graph-day-L1-bg) i}
+            rect[fill="#40c463"] { fill: var(--color-calendar-graph-day-L2-bg) i}
+            rect[fill="#30a14e"] { fill: var(--color-calendar-graph-day-L3-bg) i}
+            rect[fill="#216e39"] { fill: var(--color-calendar-graph-day-L4-bg) i}
         }
 
         /// Calendar legends and contributions in activity.
-        .legend li,
+        .legend li {
+            box-shadow: inset 0 0 0 1px var(--color-calendar-graph-day-border) i
+            &[style="background-color: #ebedf0"] { background-color: var(--color-calendar-graph-day-bg) i}
+            &[style="background-color: #9be9a8"] { background-color: var(--color-calendar-graph-day-L1-bg) i}
+            &[style="background-color: #40c463"] { background-color: var(--color-calendar-graph-day-L2-bg) i}
+            &[style="background-color: #30a14e"] { background-color: var(--color-calendar-graph-day-L3-bg) i}
+            &[style="background-color: #216e39"] { background-color: var(--color-calendar-graph-day-L4-bg) i}
+        }
+
         .Progress-item {
-            &[style*='graph-day-L1'] { opacity: 0.25 }
-            &[style*='graph-day-L2'] { opacity: 0.50 }
-            &[style*='graph-day-L3'] { opacity: 0.75 }
-            &[style*='graph-day-L4'] { opacity: 1.00 }
+            &[style*="background-color: #40c463"] { background-color: var(--color-calendar-graph-day-L4-bg) i}
+            &[style*="background-color: #9be9a8"] {background-color: var(--color-calendar-graph-day-L2-bg) i}
         }
 
         /// Activity overview.
