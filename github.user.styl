@@ -29,6 +29,7 @@
 
 @var text     f_ui         'UI font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
+@var text     b_hgwd       'Checkbox width/height' '1rem'
 
 @var checkbox custom_font   'Use custom font overrides' 1
 @var checkbox navbar_sticky 'Use sticky position for the navbar' 0
@@ -955,8 +956,8 @@ for c, i in C {
                 -moz-appearance: none
                 appearance: none
                 cursor: pointer
-                height: 1rem
-                width: 1rem
+                height: b_hgwd
+                width: b_hgwd
                 border: 1px solid bg5
                 background-size: cover
                 c: fg1 0 bg1
