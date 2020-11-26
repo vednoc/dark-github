@@ -979,10 +979,14 @@ for c, i in C {
             &:hover { c: 0 ac1 ac4 }
         }
 
-        &[type='checkbox']:checked {
-            z ='<path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>'
-            background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-            c: 0 ac2 ac3
+        &[type='checkbox'] {
+            border-radius: 2px
+            &:checked {
+                z ='<path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>'
+                background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
+                c: 0 ac2 ac3
+            }
+            &:hover { c: 0 ac1 bg2 }
         }
 
         &[type='checkbox']:indeterminate {
