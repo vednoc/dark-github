@@ -1537,21 +1537,21 @@ for c, i in C {
     /{
         /// Calendar graph. @upstream
         .calendar-graph {
-            rect[fill="#ebedf0"] { fill: var(--color-calendar-graph-day-bg) i}
-            rect[fill="#9be9a8"] { fill: var(--color-calendar-graph-day-L1-bg) i}
-            rect[fill="#40c463"] { fill: var(--color-calendar-graph-day-L2-bg) i}
-            rect[fill="#30a14e"] { fill: var(--color-calendar-graph-day-L3-bg) i}
-            rect[fill="#216e39"] { fill: var(--color-calendar-graph-day-L4-bg) i}
+            rect[fill="#ebedf0"] { g: var(--color-calendar-graph-day-bg) }
+            rect[fill="#9be9a8"] { g: var(--color-calendar-graph-day-L1-bg) }
+            rect[fill="#40c463"] { g: var(--color-calendar-graph-day-L2-bg) }
+            rect[fill="#30a14e"] { g: var(--color-calendar-graph-day-L3-bg) }
+            rect[fill="#216e39"] { g: var(--color-calendar-graph-day-L4-bg) }
         }
 
         /// Calendar legends and contributions in activity.
         .legend li {
-            box-shadow: inset 0 0 0 1px var(--color-calendar-graph-day-border) i
-            &[style*="#ebedf0"] { background-color: var(--color-calendar-graph-day-bg) i}
-            &[style*="#9be9a8"] { background-color: var(--color-calendar-graph-day-L1-bg) i}
-            &[style*="#40c463"] { background-color: var(--color-calendar-graph-day-L2-bg) i}
-            &[style*="#30a14e"] { background-color: var(--color-calendar-graph-day-L3-bg) i}
-            &[style*="#216e39"] { background-color: var(--color-calendar-graph-day-L4-bg) i}
+            b: inset 0 0 0 1px var(--color-calendar-graph-day-border) i
+            &[style*="#ebedf0"] { c: 0 0 var(--color-calendar-graph-day-bg) }
+            &[style*="#9be9a8"] { c: 0 0 var(--color-calendar-graph-day-L1-bg) }
+            &[style*="#40c463"] { c: 0 0 var(--color-calendar-graph-day-L2-bg) }
+            &[style*="#30a14e"] { c: 0 0 var(--color-calendar-graph-day-L3-bg) }
+            &[style*="#216e39"] { c: 0 0 var(--color-calendar-graph-day-L4-bg) }
         }
 
         /// Progress item
