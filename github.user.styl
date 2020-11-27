@@ -1234,6 +1234,34 @@ for c, i in C {
         }
     }
 
+    /// fix dropdown menu disabled entries bg on hover GH upstream bug
+    .dropdown {
+        &-item {
+            &.btn-link {
+                &:disabled {
+                    &:hover {
+                        background: none
+                    }
+                }
+            }
+        }
+        &-menu {
+            &-dark {
+                color: var(--color-text-white);
+                background: var(--color-bg-primary)
+                border-color: var(--color-border-primary)
+                & .dropdown {
+                    &-divider {
+                        border-color: bg4
+                    }
+                }
+                &::before {
+                    border-bottom-color: bg4
+                }
+            }
+        }
+    }
+
     // Global -> Color overrides.
     /{
         /// NOTE: Remaps bg1 to bg0.
