@@ -1769,6 +1769,23 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 
+    // Fix gist snippet hover
+    .gist-snippet {
+        & .file-box {
+            &:hover {
+                & .file {
+                    border-color: ac3
+                }
+            }
+        }
+        & .link-overlay {
+            & .link {
+                color: fg1
+                background-color: ac3
+            }
+        }
+    }
+
     /// Org access e.g. oauth
     .oauth-org-access-details .oauth-org-item:hover {
         background: bg4
