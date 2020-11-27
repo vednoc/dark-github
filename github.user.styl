@@ -1547,13 +1547,15 @@ for c, i in C {
         /// Calendar legends / Progress bars in activity.
         .legend li,
         .Progress-item {
-            b: inset 0 0 0 1px var(--color-calendar-graph-day-border) i
             &[style*="#ebedf0"] { c: 0 0 var(--color-calendar-graph-day-bg) }
             &[style*="#9be9a8"] { c: 0 0 var(--color-calendar-graph-day-L1-bg) }
             &[style*="#40c463"] { c: 0 0 var(--color-calendar-graph-day-L2-bg) }
             &[style*="#30a14e"] { c: 0 0 var(--color-calendar-graph-day-L3-bg) }
             &[style*="#216e39"] { c: 0 0 var(--color-calendar-graph-day-L4-bg) }
         }
+
+        /// Add border to calendar legends.
+        .legend li { b: inset 0 0 0 1px var(--color-calendar-graph-day-border) i }
 
         /// Halloween activity overview.
         .halloween-activity-overview .activity-overview {
