@@ -37,6 +37,7 @@
 @var checkbox readme_header 'Use old readme header design' 0
 @var checkbox short_headers 'Use shorter headers' 0
 @var checkbox gitako_shrink 'Fix hidden navigation caused by shrink feature in Gitako' 0
+@var checkbox chbx_a_header 'Fix notifications checkbox on header alignment' 0
 @var checkbox code_borders  'Add borders around code blocks and similar elements' 1
 
 @var color    _red         'Base red color              ' #f07178
@@ -993,6 +994,24 @@ for c, i in C {
             z = '<rect x="120" y="120" width="256" height="256" fill="white"/>'
             background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
             c: 0 v16 v16
+        }
+    }
+
+    // Fix checkbox on notifications alignment
+    if (chbx_a_header) {
+        .Box-header {
+            label {
+                span {
+                    &.js {
+                        &-select-all-text, &-count-selected-text {
+                            vertical-align: super
+                        }
+                    }
+                }
+                input[type='checkbox']{
+                    margin-top: .25rem
+                }
+            }
         }
     }
     // Form fixes
