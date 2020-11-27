@@ -2280,21 +2280,9 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 }
 
 @-moz-document regexp('https?://render\.githubusercontent?.com(/.*)?') {
-    :root {
-        --bg-1: bg-1
-        --bg-2: bg-2
-        --bg-5: bg-5
-        --fg-1: fg-1
-        --fg-3: fg-5
-        --v1-5: v1-5 // red
-        --v1-6: v1-6
-        --v4-5: v4-5 // green
-        --v4-6: v4-6
-    }
-
     /// Diff -> Image background.
     .render-shell {
-        img[src*='svg']:hover { filter: invert() hue-rotate(180deg) }
+        img[src*='svg']:hover { filter: invert(.95) hue-rotate(180deg) }
         &, /body {
             background-image: none
             c: 0 0 bg1
@@ -2322,6 +2310,82 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 &-marker-icon { filter: invert(1) grayscale(1) brightness(130%) }
             }
         }
+        // fix imgs https://github.com/udacity/deep-learning-v2-pytorch/blob/master/cycle-gan/CycleGAN_Solution.ipynb
+        & .output_area {
+            /.output_png {
+                background: bg5
+            }
+            & img:not(.svg) {
+                filter: none
+                &:hover { filter: none }
+            }
+        }
+    }
+
+    /// ipynb e.g. https://github.com/lekhovitsky/CS364A/blob/notebooks/exercises/e1.ipynb
+    div {
+        &.text_cell_render {
+            color: fg2
+        }
+        &.input {
+            &_prompt {
+                color: v69
+            }
+            &_area {
+                background-color: bg2
+                border: 1px solid bg5
+            }
+        }
+        &.output {
+            &_subarea {
+                & img { filter: invert(1) hue-rotate(180deg) brightness(0.8) }
+            }
+            &_prompt { color: v15 }
+            &_stderr { background-color: v13 }
+        }
+    }
+    .math { &-inline, &-display { filter: invert(1) } }
+
+    // rendered content ipynb
+    .rendered {
+        &_html {
+            pre, code {
+                background-color: bg2
+                color: fg2
+            }
+        }
+    }
+
+    if (code_borders) {
+        /// Add border around code, highlight, rendered.
+        .highlight { border: 1px solid bg5 }
+        .rendered {
+            &_html {
+                code { border: 1px solid bg5 }
+            }
+        }
+
+        /// fix border + bg color e.g. https://render.githubusercontent.com/view/ipynb?commit=3a95d118f9df5a86826e1791c5c100817f0fd924&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f756461636974792f646565702d6c6561726e696e672d76322d7079746f7263682f336139356431313866396466356138363832366531373931633563313030383137663066643932342f6379636c652d67616e2f4379636c6547414e5f536f6c7574696f6e2e6970796e62&nwo=udacity%2Fdeep-learning-v2-pytorch&path=cycle-gan%2FCycleGAN_Solution.ipynb&repository_id=147386085&repository_type=Repository#Residual-Functions
+        .rendered {
+            &_html {
+                & blockquote {
+                    & p {
+                        & code {
+                            background-color: initial
+                            border: 0
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #notebook {
+        & a {
+            color: ac3
+        }
+        & code, & pre {  color: fg3 }
+        /hr, /blockquote { border-color: bg4 }
     }
 
     // Diff -> Images diff bar.
