@@ -2143,6 +2143,393 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     hr, .rule { border-color: var(--color-border-primary) }
 
     .bg-blue { background-color: ac3 i }
+@-moz-document regexp('https?://((graphql)\\.)github?.com(/.*)?') {
+    /// Body text color
+    body { color: fg2 }
+
+    /// Box
+    .Box {
+        &-row {
+            border-top: 1px solid bg4
+            &--yellow {
+                background: var(--color-auto-yellow-0)
+            }
+        }
+    }
+
+    // Select
+    .select {
+        background: ac5
+        color: fg2
+    }
+
+    /// GraphQl IDE
+    .graphiql {
+        &-ide {
+            border-top: 1px solid bg4
+            &.signed-out {
+                &::after {
+                    background: bg0
+                }
+            }
+        }
+        &-container {
+            color: fg2
+                & .enum {
+                    &-value {
+                    color: ac2
+                }
+            }
+            & button {
+                color: fg2
+            }
+            & .show-btn {
+                border: solid 1px bg4
+                background: bg3
+                color: fg3
+            }
+            & input {
+                color: fg2
+            }
+            & .topBar {
+                background: bg4
+                border-bottom: 1px solid bg4
+            }
+            & .execute {
+                &-button {
+                    background: var(--color-btn-bg)
+                    border: 1px solid var(--color-btn-border)
+                    box-shadow: none
+                    fill: fg2
+                    &:active, &:hover {
+                        background: var(--color-btn-hover-bg)
+                        box-shadow: none
+                    }
+                }
+                &-options {
+                    background: bg3
+                    box-shadow: var(--color-shadow-medium)
+                }
+            }
+            & .doc {
+                &-category {
+                    &-title {
+                        border-bottom: 1px solid bg4
+                        color: fg3
+                    }
+                    &-item {
+                        color: fg3
+                    }
+                }
+                &Explorer {
+                    &Show {
+                        background: bg4
+                        border-left: 1px solid bg5
+                        border-bottom: 1px solid bg4
+                        color: ac1
+                        &::before {
+                            border-left: 2px solid ac2
+                            border-top: 2px solid ac2
+                        }
+                    }
+                    // Opinionated visual feedback
+                    &Hide {
+                        &:hover {
+                            color: fg1
+                        }
+                    }
+                    &Wrap {
+                        background: bg2
+                        box-shadow: 0 0 8px bg5
+                    }
+                }
+                &-explorer {
+                    background: bg2
+                    &-contents {
+                        background-color: bg2
+                        border-top: 1px solid bg4
+                    }
+                    &-back {
+                        color: ac1
+                        &::before {
+                            border-left: 2px solid ac2
+                            border-top: 2px solid ac2
+                        }
+                    }
+                }
+                &-deprecation {
+                    background: var(--color-alert-warn-bg)
+                    box-shadow: inset 0 0 1px var(--color-alert-warn-border)
+                    color: var(--color-alert-warn-text)
+                }
+            }
+            & .history {
+                &-contents {
+                    background-color: bg2
+                    border-top: 1px solid bg4
+                    & p {
+                        border-bottom: 1px solid bg4
+                        & input {
+                            background-color: bg0
+                            border: 1px inset bg4
+                        }
+                    }
+                    & div {
+                        & [style*="border-bottom: 1px solid rgb(214\, 214\, 214)"] {
+                            border-bottom: 1px solid bg5 i
+                        }
+                    }
+                }
+                &Pane {
+                    &Wrap {
+                        background: bg2
+                        box-shadow: 0 0 8px bg5
+                    }
+                }
+            }
+            & .toolbar {
+                &-button {
+                    background: var(--color-btn-bg)
+                    box-shadow: inset 0 0 0 1px bg3
+                    color: fg4
+                    // Opinionated visula feedback
+                    &:focus, &:hover {
+                        background: var(--color-btn-hover-bg)
+                        color: fg1
+                    }
+                }
+            }
+            & .variable {
+                &-editor {
+                    &-title {
+                        background: bg3
+                        border-bottom: 1px solid bg4
+                        border-top: 1px solid bg4
+                        color: fg1
+                    }
+                }
+            }
+            & .result {
+                &Wrap {
+                    border-left: 1px solid bg5
+                }
+                &-window {
+                    & .CodeMirror {
+                        &-gutters {
+                            border-color: bg5
+                        }
+                    }
+                }
+            }
+            & .search-box {
+                border-bottom: 1px solid bg4
+                & > input {
+                    background: bg0
+                }
+                & .search-box {
+                    &-clear {
+                        background-color: var(--color-btn-focus-bg)
+                        color: fg2
+                        &:hover {
+                            background-color: var(--color-btn-hover-bg)
+                        }
+                    }
+                }
+            }
+            & .CodeMirror {
+                color: fg2
+            }
+        }
+        &-explorer {
+            &-node {
+                // explorer checkbox border
+                & svg {
+                    & path[d*="0H2C0.9"] {
+                        fill: bg5
+                    }
+                }
+                & span {
+                    color: var(--color-auto-blue-7) i
+                }
+                & select {
+                    &[style*="background-color"] {
+                        background-color: bg0 i
+                        color: ac3 i
+                        border: 2px solid bg5
+                    }
+                }
+            }
+            &-root {
+                & span {
+                    & input {
+                        border-color: bg5 i
+                        background: bg0
+                        padding: 0 8px 0 8px i
+                        border-radius: 3px i
+                    }
+                }
+                // explorer checkbox border
+                & div {
+                    & svg {
+                        & path[d*="0H2C0.9"] {
+                            fill: bg5
+                        }
+                    }
+                }
+                & .toolbar {
+                    &-button {
+                        background-color: var(--color-btn-bg) i
+                        &:hover {
+                            background-color: var(--color-btn-hover-bg) i
+                        }
+                        &:active {
+                            background: var(--color-btn-focus-bg) i
+                            box-shadow: none
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // GraphQl result window
+    .result {
+        &-window {
+            & .CodeMirror {
+                background: bg1
+            }
+        }
+    }
+
+    li.CodeMirror {
+        &-hint {
+            border-top: 1px solid bg4
+            color: fg1
+            &-active {
+                background-color: ac4
+                border-top: 1px solid bg4
+                color: fg1
+            }
+            &-information {
+                border-top: 1px solid bg4
+            }
+
+        }
+    }
+    div.CodeMirror {
+        &-lint {
+            &-tooltip {
+                background-color: bg3
+                color: fg3
+                box-shadow: var(--color-shadow-medium)
+            }
+        }
+    }
+    .CodeMirror {
+        background: bg1
+        & .CodeMirror {
+            &-cursor {
+                border-left: 1px solid fg1
+            }
+        }
+        &-line {
+            &::selection {
+                background: bg4
+            }
+            & > span {
+                &::selection {
+                    background: bg4
+                }
+                & > span {
+                    &::selection {
+                        background: bg4
+                    }
+                }
+            }
+        }
+        &-gutters {
+            border-right: 1px solid bg5
+        }
+        &-hints {
+            background: bg4
+        }
+        &-hint {
+            &-information {
+                border-top: 1px solid bg5
+                & .content {
+                    color: fg2
+                }
+            }
+        }
+        &-info {
+            background: bg3
+            color: fg3
+            box-shadow: var(--color-shadow-medium)
+            & .info {
+                &-description {
+                    color: fg3
+                }
+                &-deprecation {
+                    background: var(--color-alert-warn-bg)
+                    box-shadow: inset 0 0 1px var(--color-alert-warn-border)
+                    color: var(--color-alert-warn-text)
+                }
+            }
+        }
+    }
+
+    // Buttons
+    .btn {
+        color: var(--color-btn-primary-text)
+        border-color: var(--color-btn-border)
+        background-color: var(--color-btn-bg)
+        background-image: none
+        &:focus,
+        &.focus {
+            box-shadow: 0 0 0 0.2px fg5
+        }
+        &:active,
+        &.selected {
+            background-color: var(--color-btn-focus-bg) i
+            border-color: var(--color-btn-border)
+            box-shadow: var(--color-shadow-inset)
+        }
+        &:hover {
+            background-color: var(--color-btn-hover-bg)
+            background-image: none
+        }
+        &-mktg {
+            color: var(--color-btn-primary-icon)
+            border: 1px solid ac2
+            &:focus {
+                box-shadow: 0 0 0 0.2em ac5
+            }
+            &:hover {
+                border: 1px solid ac2
+            }
+    }
+    &-primary {
+        color: var(--color-btn-primary-text)
+        background-color: var(--color-btn-primary-bg)
+        background-image: none
+        box-shadow: 0 1px 0 rgba(27,31,35,0.1),inset 0 1px 0 rgba(255,255,255,0.03);
+        &:hover {
+            background-image: none
+            background-color: var(--color-btn-primary-hover-bg) }
+        }
+        &:focus,
+        &.focus {
+            box-shadow: 0 0 0 2px ac5
+        }
+        &:active,
+        &.selected,
+        &[aria-selected="true"] {
+            background-image: none
+            background-color: var(--color-btn-primary-focus-bg)
+            box-shadow: var(--color-shadow-inset)
+        }
+    }
+}
 
 @-moz-document regexp('https?://((support)\\.)github?.com(/.*)?') {
 
