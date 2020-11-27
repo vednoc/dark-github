@@ -2144,6 +2144,45 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     .bg-blue { background-color: ac3 i }
 
+@-moz-document regexp('https?://((support)\\.)github?.com(/.*)?') {
+
+    html {
+        body {
+            color: fg2
+            background-color: bg1 i
+            a { color: ac2 }
+        }
+    }
+
+    // Banner
+    .banner {
+        &-prompt {
+            &-bg {
+                background-image: initial
+            }
+        }
+    }
+    .Header {
+        background-color: bg3
+        &-item {
+            & img {
+                filter: invert(1)
+            }
+        }
+        & .Header-link {
+            color: ac1
+        }
+    }
+
+    hr, .rule { border-color: var(--color-border-primary) }
+
+    // Backgrounds
+    .bg {
+        &-blue { background-color: ac3 i }
+        &-gray-light { background-color: var(--color-bg-primary) i }
+    }
+
+    // Text colors
     .text {
         &-blue { c: ac1 0 0 }
         &-gray { color: fg1 i }
@@ -2153,10 +2192,10 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     .link-gray {
         color: fg5 i
-        &:hover {
-            color: ac1 i
-        }
+        &:hover { color: ac1 i }
     }
+
+    // Buttons
     .btn {
         color: var(--color-btn-primary-text)
         border-color: var(--color-btn-border)
@@ -2203,6 +2242,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 
+    // Box Header
     .Box {
         background-color: var(--color-bg-primary)
         border: 1px solid var(--color-border-primary)
@@ -2212,8 +2252,9 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 
-    .border-bottom {
-        border-bottom: 1px solid var(--color-border-primary) i;
+    // Borders
+    .border {
+        &-bottom { border-bottom: 1px solid var(--color-border-primary) i }
     }
 
     .form-select, .form-control {
@@ -2233,12 +2274,10 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             &:focus {
                 background-color: var(--color-input-contrast-bg)
                 border-color: ac2
-                box-shadow: 0 0 0 3px ac5;
+                box-shadow: 0 0 0 3px ac5
             }
         }
-        & #q {
-            background-color: var(--color-input-bg);
-        }
+        & #q {  background-color: var(--color-input-bg) }
     }
     // recolor search icon svg
     @css {
@@ -2247,13 +2286,19 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 
+    // style toolbar-item color previewable form e.g https://support.github.com/contact
+    .toolbar {
+        &-item {
+            color: var(--color-text-secondary)
+        }
+    }
     .previewable-comment-form .comment-form-head.tabnav {
         background: bg3
     }
 
     .add-markdown-comment {
-    color: fg3
-    border: 1px solid var(--color-border-primary)
+        color: fg3
+        border: 1px solid var(--color-border-primary)
     }
 
     .tabnav {
@@ -2261,15 +2306,12 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         &-tab {
             color: fg3
             &:hover {  color: fg2 }
+            &.selected,
+            &[aria-selected="true"],
+            &[aria-current]:not([aria-current="false"]) {
+                border-color: var(--color-border-primary)
+            }
         }
-    }
-    .tabnav-tab.selected, .tabnav-tab[aria-selected="true"],
-    .tabnav-tab[aria-current]:not([aria-current="false"]) {
-        border-color: var(--color-border-primary)
-    }
-
-    .bg-gray-light {
-        background-color: var(--color-bg-primary) i;
     }
 
     .drag-and-drop {
