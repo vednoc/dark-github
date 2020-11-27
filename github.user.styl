@@ -2401,7 +2401,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 // https://developer.github.com/v4/guides/forming-calls/
             }
             & > li {
-                & img { border: 1px solid fg2 // filter applied }
+                & img { border: 1px solid fg2 } // filter applied
             }
         }
         & h3 {
@@ -2427,13 +2427,9 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             background-color: var(--color-bg-secondary)
             color: fg2
             & span {
-                &.output {
-                    color: var(--color-text-success)
-                }
+                &.output { color: var(--color-text-success) }
             }
-            & em {
-                color: v39
-            }
+            & em { color: v39 }
         }
     }
 
@@ -2539,7 +2535,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                     }
                 }
             }
-            &.notice {  background: bg2 }
+            &.notice { background: bg2 }
             & .arrow {
                 &-btn { filter: grayscale(1) brightness(1.3) }
             }
@@ -2564,26 +2560,36 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     .api-status {
         & a {
-            &:hover { color: ac1 }
+            &:hover {
+                color: ac1
+            }
         }
     }
 
     // Rss
     .rss-subscribe {
         color: fg2
-        &:hover { background-color: bg3 }
+        &:hover {
+            background-color: bg3
+        }
     }
 
     .sub-nav {
         border-bottom: 1px solid var(--color-border-primary)
         & h2 {
-            & a { color: fg1 }
+            & a {
+                color: fg1
+            }
         }
         & ul {
             & a {
                 color: fg3
-                &.active { color: fg0 }
-                &:hover { color: ac1 }
+                &.active {
+                    color: fg0
+                }
+                &:hover {
+                    color: ac1
+                }
             }
         }
     }
@@ -2662,14 +2668,10 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         &:focus {
             border-color: ac1
             box-shadow: 0 0 5px ac5
-            &:hover {
-                border-color: ac1
-            }
+            &:hover { border-color: ac1 }
         }
         &.selected {
-            &:focus {
-            border-color: ac1
-            }
+            &:focus { border-color: ac1 }
         }
     }
 
@@ -2679,9 +2681,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         box-shadow: var(--color-shadow-medium)
         &.bg {
             &-gray {
-                &-light {
-                    color: fg1
-                }
+                &-light { color: fg1 }
             }
         }
     }
@@ -2699,15 +2699,10 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     }
 
     #mc_embed_signup {
-        & div.mce_inline_error {
-            background-color: var(--color-auto-orange-8) i
-        }
+        & div.mce_inline_error { background-color: var(--color-auto-orange-8) i }
     }
     input {
-        &.mce_inline_error {
-            border-color: var(--color-auto-orange-8) i
-        }
-
+        &.mce_inline_error { border-color: var(--color-auto-orange-8) i }
     }
 
     /// Footer
@@ -2761,9 +2756,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     /// GraphQl iframe
     iframe {
-        &#graphiql {
-            border: 1px solid bg3
-        }
+        &#graphiql { border: 1px solid bg3 }
     }
 }
 
