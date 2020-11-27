@@ -2209,24 +2209,530 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     }
 }
 
-@-moz-document regexp('https?://((support)\\.)github?.com(/.*)?') {
+@-moz-document regexp('https?://((developer)\\.)github?.com(/.*)?') {
     body {
-        color: fg2
-        a { color: ac3 }
+        c: fg4 0 0
     }
-    .Header {
-        background-color: bg3
-        &-item {
-            & img {
-                filter: invert(1)
-            }
+
+    /// Deprecation banner https://developer.github.com/
+    .deprecation {
+        &-note {
+            color: var(--v1-1) i
+            border: 1px solid var(--v1-5)
+            background: linear-gradient(var(--v1-0), var(--v1-0))
+            box-shadow: var(--color-shadow-medium)
+            text-shadow: none
         }
-        & .Header-link {
-            color: ac1
+        &-notice {
+            border-left: 2px solid var(--color-auto-orange-8)
+            background: var(--color-auto-orange-0)
         }
     }
 
-    hr, .rule { border-color: var(--color-border-primary) }
+    .site-header {
+        background-color: bg3
+        border-bottom-color: bg2
+        &-nav {
+            & .dropdown-menu {
+                    background-color: bg2
+                    border-bottom-color: bg2
+                & a {
+                    color: ac2
+                    &:hover {
+                        background-color: ac5
+                        color: fg1
+                    }
+                    &.active { color: fg1 }
+                    & .octicon-check { color: fg2 }
+                }
+                &::after { border-bottom-color: bg2 }
+            }
+        }
+    }
+
+    // Page search
+    #search {
+        &field {
+            background-color: bg0
+            color: fg2
+            &:focus { box-shadow: 0 0 0 1px ac4 }
+        }
+        &-results {
+            background-color: bg2
+            box-shadow: var(--color-shadow-medium)
+            & li {
+                border-bottom: 1px solid bg4
+                &.result {
+                    &.selected { background-color: ac3 i }
+                }
+            }
+        }
+    }
+
+    /// Alert
+    .alert {
+        color: var(--fg-3)
+        border: 1px solid var(--v6-6)
+        background-color: var(--v6-0)
+    }
+    // + Product https://developer.github.com/changes/
+    .product {
+        color: var(--color-auto-purple-6)
+        background-color: var(--color-auto-purple-0)
+        background: var(--color-auto-purple-0)
+        border: 1px solid var(--color-auto-purple-3)
+    }
+
+    /// Backgrounds
+    .bg {
+        &-blue-light { background-color: var(--v6-0) i }
+        &-blue { background-color: var(--v6-3) i }
+        &-purple-light { background-color: var(--color-auto-purple-1) i }
+        &-gray { &-light { background: bg1 i } }
+        &-custom-gradient { background-image: linear-gradient(180deg, bg0, bg0) }
+    }
+
+    // Text
+    a {
+        color: ac2
+        &:active, &:hover { color: ac1 }
+        &.card {
+            &.bg {
+                &-gray {
+                    &-light {
+                        color: fg5
+                        &:hover {
+                            background-color: bg3 i
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /// Container e.g https://developer.github.com/v3/libraries/
+    .library {
+        &-list {
+            & .libraries {
+                &-jumbotron {
+                    background-color: bg0
+                    border-bottom: 1px solid var(--bg-5)
+                }
+            }
+        }
+    }
+
+    /.octokit {
+        &-language {
+            & span {
+                color: fg4
+            }
+        }
+    }
+
+    // Documentation content
+    .content {
+        color: fg4
+        /// Images
+        /img {
+            &[src*="electrocat"] {
+                filter: invert(1) hue-rotate(180deg) brightness(.80) opacity(.5)
+            }
+            &[src*="png"] {
+                filter: invert(.93) hue-rotate(180deg) brightness(1.3)
+                mix-blend-mode: lighten
+            }
+        }
+        & ul {
+            & code {
+                background-color: var(--color-bg-secondary)
+                border: 1px solid var(--bg-5)
+            }
+        }
+        & table {
+            background-color: bg0
+            & th, & td { border: 1px solid bg3 }
+            & tr {
+                border-top: 1px solid bg3
+                background-color: bg1
+            }
+            & code {
+                background-color: var(--color-bg-secondary)
+                border: 1px solid var(--bg-5)
+            }
+        }
+        & ol {
+            & code {
+                background-color: var(--color-bg-secondary)
+                border: 1px solid var(--bg-2) // fix upstream bug with dbl border
+                // https://developer.github.com/v4/guides/forming-calls/
+            }
+            & > li {
+                & img { border: 1px solid fg2 // filter applied }
+            }
+        }
+        & h3 {
+            & code {
+                background-color: var(--color-bg-secondary)
+                border: 1px solid var(--bg-5)
+            }
+        }
+        & blockquote { border-left: 4px solid bg5 }
+    }
+    ol {
+        & li {
+            &::before {
+                border-right: 1px solid bg5
+                color: fg4
+            }
+        }
+    }
+
+    /// Command line e.g. https://developer.github.com/v3/guides/getting-started/
+    .command {
+        &-line {
+            background-color: var(--color-bg-secondary)
+            color: fg2
+            & span {
+                &.output {
+                    color: var(--color-text-success)
+                }
+            }
+            & em {
+                color: v39
+            }
+        }
+    }
+
+    /// p  & code blocks
+    p {
+        & code {
+            background-color: var(--color-bg-secondary)
+            border: 1px solid var(--bg-5)
+        }
+    }
+
+    .headlines {
+        & > li {
+            color: fg5
+            border-bottom: 1px solid var(--bg-4)
+            & > a {
+                color: fg3
+                &:hover { color: ac2 }
+            }
+            &:hover { background-color: bg2 }
+        }
+    }
+    .lead { color: fg4 }
+    .link-mono {
+        box-shadow: 0 1px 0 0 ac5
+        &:hover { box-shadow: 0 1px 0 0 ac4 }
+    }
+    .text {
+        &-alpha, &-beta,
+        &-delta, &-gamma { color: fg1 }
+        &-gray { &-dark { c: fg1 } }
+        &-black { c: fg1 0 0 }
+        &-white {
+            c: fg0 0 0
+            & a { c: fg0 0 0 }
+        }
+    }
+    h1, h2, h3, h4, h5 {
+        color: fg2
+    }
+
+    hr { border-color: var(--color-border-primary) }
+
+    /// Sidebar
+    .sidebar {
+        background-color: bg2
+        &-menu {
+            background-color: bg2
+            border: 1px solid bg4
+            box-shadow: 0 1px 1px bg4
+        }
+        &-module {
+            border: 1px solid bg4
+            &.disable {
+                & > a {
+                    color: fg2
+                    background-color: bg1
+                }
+            }
+            & ul {
+                & li {
+                    &:last-child {
+                        & ul {
+                            & li {
+                                &:first-child {
+                                    border-top: 1px solid bg4
+                                }
+                            }
+                        }
+                    }
+                }
+                & h3 {
+                    color: fg3
+                    border-bottom: 1px solid bg4
+                    & a {
+                        color: fg3
+                        &:hover {
+                            color: ac2
+                            background-color: bg2
+                        }
+                    }
+                }
+                & ul {
+                    & li {
+                        border-bottom: 1px solid bg3
+                        background-color: bg1
+                        color: fg1
+                        & a {
+                            &:hover {
+                                background-color: bg2
+                                color: ac2
+                            }
+                        }
+                        &:last-child {
+                            & ul {
+                                & li {
+                                    &:first-child {
+                                        border-top: 1px solid bg4
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.notice {  background: bg2 }
+            & .arrow {
+                &-btn { filter: grayscale(1) brightness(1.3) }
+            }
+            & .disable {
+                & > a {
+                    background-color: bg2
+                    color: fg2
+                }
+            }
+        }
+    }
+    .js {
+        &-current {
+            & .standalone {
+                & a {
+                    color: fg2
+                    background-color: bg1
+                }
+            }
+        }
+    }
+
+    .api-status {
+        & a {
+            &:hover { color: ac1 }
+        }
+    }
+
+    // Rss
+    .rss-subscribe {
+        color: fg2
+        &:hover { background-color: bg3 }
+    }
+
+    .sub-nav {
+        border-bottom: 1px solid var(--color-border-primary)
+        & h2 {
+            & a { color: fg1 }
+        }
+        & ul {
+            & a {
+                color: fg3
+                &.active { color: fg0 }
+                &:hover { color: ac1 }
+            }
+        }
+    }
+
+    /// Connections table
+    //  Markdown-toc
+    #markdown {
+        &-toc {
+            & li {
+                &::marker { color: fg1 }
+                & a { color: fg3; &:hover { color: ac1 } }
+            }
+        }
+    }
+
+    // pre
+    pre {
+        background-color: var(--color-bg-secondary)
+        border: 1px solid var(--bg-5)
+        color: fg3
+        &.highlight {
+            background-color: var(--color-bg-secondary)
+            border: 1px solid var(--bg-5)
+        }
+    }
+
+    /// borders
+    .border {
+        &-blue { border-color: var(--v6-3) i }
+        &-purple { border-color: var(--color-auto-purple-6) i }
+        &-bottom { border-bottom: 1px solid var(--color-border-primary) i }
+        &-top { border-top-color: var(--color-border-primary) i }
+        &-gray-light { border-color: var(--color-border-primary) i }
+    }
+
+    [class*="btn-outline"] {
+        color: ac3
+        background-color: t
+        background-image: none;
+        border: 1px solid bg3
+        &:active, &:hover {
+            color: fg1
+            background-color: ac4
+            border-color: ac3
+        }
+        &.selected {
+            color: fg1
+            background-color: ac4
+            border-color: ac3
+            &.zeroclipboard-is-active {
+                color: fg1
+                background-color: ac4
+                border-color: ac3
+            }
+        }
+    }
+    .btn {
+        &-blue {
+            color: fg1
+            text-shadow: 0 -1px 0 bg3
+            background-color: ac3
+            background-image: linear-gradient(ac3, ac3)
+            border-color: ac3
+            &:hover {
+                color: fg0
+                background-color: ac2
+                background-image: linear-gradient(ac2, ac2)
+                border-color: ac2
+            }
+            &:active {
+                text-shadow: 0 1px 0 bg0
+                background-color: ac4
+                border-color: ac4
+            }
+        }
+        &:focus {
+            border-color: ac1
+            box-shadow: 0 0 5px ac5
+            &:hover {
+                border-color: ac1
+            }
+        }
+        &.selected {
+            &:focus {
+            border-color: ac1
+            }
+        }
+    }
+
+    .card {
+        background: bg1
+        border: 1px solid var(--color-border-primary)
+        box-shadow: var(--color-shadow-medium)
+        &.bg {
+            &-gray {
+                &-light {
+                    color: fg1
+                }
+            }
+        }
+    }
+
+    .form-select, .form-control {
+        color: var(--color-text-secondary)
+        background-color: var(--color-input-bg)
+        border-color: var(--color-input-border)
+        box-shadow: none;
+        &.focus,
+        &:focus {
+            border-color: ac2
+            box-shadow: 0 0 0 3px ac5;
+        }
+    }
+
+    #mc_embed_signup {
+        & div.mce_inline_error {
+            background-color: var(--color-auto-orange-8) i
+        }
+    }
+    input {
+        &.mce_inline_error {
+            border-color: var(--color-auto-orange-8) i
+        }
+
+    }
+
+    /// Footer
+    .footer {
+        border-top-color: bg3
+    }
+
+    /// Pagination
+    .pagination {
+        & .disabled {
+            background-color: bg0
+            color: var(--color-text-disabled)
+            &:hover  {
+                background-color: bg0
+                color: var(--color-text-disabled)
+            }
+            & .gap {
+                background-color: bg0
+                color: var(--color-text-disabled)
+                &:hover {
+                    background-color: bg0
+                    color: var(--color-text-disabled)
+                }
+            }
+        }
+        & .current {
+            color: fg2
+            background-color: ac2
+            border-color: ac3
+            &:hover {
+                color: fg2
+                background-color: ac2
+                border-color: ac3
+            }
+        }
+        & a, & em, & > span {
+            background: bg0
+            background-color: bg0
+            border: 1px solid bg4
+            color: ac3
+            &:hover {
+                background-color: bg2
+                border-color: bg4
+            }
+            &:focus {
+                background-color: bg2
+                border-color: bg4
+            }
+        }
+    }
+
+    /// GraphQl iframe
+    iframe {
+        &#graphiql {
+            border: 1px solid bg3
+        }
+    }
+}
 
 @-moz-document regexp('https?://((graphql)\\.)github?.com(/.*)?') {
     /// Body text color
