@@ -1758,13 +1758,13 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         /// CodeMirror editor.
         .CodeMirror {
             &[class*='github-light'] {
-                c: fg1 0 bg1
+                c: fg1 0 bg0
                 r: 0 0 6px 6px
             }
-            &-lines, &-gutters { c: 0 0 bg1 }
+            &-lines, &-gutters { c: 0 0 bg0 }
             &-linenumber { c: fg4 }
 
-            /// Gist -> Editor backaground.
+            /// Gist -> Editor background.
             /.file.js-code-editor { c: 0 0 bg1 }
         }
     }
