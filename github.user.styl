@@ -1653,22 +1653,52 @@ for c, i in C {
 
         /// Syntax highlighting.
         .pl- {
-            &k { color: v17 }
-            &c { color: fg4 }
+            &c { color: fg4 } //#6a737d
+            &corl { color: var(--color-prettylights-syntax-string)}
+            &c1, &s &v { color: var(--color-prettylights-syntax-constant)} //#005cc5
+            &e, &en, &mdr { color: var(--color-prettylights-syntax-entity)} //#6f42c1
+            &ent { color: var(--color-prettylights-syntax-entity-tag)} //#22863a
+            &s &s1, &smi, &mb { color: var(--color-prettylights-syntax-storage-modifier-import)} //#24292e
             &mi { color: fg0 }
-            &ent { color: v44 }
-            &e, &en { color: v86 }
-            &smw, &v { color: v25 }
-            &c1, &s &v { color: v67 }
-            &s &s1, &smi { color: v89 }
-            &mh, &mh &en, &ms { c: v75 }
+            &mh, &mh &en, &ms { color: var(--color-prettylights-syntax-constant)}
+            &k { color: var(--color-prettylights-syntax-keyword)} //#d73a49
             &pds, &s, &s &pse &s1, &sr,
-            &sr &cce, &sr &sra, &sr &sre { color: v46 }
-            &ii { c: white 0 v15 }
-            &mi1 { c: v49 0 v41 }
-            &md { c: v19 0 v11 }
-            &corl { c: v56 }
-            &mb { c: fg1 }
+            &sr &cce, &sr &sra, &sr &sre { color: var(--color-prettylights-syntax-string) } //#032f62
+            &smw, &v { color: var(--color-prettylights-syntax-variable) } //#e36209
+            &bu { color: var(--color-prettylights-syntax-carriage-return-bg) } //#b31d28
+            &ii {
+                color: var(--color-prettylights-syntax-invalid-illegal-text) //#fafbfc
+                background-color: var(--color-prettylights-syntax-invalid-illegal-bg) //#b31d28
+            }
+            &c2 {
+                color: var(--color-prettylights-syntax-carriage-return-text) //#fafbfc
+                background-color: var(--color-prettylights-syntax-carriage-return-bg) //#d73a49
+            }
+            &sr &cce { color: var(--color-prettylights-syntax-variable) }
+            &ml { color: var(--color-prettylights-syntax-markup-list) } //#735c0f
+            &md {
+                color: var(--color-prettylights-syntax-markup-deleted-text) //#b31d28
+                background-color: var(--color-prettylights-syntax-markup-deleted-bg) //#ffeef0
+            }
+            &mi1 {
+                color: var(--color-prettylights-syntax-markup-inserted-text) //#22863a
+                background-color: var(--color-prettylights-syntax-markup-inserted-bg) //#f0fff4
+            }
+            &mc {
+                color: var(--color-prettylights-syntax-markup-changed-text) //#e36209
+                background-color: var(--color-prettylights-syntax-markup-changed-bg) //#ffebda
+            }
+            &mi2 {
+                color: var(--color-prettylights-syntax-markup-ignored-text) //#f6f8fa;
+                background-color: var(--color-prettylights-syntax-markup-ignored-bg) //#005cc5
+            }
+            &ba { color: var(--color-prettylights-syntax-brackethighlighter-angle)} //#586069
+            &sg { color: var(--color-prettylights-syntax-sublimelinter-gutter-mark)} //#959da5
+            /// https://github.com/VChet/StyleBase/blob/master/server.js
+            &token {
+                &.active, &:hover { background: var(--color-prettylights-syntax-markup-italic)}
+            }
+            &kos { color: var(--color-prettylights-syntax-markup-italic)}
         }
 
         /// CodeMirror editor.
