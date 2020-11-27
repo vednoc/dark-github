@@ -1769,6 +1769,17 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 
+    /// paginations more
+    .pagination-loader-container {
+        // e.g https://github.com/platformio/platformio-atom-ide-terminal/issues/668
+        r       = unquote
+        prefix  = 'data:image/svg+xml;utf8,'
+        prefix += '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">'
+        y       = '<path d="M0 11L8 5L16 11" stroke="%23444" stroke-width="1.5"/>'
+        z       = 'repeat-x center/16px'
+        background: s("url('%s%s</svg>') %s", r(prefix), r(y), r(z))
+    }
+
     // Extension -> Gitako.
     /// Link: https://github.com/EnixCoda/Gitako
     /// TODO: Maybe switch to different background colors.
