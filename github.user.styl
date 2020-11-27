@@ -1555,11 +1555,16 @@ for c, i in C {
             &[style*="#216e39"] { c: 0 0 var(--color-calendar-graph-day-L4-bg) }
         }
 
+        /// Halloween activity overview.
+        .halloween-activity-overview .activity-overview {
+            &-box [fill='#40c463'] { g: v22 v22 }
+            &-axis, &-point { g: 0 v24 }
+        }
 
-        /// Activity overview.
-        .halloween-activity-overview {
-            .activity-overview { &-axis, &-point { g: 0 v24 }}
-            /.activity-overview { &-axis, &-point { g: 0 ac3 }}
+        /// Regular activity overview.
+        .activity-overview {
+            &-box [fill='#40c463'] { g: ac4 ac4 }
+            &-axis, &-point { g: 0 ac3 }
         }
     }
 
