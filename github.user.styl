@@ -1111,23 +1111,6 @@ for c, i in C {
             }
         }
     }
-
-    // Fix checkbox on notifications alignment
-    if (chbx_a_header) {
-        .Box-header {
-            label {
-                span {
-                    &.js {
-                        &-select-all-text, &-count-selected-text {
-                            vertical-align: super
-                        }
-                    }
-                }
-                input[type='checkbox']{
-                    margin-top: .25rem
-                }
-            }
-        }
     }
 
     // Actions
