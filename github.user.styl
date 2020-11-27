@@ -234,7 +234,8 @@ for c, i in C {
 }
 }
 
-@-moz-document regexp('https?://((gist|docs|support)\\.)?github?.com(/.*)?') {
+@-moz-document regexp('https?://((cli|gist|docs|support|developer|graphql)\\.)?github?.com(/.*)?'),
+regexp('https?://render\.githubusercontent?.com(/.*)?') {
     // Show debug.
     if (cg_debug) {
         body > div:first-child {
