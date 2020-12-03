@@ -963,8 +963,9 @@ for c, i in C {
                 background-size: cover
                 c: fg1 0 bg1
             }
-            &:disabled, &:hover:active:disabled {
-                c: fg1 0 bg4
+            &:disabled, &:hover:active:disabled, &:disabled:hover {
+                c: fg1 bg5 bg4
+                cursor: auto
             }
         }
 
