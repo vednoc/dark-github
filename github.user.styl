@@ -1146,7 +1146,6 @@ for c, i in C {
     /{
         /// NOTE: Remaps bg1 to bg0.
         .js-profile-timeline-year-list,
-        .notification-navigation,
         .tabnav {
             &.bg-white {
                 c: 0 0 bg0
@@ -1173,6 +1172,21 @@ for c, i in C {
             .notification-read {
                 c: 0 0 bg1
                 &:hover { c: 0 0 bg2 }
+            }
+        }
+
+        /// Notifications -> Item colors.
+        .notification {
+            &-navigation { c: 0 0 bg0 }
+            &s-list-item {
+                c: 0 bg4
+                &.navigation-focus { box-shadow: inset 2px 0 0 ac3 i }
+                &.notification-unread:not(#z) {
+                    c: 0 0 bg2
+                    &:hover { c: 0 0 bg3 }
+                    .notification-list-item-unread-indicator { c: 0 0 ac1 }
+                }
+                &:hover .notification-list-item-actions .btn { c: 0 0 t }
             }
         }
 
@@ -1300,7 +1314,6 @@ for c, i in C {
         }
     }
 
-    .notifications-list-item.notification-unread .notification-list-item-unread-indicator { c: 0 0 ac1 }
 
     // Navigation. @upstream
     .UnderlineNav-item {
