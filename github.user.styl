@@ -1729,23 +1729,23 @@ for c, i in C {
         }
 
         /// Fixes for experimental "shrink" feature.
-        &.shrink-github-header {
-            /// Adjust header/icon sizes.
-            @media (min-width: 1280px) {
+        @media (min-width: 1280px) {
+            &.shrink-github-header {
+                /// Adjust header/icon sizes.
                 .Header { padding: 16px i }
 
-                /// Feat -> Fix glitchy Gitako feature.
-                if (gitako_shrink) {
-                    .UnderlineNav {
-                        a[style*='visibility: hidden'] { visibility: unset i }
-                        > ul + div[style] { visibility: hidden i }
-                    }
-                }
+                /// Reset backgrounds for header and navigation.
+                .js-header-wrapper { c: 0 0 bg3 }
+                main > :first-child { b: inset 0 -1px 0 bg4 }
             }
 
-            /// Reset backgrounds for header and navigation.
-            .js-header-wrapper { c: 0 0 bg3 }
-            main > :first-child { b: inset 0 -1px 0 bg4 }
+            /// Feat -> Fix glitchy Gitako feature.
+            if (gitako_shrink) {
+                .UnderlineNav {
+                    a[style*='visibility: hidden'] { visibility: unset i }
+                    > ul + div[style] { visibility: hidden i }
+                }
+            }
         }
 
         /// Clippy in code blocks.
