@@ -1213,17 +1213,6 @@ for c, i in C {
             box-shadow: 0 0 10px ac3;
         }
 
-        // Blue to accent color
-        .flash {
-            background-image: linear-gradient(ac5 , ac5);
-            border-color: ac4
-        }
-        .flash-warn {
-            color: var(--color-alert-warn-text);
-            background-image: linear-gradient(var(--color-alert-warn-bg),var(--color-alert-warn-bg));
-            border-color: var(--color-alert-warn-border);
-        }
-
         /// Code blocks.
         .markdown-body pre { c: 0 0 bg2 }
 
@@ -1580,17 +1569,7 @@ for c, i in C {
 
     // Profile.
     /{
-        /// Calendar graph. @upstream
-        .calendar-graph {
-            rect[fill="#ebedf0"] { g: var(--color-calendar-graph-day-bg) }
-            rect[fill="#9be9a8"] { g: var(--color-calendar-graph-day-L1-bg) }
-            rect[fill="#40c463"] { g: var(--color-calendar-graph-day-L2-bg) }
-            rect[fill="#30a14e"] { g: var(--color-calendar-graph-day-L3-bg) }
-            rect[fill="#216e39"] { g: var(--color-calendar-graph-day-L4-bg) }
-        }
-
         /// Calendar legends / Progress bars in activity.
-        .legend li,
         .Progress-item {
             &[style*="#ebedf0"] { c: 0 0 var(--color-calendar-graph-day-bg) }
             &[style*="#9be9a8"] { c: 0 0 var(--color-calendar-graph-day-L1-bg) }
