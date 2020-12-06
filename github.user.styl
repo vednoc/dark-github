@@ -29,6 +29,7 @@
 
 @var text     f_ui         'UI font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
+@var text     b_hgwd       'Checkbox width/height' '1rem'
 
 @var checkbox custom_font   'Use custom font overrides' 1
 @var checkbox navbar_sticky 'Use sticky position for the navbar' 0
@@ -36,6 +37,7 @@
 @var checkbox readme_header 'Use old readme header design' 0
 @var checkbox short_headers 'Use shorter headers' 0
 @var checkbox gitako_shrink 'Fix hidden navigation caused by shrink feature in Gitako' 0
+@var checkbox chbx_a_header 'Fix notifications checkbox on header alignment' 0
 @var checkbox code_borders  'Add borders around code blocks and similar elements' 1
 
 @var color    _red         'Base red color              ' #f07178
@@ -950,36 +952,66 @@ for c, i in C {
 
         &[type='radio'],
         &[type='checkbox'] {
-            &, &:focus, &:hover:active, &:disabled, &:hover:active:disabled {
+            &, &:focus, &:hover:active {
                 -webkit-appearance: none
                 -moz-appearance: none
                 appearance: none
                 cursor: pointer
-                height: 1rem
-                width: 1rem
+                height: b_hgwd
+                width: b_hgwd
                 border: 1px solid bg5
                 background-size: cover
                 c: fg1 0 bg1
             }
+            &:disabled, &:hover:active:disabled, &:disabled:hover {
+                c: fg1 bg5 bg4
+                cursor: auto
+            }
         }
 
-        &[type='radio']:checked {
-            z = '<circle cx="256" cy="256" r="128" fill="white"/>'
-            background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-            border-radius: 100% i
-            &:checked { c: 0 ac2 ac3 }
+        &[type='radio'] {
+            /// fix border radius at https://github.com/settings/profile Emoji color
+            border-radius: 50%
+            &:checked {
+                z = '<circle cx="256" cy="256" r="128" fill="white"/>'
+                background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
+                c: 0 ac3 ac4
+            }
+            &:focus { border-radius: 50% }
+            &:hover { c: 0 ac1 ac3 }
         }
 
-        &[type='checkbox']:checked {
-            z ='<path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>'
-            background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-            c: 0 ac2 ac3
+        &[type='checkbox'] {
+            border-radius: 2px
+            &:checked {
+                z ='<path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>'
+                background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
+                c: 0 ac3 ac4
+            }
+            &:hover { c: 0 ac1 ac3 }
+            &:indeterminate {
+                z = '<rect x="128" y="128" width="256" height="256" fill="white"/>'
+                background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
+                c: 0 v16 v14
+            }
         }
+    }
 
-        &[type='checkbox']:indeterminate {
-            z = '<rect x="128" y="208" width="256" height="96" fill="white"/>'
-            background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-            c: 0 v18 v16
+    // Fix checkbox on notifications alignment
+    if (chbx_a_header) {
+        .Box-header {
+            label {
+                span {
+                    &.js {
+                        &-select-all-text, &-count-selected-text {
+                            vertical-align: super
+                        }
+                    }
+                }
+                input[type='checkbox']{
+                    margin-top: .25rem
+                }
+            }
         }
     }
     // Form fixes
