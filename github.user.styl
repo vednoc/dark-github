@@ -91,6 +91,11 @@ to_rgba(input, alpha) {
     unquote(s('rgba(var(--%s-rgb), %s)', unquote(input), alpha))
 }
 
+// SVG-friendly colors mixin.
+to_svg(input) {
+    s('\%23%s', unquote(substr(s('%s', input), 1, 6)))
+}
+
 // Border radius mixin.
 r() { border-radius: arguments }
 
@@ -997,6 +1002,30 @@ for c, i in C {
                 z = '<rect x="128" y="128" width="256" height="256" fill="white"/>'
                 background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
                 c: 0 v16 v14
+            }
+        }
+    }
+
+    // Better select element styles.
+    select {
+        /// Custom icon.
+        r       = unquote
+        prefix  = 'data:image/svg+xml;utf8,'
+        prefix += '<svg width="16" height="16" fill="' + to_svg(fg-5) + '" '
+        prefix += 'xmlns="http://www.w3.org/2000/svg">'
+        path    = '<path d="M4.427 9.427l3.396 3.396a.251.251 0 00.354 '
+        path   += '0l3.396-3.396A.25.25 0 0011.396 9H4.604a.25.25 0 '
+        path   += '00-.177.427zM4.423 6.47L7.82 3.072a.25.25 0 01.354 0L11.57 '
+        path   += '6.47a.25.25 0 01-.177.427H4.6a.25.25 0 01-.177-.427z"/>'
+
+        &.form-select {
+            background-image: s("url('%s%s</svg>') %s", r(prefix), r(path), i)
+
+            /// Override default colors.
+            &:not([disabled]) {
+                c: 0 0 bg2
+                &:hover { c: 0 0 bg3 }
+                &:active { c: 0 0 bg4 }
             }
         }
     }
