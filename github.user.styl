@@ -1452,6 +1452,9 @@ for c, i in C {
                     mix-blend-mode: lighten
                 }
             }
+
+            /// Traffic -> Remove white circles.
+            /.dots > circle[cx][cy] { g: 0 bg1 }
         }
 
         /// Graphs -> Traffic.
