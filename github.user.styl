@@ -669,7 +669,7 @@ for c, i in C {
         --color-project-gradient-out: hsla(0,0%,100%,0);
 
         --color-input-bg: bg2 //#fff;
-        --color-input-contrast-bg: bg3 //#fafbfc;
+        --color-input-contrast-bg: bg2 //#fafbfc;
         --color-input-border: bg5 //#e1e4e8;
         --color-input-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
         --color-input-disabled-bg: bg1 //#fff;
@@ -749,7 +749,7 @@ for c, i in C {
         --color-dropdown-border: bg5 //#e1e4e8;
         --color-dropdown-shadow: 0 8px 24px #0002 //rgba(149,157,165,0.2);
 
-        --color-label-border: #e1e4e8;
+        --color-label-border: bg5 //#e1e4e8;
         --color-label-primary-text: #24292e;
         --color-label-primary-border: #6a737d;
         --color-label-secondary-text: #586069;
@@ -1017,12 +1017,6 @@ for c, i in C {
                 }
             }
         }
-    }
-    // Form fixes
-    .form-group .form-control[disabled],
-    .form-group .form-select[disabled] {
-        border-color: var(--color-text-disabled)
-        background-color: var(--color-btn-bg)
     }
 
     // Actions
