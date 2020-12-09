@@ -1165,6 +1165,21 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             background-color: bg5
         }
     }
+
+    // ORG third party access borders (not using css vars upstream)
+    .boxed-group {
+        &-list {
+            & > li {
+                &:first-child {
+                    border-color: bg4
+                }
+            }
+        }
+        &-inner {
+            & .help {
+                border-color: bg4
+            }
+        }
     }
 
     // Actions
