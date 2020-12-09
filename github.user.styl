@@ -1705,6 +1705,13 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 }
             }
         }
+        // Avoid coloring box danger border
+        &.p-3 {
+            /// Fix sponsors card e.g https://github.com/sponsors/elrumo/card
+            background-color: bg1 // must be bg1
+            border: 1px solid bg4
+        }
+
         /// Use lighter background color for focused items.
         &-row--focus-gray.navigation-focus { c: 0 0 bg2 }
 
