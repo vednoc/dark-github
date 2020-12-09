@@ -1085,7 +1085,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             }
             &:disabled, &:hover:active:disabled, &:disabled:hover {
                 c: fg1 bg5 bg4
-                cursor: auto
+                cursor: default
             }
         }
 
@@ -1098,7 +1098,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 c: 0 ac3 ac4
             }
             &:focus { border-radius: 50% }
-            &:hover { c: 0 ac1 ac3 }
+            &:hover { c: 0 ac1 bg2 }
         }
 
         &[type='checkbox'] {
@@ -1108,7 +1108,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
                 c: 0 ac3 ac4
             }
-            &:hover { c: 0 ac1 ac3 }
+            &:hover { c: 0 ac1 bg2 }
             &:indeterminate {
                 z = '<rect x="128" y="128" width="256" height="256" fill="white"/>'
                 background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
