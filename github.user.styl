@@ -1717,7 +1717,6 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             }
         }
 
-
         /// Feat -> Shorter headers.
         if (short_headers) {
             condition = (readme_header == 1) ? '' : '--blue'
@@ -1751,6 +1750,11 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         /img[src*="icons/marketing"] {
             filter: grayscale(1) brightness(1.5)
         }
+    }
+
+    // fix circlebadge bg
+    .CircleBadge--github {
+        &::after { background-color: fg1 }
     }
     // Project -> Insights.
     .menu-item {
