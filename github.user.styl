@@ -1792,21 +1792,6 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             z-index: 1
             &::after { z-index: -1 }
         }
-
-        /// Line highlight.
-        /table.highlight > tbody > tr {
-            c: 0 0 bg1
-            &:hover > td { c: 0 0 bg2 }
-            &:hover > td.highlighted { c: 0 0 v31 }
-            &.divider:hover > td { c: 0 0 bg3 }
-        }
-
-        /// Code snippet dividers. @upstream
-        /.divider &-num { c: 0 0 bg3 }
-        /.divider &-code { c: 0 0 bg2 }
-
-        /// Code search dividers. @upstream
-        /.code-list { & &-item { c: 0 bg3 }}
     }
 
     // Notes -> Resets.
@@ -1881,6 +1866,44 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             &-box [fill='#40c463'] { g: ac4 ac4 }
             &-axis, &-point { g: 0 ac3 }
         }
+    }
+
+    // Diff -> Changes. @upstream
+    .blob {
+        /// File background.
+        /.file {
+            c: 0 0 var(--color-codemirror-bg)
+            /:target {
+                --color-auto-blue-4: ac2
+                --color-auto-blue-2: ac4
+            }
+        }
+
+        /// Inline diffs.
+        &-code {
+            &-addition .x { color: var(--color-codemirror-text) }
+            &-deletion .x { color: var(--color-codemirror-text) }
+            &-inner { c: var(--color-codemirror-text) 0 0 }
+        }
+        // color the blob-num bg in timeline comments
+        &-num:not([class*="-addition"]):not([class*="-deletion"]):not([class*="-expandable"]) {
+            background: var(--color-codemirror-gutters-bg)
+        }
+
+        /// Line highlight.
+        /table.highlight > tbody > tr {
+            background-color: var(--color-codemirror-bg)
+            &:hover > td { background-color: var(--color-codemirror-selection-bg) }
+            &:hover > td.highlighted { background-color: v31 }
+            &.divider:hover > td { background-color: bg3 }
+        }
+
+        /// Code snippet dividers. @upstream
+        /.divider &-num { c: 0 0 bg3 }
+        /.divider &-code { c: 0 0 bg2 }
+
+        /// Code search dividers. @upstream
+        /.code-list { & &-item { c: 0 bg3 }}
     }
 
     // Code.
