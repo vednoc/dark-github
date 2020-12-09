@@ -1553,7 +1553,8 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     // Navbar.
     .js-header-wrapper {
-        border-bottom: 1px solid bg5
+        // fix border below https://github.com/settings/apps/authorizations header
+        & .Header { border-bottom: 1px solid bg5 }
 
         /// Feat -> Sticky navbar.
         if (navbar_sticky) {
