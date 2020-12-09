@@ -1140,6 +1140,21 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             }
         }
     }
+
+    // Fix border-color (not using css vars upstream) https://github.com/settings/keys
+    .user-key {
+        &-email, &-badge { border-color: bg5 }
+    }
+
+    // Fix logout border color (not using css vars upstream) + add opinionated bg
+    .session {
+        &-authentication {
+            & .login-callout {
+                background: var(--color-bg-primary)
+                border-color: var(--color-border-secondary)
+            }
+        }
+    }
     }
 
     // Actions
