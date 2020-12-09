@@ -1776,6 +1776,18 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         /.gutter table.capped-list th { c: 0 bg4 }
     }
 
+    /// Activity year (repositories) to accent color
+    //  e.g. https://github.com/StylishThemes
+    rect[x][y][style*="gradient-"] {
+        g: ac0
+    }
+
+    // network-tree invert gif
+    .network-tree {
+        filter: invert(0.95) hue-rotate(180deg) brightness(1.2)
+        mix-blend-mode: lighten
+    }
+
     // Diff -> Changes. @upstream
     .blob {
         /// File background.
