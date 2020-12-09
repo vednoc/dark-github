@@ -1819,7 +1819,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         background: bg4
     }
 
-    /// paginations more
+    /// paginations more (zig-zag line)
     .pagination-loader-container {
         // e.g https://github.com/platformio/platformio-atom-ide-terminal/issues/668
         r       = unquote
@@ -2047,12 +2047,12 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     /// Backgrounds
     .bg {
-        &-blue-light { background-color: var(--v6-0) i }
-        &-blue { background-color: var(--v6-3) i }
-        &-purple-light { background-color: var(--color-auto-purple-1) i }
+        &-blue-light { c: 0 0 var(--v6-0) }
+        &-blue { c: 0 0 var(--v6-3) }
+        &-purple-light { c: 0 0 var(--color-auto-purple-1) }
         &-white { c: 0 0 bg2 }
         &-red {
-            &-light { background-color: v10 i }
+            &-light { c: 0 0 v10 }
         }
         &-guides {
             &-gradient { background: linear-gradient(0deg, bg2 0%, t 100%) i }
@@ -2119,34 +2119,26 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     }
 
     .color {
-        &-gray-5 { c: fg5 }
+        &-gray-5 { c: fg4 }
     }
 
-    .note {
-        color: fg3
-    }
+    .note { color: fg3 }
 
     .link {
         &-gray-dark { c: var(--color-text-secondary)
             &:hover { c: ac1 } }
-        &-gray { &:hover { color: ac1 i } }
+        &-gray { c: fg2 &:hover { c: ac1 } }
     }
 
     // Shadows
     .box-shadow {
-        &-large {
-            box-shadow: var(--color-shadow-large) i
-        }
-        &-medium {
-            box-shadow: var(--color-shadow-medium) i
-        }
+        &-large { box-shadow: var(--color-shadow-large) i }
+        &-medium { box-shadow: var(--color-shadow-medium) i }
     }
 
     .hover-shadow {
         &-large {
-            &:hover {
-                box-shadow: var(--color-shadow-large) i
-            }
+            &:hover { box-shadow: var(--color-shadow-large) i }
         }
     }
 
@@ -2199,14 +2191,10 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 &:focus { box-shadow: 0 0 0 3px ac4 }
             }
         }
-        & .octicon {
-            color: fg4
-        }
+        & .octicon { color: fg4 }
     }
 
-    :checked + .x-radio-label {
-        background: ac3
-    }
+    :checked + .x-radio-label { background: ac3 }
 
     #landing[style*="background-color: #fafbfc"],
     .js-support-banner[style*="background-color: #fafbfc"] {
@@ -2238,14 +2226,10 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     }
 
     .search-result-title {
-        & mark {
-            color: ac1
-        }
+        & mark { color: ac1 }
         & .ais {
             &-Highlight {
-                &-highlighted {
-                    color: ac1
-                }
+                &-highlighted { color: ac1 }
             }
         }
     }
@@ -2796,9 +2780,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     .Box {
         &-row {
             border-top: 1px solid bg4
-            &--yellow {
-                background: var(--color-auto-yellow-0)
-            }
+            &--yellow { background: var(--color-auto-yellow-0) }
         }
     }
 
@@ -2812,30 +2794,20 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     .graphiql {
         &-ide {
             border-top: 1px solid bg4
-            &.signed-out {
-                &::after {
-                    background: bg0
-                }
-            }
+            &.signed-out { &::after { background: bg0 } }
         }
         &-container {
             color: fg2
-                & .enum {
-                    &-value {
-                    color: ac2
-                }
+            & .enum {
+                &-value { color: ac2 }
             }
-            & button {
-                color: fg2
-            }
+            & button { color: fg2 }
             & .show-btn {
                 border: solid 1px bg4
                 background: bg3
                 color: fg3
             }
-            & input {
-                color: fg2
-            }
+            & input { color: fg2 }
             & .topBar {
                 background: bg4
                 border-bottom: 1px solid bg4
@@ -2862,9 +2834,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                         border-bottom: 1px solid bg4
                         color: fg3
                     }
-                    &-item {
-                        color: fg3
-                    }
+                    &-item { color: fg3 }
                 }
                 &Explorer {
                     &Show {
@@ -2879,9 +2849,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                     }
                     // Opinionated visual feedback
                     &Hide {
-                        &:hover {
-                            color: fg1
-                        }
+                        &:hover { color: fg1 }
                     }
                     &Wrap {
                         background: bg2
@@ -2955,47 +2923,33 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 }
             }
             & .result {
-                &Wrap {
-                    border-left: 1px solid bg5
-                }
+                &Wrap {  border-left: 1px solid bg5 }
                 &-window {
                     & .CodeMirror {
-                        &-gutters {
-                            border-color: bg5
-                        }
+                        &-gutters { border-color: bg5 }
                     }
                 }
             }
             & .search-box {
                 border-bottom: 1px solid bg4
-                & > input {
-                    background: bg0
-                }
+                & > input { background: bg0 }
                 & .search-box {
                     &-clear {
                         background-color: var(--color-btn-focus-bg)
                         color: fg2
-                        &:hover {
-                            background-color: var(--color-btn-hover-bg)
-                        }
+                        &:hover { background-color: var(--color-btn-hover-bg) }
                     }
                 }
             }
-            & .CodeMirror {
-                color: fg2
-            }
+            & .CodeMirror { color: fg2 }
         }
         &-explorer {
             &-node {
                 // explorer checkbox border
                 & svg {
-                    & path[d*="0H2C0.9"] {
-                        fill: bg5
-                    }
+                    & path[d*="0H2C0.9"] { g: bg5 }
                 }
-                & span {
-                    color: var(--color-auto-blue-7) i
-                }
+                & span { c: var(--color-auto-blue-7) }
                 & select {
                     &[style*="background-color"] {
                         background-color: bg0 i
@@ -3016,9 +2970,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 // explorer checkbox border
                 & div {
                     & svg {
-                        & path[d*="0H2C0.9"] {
-                            fill: bg5
-                        }
+                        & path[d*="0H2C0.9"] { g: bg5 }
                     }
                 }
                 & .toolbar {
@@ -3040,9 +2992,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     // GraphQl result window
     .result {
         &-window {
-            & .CodeMirror {
-                background: bg1
-            }
+            & .CodeMirror {  background: bg1 }
         }
     }
 
@@ -3055,10 +3005,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 border-top: 1px solid bg4
                 color: fg1
             }
-            &-information {
-                border-top: 1px solid bg4
-            }
-
+            &-information { border-top: 1px solid bg4 }
         }
     }
     div.CodeMirror {
@@ -3073,37 +3020,23 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     .CodeMirror {
         background: bg1
         & .CodeMirror {
-            &-cursor {
-                border-left: 1px solid fg1
-            }
+            &-cursor { border-left: 1px solid fg1 }
         }
         &-line {
-            &::selection {
-                background: bg4
-            }
+            &::selection { background: var(--color-code-selection-bg) }
             & > span {
-                &::selection {
-                    background: bg4
-                }
+                &::selection { background: var(--color-code-selection-bg) }
                 & > span {
-                    &::selection {
-                        background: bg4
-                    }
+                    &::selection { background: var(--color-code-selection-bg) }
                 }
             }
         }
-        &-gutters {
-            border-right: 1px solid bg5
-        }
-        &-hints {
-            background: bg4
-        }
+        &-gutters { border-right: 1px solid bg5 }
+        &-hints { background: bg4 }
         &-hint {
             &-information {
                 border-top: 1px solid bg5
-                & .content {
-                    color: fg2
-                }
+                & .content { color: fg2 }
             }
         }
         &-info {
@@ -3111,9 +3044,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             color: fg3
             box-shadow: var(--color-shadow-medium)
             & .info {
-                &-description {
-                    color: fg3
-                }
+                &-description { color: fg3 }
                 &-deprecation {
                     background: var(--color-alert-warn-bg)
                     box-shadow: inset 0 0 1px var(--color-alert-warn-border)
@@ -3130,9 +3061,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         background-color: var(--color-btn-bg)
         background-image: none
         &:focus,
-        &.focus {
-            box-shadow: 0 0 0 0.2px fg5
-        }
+        &.focus { box-shadow: 0 0 0 0.2px fg5 }
         &:active,
         &.selected {
             background-color: var(--color-btn-focus-bg) i
@@ -3146,26 +3075,20 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         &-mktg {
             color: var(--color-btn-primary-icon)
             border: 1px solid ac2
-            &:focus {
-                box-shadow: 0 0 0 0.2em ac5
-            }
-            &:hover {
-                border: 1px solid ac2
-            }
+            &:focus { box-shadow: 0 0 0 0.2em ac5 }
+            &:hover { border: 1px solid ac2 }
     }
     &-primary {
         color: var(--color-btn-primary-text)
         background-color: var(--color-btn-primary-bg)
         background-image: none
-        box-shadow: 0 1px 0 rgba(27,31,35,0.1),inset 0 1px 0 rgba(255,255,255,0.03);
+        box-shadow: 0 1px 0 rgba(27, 31, 35, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.03);
         &:hover {
             background-image: none
             background-color: var(--color-btn-primary-hover-bg) }
         }
         &:focus,
-        &.focus {
-            box-shadow: 0 0 0 2px ac5
-        }
+        &.focus { box-shadow: 0 0 0 2px ac5 }
         &:active,
         &.selected,
         &[aria-selected="true"] {
@@ -3189,42 +3112,36 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     // Banner
     .banner {
         &-prompt {
-            &-bg {
-                background-image: initial
-            }
+            &-bg { background-image: initial }
         }
     }
     .Header {
         background-color: bg3
         &-item {
-            & img {
-                filter: invert(1)
-            }
+            & img { filter: invert(1) }
         }
-        & .Header-link {
-            color: ac1
-        }
+        & .Header-link { color: ac1 }
     }
 
     hr, .rule { border-color: var(--color-border-primary) }
 
     // Backgrounds
     .bg {
-        &-blue { background-color: ac3 i }
-        &-gray-light { background-color: var(--color-bg-primary) i }
+        &-blue { c: 0 0 ac3 }
+        &-gray-light { c: 0 0 var(--color-bg-primary) }
     }
 
     // Text colors
     .text {
         &-blue { c: ac1 0 0 }
-        &-gray { color: fg1 i }
-        &-gray-dark { color: fg2 i }
-        &-gray-light { color: fg1 i }
+        &-gray { c: fg1 0 0 }
+        &-gray-dark { c: fg2 0 0 }
+        &-gray-light { c: fg1 0 0 }
     }
 
     .link-gray {
-        color: fg5 i
-        &:hover { color: ac1 i }
+        c: fg5
+        &:hover { c: ac1 0 0 }
     }
 
     // Buttons
@@ -3233,39 +3150,27 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         border-color: var(--color-btn-border)
         background-color: var(--color-btn-bg)
         &:focus,
-        &.focus {
-            box-shadow: 0 0 0 0.2px fg5
-        }
+        &.focus { box-shadow: 0 0 0 0.2px fg5 }
         &:active,
-        &.selected,
-        &[aria-selected="true"] {
+        &.selected, &[aria-selected="true"] {
             background-color: var(--color-btn-focus-bg)
             box-shadow: var(--color-shadow-inset)
         }
-        &:hover {
-            background-color: var(--color-btn-hover-bg)
-        }
+        &:hover { background-color: var(--color-btn-hover-bg) }
         &-mktg {
             color: var(--color-btn-primary-icon)
             border: 1px solid ac2
-            &:focus {
-                box-shadow: 0 0 0 0.2em ac5
-            }
-            &:hover {
-                border: 1px solid ac2
-            }
+            &:focus { box-shadow: 0 0 0 0.2em ac5 }
+            &:hover { border: 1px solid ac2 }
     }
     &-primary {
         color: var(--color-btn-primary-text)
         background-color: var(--color-btn-primary-bg)
-        box-shadow: 0 1px 0 rgba(27,31,35,0.1),inset 0 1px 0 rgba(255,255,255,0.03);
-        &:hover {
-            background-color: var(--color-btn-primary-hover-bg) }
+        box-shadow: 0 1px 0 rgba(27, 31, 35, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+            &:hover { background-color: var(--color-btn-primary-hover-bg) }
         }
         &:focus,
-        &.focus {
-            box-shadow: 0 0 0 2px ac5
-        }
+        &.focus { box-shadow: 0 0 0 2px ac5 }
         &:active,
         &.selected,
         &[aria-selected="true"] {
@@ -3279,14 +3184,17 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         background-color: var(--color-bg-primary)
         border: 1px solid var(--color-border-primary)
         &-header {
-            background-color: var(--color-bg-secondary);
-            border-color: var(--color-border-primary);
+            background-color: var(--color-bg-secondary)
+            border-color: var(--color-border-primary)
         }
     }
 
     // Borders
     .border {
         &-bottom { border-bottom: 1px solid var(--color-border-primary) i }
+        &-gray {
+            &-light { c: 0 bg4 0 }
+        }
     }
 
     .form-select, .form-control {
@@ -3297,7 +3205,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         &.focus,
         &:focus {
             border-color: ac2
-            box-shadow: 0 0 0 3px ac5;
+            box-shadow: 0 0 0 3px ac5
         }
     }
     .form-group {
@@ -3320,9 +3228,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     // style toolbar-item color previewable form e.g https://support.github.com/contact
     .toolbar {
-        &-item {
-            color: var(--color-text-secondary)
-        }
+        &-item { color: var(--color-text-secondary) }
     }
     .previewable-comment-form .comment-form-head.tabnav {
         background: bg3
@@ -3402,9 +3308,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             color: fg2
         }
         &.input {
-            &_prompt {
-                color: v69
-            }
+            &_prompt { color: v69 }
             &_area {
                 background-color: bg2
                 border: 1px solid bg5
