@@ -1810,15 +1810,16 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     .timeline-comment {
         &[class*='--caret'] {
             &::before { border-right-color: bg5 }
-            &::after { border-right-color: bg3 i }
+            &::after { border-right-color: bg3 }
             &.current-user {
-                &::before { border-right-color: ac2 i }
+                border-color: ac5
+                &::before { border-right-color: ac3 }
                 &::after { border-right-color: ac4 i }
             }
             &.branch-action-body {
                 &::after { border-right-color: bg1 i }
             }
-            /:target &::before { border-right-color: var(--color-auto-blue-4) i }
+            /:target &::before { border-right-color: var(-color-timeline-target-badge-shadow) i }
         }
 
         /// PR -> CLI instructions.
