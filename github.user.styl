@@ -1956,9 +1956,13 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 
-    /// Org access e.g. oauth
-    .oauth-org-access-details .oauth-org-item:hover {
-        background: bg4
+    /// Org access e.g. oauth bg on hover
+    .oauth-org-access-details {
+        & .oauth-org-item {
+            &:hover {
+                background: bg4
+            }
+        }
     }
 
     /// paginations more (zig-zag line)
