@@ -1880,11 +1880,18 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             &-addition .x { c: white }
             &-deletion .x { c: white }
         }
+    }
 
-        /// Diff -> Selected line tweaks.
-        /.selected-line {
-            z-index: 1
-            &::after { z-index: -1 }
+    /:target {
+        & .timeline-comment {
+            border-color: ac3
+            box-shadow: 0 0 0 .2em ac5
+            &[class*='--caret'] {
+                &::before {
+                    filter: drop-shadow(-.28em 0 0 ac5)
+                    border-right-color: ac3
+                }
+            }
         }
     }
 
