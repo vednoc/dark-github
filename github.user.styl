@@ -1155,6 +1155,16 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             }
         }
     }
+
+    // Optgroup fixes for Firefox
+    // see: https://bugzilla.mozilla.org/show_bug.cgi?id=1394491
+    optgroup {
+        background-color: bg5
+        &::before {
+            color: fg4
+            background-color: bg5
+        }
+    }
     }
 
     // Actions
