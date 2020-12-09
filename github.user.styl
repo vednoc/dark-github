@@ -1545,6 +1545,10 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         // Viewed ng to accent color
         .js-reviewed-toggle { --color-auto-blue-2: ac5 }
     }
+
+    // Projects collumn to accent color
+    .project-column {
+        &:focus { --color-auto-blue-4: var(--color-upload-enabled-border-focused) i }
     }
 
     // Navbar.
