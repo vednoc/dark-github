@@ -1756,6 +1756,28 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     .CircleBadge--github {
         &::after { background-color: fg1 }
     }
+
+    // darken main box-header bg allows buttons on hover to contrast
+    /.repository-content {
+        & .Box {
+            &-header:not([class*="--blue"]) { background-color: bg2 }
+        }
+        // darken
+        & .diff {
+            &-view {
+                & .highlight { background: bg0 }
+            }
+        }
+        // remove margin above codemirror
+        .file-header.mb-2 { margin-bottom: 0 i }
+
+        & img[src*="actions"] {
+            filter: grayscale(1) invert(0.95) brightness(1.5)
+        }
+        & .bg-white:not(.border-bottom-0) {
+            c: 0 0 bg0
+        }
+    }
     // Project -> Insights.
     .menu-item {
         c: 0 bg5
