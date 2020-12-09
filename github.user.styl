@@ -1604,6 +1604,18 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 
+    /// NOTE: Remap read/unread bg.
+    .bg-gray {
+        .notification-archived,
+        .notification-read {
+            c: 0 0 bg1
+            &:hover { c: 0 0 ac5 }
+        }
+        .notification-unread {
+            c: 0 0 bg2
+            &:hover { c: 0 0 ac5 }
+        }
+    }
 
     // Navigation. @upstream
     .UnderlineNav-item {
