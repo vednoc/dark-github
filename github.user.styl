@@ -1059,7 +1059,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
         /// Diff -> 'Display the rich diff' loader. @upstream
         .render-container { c: 0 0 bg1 }
-        img.octospinner[src] { filter: opacity(0.6) }
+        img.octospinner[src], .is-loading { filter: opacity(0.6) }
     }
 
     // Better checkbox/radio inputs.
