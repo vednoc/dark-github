@@ -1424,7 +1424,9 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
 
         /// Code blocks.
-        .markdown-body pre { c: 0 0 bg2 }
+        .markdown-body {
+            pre { c: 0 0 var(--color-codemirror-bg) }
+        }
 
         /// Releases.
         .release-timeline-tags {
