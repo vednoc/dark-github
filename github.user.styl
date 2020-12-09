@@ -1530,6 +1530,21 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 }
             }
         }
+
+        // Card filter focus to accent color
+        .card-filter {
+            &-autocomplete-dropdown {
+                & .navigation-focus,
+                & [aria-selected="true"] {
+                    color: var(--color-text-white) i
+                    background-color: ac5
+                }
+            }
+        }
+
+        // Viewed ng to accent color
+        .js-reviewed-toggle { --color-auto-blue-2: ac5 }
+    }
     }
 
     // Navbar.
