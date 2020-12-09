@@ -1429,15 +1429,69 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         //  Actions e.g. https://github.com/vednoc/dark-github/actions/new
         .repo {
             &-actions-hero {
-                filter: invert(0.95) hue-rotate(180deg) brightness(1.2)
+                filter: invert(0.95) hue-rotate(180deg) brightness(1.4)
                 mix-blend-mode: lighten
             }
         }
-        //  Marketplace e.g. https://github.com/marketplace
-        .MarketplaceBackground-recommendations {
-            /img[src*="marketplace-illustration"] {
-                filter: invert(0.95) hue-rotate(180deg) brightness(1.2)
+        .CircleBadge-icon[alt*="workflow logo"] {
+            filter: invert(0.95) brightness(1.5) grayscale(1)
+            mix-blend-mode: lighten
+        }
+
+        // Actions icon
+        // https://github.com/StylishThemes/GitHub-Dark/actions/runs/402755845
+        svg[width="40"][height="40"][viewBox="0 0 57 57"] {
+            [stroke="#79B8FF"] { g: 0 var(--color-icon-secondary) }
+            [stroke="#2088FF"] { g: 0 var(--color-icon-primary) }
+        }
+        svg[width="56"][height="56"][viewBox="0 0 56 56"] {
+            [fill="#79B8FF"] { g: var(--color-icon-secondary) }
+            [fill="#2188FF"] { g: var(--color-icon-primary) }
+        }
+        svg[width="56"][height="56"][viewBox="0 0 62.9 56"] {
+            [fill="#79b8ff"] { g: var(--color-icon-secondary) }
+            [fill="#2088ff"] { g: var(--color-icon-primary) }
+        }
+
+        /// Images
+        img {
+            // Notifications
+            &[src*="filters"] {
+                filter: invert(0.95) hue-rotate(180deg) brightness(1.5) grayscale(1)
                 mix-blend-mode: lighten
+            }
+            // logged-out
+            &[src*="city"] {
+                filter: invert(0.95) hue-rotate(180deg) brightness(1.5) grayscale(1)
+                mix-blend-mode: lighten
+            }
+        }
+        .build-in-animate {
+            [style*="box-shadow: 0 0 50px 30px #fff"] { b: 0 0 50px 30px bg1 i }
+        }
+        // Crest logged out bg
+        path[d="M0 40h1680V30S1340 0 840 0 0 30 0 30z"][fill="#fff"] {
+            g: bg0
+        }
+
+        // Image -> https://github.com/orgs/style-it-themes/packages
+        #package-results .cls {
+            &-1 { g: var(--color-icon-secondary) }
+            &-2 { g: var(--color-icon-primary) }
+        }
+
+        //  Marketplace e.g. https://github.com/marketplace
+        .Marketplace {
+            &Background-recommendations {
+                /img[src*="marketplace-illustration"] {
+                    filter: invert(0.95) hue-rotate(180deg) brightness(1.5) grayscale(1)
+                    mix-blend-mode: lighten
+                }
+            }
+            &Body {
+                /img[src*="icon-marketplace"] {
+                    filter: grayscale(1) invert(0.95) brightness(1.5)
+                }
             }
         }
     }
@@ -2082,7 +2136,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     //  All procedural images
     .procedural-image-wrapper {
         /img:not([src*="updated"]) {
-            filter: invert(.93) hue-rotate(180deg) brightness(1.3)
+            filter: invert(.95) hue-rotate(180deg) brightness(1.3)
             mix-blend-mode: lighten
         }
     }
@@ -2090,7 +2144,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     // Landing svg
     #landing {
         \[data-name="octocat header"] {
-            filter: invert(.93) hue-rotate(180deg) brightness(1.3)
+            filter: invert(.93) brightness(1.3) grayscale(1)
             mix-blend-mode: lighten
         }
     }
@@ -3372,6 +3426,13 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         color: var(--color-text-tertiary)
         background-color: var(--color-bg-primary)
         border: 1px solid var(--color-border-primary)
+    }
+
+    #contact-us {
+        & img[src*="mona"] {
+            filter: invert(.95) hue-rotate(180deg) brightness(1.5) grayscale(1)
+            mix-blend-mode: lighten
+        }
     }
 }
 
