@@ -1408,6 +1408,17 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             box-shadow: 0 0 10px ac3;
         }
 
+        // Flash only blue to accent color
+        .flash:not([class*="-warn"]):not([class*="-error"]):not([class*="-info"]) {
+            background-image: linear-gradient(ac5 , ac5)
+            border-color: ac4
+            & .octicon {
+                --color-alert-info-icon: fg2
+                &:hover { color: ac0 }
+            }
+        }
+        }
+
         /// Code blocks.
         .markdown-body pre { c: 0 0 bg2 }
 
