@@ -1667,6 +1667,17 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     // Project -> Tags. @upstream
     .topic-tag {
         &-action, &-link { c: 0 ac3 }
+
+        // marketplace cat tag
+        &:active { background-color: var(--color-topic-tag-active-bg) }
+        &-contrast {
+            & .delete-topic-link {
+                background-color: var(--color-topic-tag-bg)
+                border-left-color: ac3
+                &:hover { background-color: var(--color-topic-tag-hover-bg) }
+            }
+        }
+        &-outline { box-shadow: inset 0 0 0 1px ac3 }
     }
 
     // Project -> File tree.
