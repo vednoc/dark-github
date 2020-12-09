@@ -1517,6 +1517,19 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 }
             }
         }
+
+        // Upload element (not using GH vars yet)
+        .upload {
+            &-progress { box-shadow: var(--color-shadow-inset) }
+        }
+
+        .uploaded-files {
+            &.not-populated {
+                & + .drop-target {
+                    & .drop-target-label { border-top: 1px var(--color-border-primary) }
+                }
+            }
+        }
     }
 
     // Navbar.
