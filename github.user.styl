@@ -1992,7 +1992,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     /// Sidebar.
     .sidebar {
-        background-color: var(--color-bg-secondary)
+        background-color: var(--color-bg-primary)
         &-maptopic {
             .sidebar-article {
                 &::before {
@@ -2005,14 +2005,14 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 }
             }
         }
-        &-background-color { background-color: var(--color-bg-tertiary) }
+        &-background-color { background-color: var(--color-bg-primary) }
         &-article {
             &.is-current-page {
                 & > a { color: ac1 }
             }
         }
         &-category {
-            &.active { background-color:  var(--color-bg-tertiary) }
+            &.active { background-color:  var(--color-bg-secondary) }
             & > a { color: ac2 }
             & summary {
                 & a { color: ac1 }
