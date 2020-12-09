@@ -1809,15 +1809,6 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             /:target &::before { border-right-color: var(--color-auto-blue-4) i }
         }
 
-        /// PR -> Merged pull requests. @upstream
-        /.branch-action {
-            &-state-merged &-body {
-                c: 0 v73
-                &[class*='-caret']::before { border-right-color: v75 i }
-                &[class*='-caret']::after { border-right-color: bg1 i }
-            }
-        }
-
         /// PR -> CLI instructions.
         /.merge-branch-manually { c: 0 bg5 }
         /.copyable-terminal {
