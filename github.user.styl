@@ -1738,6 +1738,20 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 
+
+    // Billing icon fixes https://github.com/settings/billing
+    .billing-box-header {
+        /img[src*="site/icons"] {
+            filter: grayscale(1) brightness(1.5)
+        }
+    }
+
+    // large Icons in settings
+    #options_bucket {
+        /img[src*="icons/marketing"] {
+            filter: grayscale(1) brightness(1.5)
+        }
+    }
     // Project -> Insights.
     .menu-item {
         c: 0 bg5
