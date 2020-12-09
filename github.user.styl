@@ -1279,9 +1279,13 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             border-top: 1px solid var(--color-border-primary)
             & .btn-link {
                 &:not([disabled]) {
-                    color: var(--color-text-tertiary)
+                    color: var(--color-text-secondary)
+                    &:hover {
+                        background-color: ac5
+                        color: fg2
+                    }
                     & .octicon {
-                        color: var(--color-text-tertiary)
+                        color: var(--color-text-primary)
                     }
                 }
             }
@@ -1296,13 +1300,15 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 }
             }
         }
-    }
-    .checks-list-item {
-        &.bg-white {
-            background-color: var(--color-bg-secondary) i
+        &-search {
+            & details[open] {
+                & .octicon { c: fg4 }
+            }
         }
     }
-
+    .checks-list-item {
+        &.bg-white { c: 0 0 var(--color-bg-secondary) }
+    }
     /// fix dropdown menu disabled entries bg on hover GH upstream bug
     .dropdown {
         &-item {
