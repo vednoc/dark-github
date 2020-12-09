@@ -3474,3 +3474,63 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 }
+
+@-moz-document regexp('https?://github.com/sponsors(/.*)?') {
+    .btn-lg-mktg-fluid, .btn-mktg-fluid {
+        color: fg1
+        background-color: v65
+        background-image: linear-gradient(-180deg, v64, v64)
+        transition: all 0.2s cubic-bezier( 0.3, 0, 0.5, 1)
+        &::before {
+            background-image: linear-gradient(-180deg, v65, v65)
+        }
+        &:hover {
+            background-color: v63
+            background-image: linear-gradient(-180deg, v65, v65)
+        }
+    }
+    .btn-outline-mktg-fluid {
+        background: none
+        transition: all 0.2s cubic-bezier( 0.3, 0, 0.5, 1)
+        &:hover {
+            background: none
+            box-shadow: inset 0 0 0 2px ac3
+        }
+    }
+    // Text colors
+    .text {
+        &-blue {
+            c: ac1 0 0
+            &-mktg { c: ac1 0 0 }
+        }
+        &-gray {
+            c: fg1 0 0
+            &-mktg { c: v69 0 0 }
+        }
+        &-gray-dark {
+            c: fg2 0 0
+            &-mktg { c: fg1 0 0 }
+        }
+        &-gray-light { c: fg1 0 0 }
+    }
+
+    .lead-mktg-fluid { c: fg1 0 0 }
+
+    .text-gradient-blue-purple {
+        background: linear-gradient(-70deg, v65, v75)
+        background-clip: text
+    }
+    /img {
+        &[src*='sponsors-hero'], &[src*='invest-dependency-bg'] {
+            filter: invert(.95) hue-rotate(180deg) brightness(1.5)
+            mix-blend-mode: lighten
+        }
+        &[src*='sponsors-cta-bg'] {
+            filter: invert(.90) hue-rotate(180deg) brightness(1.5)
+            mix-blend-mode: lighten }
+    }
+    [style*='sponsors-invest-glow'] {
+        opacity: .5 i
+        mix-blend-mode: exclusion
+    }
+}
