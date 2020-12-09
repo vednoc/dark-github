@@ -1778,6 +1778,18 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             c: 0 0 bg0
         }
     }
+
+    // fix select menu border color (saved replies menu)
+    .select-menu {
+        &-item {
+            &:hover {
+                & code {
+                    & .border { border-color: fg4 i }
+                }
+            }
+        }
+    }
+
     // Project -> Insights.
     .menu-item {
         c: 0 bg5
