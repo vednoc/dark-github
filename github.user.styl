@@ -3437,6 +3437,19 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
         & #q {  background-color: var(--color-input-bg) }
     }
+
+    /// Search result
+    #site-search-results {
+        .search-result {
+            &:hover { background: ac5 }
+            &-title {
+                em { color: ac1 }
+            }
+            &-intro {
+                em { border-bottom: 1px solid ac2 }
+            }
+        }
+    }
     // recolor search icon svg
     @css {
         #q {
