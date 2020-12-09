@@ -1909,18 +1909,43 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     }
 
     // Fix gist snippet hover
-    .gist-snippet {
-        & .file-box {
-            &:hover {
-                & .file {
-                    border-color: ac3
+    .gist {
+        &-snippet {
+            & .file-box {
+                &:hover {
+                    & .file {
+                        border-color: ac3
+                    }
+                }
+            }
+            & .link-overlay {
+                & .link {
+                    color: fg1
+                    background-color: ac3
                 }
             }
         }
-        & .link-overlay {
-            & .link {
-                color: fg1
-                background-color: ac3
+        // fix gist quicksearch (not using css vars upstream)
+        &-quicksearch {
+            &-results {
+                background: bg1
+                border: 1px solid bg4
+                & .gist-quicksearch {
+                    &-result-header {
+                        color: fg3
+                        background: bg2
+                        border-right: 1px solid bg4
+                    }
+                    &-no-results { color: var(--color-text-secondary) }
+                    &-result-group { border-top-color: bg4 }
+                }
+                & .select-menu-item {
+                    border-bottom-color: bg4
+                    &.navigation-focus {
+                        & h4, & span { color: fg2 }
+                    }
+                    & h4, & span { color: fg3 }
+                }
             }
         }
     }
