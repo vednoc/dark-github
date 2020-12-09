@@ -1988,6 +1988,82 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     }
 }
 
+@-moz-document regexp('https?://((cli)\\.)github?.com(/.*)?') {
+    /// https://cli.github.com/manual/
+    /// Backgrounds
+    .bg {
+        &-blue-light { background-color: var(--v6-0) i }
+        &-blue { background-color: var(--v6-3) i }
+        &-purple-light { background-color: var(--color-auto-purple-1) i }
+        &-white { c: 0 0 bg2 }
+        &-red {
+            &-light { c: 0 0 v10 }
+        }
+        &-guides {
+            &-gradient { background: linear-gradient(0deg, bg2 0%, t 100%) i }
+        }
+        &-gray {
+        &-light { c: 0 0 var(--color-bg-primary) }
+        &-dark { c: 0 0 var(--color-bg-secondary) }
+        }
+        &-black { background-color: bg1 }
+    }
+
+    // Mask
+    .mask { background: bg2 }
+    /// Text colors
+    .text {
+        &-gray-dark { c: fg1 }
+        &-gray { c: fg3 }
+        &-gray-light { c: fg3 }
+        &-white { c: fg1 }
+        &-blue { c: ac1 }
+    }
+
+    .color {
+        &-gray-5 { c: fg5 }
+    }
+
+    .note { color: fg3 }
+
+    .link {
+        &-gray-dark { c: var(--color-text-secondary)
+            &:hover { c: ac1 } }
+        &-gray {
+            c: var(--color-text-tertiary)
+            &:hover { c: ac1 }
+        }
+    }
+
+    .DocsNav {
+        a { color: ac0 }
+        .main-page { color: var(--color-text-secondary) }
+    }
+
+    .markdown-body {
+        h1, h2 { border-bottom-color: var(--color-border-primary) }
+        a { c: ac0 }
+        pre, code { c: 0 0 var(--color-codemirror-bg) }
+    }
+
+    pre.terminal {
+        .gray { c: var(--color-ansi-gray) } //#959da5
+        .cyan { c: var(--color-ansi-cyan) } //#0366d6
+        .green { c: var(--color-ansi-green) } //#0366d6
+        .red { c: var(--color-ansi-red) } //#d73a49
+        .magenta { c: var(--color-ansi-magenta) } //#ea4aaa
+        .yellow { c: var(--color-ansi-yellow) } //#b08800
+    }
+
+    /// Images https://cli.github.com/
+    /img {
+        &[src*="pattern"] {
+            filter: invert(0.90) hue-rotate(180deg) brightness(1.5)
+            mix-blend-mode: lighten
+        }
+    }
+}
+
 @-moz-document regexp('https?://((docs)\\.)github?.com(/.*)?') {
     body {
         &, p { c: fg2 }
