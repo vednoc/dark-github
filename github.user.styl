@@ -1686,6 +1686,25 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     // Project -> File tree.
     .Box {
+        & .h3, & .mb-2 { color: fg2 }
+        & .btn {
+            color: var(--color-text-secondary)
+            background-color: var(--color-btn-bg)
+            border-color: var(--color-btn-border)
+            &:hover {
+                color: var(--color-text-primary)
+                background-color: var(--color-btn-hover-bg)
+                border-color: var(--color-btn-border)
+            }
+        }
+        &-header { background-color: bg2 }
+        &-body {
+            & .bg {
+                &-gray {
+                    c: 0 0 bg1 // notifications saved bg fix
+                }
+            }
+        }
         /// Use lighter background color for focused items.
         &-row--focus-gray.navigation-focus { c: 0 0 bg2 }
 
