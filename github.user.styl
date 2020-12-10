@@ -2106,7 +2106,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     /{
         /// Feat -> Add borders around code blocks and similar elements.
         if (code_borders) {
-            /// Add border around code and commit references.
+            /// Add border around code, pre, tt and commit references.
             .markdown-body { code, tt, pre { border: 1px solid bg5 }}
             .commit { &-ref, &-sha { border: 1px solid bg5 }}
             .branch-name { border: 1px solid bg5 }
