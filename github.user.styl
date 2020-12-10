@@ -1363,6 +1363,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     .checks-list-item {
         &.bg-white { c: 0 0 var(--color-bg-secondary) }
     }
+
     /// fix dropdown menu disabled entries bg on hover GH upstream bug
     .dropdown {
         &-item {
@@ -1576,7 +1577,6 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         .upload {
             &-progress { box-shadow: var(--color-shadow-inset) }
         }
-
         .uploaded-files {
             &.not-populated {
                 & + .drop-target {
@@ -1998,7 +1998,6 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             }
         }
     }
-
     // Notes -> Resets.
     .timeline-comment {
         &[class*='--caret'] {
