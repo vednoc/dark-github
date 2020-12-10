@@ -1750,7 +1750,7 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
     // Project -> File tree.
     .Box {
         & .h3, & .mb-2 { color: fg2 }
-        & .btn {
+        & .btn:not(.btn-primary) {
             color: var(--color-text-secondary)
             background-color: var(--color-btn-bg)
             border-color: var(--color-btn-border)
