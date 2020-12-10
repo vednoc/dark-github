@@ -1744,6 +1744,9 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         &-outline { box-shadow: inset 0 0 0 1px ac3 }
     }
 
+    // Table header override same as box header
+    .table-list-header { --color-bg-tertiary: bg2 }
+
     // Project -> File tree.
     .Box {
         & .h3, & .mb-2 { color: fg2 }
