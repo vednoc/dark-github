@@ -1760,11 +1760,11 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
                 border-color: var(--color-btn-border)
             }
         }
-        &-header { background-color: bg2 }
+        &-header { --color-bg-tertiary: bg2 }
         &-body {
             & .bg {
                 &-gray {
-                    c: 0 0 bg1 // notifications saved bg fix
+                    --color-bg-tertiary: bg1 // notifications saved bg fix
                 }
             }
         }
@@ -1866,9 +1866,6 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
 
     // darken main box-header bg allows buttons on hover to contrast
     /.repository-content {
-        & .Box {
-            &-header:not([class*="--blue"]) { background-color: bg2 }
-        }
         // darken
         & .diff {
             &-view {
