@@ -1669,6 +1669,9 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
             --color-notifications-row-bg: bg2
             .notification-list-item-unread-indicator { --color-bg-info-inverse: ac1 }
         }
+        &.notification {
+            &-read, &-archived { --color-notifications-row-read-bg: bg1 }
+        }
         &:hover {
             --color-auto-blue-5: ac3
             .notification-list-item-actions {
