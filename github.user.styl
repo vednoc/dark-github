@@ -1663,16 +1663,21 @@ regexp('https?://render\.githubusercontent?.com(/.*)?') {
         }
     }
 
-    /// NOTE: Remap read/unread bg.
-    .bg-gray {
-        .notification-archived,
-        .notification-read {
-            c: 0 0 bg1
-            &:hover { c: 0 0 ac5 }
+    /// Notification
+    .notifications-list-item {
+        &.notification-unread {
+            --color-notifications-row-bg: bg2
+            .notification-list-item-unread-indicator { --color-bg-info-inverse: ac1 }
         }
-        .notification-unread {
-            c: 0 0 bg2
-            &:hover { c: 0 0 ac5 }
+        &:hover {
+            --color-auto-blue-5: ac3
+            .notification-list-item-actions {
+                .btn {
+                    &:hover {
+                        --color-notifications-button-hover-bg: ac3
+                    }
+                }
+            }
         }
     }
 
