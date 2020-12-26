@@ -913,6 +913,130 @@ for c, i in C {
         --color-pr-state-closed-text: #fff;
         --color-pr-state-closed-bg: v13 //#d73a49;
         --color-pr-state-closed-border: t;
+
+        --color-blob-line-highlight-bg: v30 //#fffbdd;
+        --color-blob-line-highlight-border: t // transparent;
+        /// Diffs
+        --color-diffstat-neutral-bg: bg5 //#d1d5da;
+        --color-diffstat-neutral-border: bg5 //#d1d5da;
+        --color-diffstat-deletion-bg: v16 //#d73a49;
+        --color-diffstat-deletion-border: v16 //#d73a49;
+        --color-diffstat-addition-bg: v46 //#28a745;
+        --color-diffstat-addition-border: v46 //#28a745;
+
+        --color-diff-addition-text: fg1 //#22863a; fix e.g. md diff
+        --color-diff-addition-bg: v45 //#e6ffed;
+        --color-diff-addition-border: v45 //#34d058;
+
+        --color-diff-deletion-text: fg1 //#cb2431; fix e.g. md diff
+        --color-diff-deletion-bg: v16 //#ffeef0;
+        --color-diff-deletion-border: v16 //#d73a49;
+
+        --color-diff-change-text: fg1 //#b08800; fix e.g. md diff
+        --color-diff-change-bg: v20 //#fff5b1;
+        --color-diff-change-border: v25 //#f9c513;
+
+        --color-diff-blob-num-text: v96 //rgba(27,31,35,0.3);
+        --color-diff-blob-num-hover-text: v98 //rgba(27,31,35,0.6);
+
+        --color-diff-blob-addition-num-bg: v41 //#cdffd8;
+        --color-diff-blob-addition-num-text: v96 //rgba(27,31,35,0.3);
+        --color-diff-blob-addition-num-hover-text: v98 //rgba(27,31,35,0.6);
+        --color-diff-blob-addition-line-bg: v40 //#e6ffed;
+        --color-diff-blob-addition-word-bg: v42 //#acf2bd;
+
+        --color-diff-blob-deletion-num-bg: v11 //#ffdce0;
+        --color-diff-blob-deletion-num-text: v96 //rgba(27,31,35,0.3);
+        --color-diff-blob-deletion-num-hover-text: v98 //rgba(27,31,35,0.6);
+        --color-diff-blob-deletion-line-bg: v10 //#ffeef0;
+        --color-diff-blob-deletion-word-bg: v12 //#fdb8c0;
+
+        --color-diff-blob-hunk-text: fg4 //rgba(27,31,35,0.7);
+        --color-diff-blob-hunk-num-bg: bg4 //#dbedff;
+        --color-diff-blob-hunk-line-bg: bg3 //#f1f8ff;
+
+        --color-diff-blob-empty-block-bg: bg2 //#fafbfc;
+        --color-diff-blob-selected-line-highlight-bg: rgba(BG, 0.5) //rgba(255,223,93,0.2);
+        --color-diff-blob-selected-line-highlight-border: v35 //#ffd33d;
+        --color-diff-blob-selected-line-highlight-mix-blend-mode: screen;
+        --color-diff-blob-expander-icon: fg2 //#586069;
+        --color-diff-blob-expander-hover-icon: fg0 //#fff;
+        --color-diff-blob-expander-hover-bg: ac3 //#0366d6;
+        --color-diff-blob-comment-button-icon: fg0 //#fff;
+        --color-diff-blob-comment-button-bg: ac1 //#0366d6;
+        --color-diff-blob-comment-button-gradient-bg: ac2 //#0372ef;
+        // Syntax themes
+        // Prettylights
+        --color-prettylights-syntax-comment: fg5 //#6a737d;
+        --color-prettylights-syntax-constant: v67 //#005cc5;
+        --color-prettylights-syntax-entity: v87 //#6f42c1;
+        --color-prettylights-syntax-storage-modifier-import: v89 //#24292e;
+        --color-prettylights-syntax-entity-tag: v49 //#22863a;
+        --color-prettylights-syntax-keyword: v17 //#d73a49;
+        --color-prettylights-syntax-string: v46 //#032f62;
+        --color-prettylights-syntax-variable: v25 //#e36209;
+        --color-prettylights-syntax-brackethighlighter-unmatched: v11 //#b31d28;
+        --color-prettylights-syntax-invalid-illegal-text: fg3 //#fafbfc;
+        --color-prettylights-syntax-invalid-illegal-bg: v11 //#b31d28;
+        --color-prettylights-syntax-carriage-return-text: fg3 //#fafbfc;
+        --color-prettylights-syntax-carriage-return-bg: v11 //#d73a49;
+        --color-prettylights-syntax-string-regexp: v49 //#22863a;
+        --color-prettylights-syntax-markup-list: #735c0f;
+        --color-prettylights-syntax-markup-heading: v67 //#005cc5;
+        --color-prettylights-syntax-markup-italic: v99 //#24292e;
+        --color-prettylights-syntax-markup-bold: v99 //#24292e;
+        --color-prettylights-syntax-markup-deleted-text: fg1 //#b31d28;
+        --color-prettylights-syntax-markup-deleted-bg: v11 //#ffeef0;
+        --color-prettylights-syntax-markup-inserted-text: fg1 //#22863a;
+        --color-prettylights-syntax-markup-inserted-bg: v40 //#f0fff4;
+        --color-prettylights-syntax-markup-changed-text: v25 //#e36209;
+        --color-prettylights-syntax-markup-changed-bg: v20 //#ffebda;
+        --color-prettylights-syntax-markup-ignored-text: fg2 //#f6f8fa;
+        --color-prettylights-syntax-markup-ignored-bg: v63 //#005cc5;
+        --color-prettylights-syntax-meta-diff-range: v87 //#6f42c1;
+        --color-prettylights-syntax-brackethighlighter-angle: #586069;
+        --color-prettylights-syntax-sublimelinter-gutter-mark: #959da5;
+        --color-prettylights-syntax-constant-other-reference-link: v46 //#032f62;
+        // CodeMirror
+        --color-codemirror-text: fg2 //#24292e;
+        --color-codemirror-bg: bg0 //#fff;
+        --color-codemirror-gutters-bg: bg2 //#fff;
+        --color-codemirror-guttermarker-text: fg2 //#fff;
+        --color-codemirror-guttermarker-subtle-text: fg3 //#d1d5da;
+        --color-codemirror-linenumber-text: fg2 //#959da5;
+        --color-codemirror-cursor: fg2 //#24292e;
+        --color-codemirror-selection-bg: lighten(rgba(AC, 0.5), 30%) //#d7d4f0;
+        --color-codemirror-activeline-bg: bg3 //#fafbfc;
+        --color-codemirror-matchingbracket-text: fg3 //#24292e;
+        --color-codemirror-lines-bg: bg1 //#fff;
+        --color-codemirror-syntax-comment: fg5 //#6a737d;
+        --color-codemirror-syntax-constant: v67 //#005cc5;
+        --color-codemirror-syntax-entity: v87 //#6f42c1;
+        --color-codemirror-syntax-keyword: v17 //#d73a49;
+        --color-codemirror-syntax-storage: v17 //#d73a49;
+        --color-codemirror-syntax-string: v46 //#032f62;
+        --color-codemirror-syntax-support: v67 //#005cc5;
+        --color-codemirror-syntax-variable: v25 //#e36209;
+        // Ansi
+        --color-ansi-black: #24292e;
+        --color-ansi-black-bright: #2f363d;
+        --color-ansi-white: #e1e4e8;
+        --color-ansi-white-bright: #e1e4e8;
+        --color-ansi-gray: #959da5;
+        --color-ansi-red: #f97583;
+        --color-ansi-red-bright: #fdaeb7;
+        --color-ansi-green: #85e89d;
+        --color-ansi-green-bright: #bef5cb;
+        --color-ansi-yellow: #ffea7f;
+        --color-ansi-yellow-bright: #fff5b1;
+        --color-ansi-blue: #79b8ff;
+        --color-ansi-blue-bright: #c8e1ff;
+        --color-ansi-magenta: #b392f0;
+        --color-ansi-magenta-bright: #d1bcf9;
+        --color-ansi-cyan: #76e3ea;
+        --color-ansi-cyan-bright: #b3f0ff;
+
+        --color-code-selection-bg: var(--color-codemirror-selection-bg) //#c8e1ff;
     }
 
     // Base styles.
