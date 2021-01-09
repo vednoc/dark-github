@@ -468,7 +468,7 @@ for c, i in colors[2..length(colors)] {
 
         --color-bg-canvas: bg1 //#fff;            Main elements
         --color-bg-canvas-mobile: #fff;
-        --color-bg-canvas-inverse: bg3 //#24292e; Navbar
+        --color-bg-canvas-inverse: bg2 //#24292e; Navbar
         --color-bg-canvas-inset: bg0 //#f6f8fa;   Dashboard inset
         --color-bg-primary: bg1 //#fff;           Sidebar
         --color-bg-secondary: bg2 //#fafbfc;      Navigation/notices
@@ -758,7 +758,7 @@ for c, i in colors[2..length(colors)] {
         --color-sidenav-border-active: ac0 //#f9826c;
         --color-tabnav-selected-bg: bg1 //#fff;
         --color-header-text: fg3 //#ffffffb3;
-        --color-header-bg: bg3 //#24292e;
+        --color-header-bg: bg2 //#24292e;
         --color-header-logo: fg1 //#fff;
         --color-filter-item-bar-bg: #eff3f6;
         --color-hidden-text-expander-bg: bg4 //#dfe2e5;
@@ -1010,7 +1010,7 @@ for c, i in colors[2..length(colors)] {
         body {
             /// Application background.
             &, .application-main > .bg-gray { c: 0 0 bg0 }
-            &.page-profile .application-main { b: 0 -24px bg2 }
+            &.page-profile .application-main { b: 0 -24px bg1 }
 
             if custom_font {
                 /// Feat -> UI font.
@@ -1305,9 +1305,13 @@ for c, i in colors[2..length(colors)] {
             }
         }
 
-        /// Profile -> Navigation.
-        #js-pjax-container > .bg-white:first-child {
-            c: 0 0 bg2
+        /// Profile/Project -> Navigation.
+        [id*='-pjax-container'] {
+            > .bg-white, > .bg-gray-light {
+                &:first-child { c: 0 0 bg1 }
+            }
+            /// Project -> Sub-navigation.
+            nav.js-repo-nav { c: 0 0 bg1 }
         }
 
         /// Topics -> Background.
