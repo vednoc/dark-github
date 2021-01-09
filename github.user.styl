@@ -258,8 +258,8 @@ for c, i in colors[2..length(colors)] {
     :root,
     [data-color-mode='light'] {
         background-color: bg0
-        --color-scale-black: v90 //#1b1f23;
-        --color-scale-white: v99 //#ffffff;
+        --color-scale-black: v99 //#1b1f23;
+        --color-scale-white: v90 //#ffffff;
         --color-scale-gray-0: v91 //#fafbfc;
         --color-scale-gray-1: v92 //#f6f8fa;
         --color-scale-gray-2: v93 //#e1e4e8;
@@ -340,8 +340,8 @@ for c, i in colors[2..length(colors)] {
         --color-scale-pink-7: v88 //#b93a86;
         --color-scale-pink-8: v89 //#99306f;
         --color-scale-pink-9: v80 //#6d224f;
-        --color-auto-black: v90 //#1b1f23;
-        --color-auto-white: v99 //#ffffff;
+        --color-auto-black: v99 //#1b1f23;
+        --color-auto-white: v90 //#ffffff;
         --color-auto-gray-0: v90 //#fafbfc;
         --color-auto-gray-1: v91 //#f6f8fa;
         --color-auto-gray-2: v92 //#e1e4e8;
@@ -475,8 +475,8 @@ for c, i in colors[2..length(colors)] {
         --color-bg-tertiary: bg3 //#f6f8fa;       Background
         --color-bg-overlay: bg1 //#fff;
         --color-bg-backdrop: rgba(27,31,35,0.5)
-        --color-bg-info: ac5 //#f1f8ff;
-        --color-bg-info-inverse: var(--color-state-hover-primary-bg)
+        --color-bg-info: v61 //#f1f8ff;
+        --color-bg-info-inverse: v63 //#0366d6;
         --color-bg-danger: v11 //#ffeef0;
         --color-bg-danger-inverse: #d73a49;
         --color-bg-success: v41 //#dcffe4;
@@ -506,7 +506,7 @@ for c, i in colors[2..length(colors)] {
         --color-fade-white-85: #ffffffd9;
 
         --color-alert-info-text: fg1 //#24292e;
-        --color-alert-info-icon: ac2 //rgba(4,66,137,0.6);
+        --color-alert-info-icon: v67 //rgba(4,66,137,0.6);
         --color-alert-info-bg: v61 //#dbedff;
         --color-alert-info-border: v63 //rgba(4,66,137,0.2);
         --color-alert-warn-text: fg1 //#24292e;
@@ -707,8 +707,8 @@ for c, i in colors[2..length(colors)] {
         --color-box-blue-border: v64 //#c8e1ff;
         --color-box-row-yellow-bg: v31 //#fffbdd;
         --color-box-row-blue-bg: v61 //#f1f8ff;
-        --color-box-header-blue-bg: ac5 //#f1f8ff;
-        --color-box-header-blue-border: ac4 //#c8e1ff;
+        --color-box-header-blue-bg: v61 //#f1f8ff;
+        --color-box-header-blue-border: v64 //#c8e1ff;
         --color-box-border-info: ac4 //rgba(3,102,214,0.2);
         --color-box-bg-info: ac5 //#f1f8ff;
         --color-box-border-warning: v34 //rgba(255,211,61,0.4);
@@ -1397,7 +1397,7 @@ for c, i in colors[2..length(colors)] {
 
         /// Search. @upstream
         .header-search-wrapper {
-            c: 0 0 bg4
+            c: 0 0 bg3
             input { c: fg1 }
 
             /// Fix styles for focused state.
