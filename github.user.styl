@@ -10,22 +10,35 @@
 @license      MIT
 @preprocessor stylus
 
-@var checkbox cg_debug     'Color generator debug' 0
 @var select   cg_theme     'Base color-scheme toggle' {
-    'Custom colors   *': 'custom',
-    'Dark blue (old)  ': 'old-colors',
-    'Dark gray (new)  ': 'new-colors',
-    'GitHub Dark      ': 'github-dark',
-    'Breeze Dark      ': 'breeze-dark',
+    'Custom colors          *': 'custom',
+    'Dark blue (old)         ': 'old-colors',
+    'Dark gray (new)         ': 'new-colors',
+    'Breeze Dark             ': 'breeze-dark',
+    'GitHub Dark             ': 'github-dark',
+    'GitHub Dark Mode        ': 'github-dark-mode',
+    'Gruvbox Dark Soft       ': 'gruvbox-dark-soft',
+    'Gruvbox Dark Medium     ': 'gruvbox-dark-medium',
+    'Gruvbox Dark Hard       ': 'gruvbox-dark-hard',
+    'Solarized Dark          ': 'solarized-dark',
+    'Dracula                 ': 'dracula',
+    'Nord Dark               ': 'nord-dark',
+    'Arc Dark                ': 'arc-dark',
+    'Moonlight               ': 'moonlight',
+    'Monokai                 ': 'monokai',
+    'Horizon                 ': 'horizon',
+    'Doom One                ': 'doom-one',
+    'Deep Dark               ': 'deep-dark',
+    'Brave Dark              ': 'brave-dark',
 }
-@var color    cg_bg        'Base background color' #1f232a
-@var color    cg_fg        'Base foreground color' #eeeeee
-@var color    cg_ac        'Base accent color    ' #7289da
 
-@var range    cg_bg_a      'Adjust background color tones' [0, -25, 25, 0.1, '%']
-@var range    cg_fg_a      'Adjust foreground color tones' [0, -25, 25, 0.1, '%']
-@var range    cg_ac_a      'Adjust accent color tones    ' [0,   0, 25,   1, '%']
-@var range    cg_sc_a      'Adjust syntax color tones    ' [0, -25, 25, 0.1, '%']
+@var color    cg_bg        'Base background color' #292929
+@var color    cg_fg        'Base foreground color' #e6e6e6
+@var color    cg_ac        'Base accent color    ' #d47d3f
+@var range    cg_sat       'Adjust saturation of syntax colors' [0, -50, 40, 0.01]
+@var range    cg_lig       'Adjust lightness of syntax colors' [0, -30, 30, 0.01]
+@var color    _inverse     'Button inverse color ' #ffffff
+@var color    _shadow      'Shadow color         ' #00000040
 
 @var text     f_ui         'UI font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
@@ -39,72 +52,15 @@
 @var checkbox gitako_shrink 'Fix hidden navigation caused by shrink feature in Gitako' 0
 @var checkbox chbx_a_header 'Fix notifications checkbox on header alignment' 0
 @var checkbox code_borders  'Add borders around code blocks and similar elements' 1
-
-@var color    _red         'Base red color              ' #f07178
-@var color    _orange      'Base orange color           ' #f78c6c
-@var color    _yellow      'Base yellow color           ' #ffcb6b
-@var color    _green       'Base green color            ' #aede62
-@var color    _cyan        'Base cyan color             ' #89ddff
-@var color    _blue        'Base blue color             ' #82aaff
-@var color    _magenta     'Base magenta color          ' #9a91ea
-@var color    _violet      'Base violet color           ' #c792ea
-@var color    _gray        'Gray color                  ' #bbbbbb
-@var color    _white       'White color                 ' #ffffff
-@var color    _sh          'Shadow color                ' #00000025
 ==/UserStyle== */
 
-// Color mixin.
-/// All colors: `c: fg bd bg`
-/// Only border-color: `c: 0 bd`
-c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
-    if x != 0 && x != '_' {            color: xi is 0 ? x : x i }
-    if y != 0 && y != '_' {     border-color: yi is 0 ? y : y i }
-    if z != 0 && z != '_' { background-color: zi is 0 ? z : z i }
-}
-
-// SVG colors.
-g(x, y = 0, xi = 1, yi = 1) {
-    if x != 0 && x != '_' {   fill: xi is 0 ? x : x i }
-    if y != 0 && y != '_' { stroke: yi is 0 ? y : y i }
-}
-
-// Pseudo-element builder.
-P(a, _z = 0, _c = '', _p = absolute) {
-    z-index:  _z;
-    content:  _c;
-    position: _p;
-    if a[0] is a 'call' or a[0] is a 'unit' {    top: a[0] }
-    if a[1] is a 'call' or a[1] is a 'unit' {  right: a[1] }
-    if a[2] is a 'call' or a[2] is a 'unit' { bottom: a[2] }
-    if a[3] is a 'call' or a[3] is a 'unit' {   left: a[3] }
-}
-
-// Bare RGB mixin.
-/// Converts HEX to bare rrr-ggg-bbb format.
-to_rgb(input) {
-    unquote(slice(s('%s', rgba(input, 0)), 5, -3))
-}
-
-// Raw RGBA mixin.
-/// Combine `*-rgb` vars and alpha value.
-to_rgba(input, alpha) {
-    unquote(s('rgba(var(--%s-rgb), %s)', unquote(input), alpha))
-}
-
-// SVG-friendly colors mixin.
-to_svg(input) {
-    s('\%23%s', unquote(substr(s('%s', input), 1, 6)))
-}
-
-// Border radius mixin.
-r() { border-radius: arguments }
-
-// Box-shadow mixin.
-b() { box-shadow: arguments }
-
-/// Remove old browser prefixes.
+// {{{ Helpers.
+t       = transparent
+i       = !important
 vendors = official
 
+// Convert colors to HSLA format.
+/// NOTE: This is done just for consistency of generated colors.
 to_hsla(input) {
     $h = {}
     $h.hue = unquote(split('deg', '%s' % ceil(hue(input), 2))[0])
@@ -113,148 +69,164 @@ to_hsla(input) {
     s('hsla(%s,%s,%s,1)', $h.hue, $h.saturation, $h.lightness)
 }
 
-// Generator -> Color-schemes.
+// SVG-friendly colors mixin.
+/// NOTE: Compiler does not like HSLA format, so we convert back to HEX.
+to_svg(input) {
+    s('\%23%s', unquote(substr(s('%s', convert(input)), 1, 6)))
+}
+
+// Color mixin.
+/// All colors: `c: fg bg bg`
+/// Only border-color: `c: 0 bg`
+c(x, y = 0, z = 0, xi = 1, yi = 1, zi = 1) {
+    if x != 0 && x != '_' {            color: xi is 0 ? x : x i }
+    if y != 0 && y != '_' {     border-color: yi is 0 ? y : y i }
+    if z != 0 && z != '_' { background-color: zi is 0 ? z : z i }
+}
+
+// SVG mixin.
+/// Same usage as `c` mixin.
+g(x, y = 0, xi = 1, yi = 1) {
+    if x != 0 && x != '_' {   fill: xi is 0 ? x : x i }
+    if y != 0 && x != '_' { stroke: yi is 0 ? y : y i }
+}
+
+// Border radius mixin.
+rad() { border-radius: arguments }
+
+// Box-shadow mixin.
+b() { box-shadow: arguments }
+// }}}
+// Color mixin.
+
+/{ // {{{ Color generator.
+// Color-scheme picker.
 ColorSchemes = {
-    'custom':      { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
-    'old-colors':  { BG: #1f232a, FG: #eeeeee, AC: #7289da }
-    'new-colors':  { BG: #292929, FG: #e6e6e6, AC: #d47d3f }
-    'github-dark': { BG: #181818, FG: #e6e6e6, AC: #4f8cc9 }
-    'breeze-dark': { BG: #232629, FG: #eff0f1, AC: #3daee9 }
+    'custom':                   { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
+    'old-colors':               { BG: #1f232a, FG: #eeeeee, AC: #7289da }
+    'new-colors':               { BG: #292929, FG: #e6e6e6, AC: #d47d3f }
+    'breeze-dark':              { BG: #232629, FG: #eff0f1, AC: #3daee9 }
+    'github-dark':              { BG: #181818, FG: #e6e6e6, AC: #4f8cc9 }
+    'github-dark-mode':         { BG: #0d1117, FG: #c9d1d9, AC: #58a6ff }
+    'gruvbox-dark-soft':        { BG: #32302f, FG: #fbf1c7, AC: #d65d0e }
+    'gruvbox-dark-medium':      { BG: #282828, FG: #fbf1c7, AC: #d65d0e }
+    'gruvbox-dark-hard':        { BG: #1c2021, FG: #fbf1c7, AC: #d65d0e }
+    'solarized-dark':           { BG: #03303c, FG: #bcc5c5, AC: #859900 }
+    'dracula':                  { BG: #282a36, FG: #f8f8f2, AC: #bd93f9 }
+    'nord-dark':                { BG: #2e3440, FG: #eceff4, AC: #5e81ac }
+    'arc-dark':                 { BG: #343944, FG: #c1c8d1, AC: #5294e2 }
+    'moonlight':                { BG: #1e2030, FG: #c8d3f5, AC: #82aaff }
+    'monokai':                  { BG: #272822, FG: #e8e8e3, AC: #fd9720 }
+    'horizon':                  { BG: #1c1e26, FG: #d5c1ac, AC: #E95378 }
+    'doom-one':                 { BG: #21242b, FG: #bbc2cf, AC: #51afef }
+    'deep-dark':                { BG: #111111, FG: #eff0f1, AC: #00adee }
+    'brave-dark':               { BG: #222222, FG: #d6d6d6, AC: #f96234 }
 }
 
-// Generator -> Active color-scheme.
-for selected in ColorSchemes {
-    if (selected == cg_theme) {
-        // main { dbg: s('%s %s', selected, cg_theme) }
-        define('BG', ColorSchemes[selected].BG, global)
-        define('FG', ColorSchemes[selected].FG, global)
-        define('AC', ColorSchemes[selected].AC, global)
+// Select active color-scheme.
+for color-scheme in ColorSchemes {
+    if (color-scheme == cg_theme) {
+        // main { dbg: s('%s %s', color-scheme, cg_theme) }
+        define('BG', ColorSchemes[color-scheme].BG, global)
+        define('FG', ColorSchemes[color-scheme].FG, global)
+        define('AC', ColorSchemes[color-scheme].AC, global)
     }
 }
 
-/// Helpers.
-t  = transparent
-i  = !important
-BA = cg_bg_a
-FA = cg_fg_a
-AA = cg_ac_a
-SA = cg_sc_a
+// Color values and hues.
+// NOTE: List with anonymous hashes.
+colors = (
+    { key: bg, color:   BG } \
+    { key: fg, color:   FG } \
+    { key: v0, color:   AC } \
+    { key: v1, hue:   0deg } \
+    { key: v2, hue:  30deg } \
+    { key: v3, hue:  60deg } \
+    { key: v4, hue:  90deg } \
+    { key: v5, hue: 180deg } \
+    { key: v6, hue: 210deg } \
+    { key: v7, hue: 270deg } \
+    { key: v8, hue: 300deg } \
+    { key: v9, hue:   0deg } \
+)
 
-// Color generator.
-/// NOTE: Fix the scope to avoid conflicts.
-/{
-    g = global
+// Alias colors.
+$bg = colors[0]
+$fg = colors[1]
+// $dbg += '%s; %s; :::' % (($bg) ($fg))
 
-    /// Generator rules.
-    if (dark(BG)) {
-        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 60); a5 = (AA + 75)
-        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 70); s5 = (SA + 80)
-        b1 = (BA + 15); b2 = (BA - 04); b3 = (BA - 08); b4 = (BA - 13); b5 = (BA - 18)
-        f1 = (FA - 10); f2 = (FA + 10); f3 = (FA + 20); f4 = (FA + 30); f5 = (FA + 40)
-    } else {
-        a1 = (AA + 15); a2 = (AA + 30); a3 = (AA + 45); a4 = (AA + 65); a5 = (AA + 75)
-        s1 = (SA + 15); s2 = (SA + 30); s3 = (SA + 45); s4 = (SA + 65); s5 = (SA + 75)
-        b1 = (BA - 15); b2 = (BA + 08); b3 = (BA + 12); b4 = (BA + 20); b5 = (BA + 28)
-        f1 = (FA - 05); f2 = (FA - 10); f3 = (FA - 15); f4 = (FA - 20); f5 = (FA - 30)
-    }
+// Generate background colors.
+for num in 0..5 {
+    $color = $bg.color
+    if num == 1 {} // Skip base BG color.
+    else if num == 0 { $color = darken($color, 10%) }
+    else { $color = lighten($color, (num+2) * num/2%) }
+    $color = to_hsla($color)
 
-    /// Generate tones for base colors.
-    C = {
-        bg: {
-            '0': darken(BG, b1),
-            '1': darken(BG, 0%),
-            '2': darken(BG, b2),
-            '3': darken(BG, b3),
-            '4': darken(BG, b4),
-            '5': darken(BG, b5),
-        },
-        fg: {
-            '0': darken(FG, f1),
-            '1': darken(FG, 0%),
-            '2': darken(FG, f2),
-            '3': darken(FG, f3),
-            '4': darken(FG, f4),
-            '5': darken(FG, f5),
-        },
-        ac: {
-            '0': mix(darken(BG,  0%), AC, 0%),
-            '1': mix(darken(BG, 40%), AC, a1),
-            '2': mix(darken(BG, 40%), AC, a2),
-            '3': mix(darken(BG, 40%), AC, a3),
-            '4': mix(darken(BG, 65%), AC, a4),
-            '5': mix(darken(BG, 50%), AC, a5),
-        },
-    }
-
-    /// Generate Stylus-lang variables.
-    define('bg-' + key, val, g) for key, val in C.bg
-    define('fg-' + key, val, g) for key, val in C.fg
-    define('ac-' + key, val, g) for key, val in C.ac
-
-    /// Generate Stylus-lang helpers for CSS variables.
-    define('bg' + key, s('var(--bg-%s)', unquote(key)), g) for key, val in C.bg
-    define('fg' + key, s('var(--fg-%s)', unquote(key)), g) for key, val in C.fg
-    define('ac' + key, s('var(--ac-%s)', unquote(key)), g) for key, val in C.ac
+    $key = s('%s%s', $bg.key, num)
+    $val = 'var(--%s-%s)' % (($bg.key) (num))
+    define('$' + $key, $color, global)
+    define('' + $key, $val, global)
 }
 
-/{
-C = {
-    v1: { hue: 000deg, }, //red
-    v2: { hue: 030deg, }, //orange
-    v3: { hue: 060deg, }, //yellow
-    v4: { hue: 120deg, }, //green
-    v5: { hue: 180deg, }, //cyan
-    v6: { hue: 210deg, }, //blue
-    v7: { hue: 270deg, }, //magenta
-    v8: { hue: 300deg, }, //violet
-    v9: { hue: 000deg, }, //gray
+// Generate foreground colors.
+for num in 0..5 {
+    $color = $fg.color
+    if num == 1 {} // Skip base FG color.
+    else if num == 0 { $color = lighten($color, 10%) }
+    else { $color = darken($color, (num + num/1.25) * 5%) }
+
+    $color = desaturate($color, 90%)
+    $color = to_hsla($color)
+    // $dbg += '--- FG: ' + $color
+
+    $key = s('%s%s', $fg.key, num)
+    $val = 'var(--%s-%s)' % (($fg.key) (num))
+    define('$' + $key, $color, global)
+    define('' + $key, $val, global)
 }
 
-for c, i in C {
-    $hue = C[c].hue
-    // $dbg = 'k: ' + c + ' ::: i: ' + i + ' ::: val: ' + $hue
+// Generate all other colors.
+for c, i in colors[2..length(colors)] {
+    // $dbg += s('::: c: %s, i: %s; ', c, i )
+    // if c.key == v9 { $dbg += s('::: c: %s, i: %s; ', c, i ) }
+    $sel  = colors[i+2]
+    $dbg += ' ' + $sel
+
     for num in 0..9 {
-        $res = ''
-        if (c != 'v9') {
-            $h = C[c].hue + num / 2
-            $s = 100 - num * 8
-            $offset = (num < 2) ? 0.8 : 1.6
-            $l = 5 + (num + $offset) * 6
-            $res = hsl($h, $s, $l)
-            $res = mix(BG, $res, 10%)
-        } else {
-            $res = hsl(C[c].hue, 0, (num + 2) * 8)
+        /// Case for accent colors.
+        if ($sel.key == v0) {
+            $color = darken($sel.color, (80% - ((num + num/3) * 7.5)))
+            $color = darken($sel.color, (100% - (num+3) * 7.5))
+            $color = lightness($color, lightness($color) + num)
         }
-        $res = darken($res, SA)
-        $res = to_hsla($res)
-        // $dbg = c + '-' + num + ' ::: ' + $res
-        define(c + num, s('var(--%s-%s)', unquote(c), num), global)
-        define(c + '-' + num, $res, global)
+
+        /// Case for gray colors.
+        else if ($sel.key == v9) {
+            $color = hsl($sel.hue, 0%, 50% + cg_lig)
+            $color = darken($color, (100% - (num+2) * 17))
+        }
+
+        /// Case for RGB colors.
+        else {
+            $hue   = $sel.hue
+            $color = hsl($hue, 60% + cg_sat, 60% + cg_lig)
+            $color = darken($color, (100% - (num+2) * 7.5))
+            $color = lightness($color, lightness($color) + num)
+        }
+
+        /// Convert to HSLA format.
+        $color = to_hsla($color)
+
+        $key = s('%s%s', $sel.key, num)
+        $val = 'var(--%s-%s)' % (($sel.key) (num))
+        define('$' + $key, $color, global)
+        define('' + $key, $val, global)
     }
 }
-}
+} /// }}}
 
 @-moz-document regexp('https?://((gist|docs|support)\\.)?github?.com(/.*)?') {
-    // Show debug.
-    if (cg_debug) {
-        body > div:first-child {
-            margin-top: 2rem
-            &::before {
-                P: -2rem 0 calc(100vh - 3rem) 0, 0
-                content: \
-                    '  ⭐ BG: ' + luminosity(BG) + \
-                    '  ⭐ FG: ' + luminosity(FG) + \
-                    '  🌟 v40: ' + v40 + \
-                    '  🌟 v41: ' + v41 + \
-                    '  🌟 v42: ' + v42
-                text-align: center
-                line-height: 2rem
-                c: fg1 0 bg4
-                b: 0 1px bg5
-            }
-        }
-    }
-
     // Userstyle variables.
     :root {
         /// Userstyle info.
@@ -268,25 +240,16 @@ for c, i in C {
         --f-ui: f_ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, \
                 Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji
 
-        /// Generate v1 color variables.
-        for _v in (bg fg ac) {
-            for _i in 0..5 {
-                key = s('--%s-%s', _v, _i)
-                /// Escape `\` for `*-0` vars.
-                val = _v + \- + _i
-
-                /// Generate CSS variables.
-                { key }: val
-                // { key + '-rgb' }: to_rgb(val)
+        /// Generate CSS color variables.
+        colors = (bg fg v0 v1 v2 v3 v4 v5 v6 v7 v8 v9)
+        for color in colors[0..1] {
+            for tone in 0..5 {
+                { '--%s-%s' % ((color) (tone)) }: $ + color + tone
             }
         }
-
-        /// Generate v2 color variables.
-        for tone in 0..9 {
-            for number in 0..9 {
-                key = '--v%s-%s' % ((tone) (number))
-                val = '%s' % (v + tone + \- + number)
-                { key }: val
+        for color in colors[2..length(colors)] {
+            for tone in 0..9 {
+                { '--%s-%s' % ((color) (tone)) }: $ + color + tone
             }
         }
     }
