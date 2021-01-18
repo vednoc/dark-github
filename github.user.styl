@@ -1756,6 +1756,18 @@ for c, i in colors[2..length(colors)] {
         /// Logo.
         .gitako-toggle-show-button { height: 60px i }
 
+        /// PR -> Align header and colors.
+        .gh-header {
+            ~ .pr-toolbar.is-stuck { c: 0 0 t }
+            .gh-header-sticky.is-stuck {
+                margin-top: 3px i
+                + .gh-header-shadow {
+                    height: 63px i
+                    c: 0 0 bg2
+                }
+            }
+        }
+
         /// Colors.
         /.gitako-side-bar {
             a { c: ac }
