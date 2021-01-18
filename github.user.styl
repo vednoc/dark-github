@@ -1003,7 +1003,7 @@ for c, i in colors[2..length(colors)] {
 
     // Base styles.
     html {
-        scrollbar-color: bg5 bg3
+        scrollbar-color: bg5 bg1
         ::placeholder { c: fg4 }
 
         body {
@@ -1771,15 +1771,20 @@ for c, i in colors[2..length(colors)] {
 
         /// Colors.
         /.gitako-side-bar {
-            a { c: ac0 }
+            a { c: ac }
 
-            /// Resets.
-            &-body { c: 0 bg5 bg2 }
+            /// Reset body.
+            &-body {
+                border-left: none i
+                c: 0 bg5 bg1
+            }
+
+            /// Project header.
             .header .meta-bar {
                 min-height: 62px i
-                c: 0 0 bg3
-                [class*='BranchName-'] { c: fg3 0 bg4 }
-                [class*='Breadcrumb']::after { c: fg3 }
+                c: 0 0 bg2
+                [class*='BranchName-'] { c: fg3 0 bg3 }
+                [class*='Breadcrumb']::after { c: fg4 }
             }
 
             /// Fix 'Loading' and 'Access Denied' borders.
@@ -1788,22 +1793,25 @@ for c, i in colors[2..length(colors)] {
                 c: 0 bg5
             }
 
+            /// Fix path prefix and 'No results found' text colors.
+            .prefix, [color='text.gray'] { c: fg3 }
+
             /// Files.
             .file-explorer {
                 .search-input {
-                    c: fg1 bg5 bg2
+                    c: fg1 bg5 bg1
                     border-left: none
                     border-right: none
                     padding: 6px 0
-                    &:hover { c: 0 0 bg3 }
+                    &:hover, &:focus-within { c: 0 0 bg2 }
                     .TextInput-icon { c: fg3 }
                 }
                 .node-item {
-                    c: fg1 bg4 bg2
-                    &:hover { c: 0 0 bg3 }
-                    &:active, &.focused { c: 0 0 bg4 }
+                    c: fg1 bg4 bg1
+                    &:hover { c: 0 0 bg2 }
+                    &:active, &.focused { c: 0 0 bg3 }
                 }
-                mark { c: white 0 ac3 }
+                mark { c: fg1 0 v02 }
             }
 
             /// Footer.
@@ -1830,18 +1838,19 @@ for c, i in colors[2..length(colors)] {
                 b: none i
                 &:hover { c: 0 0 bg4 }
                 &:focus-within {
-                    c: 0 ac0
+                    c: 0 ac bg4
                     b: 0 0 0 2px ac3 i
                 }
             }
 
             /// Buttons.
-            .close-side-bar-button { c: 0 0 bg3 }
+            .close-side-bar-button { c: 0 0 bg2 }
             .settings-button { c: 0 0 bg2 }
             .octicon { c: fg3 }
+            .go-to-button:hover { c: 0 0 bg4 }
 
             /// Resize.
-            .gitako-resize-handler { c: 0 bg5 bg3 }
+            .gitako-resize-handler { c: 0 bg5 bg2 }
         }
 
         /// Fixes for experimental "shrink" feature.
