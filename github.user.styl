@@ -130,6 +130,7 @@ for color-scheme in ColorSchemes {
         define('BG', ColorSchemes[color-scheme].BG, global)
         define('FG', ColorSchemes[color-scheme].FG, global)
         define('AC', ColorSchemes[color-scheme].AC, global)
+        define('ac', ColorSchemes[color-scheme].AC, global)
     }
 }
 
@@ -429,7 +430,7 @@ for c, i in colors[2..length(colors)] {
         --color-text-placeholder: fg5 //#6a737d;
         --color-text-disabled: fg5 //#6a737d;
         --color-text-inverse: #fff;
-        --color-text-link: ac0 //#0366d6;
+        --color-text-link: ac //#0366d6;
         --color-text-danger: v16 //#cb2431;
         --color-text-success: v46 //#22863a;
         --color-text-warning: v26 //#b08800;
@@ -741,7 +742,7 @@ for c, i in colors[2..length(colors)] {
         --color-branch-name-text: fg3 //#1b1f2399;
         --color-branch-name-icon: fg3 //#a8bbd0;
         --color-branch-name-bg: bg3 //#eaf5ff;
-        --color-branch-name-link-text: ac0 //#0366d6;
+        --color-branch-name-link-text: ac //#0366d6;
         --color-branch-name-link-icon: fg3 //#a8bbd0;
         --color-branch-name-link-bg: bg3 //#eaf5ff;
 
@@ -752,10 +753,10 @@ for c, i in colors[2..length(colors)] {
         --color-markdown-table-tr-border: #c6cbd1;
 
         --color-menu-heading-text: fg1 //#24292e;
-        --color-menu-border-active: ac0 //#f9826c;
+        --color-menu-border-active: ac //#f9826c;
         --color-menu-bg-active: t;
         --color-sidenav-selected-bg: bg1 //#fff;
-        --color-sidenav-border-active: ac0 //#f9826c;
+        --color-sidenav-border-active: ac //#f9826c;
         --color-tabnav-selected-bg: bg1 //#fff;
         --color-header-text: fg3 //#ffffffb3;
         --color-header-bg: bg2 //#24292e;
@@ -795,7 +796,7 @@ for c, i in colors[2..length(colors)] {
         --color-diffstat-addition-bg: v45 //#28a745;
         --color-diffstat-addition-border: v45 //#28a745;
 
-        --color-icon-folder: ac2 //#79b8ff;
+        --color-files-explorer-icon: v05 //#79b8ff;
         --color-hl-author-bg: #f1f8ff;
         --color-hl-author-border: #c8e1ff;
         --color-logo-subdued: #d1d5da;
@@ -1432,7 +1433,7 @@ for c, i in colors[2..length(colors)] {
         &.selected,
         &[role="tab"][aria-selected="true"],
         &[aria-current]:not([aria-current="false"]) {
-            c: 0 ac0
+            c: 0 ac
         }
         &:focus, &:hover { c: 0 bg5 }
         /.UnderlineNav { b: inset 0 -1px 0 bg4 }
