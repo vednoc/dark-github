@@ -1755,7 +1755,23 @@ for c, i in colors[2..length(colors)] {
 
         /// PR -> Align header and colors.
         .gh-header {
-            ~ .pr-toolbar.is-stuck { c: 0 0 t }
+            ~ .pr-toolbar.is-stuck {
+                height: 62px i
+                c: 0 0 t
+                &::before {
+                    content: ''
+                    z-index: -1
+                    position: fixed
+                    left: 0; top: 0; right: 0
+                    height: 62px i
+                    c: 0 0 bg2
+                }
+                > .diffbar { c: 0 0 bg2 }
+                + .toolbar-shadow {
+                    margin-top: 2px i
+                    border-top: 1px solid bg5 i
+                }
+            }
             .gh-header-sticky.is-stuck {
                 margin-top: 3px i
                 + .gh-header-shadow {
