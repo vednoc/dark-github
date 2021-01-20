@@ -1701,6 +1701,13 @@ for c, i in colors[2..length(colors)] {
             &-box [fill='#40c463'] { g: ac ac }
             &-axis, &-point { g: 0 v04 }
         }
+
+        /// Invert illustrations.
+        if dark(BG) {
+            img[src*='githubassets.com/images/modules'][src$='.svg'] {
+                filter: invert() hue-rotate(180deg) brightness(120%)
+            }
+        }
     }
 
     // Code.
