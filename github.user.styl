@@ -229,7 +229,7 @@ for c, i in colors[2..length(colors)] {
 
 @-moz-document regexp('https?://((gist|docs|support)\\.)?github?.com(/.*)?') {
     // Userstyle variables.
-    :root {
+    :root:not(#z) {
         /// Userstyle info.
         --note: 'Dark-GitHub v0.21.0'
 
@@ -253,11 +253,8 @@ for c, i in colors[2..length(colors)] {
                 { '--%s-%s' % ((color) (tone)) }: $ + color + tone
             }
         }
-    }
 
-    // Native CSS variables.
-    :root,
-    [data-color-mode='light'] {
+        /// Native CSS variables.
         --color-scale-black: v99 //#1b1f23;
         --color-scale-white: v90 //#ffffff;
         --color-scale-gray-0: v91 //#fafbfc;
