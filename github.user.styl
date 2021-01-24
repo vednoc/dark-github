@@ -1597,7 +1597,11 @@ for c, i in colors[2..length(colors)] {
     // Diff -> Changes. @upstream
     .blob {
         /// File background.
-        /.file { c: 0 0 bg1 }
+        /.file {
+            c: 0 0 bg1
+            /// Diff -> Fix rounded corners of collapsed files.
+            &:not(.open) > .file-header--expandable { rad: 6px i }
+        }
 
         /// Inline diffs.
         &-code {
