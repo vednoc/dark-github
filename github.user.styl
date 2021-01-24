@@ -99,7 +99,6 @@ rad() { border-radius: arguments }
 // Box-shadow mixin.
 b() { box-shadow: arguments }
 // }}}
-// Color mixin.
 
 /{ // {{{ Color generator.
 // Color-scheme picker.
@@ -491,7 +490,7 @@ for c, i in colors[2..length(colors)] {
         --color-shadow-extra-large: 0 10px 20px #0003;
         --color-shadow-highlight: inset 0 1px 0 #0002 //hsla(0,0%,100%,0.25);
         --color-shadow-inset: inset 0 1px 0 #0002 //rgba(225,228,232,0.2);
-        --color-shadow-focus: 0 0 0 3px ac5;
+        --color-shadow-focus: 0 0 0 3px v03
 
         --color-fade-black-10: #ffffff10 //#1b1f231a;
         --color-fade-black-15: #ffffff20 //#1b1f2326;
@@ -796,7 +795,7 @@ for c, i in colors[2..length(colors)] {
         --color-diffstat-addition-bg: v45 //#28a745;
         --color-diffstat-addition-border: v45 //#28a745;
 
-        --color-files-explorer-icon: v05 //#79b8ff;
+        --color-files-explorer-icon: fg5 //#79b8ff;
         --color-hl-author-bg: #f1f8ff;
         --color-hl-author-border: #c8e1ff;
         --color-logo-subdued: #d1d5da;
@@ -823,9 +822,6 @@ for c, i in colors[2..length(colors)] {
         --color-diff-blob-selected-line-highlight-border: v33 //#ffd33d;
         --color-diff-blob-selected-line-highlight-border: v32 //#ffd33d;
         --color-diff-blob-selected-line-highlight-mix-blend-mode: normal //multiply;
-        --color-diff-blob-expander-icon: fg2 //#586069;
-        --color-diff-blob-expander-hover-icon: #fff;
-        --color-diff-blob-expander-hover-bg: ac3 //#0366d6;
 
         --color-global-nav-logo: #fff;
         --color-global-nav-bg: #24292e;
@@ -909,9 +905,9 @@ for c, i in colors[2..length(colors)] {
         --color-diff-blob-selected-line-highlight-bg: rgba(BG, 0.5) //rgba(255,223,93,0.2);
         --color-diff-blob-selected-line-highlight-border: v35 //#ffd33d;
         --color-diff-blob-selected-line-highlight-mix-blend-mode: screen;
-        --color-diff-blob-expander-icon: fg2 //#586069;
-        --color-diff-blob-expander-hover-icon: fg0 //#fff;
-        --color-diff-blob-expander-hover-bg: ac3 //#0366d6;
+        --color-diff-blob-expander-icon: fg3 //#586069;
+        --color-diff-blob-expander-hover-icon: fg1 //#fff;
+        --color-diff-blob-expander-hover-bg: bg5 //#0366d6;
         --color-diff-blob-comment-button-icon: #fff;
         --color-diff-blob-comment-button-bg: v06 //#0366d6;
         --color-diff-blob-comment-button-gradient-bg: v08 //#0372ef;
@@ -1060,10 +1056,9 @@ for c, i in colors[2..length(colors)] {
             &:checked {
                 z = '<circle cx="256" cy="256" r="128" fill="white"/>'
                 background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-                c: 0 ac3 ac4
+                c: 0 v05 v03
             }
-            &:focus { border-radius: 50% }
-            &:hover { c: 0 ac1 ac3 }
+            &:hover:not(:checked) { c: 0 0 bg3 }
         }
 
         &[type='checkbox'] {
@@ -1071,9 +1066,9 @@ for c, i in colors[2..length(colors)] {
             &:checked {
                 z ='<path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>'
                 background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-                c: 0 ac3 ac4
+                c: 0 v05 v03
             }
-            &:hover { c: 0 ac1 ac3 }
+            &:hover:not(:checked):not(:indeterminate) { c: 0 0 bg3 }
             &:indeterminate {
                 z = '<rect x="128" y="128" width="256" height="256" fill="white"/>'
                 background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
@@ -1087,7 +1082,7 @@ for c, i in colors[2..length(colors)] {
         /// Custom icon.
         r       = unquote
         prefix  = 'data:image/svg+xml;utf8,'
-        prefix += '<svg width="16" height="16" fill="' + to_svg(fg-5) + '" '
+        prefix += '<svg width="16" height="16" fill="' + to_svg($fg4) + '" '
         prefix += 'xmlns="http://www.w3.org/2000/svg">'
         path    = '<path d="M4.427 9.427l3.396 3.396a.251.251 0 00.354 '
         path   += '0l3.396-3.396A.25.25 0 0011.396 9H4.604a.25.25 0 '
@@ -1154,7 +1149,7 @@ for c, i in colors[2..length(colors)] {
                 &-line {
                     &-content {
                         & a {
-                            color: ac1
+                            color: ac
                         }
                     }
                 }
@@ -1283,11 +1278,11 @@ for c, i in colors[2..length(colors)] {
             &-navigation { c: 0 0 bg0 }
             &s-list-item {
                 c: 0 bg4
-                &.navigation-focus { box-shadow: inset 2px 0 0 ac3 i }
+                &:hover, &.navigation-focus { b: inset 2px 0 0 ac i }
                 &.notification-unread:not(#z) {
                     c: 0 0 bg2
                     &:hover { c: 0 0 bg3 }
-                    .notification-list-item-unread-indicator { c: 0 0 ac1 }
+                    .notification-list-item-unread-indicator { c: 0 0 ac }
                 }
                 &:hover .notification-list-item-actions .btn { c: 0 0 t }
             }
@@ -1312,12 +1307,12 @@ for c, i in colors[2..length(colors)] {
         }
 
         button.close-button { color: fg1 }
-        .vcard-username { c: fg4 }
+        .vcard-username { c: fg1 }
 
         // Progress loader
         .progress-pjax-loader > .progress-pjax-loader-bar[style*="background-color"] {
-            background-color: ac2 i;
-            box-shadow: 0 0 10px ac3;
+            c: 0 0 ac
+            b: none i
         }
 
         /// Code blocks.
@@ -1332,7 +1327,7 @@ for c, i in colors[2..length(colors)] {
             &.selected,
             &[aria-current]:not([aria-current="false"]),
             &[aria-selected="true"] {
-                c: 0 ac3 0
+                c: 0 ac 0
             }
         }
 
@@ -1404,7 +1399,7 @@ for c, i in colors[2..length(colors)] {
         /// Notifications. @upstream
         .mail-status {
             background-image: none i
-            c: 0 0 ac1
+            c: 0 0 ac
         }
 
         /// Logged out style.
@@ -1436,7 +1431,7 @@ for c, i in colors[2..length(colors)] {
         /.subnav-link {
             c: fg4
             &:hover { c: fg2 bg5 }
-            &.selected { c: fg1 ac0 }
+            &.selected { c: fg1 ac }
         }
     }
 
@@ -1534,11 +1529,6 @@ for c, i in colors[2..length(colors)] {
     // Project -> Insights.
     .menu-item {
         c: 0 bg5
-        &.selected::before,
-        &[aria-selected="true"]::before,
-        &[aria-current]:not([aria-current="false"])::before {
-            c: 0 0 ac0
-        }
 
         /// Graphs -> Contributors.
         /.graphs {
@@ -1837,7 +1827,7 @@ for c, i in colors[2..length(colors)] {
                 &:hover { c: 0 0 bg4 }
                 &:focus-within {
                     c: 0 ac bg4
-                    b: 0 0 0 2px ac3 i
+                    b: 0 0 0 2px v03 i
                 }
             }
 
@@ -1890,7 +1880,7 @@ for c, i in colors[2..length(colors)] {
 @-moz-document regexp('https?://((docs)\\.)github?.com(/.*)?') {
     body {
         &, p { c: fg1 }
-        a { color: ac1 }
+        a { color: ac }
     }
     header {
         & #search-results-container {
@@ -1930,38 +1920,38 @@ for c, i in colors[2..length(colors)] {
         &-maptopic {
             .sidebar-article {
                 &::before {
-                    border-left: 1px solid ac4
+                    border-left: 1px solid v03
                 }
                 &.active {
                     &::before {
-                        border-left: 3px solid ac4;
+                        border-left: 3px solid v05
                     }
                 }
             }
         }
         &-background-color {
-            background-color: var(--color-bg-tertiary)
+            background-color: var(--color-bg-secondary)
         }
         &-category {
             &.active {
                 background-color:  var(--color-bg-tertiary)
             }
-            > a { color: ac2 }
-            summary a { color: ac2 }
+            > a { color: ac }
+            summary a { color: fg1 }
         }
         &-product {
-            > a { color: ac2 }
-            summary a { color: ac2 }
+            > a { color: ac }
+            summary a { color: ac }
             &s {
-                a:hover { color: ac1 }
-                arrow:hover { color: ac1 }
+                a:hover { color: ac }
+                arrow:hover { color: ac }
             }
         }
     }
 
     .sidebar-product.is-current-page > a, .sidebar-category.is-current-page > a,
     .sidebar-maptopic.is-current-page > a, .sidebar-article.is-current-page > a {
-        color: ac2
+        color: ac
     }
 
     /// Backgrounds.
@@ -2019,11 +2009,11 @@ for c, i in colors[2..length(colors)] {
     .link {
         &-gray-dark {
             c: var(--color-text-secondary)
-            &:hover { c: ac1 }
+            &:hover { c: ac }
         }
         &-gray {
             &:hover {
-                color: ac1 i
+                color: ac i
             }
         }
     }
@@ -2064,11 +2054,11 @@ for c, i in colors[2..length(colors)] {
             border-color: var(--color-btn-hover-border)
         }
         &-outline {
-            color: ac2
+            color: v06
             border-color: bg5
             background-color: var(--color-btn-bg)
             &:hover { background-color: bg3 }
-            &:focus { box-shadow: 0 0 0 3px ac4 }
+            &:focus { box-shadow: 0 0 0 3px v01 }
             &.disabled,
             &:disabled,
             &[aria-disabled="true"] {
@@ -2081,14 +2071,14 @@ for c, i in colors[2..length(colors)] {
                 color: var(--ac-1)
                 border-color: var(--ac-1)
                 background-color: var(--bg-0)
-                &:hover { color: ac0; border-color: ac0 }
-                &:focus { box-shadow: 0 0 0 3px ac4 }
+                &:hover { color: ac; border-color: ac }
+                &:focus { box-shadow: 0 0 0 3px v01 }
             }
         }
     }
 
     :checked + .x-radio-label {
-        background: ac3
+        background: v03
     }
 
     #landing[style*="background-color: #fafbfc"],
@@ -2107,13 +2097,13 @@ for c, i in colors[2..length(colors)] {
         color: var(--color-text-secondary)
         c: 0 var(--color-border-secondary) bg2
         b: var(--color-shadow-small)
-        &:focus { b: 0 0 0 3px ac4 }
+        &:focus { b: 0 0 0 3px v01 }
     }
     .ais-Hits-item:hover {
         background: var(--color-alert-success-bg);
     }
     .search-result-title mark, .search-result-title .ais-Highlight-highlighted {
-        color: ac1;
+        color: ac
     }
     .nav-desktop {
         &-productDropdown,
@@ -2126,7 +2116,7 @@ for c, i in colors[2..length(colors)] {
 @-moz-document regexp('https?://((support)\\.)github?.com(/.*)?') {
     body {
         color: fg2
-        a { color: ac3 }
+        a { color: ac }
     }
     .Header {
         background-color: bg3
@@ -2136,16 +2126,16 @@ for c, i in colors[2..length(colors)] {
             }
         }
         & .Header-link {
-            color: ac1
+            color: ac
         }
     }
 
     hr, .rule { border-color: var(--color-border-primary) }
 
-    .bg-blue { background-color: ac3 i }
+    .bg-blue { background-color: v02 i }
 
     .text {
-        &-blue { c: ac1 0 0 }
+        &-blue { c: ac 0 0 }
         &-gray { color: fg1 i }
         &-gray-dark { color: fg2 i }
         &-gray-light { color: fg1 i }
@@ -2154,7 +2144,7 @@ for c, i in colors[2..length(colors)] {
     .link-gray {
         color: fg5 i
         &:hover {
-            color: ac1 i
+            color: ac i
         }
     }
     .btn {
@@ -2176,12 +2166,12 @@ for c, i in colors[2..length(colors)] {
         }
         &-mktg {
             color: var(--color-btn-primary-icon)
-            border: 1px solid ac2
+            border: 1px solid v05
             &:focus {
-                box-shadow: 0 0 0 0.2em ac5
+                box-shadow: 0 0 0 0.2em v01
             }
             &:hover {
-                border: 1px solid ac2
+                border: 1px solid v05
             }
     }
     &-primary {
@@ -2193,7 +2183,7 @@ for c, i in colors[2..length(colors)] {
         }
         &:focus,
         &.focus {
-            box-shadow: 0 0 0 2px ac5
+            box-shadow: 0 0 0 2px v01
         }
         &:active,
         &.selected,
@@ -2223,8 +2213,8 @@ for c, i in colors[2..length(colors)] {
         box-shadow: none;
         &.focus,
         &:focus {
-            border-color: ac2
-            box-shadow: 0 0 0 3px ac5;
+            border-color: v05
+            box-shadow: 0 0 0 3px v01;
         }
     }
     .form-group {
@@ -2232,8 +2222,8 @@ for c, i in colors[2..length(colors)] {
             background-color: var(--color-input-bg)
             &:focus {
                 background-color: var(--color-input-contrast-bg)
-                border-color: ac2
-                box-shadow: 0 0 0 3px ac5;
+                border-color: v05
+                box-shadow: 0 0 0 3px v01;
             }
         }
         & #q {
