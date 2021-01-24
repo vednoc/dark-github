@@ -1559,22 +1559,6 @@ for c, i in colors[2..length(colors)] {
             line[stroke*='#000'] { g: 0 bg4 }
             text[fill='#6a737d'] { g: fg4 }
 
-            /// Commits -> Day names.
-            text[text-anchor='middle'] { g: fg3 }
-
-            /// Network -> Invert colors.
-            if (dark(BG)) {
-                /#network > .Box {
-                    c: 0 0 #333333
-                    canvas { filter: invert(0.8) hue-rotate(180deg) }
-                }
-                /// Network tree image.
-                /.network-tree {
-                    filter: invert(0.95) hue-rotate(180deg) brightness(1.2)
-                    mix-blend-mode: lighten
-                }
-            }
-
             /// Traffic -> Remove white circles.
             /.dots > circle[cx][cy] { g: 0 bg1 }
         }
