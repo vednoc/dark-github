@@ -478,11 +478,11 @@ for c, i in colors[2..length(colors)] {
         --color-bg-info: v61 //#f1f8ff;
         --color-bg-info-inverse: v63 //#0366d6;
         --color-bg-danger: v11 //#ffeef0;
-        --color-bg-danger-inverse: #d73a49;
+        --color-bg-danger-inverse: v15 //#d73a49;
         --color-bg-success: v41 //#dcffe4;
-        --color-bg-success-inverse: #28a745;
+        --color-bg-success-inverse: v45 //#28a745;
         --color-bg-warning: v31 //#fff5b1;
-        --color-bg-warning-inverse: #ffd33d;
+        --color-bg-warning-inverse: v35 //#ffd33d;
 
         --color-shadow-small: 0 1px 0 #0002 //rgba(27,31,35,0.04);
         --color-shadow-medium: 0 3px 6px #0003 //rgba(149,157,165,0.15);
@@ -795,6 +795,8 @@ for c, i in colors[2..length(colors)] {
         --color-diffstat-addition-bg: v45 //#28a745;
         --color-diffstat-addition-border: v45 //#28a745;
 
+        --color-bg-discussions-row-emoji-box: v93 //rgba(209, 213, 218, 0.5);
+        --color-repo-language-color-border: #fff1 //rgba(27,31,35,0.1);
         --color-files-explorer-icon: fg5 //#79b8ff;
         --color-hl-author-bg: #f1f8ff;
         --color-hl-author-border: #c8e1ff;
@@ -1555,6 +1557,12 @@ for c, i in colors[2..length(colors)] {
         /.graph-canvas {
             text[fill='#000'] { g: fg1 }
             line[stroke*='#000'] { g: 0 bg4 }
+        }
+
+        /// Graphs -> Code frequency.
+        /.code-frequency {
+            .addition { g: v46 }
+            .deletion { g: v16 }
         }
 
         /// Tables.
