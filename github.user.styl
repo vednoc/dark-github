@@ -1288,9 +1288,11 @@ for c, i in colors[2..length(colors)] {
             }
         }
 
-        /// Profile/Project -> Navigation.
+        /// Profile/Project/Org -> Navigation.
         [id*='-pjax-container'] {
-            > .bg-white, > .bg-gray-light {
+            > .bg-white,
+            > .bg-gray-light,
+            > div > .orghead {
                 &:first-child { c: 0 0 bg1 }
             }
             /// Project -> Sub-navigation.
