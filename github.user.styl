@@ -424,15 +424,15 @@ for c, i in colors[2..length(colors)] {
         --color-auto-pink-9: v80 //#6d224f;
 
         --color-text-primary: fg1 //#24292e;
-        --color-text-secondary: fg3 //#586069;
-        --color-text-tertiary: fg4 //#6a737d;
+        --color-text-secondary: fg2 //#586069;
+        --color-text-tertiary: fg3 //#6a737d;
         --color-text-placeholder: fg5 //#6a737d;
         --color-text-disabled: fg5 //#6a737d;
         --color-text-inverse: #fff;
         --color-text-link: ac //#0366d6;
-        --color-text-danger: v16 //#cb2431;
+        --color-text-danger: v17 //#cb2431;
         --color-text-success: v46 //#22863a;
-        --color-text-warning: v26 //#b08800;
+        --color-text-warning: v27 //#b08800;
         --color-text-white: #fff;
 
         --color-icon-primary: fg1 //#24292e;
@@ -1529,6 +1529,9 @@ for c, i in colors[2..length(colors)] {
     // Project -> Insights.
     .menu-item {
         c: 0 bg5
+
+        /// Disabled sidebar options. @upstream
+        &.color-text-secondary { c: fg5 }
 
         /// Graphs -> Contributors.
         /.graphs {
