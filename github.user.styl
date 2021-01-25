@@ -911,21 +911,22 @@ for c, i in colors[2..length(colors)] {
         --color-diff-blob-comment-button-icon: #fff;
         --color-diff-blob-comment-button-bg: v06 //#0366d6;
         --color-diff-blob-comment-button-gradient-bg: v08 //#0372ef;
+
         // Syntax themes
         // Prettylights
-        --color-prettylights-syntax-comment: fg5 //#6a737d;
+        --color-prettylights-syntax-comment: fg3 //#6a737d;
         --color-prettylights-syntax-constant: v67 //#005cc5;
-        --color-prettylights-syntax-entity: v87 //#6f42c1;
+        --color-prettylights-syntax-entity: v79 //#6f42c1;
         --color-prettylights-syntax-storage-modifier-import: v89 //#24292e;
-        --color-prettylights-syntax-entity-tag: v49 //#22863a;
-        --color-prettylights-syntax-keyword: v17 //#d73a49;
+        --color-prettylights-syntax-entity-tag: v57 //#22863a;
+        --color-prettylights-syntax-keyword: v18 //#d73a49;
         --color-prettylights-syntax-string: v46 //#032f62;
-        --color-prettylights-syntax-variable: v25 //#e36209;
-        --color-prettylights-syntax-brackethighlighter-unmatched: v11 //#b31d28;
-        --color-prettylights-syntax-invalid-illegal-text: fg3 //#fafbfc;
-        --color-prettylights-syntax-invalid-illegal-bg: v11 //#b31d28;
-        --color-prettylights-syntax-carriage-return-text: fg3 //#fafbfc;
-        --color-prettylights-syntax-carriage-return-bg: v11 //#d73a49;
+        --color-prettylights-syntax-variable: v28 //#e36209;
+        --color-prettylights-syntax-brackethighlighter-unmatched: v12 //#b31d28;
+        --color-prettylights-syntax-invalid-illegal-text: v99 //#fafbfc;
+        --color-prettylights-syntax-invalid-illegal-bg: v12 //#b31d28;
+        --color-prettylights-syntax-carriage-return-text: v99 //#fafbfc;
+        --color-prettylights-syntax-carriage-return-bg: v13 //#d73a49;
         --color-prettylights-syntax-string-regexp: v49 //#22863a;
         --color-prettylights-syntax-markup-list: #735c0f;
         --color-prettylights-syntax-markup-heading: v67 //#005cc5;
@@ -943,6 +944,7 @@ for c, i in colors[2..length(colors)] {
         --color-prettylights-syntax-brackethighlighter-angle: #586069;
         --color-prettylights-syntax-sublimelinter-gutter-mark: #959da5;
         --color-prettylights-syntax-constant-other-reference-link: v46 //#032f62;
+
         // CodeMirror
         --color-codemirror-text: fg2 //#24292e;
         --color-codemirror-bg: bg0 //#fff;
@@ -963,6 +965,7 @@ for c, i in colors[2..length(colors)] {
         --color-codemirror-syntax-string: v46 //#032f62;
         --color-codemirror-syntax-support: v67 //#005cc5;
         --color-codemirror-syntax-variable: v25 //#e36209;
+
         // Ansi
         --color-ansi-black: #24292e;
         --color-ansi-black-bright: #2f363d;
@@ -1710,26 +1713,6 @@ for c, i in colors[2..length(colors)] {
             .branch-name { border: 1px solid bg5 }
         }
 
-        /// Syntax highlighting.
-        .pl- {
-            &k { color: v17 }
-            &c { color: fg4 }
-            &mi { color: fg0 }
-            &ent { color: v44 }
-            &e, &en { color: v86 }
-            &smw, &v { color: v25 }
-            &c1, &s &v { color: v67 }
-            &s &s1, &smi { color: v89 }
-            &mh, &mh &en, &ms { c: v75 }
-            &pds, &s, &s &pse &s1, &sr,
-            &sr &cce, &sr &sra, &sr &sre { color: v46 }
-            &ii { c: white 0 v15 }
-            &mi1 { c: v49 0 v41 }
-            &md { c: v19 0 v11 }
-            &corl { c: v56 }
-            &mb { c: fg1 }
-        }
-
         /// CodeMirror editor.
         .CodeMirror {
             &[class*='github-light'] {
@@ -1737,7 +1720,7 @@ for c, i in colors[2..length(colors)] {
                 r: 0 0 6px 6px
             }
             &-lines, &-gutters { c: 0 0 bg1 }
-            &-linenumber { c: fg4 }
+            &-linenumber { c: fg5 }
 
             /// Gist -> Editor backaground.
             /.file.js-code-editor { c: 0 0 bg1 }
