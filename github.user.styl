@@ -862,8 +862,6 @@ for c, i in colors[2..length(colors)] {
         --color-pr-state-closed-bg: v15 //#d73a49;
         --color-pr-state-closed-border: t;
 
-        --color-blob-line-highlight-bg: v30 //#fffbdd;
-        --color-blob-line-highlight-border: t // transparent;
         /// Diffs
         --color-diffstat-neutral-bg: bg5 //#d1d5da;
         --color-diffstat-neutral-border: bg5 //#d1d5da;
@@ -871,6 +869,10 @@ for c, i in colors[2..length(colors)] {
         --color-diffstat-deletion-border: v16 //#d73a49;
         --color-diffstat-addition-bg: v46 //#28a745;
         --color-diffstat-addition-border: v46 //#28a745;
+
+        --color-code-selection-bg: bg2 //#c8e1ff;
+        --color-blob-line-highlight-bg: v31 //#fffbdd;
+        --color-blob-line-highlight-border: t // rgba(0,0,0,0);
 
         --color-diff-addition-text: v49 //#22863a;
         --color-diff-addition-bg: v41 //#e6ffed;
@@ -902,9 +904,10 @@ for c, i in colors[2..length(colors)] {
         --color-diff-blob-hunk-line-bg: bg3 //#f1f8ff;
 
         --color-diff-blob-empty-block-bg: bg2 //#fafbfc;
-        --color-diff-blob-selected-line-highlight-bg: rgba(BG, 0.5) //rgba(255,223,93,0.2);
-        --color-diff-blob-selected-line-highlight-border: v35 //#ffd33d;
-        --color-diff-blob-selected-line-highlight-mix-blend-mode: screen;
+        --color-diff-blob-selected-line-highlight-bg: v31 //rgba(255,223,93,0.2);
+        --color-diff-blob-selected-line-highlight-border: v34 //#ffd33d;
+        --color-diff-blob-selected-line-highlight-mix-blend-mode: screen //multiply;
+
         --color-diff-blob-expander-icon: fg3 //#586069;
         --color-diff-blob-expander-hover-icon: fg1 //#fff;
         --color-diff-blob-expander-hover-bg: bg5 //#0366d6;
@@ -984,8 +987,6 @@ for c, i in colors[2..length(colors)] {
         --color-ansi-magenta-bright: #d1bcf9;
         --color-ansi-cyan: #76e3ea;
         --color-ansi-cyan-bright: #b3f0ff;
-
-        --color-code-selection-bg: var(--color-codemirror-selection-bg) //#c8e1ff;
     }
 
     // Base styles.
@@ -1606,7 +1607,7 @@ for c, i in colors[2..length(colors)] {
         /table.highlight > tbody > tr {
             c: 0 0 bg1
             &:hover > td { c: 0 0 bg2 }
-            &:hover > td.highlighted { c: 0 0 v31 }
+            &:hover > td.highlighted { c: 0 0 v32 }
             &.divider:hover > td { c: 0 0 bg3 }
         }
 
