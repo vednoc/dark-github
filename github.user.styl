@@ -1675,7 +1675,8 @@ for c, i in colors[2..length(colors)] {
 
         /// Invert illustrations.
         if dark(BG) {
-            img[src*='githubassets.com/images/modules'][src$='.svg'] {
+            exclude = "not([src*='color_mode'])"
+            img[src*='githubassets.com/images/modules'][src$='.svg']:{ exclude } {
                 filter: invert() hue-rotate(180deg) brightness(120%)
             }
         }
