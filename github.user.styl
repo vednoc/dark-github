@@ -1647,6 +1647,22 @@ for c, i in colors[2..length(colors)] {
         }
     }
 
+    // Discussions -> Resets.
+    .discussion-comment {
+        /// Header/question.
+        .timeline-comment, .bg-white { c: 0 0 bg2 }
+        .bg-white { rad: 0 i }
+
+        /// Answers.
+        .color-bg-canvas-inset {
+            rad: 0 0 6px 6px i
+            c: 0 0 bg1
+        }
+
+        /// Load more hidden items.
+        /form.pagination-loader-container { c: 0 0 t }
+    }
+
     // Profile.
     /{
         /// Calendar legends / Progress bars in activity.
