@@ -916,9 +916,9 @@ for c, i in colors[2..length(colors)] {
         --color-prettylights-syntax-markup-heading: v67 //#005cc5;
         --color-prettylights-syntax-markup-italic: v99 //#24292e;
         --color-prettylights-syntax-markup-bold: v99 //#24292e;
-        --color-prettylights-syntax-markup-deleted-text: fg1 //#b31d28;
+        --color-prettylights-syntax-markup-deleted-text: v19 //#b31d28;
         --color-prettylights-syntax-markup-deleted-bg: v11 //#ffeef0;
-        --color-prettylights-syntax-markup-inserted-text: fg1 //#22863a;
+        --color-prettylights-syntax-markup-inserted-text: v49 //#22863a;
         --color-prettylights-syntax-markup-inserted-bg: v40 //#f0fff4;
         --color-prettylights-syntax-markup-changed-text: v25 //#e36209;
         --color-prettylights-syntax-markup-changed-bg: v20 //#ffebda;
@@ -1576,12 +1576,7 @@ for c, i in colors[2..length(colors)] {
             c: 0 0 bg1
             /// Diff -> Fix rounded corners of collapsed files.
             &:not(.open) > .file-header--expandable { rad: 6px i }
-        }
 
-        /// Inline diffs.
-        &-code {
-            &-addition .x { c: white }
-            &-deletion .x { c: white }
         }
 
         /// Diff -> Selected line tweaks.
