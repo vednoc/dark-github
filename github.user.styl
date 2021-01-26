@@ -1401,12 +1401,26 @@ for c, i in colors[2..length(colors)] {
         }
 
         /// Logged out style.
-        .header-logged-out {
+        .Header-old {
             padding-top: 3px i
             padding-bottom: 3px i
 
             /// Default one uses white color.
             --color-text-white: fg1
+
+            /// Wrapper max width.
+            > .container-xl { max-width: 1250px i }
+
+            /// Search.
+            .header-search label {
+                border: 1px solid bg5
+                ::placeholder { c: fg4 }
+                &, input { max-height: 30px i }
+                > input {
+                    border-top: 1px solid bg5 i
+                    &.jump-to-field-active { c: 0 0 bg1 }
+                }
+            }
         }
     }
 
@@ -1847,10 +1861,7 @@ for c, i in colors[2..length(colors)] {
         @media (min-width: 1280px) {
             &.shrink-github-header {
                 /// Adjust header/icon sizes.
-                .Header {
-                    padding: 16px i
-                    max-width: 1250px i
-                }
+                .Header { padding: 16px i }
 
                 /// Reset backgrounds for header and navigation.
                 .js-header-wrapper { c: 0 0 bg2 }
