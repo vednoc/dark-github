@@ -901,7 +901,7 @@ for c, i in colors[2..length(colors)] {
         --color-prettylights-syntax-comment: fg3 //#6a737d;
         --color-prettylights-syntax-constant: v67 //#005cc5;
         --color-prettylights-syntax-entity: v79 //#6f42c1;
-        --color-prettylights-syntax-storage-modifier-import: v89 //#24292e;
+        --color-prettylights-syntax-storage-modifier-import: fg1 //#24292e;
         --color-prettylights-syntax-entity-tag: v57 //#22863a;
         --color-prettylights-syntax-keyword: v18 //#d73a49;
         --color-prettylights-syntax-string: v46 //#032f62;
@@ -1574,9 +1574,12 @@ for c, i in colors[2..length(colors)] {
         /// File background.
         /.file {
             c: 0 0 bg1
+
             /// Diff -> Fix rounded corners of collapsed files.
             &:not(.open) > .file-header--expandable { rad: 6px i }
 
+            /// Diff -> Tag expander.
+            /.branches-tag-list .ellipsis-expander { c: 0 0 bg5 }
         }
 
         /// Diff -> Selected line tweaks.
