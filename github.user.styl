@@ -47,6 +47,7 @@
 @var text     b_hgwd       'Checkbox width/height' '1rem'
 
 @var checkbox custom_font   'Use custom font overrides' 1
+@var checkbox c_scrollbars  'Use custom scrollbar overrides' 1
 @var checkbox navbar_sticky 'Use sticky position for the navbar' 0
 @var checkbox latest_commit 'Use neutral colors in latest commit' 1
 @var checkbox readme_header 'Use old readme header design' 0
@@ -973,7 +974,7 @@ for c, i in colors[2..length(colors)] {
     // Base styles.
     html {
         c: 0 0 bg0
-        scrollbar-color: bg5 bg1
+
         ::placeholder { c: fg4 }
 
         body {
@@ -996,6 +997,16 @@ for c, i in colors[2..length(colors)] {
                 /.text-mono {
                     font-family: var(--f-mono) i
                 }
+            }
+        }
+
+        /// Feat -> Theme scrollbars.
+        if c_scrollbars {
+            scrollbar-color: bg5 bg2
+            /::-webkit-scrollbar {
+                width: 12px
+                &-track { background: bg2 }
+                &-thumb { background: bg5 }
             }
         }
 
