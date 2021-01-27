@@ -1621,6 +1621,25 @@ for c, i in colors[2..length(colors)] {
             &.divider:hover > td { c: 0 0 bg3 }
         }
 
+        /// Diff -> Line highlights.
+        /table.diff-table > tbody > tr {
+            > td.selected-line {
+                z-index: 1
+                &::after { z-index: -1 }
+            }
+            &[data-hunk]:hover > td { c: 0 0 bg2 }
+            &:hover > td.selected-line { c: 0 0 v30 }
+            &:hover > td[class*='addition'] { c: 0 0 v41 }
+            &:hover > td[class*='deletion'] { c: 0 0 v11 }
+
+            /// Add colors to +/- characters.
+            /.blob-code {
+                &-addition &-marker::before { c: v47 }
+                &-deletion &-marker::before { c: v17 }
+                &.selected-line &-marker::before { c: v97 }
+            }
+        }
+
         /// Code snippet dividers. @upstream
         /.divider &-num { c: 0 0 bg3 }
         /.divider &-code { c: 0 0 bg2 }
