@@ -1626,17 +1626,20 @@ for c, i in colors[2..length(colors)] {
             /.branches-tag-list .ellipsis-expander { c: 0 0 bg5 }
         }
 
-        /// Diff -> Selected line tweaks.
-        /.selected-line {
-            z-index: 1
-            &::after { z-index: -1 }
-        }
-
-        /// Line highlight.
+        /// View -> Line highlight.
         /table.highlight > tbody > tr {
-            c: 0 0 bg1
-            &:hover > td { c: 0 0 bg2 }
-            &:hover > td.highlighted { c: 0 0 v32 }
+            > td.highlighted {
+                &, &::before {
+                    c: 0 0 var(--color-blob-line-highlight-bg)
+                    mix-blend-mode: screen
+                }
+                &::before {
+                    content: ''
+                    position: absolute
+                    top: 0; left: -50px; width: 50px
+                }
+            }
+            &:hover > td:not(.highlighted) { c: 0 0 bg2 }
             &.divider:hover > td { c: 0 0 bg3 }
         }
 
