@@ -53,6 +53,7 @@
 @var checkbox readme_header 'Use old readme header design' 0
 @var checkbox short_headers 'Use shorter headers' 0
 @var checkbox table_corners 'Use rounded corners for Markdown tables' 1
+@var checkbox dimmed_labels 'Use dimmed issue labels in light mode' 1
 @var checkbox gitako_shrink 'Fix hidden navigation caused by shrink feature in Gitako' 0
 @var checkbox chbx_a_header 'Fix notifications checkbox on header alignment' 0
 @var checkbox code_borders  'Add borders around code blocks and similar elements' 1
@@ -1353,6 +1354,15 @@ for c, i in colors[2..length(colors)] {
             border: 1px solid bg5
             c: 0 0 bg2
             [style*='color: #fff'] { c: fg1 }
+        }
+
+        /// Projects -> Issue labels.
+        if dimmed_labels {
+            html:not([data-color-mode=dark]) .IssueLabel {
+                transition: 0.2s ease-in-out
+                filter: brightness(0.7) i
+                &:hover { filter: unset i }
+            }
         }
 
         /// Image fixes
