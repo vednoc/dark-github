@@ -976,10 +976,11 @@ for c, i in colors[2..length(colors)] {
         c: 0 0 bg0
 
         ::placeholder { c: fg4 }
+        hr { border-color: bg5 }
 
         body {
             /// Application background.
-            &, .application-main > .bg-gray { c: 0 0 bg0 }
+            &, .application-main > .bg-gray, &.bg-gray-light { c: 0 0 bg0 }
             &.page-profile .application-main { b: 0 -24px bg1 }
 
             if custom_font {
