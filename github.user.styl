@@ -1911,7 +1911,10 @@ for c, i in colors[2..length(colors)] {
         @media (min-width: 1280px) {
             &.shrink-github-header {
                 /// Adjust header/icon sizes.
-                .Header { padding: 16px i }
+                .Header {
+                    padding: 16px i
+                    max-width: 1250px i
+                }
 
                 /// Reset backgrounds for header and navigation.
                 .js-header-wrapper { c: 0 0 bg2 }
