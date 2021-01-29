@@ -63,6 +63,7 @@
 t       = transparent
 i       = !important
 vendors = official
+ac      = var(--ac)
 
 // Convert colors to HSLA format.
 /// NOTE: This is done just for consistency of generated colors.
@@ -136,7 +137,6 @@ for color-scheme in ColorSchemes {
         define('BG', ColorSchemes[color-scheme].BG, global)
         define('FG', ColorSchemes[color-scheme].FG, global)
         define('AC', ColorSchemes[color-scheme].AC, global)
-        define('ac', ColorSchemes[color-scheme].AC, global)
     }
 }
 
@@ -246,6 +246,9 @@ for c, i in colors[2..length(colors)] {
         /// Feat -> Custom user interface font.
         --f-ui: f_ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, \
                 Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji
+
+        /// Accent color.
+        --ac: AC
 
         /// Generate CSS color variables.
         colors = (bg fg v0 v1 v2 v3 v4 v5 v6 v7 v8 v9)
