@@ -42,7 +42,7 @@
 @var color    _inverse     'Button inverse color ' #ffffff
 @var color    _shadow      'Shadow color         ' #00000040
 
-@var text     f_ui         'UI font' ''font_name''
+@var text     f_base       'Base font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
 @var text     b_hgwd       'Checkbox width/height' '1rem'
 
@@ -240,12 +240,14 @@ for c, i in colors[2..length(colors)] {
         --note: 'Dark-GitHub v1.0.0-rc.3'
 
         /// Feat -> Custom monospace font.
-        --f-mono: f_mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, \
-                Fira Code, monospace
+        $mono1 = 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo'
+        $mono2 = 'DejaVu Sans Mono', 'Liberation Mono', 'Ubuntu Mono'
+        --f-mono: f_mono, $mono1, $mono2, monospace
 
-        /// Feat -> Custom user interface font.
-        --f-ui: f_ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, \
-                Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji
+        /// Feat -> Custom base font.
+        $base1 = -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica'
+        $base2 = 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'
+        --f-base: f_base, $base1, $base2
 
         /// Accent color.
         --ac: AC
@@ -990,9 +992,9 @@ for c, i in colors[2..length(colors)] {
             &.page-profile .application-main { b: 0 -24px bg1 }
 
             if custom_font {
-                /// Feat -> UI font.
+                /// Feat -> Base font.
                 &, /.markdown-body {
-                    font-family: var(--f-ui) i
+                    font-family: var(--f-base) i
                 }
 
                 /// Feat -> Code font.
