@@ -1494,8 +1494,9 @@ for c, i in colors[2..length(colors)] {
 
     // Modals -> Overlay.
     .details-overlay-dark[open] > summary::before {
-        opacity: 0.5
-        c: 0 0 bg1
+        z-index: 121 // Hides Gitako.
+        opacity: 0.85
+        c: 0 0 bg0
     }
 
     // Project -> File tree.
