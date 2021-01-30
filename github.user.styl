@@ -2355,16 +2355,20 @@ for c, i in colors[2..length(colors)] {
         --v1-6: v1-6
         --v4-5: v4-5 // green
         --v4-6: v4-6
+        --dark: url("data:image/gif;base64,R0lGODlhCgAKAIAAABoaGgAAACwAAAAACgAKAAACEYQdmYcaDNxjEspKndVZbc8UADs=") i
+        --light: url("data:image/gif;base64,R0lGODlhCgAKAIAAAOXl5f///yH5BAAAAAAALAAAAAAKAAoAAAIRhB2ZhxoM3GMSykqd1VltzxQAOw==") i
     }
 
     /// Diff -> Image background.
     .render-shell {
-        img[src*='svg']:hover { filter: invert() hue-rotate(180deg) }
-        &, /body {
-            background-image: none
-            c: 0 0 bg1
+        &, img, img.asset, /body { c: 0 0 bg1 }
+
+        /// Stole this from GHD.
+        &:not([data-document-path]) img, canvas {
+            border: none i
+            background-image: var(--dark)
+            &[src*='svg']:hover { background-image: var(--light) }
         }
-        img, img.asset { c: 0 bg1 }
 
         /// Rich diff -> Border/text colors.
         .deleted-frame { c: 0 v15; &::before { c: v16 }}
