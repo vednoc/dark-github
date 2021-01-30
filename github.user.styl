@@ -1638,6 +1638,9 @@ for c, i in colors[2..length(colors)] {
             /// Diff -> Fix rounded corners of collapsed files.
             &:not(.open) > .file-header--expandable { rad: 6px i }
 
+            /// Diff -> Fix rounded corners of image diffs.
+            .render-viewer { rad: 6px i }
+
             /// Diff -> Tag expander.
             /.branches-tag-list .ellipsis-expander { c: 0 0 bg5 }
         }
@@ -2350,11 +2353,27 @@ for c, i in colors[2..length(colors)] {
         --bg-2: $bg2
         --bg-5: $bg5
         --fg-1: $fg1
-        --fg-3: $fg5
-        --v1-5: $v15 // red
-        --v1-6: $v16
+        --fg-3: $fg3
+        --v1-6: $v16 // red
+        --v1-7: $v17
         --v4-5: $v45 // green
         --v4-6: $v46
+        --v9-6: $v96 // gray
+
+        /// Native vars.
+        --color-text-primary: fg1 //#24292e;
+        --color-text-secondary: fg3 //#586069;
+        --color-text-danger: v17 //#cb2431;
+        --color-text-success: v46 //#22863a;
+        --color-icon-secondary: v96 //#586069;
+        --color-border-primary: bg5 //#e1e4e8;
+        --color-border-secondary: bg5 //#eaecef;
+        --color-border-danger: v16 //#d73a49;
+        --color-border-success: v45 //#34d058;
+        --color-bg-canvas: bg1 //#ffffff;
+        --color-bg-primary: bg1 //#ffffff;
+
+        /// Stole this from GHD.
         --dark: url("data:image/gif;base64,R0lGODlhCgAKAIAAABoaGgAAACwAAAAACgAKAAACEYQdmYcaDNxjEspKndVZbc8UADs=") i
         --light: url("data:image/gif;base64,R0lGODlhCgAKAIAAAOXl5f///yH5BAAAAAAALAAAAAAKAAoAAAIRhB2ZhxoM3GMSykqd1VltzxQAOw==") i
     }
@@ -2370,17 +2389,10 @@ for c, i in colors[2..length(colors)] {
             &[src*='svg']:hover { background-image: var(--light) }
         }
 
-        /// Rich diff -> Border/text colors.
-        .deleted-frame { c: 0 v15; &::before { c: v16 }}
-        .added-frame { c: 0 v45; &::before { c: v46 }}
-        .shell p { c: fg3 }
-
         if (dark(BG)) {
             /// Rich diff -> Invert controls.
-            .swipe .swipe-bar,
-            .onion-skin .controls > * {
-                filter: invert(0.95) brightness(150%)
-            }
+            .swipe-shell { c: 0 v96 }
+            .transparent, .opaque { filter: invert(0.95) brightness(150%) i }
 
             /// OpenStreetMap.
             .leaflet {
