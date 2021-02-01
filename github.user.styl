@@ -861,7 +861,7 @@ for c, i in colors[2..length(colors)] {
         --color-diffstat-addition-border: v46 //#28a745;
 
         --color-code-selection-bg: bg2 //#c8e1ff;
-        --color-blob-line-highlight-bg: v31 //#fffbdd;
+        --color-blob-line-highlight-bg: v30 //#fffbdd;
         --color-blob-line-highlight-border: t // rgba(0,0,0,0);
 
         --color-diff-addition-text: v49 //#22863a;
@@ -1667,7 +1667,10 @@ for c, i in colors[2..length(colors)] {
                     top: 0; left: -50px; width: 50px
                 }
             }
-            &:hover > td:not(.highlighted) { c: 0 0 bg2 }
+            &:hover > td {
+                c: 0 0 bg2
+                &.highlighted { &, &::before { c: 0 0 v31 }}
+            }
             &.divider:hover > td { c: 0 0 bg3 }
         }
 
