@@ -1645,6 +1645,14 @@ for c, i in colors[2..length(colors)] {
             /.branches-tag-list .ellipsis-expander { c: 0 0 bg5 }
         }
 
+        /// Code navigation.
+        &-code .pl-token {
+            &:not(.active):not(:hover) {
+                text-decoration: underline
+            }
+            &:hover, &.active { c: v99 0 v32 }
+        }
+
         /// View -> Line highlight.
         /table.highlight > tbody > tr {
             > td.highlighted {
