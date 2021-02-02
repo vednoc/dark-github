@@ -2434,4 +2434,47 @@ for c, i in colors[2..length(colors)] {
             }
         }
     }
+
+    /// https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb
+    #notebook {
+        c: 0 0 bg1
+
+        /// Base elements.
+        table {
+            c: fg1 0 bg2
+            th, td { c: 0 bg5 }
+        }
+        a {
+            c: ac
+            &:hover { text-decoration: none }
+        }
+        pre, code { color: fg1 }
+        pre, :not(pre) > code {
+            border: 1px solid bg5
+            c: 0 0 bg3 0 0 0
+        }
+
+        /// Notebook elements.
+        .rendered_html { c: fg1 }
+        .text_cell_render { c: fg1 }
+        .input_prompt { c: v68 }
+        .output_prompt { c: v17 }
+        .input_area { c: fg1 bg5 bg2 }
+
+        /// Alerts.
+        .alert {
+            text-shadow: none
+            c: v29 v22 v21
+            &-danger, &-error { c: v19 v12 v11 }
+            &-success { c: v49 v42 v41 }
+            &-info { c: v69 v62 v61 }
+        }
+
+        /// Syntax.
+        .o, .mi, .mf { c: fg3 }
+        .nb, .kn, .k { c: v47 }
+        .nn { c: v67 }
+        .c1 { c: v57 }
+        .s2 { c: v17 }
+    }
 }
