@@ -2361,16 +2361,21 @@ for c, i in colors[2..length(colors)] {
 
 @-moz-document regexp('https?://render\.githubusercontent?.com(/.*)?') {
     :root {
-        --bg-1: $bg1
-        --bg-2: $bg2
-        --bg-5: $bg5
-        --fg-1: $fg1
-        --fg-3: $fg3
-        --v1-6: $v16 // red
-        --v1-7: $v17
-        --v4-5: $v45 // green
-        --v4-6: $v46
-        --v9-6: $v96 // gray
+        /// Accent color.
+        --ac: AC
+
+        /// Generate CSS color variables.
+        colors = (bg fg v0 v1 v2 v3 v4 v5 v6 v7 v8 v9)
+        for color in colors[0..1] {
+            for tone in 0..5 {
+                { '--%s-%s' % ((color) (tone)) }: $ + color + tone
+            }
+        }
+        for color in colors[2..length(colors)] {
+            for tone in 0..9 {
+                { '--%s-%s' % ((color) (tone)) }: $ + color + tone
+            }
+        }
 
         /// Native vars.
         --color-text-primary: fg1 //#24292e;
