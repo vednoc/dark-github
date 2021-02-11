@@ -54,7 +54,7 @@
 @var checkbox short_headers 'Use shorter headers' 0
 @var checkbox table_corners 'Use rounded corners for Markdown tables' 1
 @var checkbox dimmed_labels 'Use dimmed issue labels in light mode' 1
-@var checkbox gitako_shrink 'Fix hidden navigation caused by shrink feature in Gitako' 0
+@var checkbox short_navbars 'Use same width for navigation bars and content area' 1
 @var checkbox chbx_a_header 'Fix notifications checkbox on header alignment' 0
 @var checkbox code_borders  'Add borders around code blocks and similar elements' 1
 ==/UserStyle== */
@@ -1402,7 +1402,30 @@ for c, i in colors[2..length(colors)] {
 
     // Navbar.
     .js-header-wrapper {
-        border-bottom: 1px solid bg5
+        /// Exclude login/auth pages.
+        /:not(.session-authentication) > & {
+            border-bottom: 1px solid bg5
+            c: 0 0 bg2
+        }
+
+        /// Feat -> Width for navbars.
+        if short_navbars {
+            /main > .bg-gray-light.hide-full-screen,
+            /.js-header-wrapper:not(.Progress) {
+                > * {
+                    max-width: 1280px
+                    margin: 0 auto
+                }
+            }
+
+            /// Repository navigation bar border.
+            /.application-main > div > main > div:first-child {
+                b: inset 0 -1px bg4 i
+
+                /// Fix context menu.
+                nav { position: relative }
+            }
+        }
 
         /// Feat -> Sticky navbar.
         if (navbar_sticky) {
@@ -1945,29 +1968,6 @@ for c, i in colors[2..length(colors)] {
 
             /// Resize.
             .gitako-resize-handler { c: 0 bg5 bg2 }
-        }
-
-        /// Fixes for experimental "shrink" feature.
-        @media (min-width: 1280px) {
-            &.shrink-github-header {
-                /// Adjust header/icon sizes.
-                .Header {
-                    padding: 16px i
-                    max-width: 1250px i
-                }
-
-                /// Reset backgrounds for header and navigation.
-                .js-header-wrapper { c: 0 0 bg2 }
-                main > :first-child { b: inset 0 -1px 0 bg4 }
-            }
-
-            /// Feat -> Fix glitchy Gitako feature.
-            if (gitako_shrink) {
-                .UnderlineNav {
-                    a[style*='visibility: hidden'] { visibility: unset i }
-                    > ul + div[style] { visibility: hidden i }
-                }
-            }
         }
 
         /// Clippy in code blocks.
