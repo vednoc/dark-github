@@ -1953,6 +1953,7 @@ for c, i in colors[2..length(colors)] {
             /// Settings -> Buttons and inputs.
             select,
             .TextInput-wrapper,
+            button.toggle-mode,
             [class*='ButtonBase-'] {
                 c: fg1 bg5 bg3
                 b: none i
@@ -1967,7 +1968,9 @@ for c, i in colors[2..length(colors)] {
             .close-side-bar-button { c: 0 0 bg2 }
             .settings-button { c: 0 0 bg2 }
             .octicon { c: fg3 }
-            .go-to-button:hover { c: 0 0 bg4 }
+            .find-in-folder, .go-to {
+                &-button:hover { c: 0 0 bg4 }
+            }
 
             /// Resize.
             .gitako-resize-handler { c: 0 bg5 bg2 }
