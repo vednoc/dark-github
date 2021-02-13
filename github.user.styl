@@ -1420,10 +1420,13 @@ for c, i in colors[2..length(colors)] {
 
             /// Repository navigation bar border.
             /.application-main > div > main > div:first-child {
-                b: inset 0 -1px bg4 i
+                b: inset 0 -1px bg3 i
 
                 /// Fix context menu.
-                nav { position: relative }
+                nav {
+                    position: relative
+                    b: inset 0 -1px bg3 i
+                }
             }
         }
 
