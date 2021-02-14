@@ -37,6 +37,7 @@
 @var color    cg_bg        'Base background color' #292929
 @var color    cg_fg        'Base foreground color' #e6e6e6
 @var color    cg_ac        'Base accent color    ' #d47d3f
+@var range    cg_fg_sat    'Adjust saturation of foreground colors' [0, 0, 100, 0.1, '%']
 @var range    cg_sat       'Adjust saturation of syntax colors' [0, -50, 40, 0.01]
 @var range    cg_lig       'Adjust lightness of syntax colors' [0, -30, 30, 0.01]
 @var color    _inverse     'Button inverse color ' #ffffff
@@ -183,7 +184,7 @@ for num in 0..5 {
     else if num == 0 { $color = lighten($color, 10%) }
     else { $color = darken($color, (num + num/1.25) * 5%) }
 
-    $color = desaturate($color, 90%)
+    $color = desaturate($color, cg_fg_sat)
     $color = to_hsla($color)
     // $dbg += '--- FG: ' + $color
 
