@@ -2434,7 +2434,7 @@ for c, i in colors[2..length(colors)] {
         &:not([data-document-path]) img, canvas {
             border: none i
             background-image: var(--dark)
-            &[src*='svg']:hover { background-image: var(--light) }
+            &:hover { background-image: var(--light) }
         }
 
         if (dark(BG)) {
