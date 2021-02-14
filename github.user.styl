@@ -65,6 +65,7 @@ t       = transparent
 i       = !important
 vendors = official
 ac      = var(--ac)
+sh      = var(--sh)
 
 // Convert colors to HSLA format.
 /// NOTE: This is done just for consistency of generated colors.
@@ -250,8 +251,9 @@ for c, i in colors[2..length(colors)] {
         $base2 = 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'
         --f-base: f_base, $base1, $base2
 
-        /// Accent color.
+        /// Accent/shadow colors.
         --ac: AC
+        --sh: _shadow
 
         /// Generate CSS color variables.
         colors = (bg fg v0 v1 v2 v3 v4 v5 v6 v7 v8 v9)
@@ -1342,6 +1344,10 @@ for c, i in colors[2..length(colors)] {
                     c: 0 0 bg0
                 }
                 .project-column { c: 0 0 bg1 }
+                .js-project-column {
+                    &-card:hover { b: 0 2px 4px sh i }
+                    &-automation-footer { c: 0 bg3 bg1 }
+                }
             }
         }
 
