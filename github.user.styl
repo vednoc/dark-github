@@ -1320,6 +1320,17 @@ for c, i in colors[2..length(colors)] {
                 &:first-child { c: 0 0 bg1 }
             }
 
+            /// Repository -> Archived styles.
+            > div > main > .flash-warn {
+                margin-top: 0 i
+                c: 0 0 red
+                + .bg-gray-light {
+                    c: 0 0 bg1
+                    b: inset 0 -1px bg3
+                    .UnderlineNav { b: inset 0 -1px bg3 }
+                }
+            }
+
             /// Repository -> Sub-navigation.
             nav.js-repo-nav { c: 0 0 bg1 }
 
