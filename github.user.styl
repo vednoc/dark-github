@@ -2516,6 +2516,7 @@ for c, i in colors[2..length(colors)] {
         /// Invert images. Stole this from GHD.
         .output_area .output_png img {
             filter: invert(90%) hue-rotate(180deg) saturate(200%) brightness(85%) i
+            &:hover { filter: unset i }
         }
         img.math {
             filter: invert(90%) hue-rotate(180deg)
