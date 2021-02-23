@@ -1416,6 +1416,20 @@ for c, i in colors[2..length(colors)] {
                 mix-blend-mode: lighten
             }
         }
+
+        /// Remove SVG for dark/light mode toggle.
+        .profile-color-modes {
+            svg { display: none i }
+            span[role] {
+                top: -40px
+                &::before {
+                    content: 'Change mode'
+                    position: absolute
+                    margin-left: -12ch
+                    margin-top: 2px
+                }
+            }
+        }
     }
 
     // Navbar.
