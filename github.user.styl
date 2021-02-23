@@ -2431,6 +2431,16 @@ for c, i in colors[2..length(colors)] {
         /// Stole this from GHD.
         --dark: url("data:image/gif;base64,R0lGODlhCgAKAIAAABoaGgAAACwAAAAACgAKAAACEYQdmYcaDNxjEspKndVZbc8UADs=") i
         --light: url("data:image/gif;base64,R0lGODlhCgAKAIAAAOXl5f///yH5BAAAAAAALAAAAAAKAAoAAAIRhB2ZhxoM3GMSykqd1VltzxQAOw==") i
+
+        /// Feat -> Theme scrollbars.
+        if c_scrollbars {
+            scrollbar-color: bg5 bg2
+            /::-webkit-scrollbar {
+                width: 12px
+                &-track { background: bg2 }
+                &-thumb { background: bg5 }
+            }
+        }
     }
 
     /// Diff -> Image background.
@@ -2523,9 +2533,10 @@ for c, i in colors[2..length(colors)] {
 
         /// Syntax.
         .o, .mi, .mf { c: fg3 }
-        .nb, .kn, .k { c: v47 }
-        .nn { c: v67 }
+        .nb, .kn, .k, .bp { c: v47 }
+        .nn, .nf, .nc { c: v67 }
         .c1 { c: v57 }
-        .s2 { c: v17 }
+        .s1, .s2 { c: v17 }
+        .ow { c: v87 }
     }
 }
