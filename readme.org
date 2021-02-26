@@ -1,3 +1,6 @@
+#+STARTUP: nofold
+#+HTML: <div align="center">
+
 * Dark-GitHub
 Experimental userstyle for GitHub that uses my procedural color generator and
 GitHub's native CSS variables. It is _not_ ready, and will never compete with
@@ -8,10 +11,25 @@ itself on a large website that can utilize most, if not all of its colors. By
 the end, depending on where things go, this userstyle might be archived, or it
 might fully replace the use of GitHub Dark for me personally.
 
+[[https://github.com/vednoc/dark-github/blob/master/changelog.org][https://img.shields.io/github/v/tag/vednoc/dark-github.svg?label=version&style=flat]]
+[[https://github.com/vednoc/dark-github/stargazers][https://img.shields.io/github/stars/vednoc/dark-github.svg?style=flat]]
+[[https://github.com/vednoc/dark-github/network][https://img.shields.io/github/forks/vednoc/dark-github.svg?color=007ec6&style=flat]]
+[[https://github.com/vednoc/dark-github/wiki][https://img.shields.io/badge/docs-on%20GitHub-007ec6.svg?&style=flat]]
+[[https://raw.githubusercontent.com/vednoc/dark-github/main/github.user.styl][https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat]]
+[[https://discord.gg/NpT8PzA][https://img.shields.io/discord/272011641694978048.svg?longCache=true&colorB=7289da&logo=discord&style=flat]]
+
+#+HTML: <img src="https://user-images.githubusercontent.com/18245694/109351173-18f4bb80-7879-11eb-998f-3fc31d2abb55.png" width="100%"/>
+
+/Version 1.0.0-rc.8 with Fira Sans as the base font, and Iosevka Extended as the monospace font./
+
+#+HTML: </div>
+
 ** Installation
-If you'd like to try it out, here's the install link:
+You have to install [[https://add0n.com/stylus.html][Stylus]] and then click on the install link below.
 
 [[https://raw.githubusercontent.com/vednoc/dark-github/main/github.user.styl][https://img.shields.io/badge/Install%20directly%20with-Stylus-116b59.svg?longCache=true&style=flat]]
+
+To customize default options, refer to [[https://github.com/vednoc/dark-whatsapp/wiki/Configuration][vednoc/dark-whatsapp's configuration page]] for more information on the matter.
 
 ** Supported extensions
 - [[https://github.com/EnixCoda/Gitako][Gitako]]
