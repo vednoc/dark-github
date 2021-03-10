@@ -1924,6 +1924,11 @@ for c, i in colors[2..length(colors)] {
         }
     }
 
+    // Hide "notifications" button while logged out. @upstream
+    .logged-out .pagehead-actions a[aria-label*='notification'] {
+        display: none
+    }
+
     // Extension -> Gitako.
     /// Link: https://github.com/EnixCoda/Gitako
     /// TODO: Maybe switch to different background colors.
