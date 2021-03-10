@@ -1955,8 +1955,11 @@ for c, i in colors[2..length(colors)] {
                 c: 0 bg5
             }
 
-            /// Fix path prefix and 'No results found' text colors.
-            .prefix, [color='text.gray'] { c: fg3 }
+            /// Fix path prefix, 'No results found', and 'Loading' text colors.
+            .prefix, [color='text.gray'], .loading-indicator { c: fg3 }
+
+            /// 'Lazy mode is ON' alert.
+            [color='gray.4'] { c: fg5 }
 
             /// Files.
             .file-explorer {
@@ -1980,6 +1983,9 @@ for c, i in colors[2..length(colors)] {
             .gitako-settings-bar {
                 c: 0 0 bg2
                 .header-row { c: 0 bg5 }
+
+                /// Lazy mode.
+                span[color='gray.6'] { c: v98 0 v23 }
             }
 
             /// Settings -> Header.
