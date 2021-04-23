@@ -1466,6 +1466,9 @@ for c, i in colors[2..length(colors)] {
                 }
             }
 
+            /// Fix max-width of the progress bar.
+            .Progress.is-loading { max-width: unset i }
+
             /// Repository navigation bar border.
             /.application-main > div > main > div:first-child {
                 b: inset 0 -1px bg3 i
