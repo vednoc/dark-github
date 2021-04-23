@@ -47,6 +47,7 @@
 @var text     f_mono       'Monospace font' ''font_name''
 @var text     b_hgwd       'Checkbox width/height' '1rem'
 
+@var checkbox cb_color      'Use accent colors for contributions' 0
 @var checkbox custom_font   'Use custom font overrides' 1
 @var checkbox c_scrollbars  'Use custom scrollbar overrides' 1
 @var checkbox navbar_sticky 'Use sticky position for the navbar' 0
@@ -827,10 +828,10 @@ for c, i in colors[2..length(colors)] {
 
         --color-calendar-graph-day-bg: bg2 //#ebedf0;
         --color-calendar-graph-day-border: #88888825 //#1b1f230f;
-        --color-calendar-graph-day-L1-bg: v01 //#9be9a8;
-        --color-calendar-graph-day-L2-bg: v03 //#40c463;
-        --color-calendar-graph-day-L3-bg: v06 //#30a14e;
-        --color-calendar-graph-day-L4-bg: v08 //#216e39;
+        --color-calendar-graph-day-L1-bg: (cb_color) ? v01 : v41 //#9be9a8;
+        --color-calendar-graph-day-L2-bg: (cb_color) ? v03 : v43 //#40c463;
+        --color-calendar-graph-day-L3-bg: (cb_color) ? v06 : v46 //#30a14e;
+        --color-calendar-graph-day-L4-bg: (cb_color) ? v08 : v49 //#216e39;
         --color-calendar-graph-day-L4-border: #88888825 //#1b1f230f;
         --color-calendar-graph-day-L3-border: #88888825 //#1b1f230f;
         --color-calendar-graph-day-L2-border: #88888825 //#1b1f230f;
@@ -1888,8 +1889,8 @@ for c, i in colors[2..length(colors)] {
 
         /// Regular activity overview.
         .activity-overview {
-            &-box [fill='#40c463'] { g: ac ac }
-            &-axis, &-point { g: 0 v04 }
+            &-box [fill='#40c463'] { g: var(--color-calendar-graph-day-L2-bg) var(--color-calendar-graph-day-L2-bg) }
+            &-axis, &-point { g: 0 var(--color-calendar-graph-day-L3-bg) }
         }
 
         /// Invert illustrations.
