@@ -1330,11 +1330,10 @@ for c, i in colors[2..length(colors)] {
                 &:first-child { c: 0 0 bg1 }
             }
 
-            /// Repository -> Archived styles.
+            /// Repository -> Archived repositories.
             > div > main > .flash-warn {
                 margin-top: 0 i
-                c: 0 0 red
-                + .bg-gray-light {
+                + .color-bg-secondary {
                     c: 0 0 bg1
                     b: inset 0 -1px bg3
                     .UnderlineNav { b: inset 0 -1px bg3 }
@@ -1463,9 +1462,10 @@ for c, i in colors[2..length(colors)] {
 
         /// Feat -> Width for navbars.
         if short_navbars {
-            ex = 'not(.full-width):not(.notifications-v2):not(.page-new-repo)'
-            /main > .color-bg-secondary.hide-full-screen,
-            /body:{ ex } > .js-header-wrapper:not(.Progress) {
+            ex  = 'not(.full-width):not(.notifications-v2):not(.page-new-repo)'
+            ex += ':not(.project-page)'
+            /body:{ ex } main > .color-bg-secondary.hide-full-screen,
+            /body:{ ex } > .js-header-wrapper {
                 > * {
                     max-width: 1280px
                     margin: 0 auto
@@ -1484,6 +1484,19 @@ for c, i in colors[2..length(colors)] {
                     position: relative
                     b: inset 0 -1px bg3 i
                 }
+            }
+
+            // Alerts.
+            ~ #js-flash-container > .flash-full > div {
+                margin: 0 auto
+                max-width: 1230px
+            }
+
+            // Notifications.
+            ~ .notifications-v2.flash-full > div {
+                margin: 0 auto
+                max-width: 1220px
+                .octicon-x { margin-right: 0 }
             }
         }
 
@@ -1564,7 +1577,7 @@ for c, i in colors[2..length(colors)] {
             --color-text-white: fg1
 
             /// Wrapper max width.
-            > .container-xl { max-width: 1250px i }
+            /body:not(.project-page) & > .container-xl { max-width: 1250px i }
 
             /// Search.
             .header-search label {
@@ -1574,6 +1587,24 @@ for c, i in colors[2..length(colors)] {
                 > input {
                     border-top: 1px solid bg5 i
                     &.jump-to-field-active { c: 0 0 bg1 }
+                }
+            }
+        }
+
+        /// Gist page.
+        /.gist-detail-intro.gist-banner { display: none }
+        /.gisthead.pagehead.color-bg-secondary {
+            c: 0 0 bg1
+
+            /// Reset width.
+            > div {
+                margin: 0 auto
+                max-width: 1280px
+
+                /// Remove excess padding.
+                > div {
+                    padding-left: 16px i
+                    padding-right: 16px i
                 }
             }
         }
