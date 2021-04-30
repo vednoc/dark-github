@@ -34,6 +34,11 @@
     'Ubuntu                  ': 'ubuntu',
 }
 
+@var select   sy_theme     'Base color-scheme toggle' {
+    'Horizon                 ': 'horizon',
+    'Doom One               *': 'doom-one',
+}
+
 @var color    cg_bg        'Base background color' #292929
 @var color    cg_fg        'Base foreground color' #e6e6e6
 @var color    cg_ac        'Base accent color    ' #d47d3f
@@ -125,8 +130,8 @@ ColorSchemes = {
     'arc-dark':                 { BG: #343944, FG: #c1c8d1, AC: #5294e2 }
     'moonlight':                { BG: #1e2030, FG: #c8d3f5, AC: #82aaff }
     'monokai':                  { BG: #272822, FG: #e8e8e3, AC: #fd9720 }
-    'horizon':                  { BG: #1c1e26, FG: #d5c1ac, AC: #E95378 }
-    'doom-one':                 { BG: #21242b, FG: #bbc2cf, AC: #51afef }
+    'horizon':                  { BG: #1c1e26, FG: #d5c1ac, AC: #E95378, V1: #e95678, V2: #f09383, V3: #fab795, V4: #09f7a0, V5: #59e3e3, V6: #21bfc2, V7: #db77cc, V8: #b877db, V9: #ffffff }
+    'doom-one':                 { BG: #21242b, FG: #bbc2cf, AC: #51afef, V1: #ff6c6b, V2: #da8548, V3: #ecbe7b, V4: #98be65, V5: #46d9ff, V6: #51afef, V7: #c678dd, V8: #a9a1e1, V9: #cccccc }
     'deep-dark':                { BG: #111111, FG: #eff0f1, AC: #00adee }
     'brave-dark':               { BG: #222222, FG: #d6d6d6, AC: #f96234 }
     'twilight':                 { BG: #171717, FG: #f7f7f7, AC: #8f9d6a }
@@ -143,21 +148,37 @@ for color-scheme in ColorSchemes {
     }
 }
 
+for color-scheme in ColorSchemes {
+    // Generate main colors.
+    if (color-scheme == cg_theme) {
+        // main { dbg: s('%s %s', color-scheme, cg_theme) }
+        define('BG', ColorSchemes[color-scheme].BG, global)
+        define('FG', ColorSchemes[color-scheme].FG, global)
+        define('AC', ColorSchemes[color-scheme].AC, global)
+    }
+
+    // Generate syntax colors.
+    if (color-scheme == sy_theme) {
+        // main { dbg: s('%s %s', color-scheme, cg_theme) }
+        define('V1', ColorSchemes[color-scheme].V1, global)
+        define('V2', ColorSchemes[color-scheme].V2, global)
+        define('V3', ColorSchemes[color-scheme].V3, global)
+        define('V4', ColorSchemes[color-scheme].V4, global)
+        define('V5', ColorSchemes[color-scheme].V5, global)
+        define('V6', ColorSchemes[color-scheme].V6, global)
+        define('V7', ColorSchemes[color-scheme].V7, global)
+        define('V8', ColorSchemes[color-scheme].V8, global)
+        define('V9', ColorSchemes[color-scheme].V9, global)
+    }
+}
+
 // Color values and hues.
 // NOTE: List with anonymous hashes.
 colors = (
-    { key: bg, color:   BG } \
-    { key: fg, color:   FG } \
-    { key: v0, color:   AC } \
-    { key: v1, hue:   0deg } \
-    { key: v2, hue:  30deg } \
-    { key: v3, hue:  60deg } \
-    { key: v4, hue:  90deg } \
-    { key: v5, hue: 180deg } \
-    { key: v6, hue: 210deg } \
-    { key: v7, hue: 270deg } \
-    { key: v8, hue: 300deg } \
-    { key: v9, hue:   0deg } \
+    { key: bg, color: BG } { key: fg, color: FG } { key: v0, color: AC } \
+    { key: v1, color: V1 } { key: v2, color: V2 } { key: v3, color: V3 } \
+    { key: v4, color: V4 } { key: v5, color: V5 } { key: v6, color: V6 } \
+    { key: v7, color: V7 } { key: v8, color: V8 } { key: v9, color: V9 } \
 )
 
 // Alias colors.
@@ -206,22 +227,19 @@ for c, i in colors[2..length(colors)] {
     for num in 0..9 {
         /// Case for accent colors.
         if ($sel.key == v0) {
-            $color = darken($sel.color, (80% - ((num + num/3) * 7.5)))
             $color = darken($sel.color, (100% - (num+3) * 7.5))
             $color = lightness($color, lightness($color) + num)
         }
 
         /// Case for gray colors.
         else if ($sel.key == v9) {
-            $color = hsl($sel.hue, 0%, 50% + cg_lig)
-            $color = darken($color, (100% - (num+2) * 17))
+            $color = darken($sel.color, (100% - (num+3) * 7.5))
+            $color = lightness($color, lightness($color) + num)
         }
 
-        /// Case for RGB colors.
+        /// Case for syntax colors.
         else {
-            $hue   = $sel.hue
-            $color = hsl($hue, 60% + cg_sat, 60% + cg_lig)
-            $color = darken($color, (100% - (num+2) * 7.5))
+            $color = darken($sel.color, (100% - (num+2) * 7.5))
             $color = lightness($color, lightness($color) + num)
         }
 
