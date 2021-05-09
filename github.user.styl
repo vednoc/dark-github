@@ -2016,6 +2016,9 @@ for c, i in colors[2..length(colors)] {
             /// Remove left border.
             &-body { border-left: none i }
 
+            // Move Gitako under overlay.
+            > div { z-index: 99 i }
+
             /// Fix 'Loading' and 'Access Denied' borders.
             .loading-indicator-container,
             .header + .description {
