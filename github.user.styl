@@ -2028,31 +2028,44 @@ for c, i in colors[2..length(colors)] {
             /// 'Lazy mode is ON' alert.
             [color='gray.4'] { c: fg5 }
 
+            /// Project header.
+            .header .meta-bar {
+                min-height: 62px i
+                [class*='Breadcrumb']::after { c: fg4 }
+            }
+
             /// Files.
             .file-explorer {
+                &.freeze { filter: blur(1.5px) opacity(0.6) i }
+
+                /// Search.
                 .search-input {
-                    c: fg1 bg5 bg1
                     border-left: none
                     border-right: none
                     padding: 6px 0
                     &:hover, &:focus-within { c: 0 0 bg2 }
                     .TextInput-icon { c: fg3 }
                 }
+
+                /// Items.
                 .node-item {
-                    c: fg1 bg4 bg1
-                    &:hover { c: 0 0 bg2 }
+                    c: fg1
                     &:active, &.focused { c: 0 0 bg3 }
                 }
+
+                /// Highlighted search results.
                 mark { c: fg1 0 v02 }
             }
 
             /// Footer.
             .gitako-settings-bar {
                 c: 0 0 bg2
+
+                /// Improve border color.
                 .header-row { c: 0 bg5 }
 
                 /// Lazy mode.
-                span[color='gray.6'] { c: v98 0 v23 }
+                span[class*='Label-'] { c: fg1 0 v02 }
             }
 
             /// Settings -> Header.
@@ -2064,10 +2077,9 @@ for c, i in colors[2..length(colors)] {
                 + div > .shadow-shelter { c: 0 0 t }
             }
 
-
             /// Settings -> Buttons and inputs.
             select,
-            .TextInput-wrapper,
+            .TextInput-wrapper:not(.search-input),
             button.toggle-mode,
             [class*='ButtonBase-'] {
                 c: fg1 bg5 bg3
