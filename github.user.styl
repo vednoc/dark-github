@@ -1990,28 +1990,31 @@ for c, i in colors[2..length(colors)] {
 
     // Extension -> Gitako.
     /// Link: https://github.com/EnixCoda/Gitako
-    /// TODO: Maybe switch to different background colors.
     .gitako-ready {
+        /// Gitako variables.
+        --gitako-bg-primary: bg1
+        --gitako-bg-secondary: bg1
+        --gitako-bg-tertiary: bg2
+        --gitako-bg-canvas: bg1
+        --gitako-border-overlay: bg5
+        --gitako-border-secondary: bg4
+        --gitako-border-tertiary: bg5
+        --gitako-text-link: ac
+        --gitako-text-primary: fg1
+        --gitako-text-secondary: fg2
+        --gitako-text-tertiary: fg3
+        --gitako-icon-tertiary: fg3
+        --gitako-branch-name-text: fg1
+        --gitako-branch-name-bg: bg3
+        --gitako-btn-hover-bg: bg4
+
         /// Logo.
         .gitako-toggle-show-button { height: 60px i }
 
         /// Colors.
         /.gitako-side-bar {
-            a { c: ac }
-
-            /// Reset body.
-            &-body {
-                border-left: none i
-                c: 0 bg5 bg1
-            }
-
-            /// Project header.
-            .header .meta-bar {
-                min-height: 62px i
-                c: 0 0 bg2
-                [class*='BranchName-'] { c: fg3 0 bg3 }
-                [class*='Breadcrumb']::after { c: fg4 }
-            }
+            /// Remove left border.
+            &-body { border-left: none i }
 
             /// Fix 'Loading' and 'Access Denied' borders.
             .loading-indicator-container,
