@@ -35,13 +35,35 @@
 }
 
 @var select   sy_theme     'Base color-scheme toggle' {
+    'Custom colors          *': 'custom',
+    'GitHub Dark             ': 'github-dark',
+    'Gruvbox Bright          ': 'gruvbox-dark-soft',
+    'Gruvbox Neutral         ': 'gruvbox-dark-medium',
+    'Gruvbox Faded           ': 'gruvbox-dark-hard',
+    'Solarized Dark          ': 'solarized-dark',
+    'Dracula                 ': 'dracula',
+    'Nord Dark               ': 'nord-dark',
+    'Arc Dark                ': 'arc-dark',
+    'Moonlight               ': 'moonlight',
+    'Monokai                 ': 'monokai',
     'Horizon                 ': 'horizon',
-    'Doom One               *': 'doom-one',
+    'Doom One                ': 'doom-one',
+    'Deep Dark               ': 'deep-dark',
 }
 
 @var color    cg_bg        'Base background color' #292929
 @var color    cg_fg        'Base foreground color' #e6e6e6
 @var color    cg_ac        'Base accent color    ' #d47d3f
+@var color    cg_v1        'Base red color       ' #f07178
+@var color    cg_v2        'Base orange color    ' #f78c6c
+@var color    cg_v3        'Base yellow color    ' #ffcb6b
+@var color    cg_v4        'Base green color     ' #c3e88d
+@var color    cg_v5        'Base cyan color      ' #89ddff
+@var color    cg_v6        'Base blue color      ' #82aaff
+@var color    cg_v7        'Base magenta color   ' #c792ea
+@var color    cg_v8        'Base violet color    ' #9a91ea
+@var color    cg_v9        'Base gray color      ' #ffffff
+
 @var range    cg_fg_sat    'Adjust saturation of foreground colors' [0, 0, 100, 0.1, '%']
 @var range    cg_sat       'Adjust saturation of syntax colors' [0, -50, 40, 0.01]
 @var range    cg_lig       'Adjust lightness of syntax colors' [0, -30, 30, 0.01]
@@ -115,24 +137,24 @@ b() { box-shadow: arguments }
 /{ // {{{ Color generator.
 // Color-scheme picker.
 ColorSchemes = {
-    'custom':                   { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac }
+    'custom':                   { BG:   cg_bg, FG:   cg_fg, AC:   cg_ac, V1:   cg_v1, V2:   cg_v2, V3:   cg_v3, V4:   cg_v4, V5:   cg_v5, V6:   cg_v6, V7:   cg_v7, V8:   cg_v8, V9:   cg_v9 }
     'old-colors':               { BG: #1f232a, FG: #eeeeee, AC: #7289da }
     'new-colors':               { BG: #292929, FG: #e6e6e6, AC: #d47d3f }
     'breeze-dark':              { BG: #232629, FG: #eff0f1, AC: #3daee9 }
-    'github-dark':              { BG: #181818, FG: #e6e6e6, AC: #4f8cc9 }
     'github-dark-mode':         { BG: #0d1117, FG: #c9d1d9, AC: #58a6ff }
-    'gruvbox-dark-soft':        { BG: #32302f, FG: #fbf1c7, AC: #d65d0e }
-    'gruvbox-dark-medium':      { BG: #282828, FG: #fbf1c7, AC: #d65d0e }
-    'gruvbox-dark-hard':        { BG: #1c2021, FG: #fbf1c7, AC: #d65d0e }
-    'solarized-dark':           { BG: #03303c, FG: #bcc5c5, AC: #859900 }
-    'dracula':                  { BG: #282a36, FG: #f8f8f2, AC: #bd93f9 }
-    'nord-dark':                { BG: #2e3440, FG: #eceff4, AC: #5e81ac }
-    'arc-dark':                 { BG: #343944, FG: #c1c8d1, AC: #5294e2 }
-    'moonlight':                { BG: #1e2030, FG: #c8d3f5, AC: #82aaff }
-    'monokai':                  { BG: #272822, FG: #e8e8e3, AC: #fd9720 }
+    'github-dark':              { BG: #181818, FG: #e6e6e6, AC: #4f8cc9, V1: #ff4444, V2: #fe9600, V3: #ffcc33, V4: #008833, V5: #4d5eff, V6: #4f8cc9, V7: #8368aa, V8: #6e5494, V9: #ffffff }
+    'gruvbox-dark-soft':        { BG: #32302f, FG: #fbf1c7, AC: #d65d0e, V1: #fb4934, V2: #fe8019, V3: #fabd2f, V4: #b8bb26, V5: #8ec07c, V6: #83a598, V7: #d3859b, V8: #b3659b, V9: #eeeeee }
+    'gruvbox-dark-medium':      { BG: #282828, FG: #fbf1c7, AC: #d65d0e, V1: #cc241d, V2: #d64d0e, V3: #d79921, V4: #98971a, V5: #689d6a, V6: #458588, V7: #c16286, V8: #a14286, V9: #eeeeee }
+    'gruvbox-dark-hard':        { BG: #1c2021, FG: #fbf1c7, AC: #d65d0e, V1: #9d0006, V2: #af3a03, V3: #b57614, V4: #79740e, V5: #427b58, V6: #076678, V7: #8f3f71, V8: #6f1f71, V9: #eeeeee }
+    'solarized-dark':           { BG: #03303c, FG: #bcc5c5, AC: #859900, V1: #dc322f, V2: #cb4b16, V3: #b58900, V4: #859900, V5: #2aa198, V6: #268bd2, V7: #d33682, V8: #6c71c4, V9: #eeeeee }
+    'dracula':                  { BG: #282a36, FG: #f8f8f2, AC: #bd93f9, V1: #ff5555, V2: #ffb86c, V3: #f1fa8c, V4: #50fa7b, V5: #59f7d2, V6: #8be9fd, V7: #ff79c6, V8: #bd93f9, V9: #ffffff }
+    'nord-dark':                { BG: #2e3440, FG: #eceff4, AC: #5e81ac, V1: #bd616a, V2: #d08770, V3: #ebcb8b, V4: #a3be8c, V5: #8fbcbb, V6: #88c0d0, V7: #b48ead, V8: #81a1c1, V9: #cccccc }
+    'arc-dark':                 { BG: #343944, FG: #c1c8d1, AC: #5294e2, V1: #d25252, V2: #efc090, V3: #ffc600, V4: #7fb347, V5: #bed6ff, V6: #79abff, V7: #bfa4a4, V8: #d197d9, V9: #cccccc }
+    'moonlight':                { BG: #1e2030, FG: #c8d3f5, AC: #82aaff, V1: #ff5370, V2: #ff995e, V3: #ffc777, V4: #c3e88d, V5: #86e1fc, V6: #82aaff, V7: #fca7ea, V8: #c597f9, V9: #ffffff }
+    'monokai':                  { BG: #272822, FG: #e8e8e3, AC: #fd9720, V1: #e73c50, V2: #fd9720, V3: #e6db74, V4: #a6e22d, V5: #66d9ef, V6: #7aa6da, V7: #f92772, V8: #ae81ff, V9: #eeeeee }
     'horizon':                  { BG: #1c1e26, FG: #d5c1ac, AC: #E95378, V1: #e95678, V2: #f09383, V3: #fab795, V4: #09f7a0, V5: #59e3e3, V6: #21bfc2, V7: #db77cc, V8: #b877db, V9: #ffffff }
     'doom-one':                 { BG: #21242b, FG: #bbc2cf, AC: #51afef, V1: #ff6c6b, V2: #da8548, V3: #ecbe7b, V4: #98be65, V5: #46d9ff, V6: #51afef, V7: #c678dd, V8: #a9a1e1, V9: #cccccc }
-    'deep-dark':                { BG: #111111, FG: #eff0f1, AC: #00adee }
+    'deep-dark':                { BG: #111111, FG: #eff0f1, AC: #00adee, V1: #da4453, V2: #f79a63, V3: #fdbc4b, V4: #27ae60, V5: #1abc9c, V6: #2980b9, V7: #fe9ead, V8: #60459f, V9: #ffffff }
     'brave-dark':               { BG: #222222, FG: #d6d6d6, AC: #f96234 }
     'twilight':                 { BG: #171717, FG: #f7f7f7, AC: #8f9d6a }
     'ubuntu':                   { BG: #2c071a, FG: #f2f1ef, AC: #ef7847 }
