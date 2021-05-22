@@ -2337,158 +2337,51 @@ for c, i in colors[2..length(colors)] {
 }
 
 @-moz-document regexp('https?://((support)\\.)github?.com(/.*)?') {
-    body {
-        color: fg2
-        a { color: ac }
-    }
+    // Navbar.
     .Header {
-        background-color: bg3
-        &-item {
-            & img {
-                filter: invert(1)
-            }
+        b: 0 1px bg5
+        c: 0 0 bg2
+
+        &-item img { filter: invert(1) }
+        &-link {
+            c: fg1
+            &:hover, &:focus { text-decoration: underline }
         }
-        & .Header-link {
-            color: ac
-        }
+
+        /// Reset backgrounds.
+        + h1 { &, & + * > #search { c: 0 0 bg1 }}
+        /#contact-us { c: 0 0 bg1 }
     }
 
-    hr, .rule { border-color: var(--color-border-primary) }
-
-    .bg-blue { background-color: v02 i }
-
-    .text {
-        &-blue { c: ac 0 0 }
-        &-gray { color: fg1 i }
-        &-gray-dark { color: fg2 i }
-        &-gray-light { color: fg1 i }
+    // Search.
+    .search-result {
+        c: 0 0 t
+        &:hover { c: 0 0 bg2 }
+        &-title em { c: ac }
+        &-intro em { c: fg1 ac }
     }
 
-    .link-gray {
-        color: fg5 i
-        &:hover {
-            color: ac i
-        }
-    }
-    .btn {
-        color: var(--color-btn-primary-text)
-        border-color: var(--color-btn-border)
-        background-color: var(--color-btn-bg)
-        &:focus,
-        &.focus {
-            box-shadow: 0 0 0 0.2px fg5
-        }
-        &:active,
-        &.selected,
-        &[aria-selected="true"] {
-            background-color: var(--color-btn-focus-bg)
-            box-shadow: var(--color-shadow-inset)
-        }
-        &:hover {
-            background-color: var(--color-btn-hover-bg)
-        }
-        &-mktg {
-            color: var(--color-btn-primary-icon)
-            border: 1px solid v05
-            &:focus {
-                box-shadow: 0 0 0 0.2em v01
-            }
-            &:hover {
-                border: 1px solid v05
-            }
-    }
-    &-primary {
-        color: var(--color-btn-primary-text)
-        background-color: var(--color-btn-primary-bg)
-        box-shadow: 0 1px 0 rgba(27,31,35,0.1),inset 0 1px 0 rgba(255,255,255,0.03);
-        &:hover {
-            background-color: var(--color-btn-primary-hover-bg) }
-        }
-        &:focus,
-        &.focus {
-            box-shadow: 0 0 0 2px v01
-        }
-        &:active,
-        &.selected,
-        &[aria-selected="true"] {
-            background-color: var(--color-btn-primary-focus-bg)
-            box-shadow: var(--color-shadow-inset)
-        }
-    }
+    // Notes.
+    .timeline-comment {
+        rad: 6px
+        c: 0 bg5
 
-    .Box {
-        background-color: var(--color-bg-primary)
-        border: 1px solid var(--color-border-primary)
+        /// Carets.
+        &:not(#z).new-comment {
+            &::before { c: 0 0 bg5 }
+            &::after { c: 0 0 bg1 }
+        }
+
         &-header {
-            background-color: var(--color-bg-secondary);
-            border-color: var(--color-border-primary);
+            rad: 6px 6px 0 0
+            c: 0 bg5 bg3
         }
-    }
 
-    .border-bottom {
-        border-bottom: 1px solid var(--color-border-primary) i;
-    }
-
-    .form-select, .form-control {
-        color: var(--color-text-secondary)
-        background-color: var(--color-input-bg)
-        border-color: var(--color-input-border)
-        box-shadow: none;
-        &.focus,
-        &:focus {
-            border-color: v05
-            box-shadow: 0 0 0 3px v01;
+        /// Attach files hint.
+        .drag-and-drop {
+            // outline: 1px solid red i
+            &, > .color-bg-secondary { c: 0 0 t }
         }
-    }
-    .form-group {
-        & .form-control {
-            background-color: var(--color-input-bg)
-            &:focus {
-                background-color: var(--color-input-contrast-bg)
-                border-color: v05
-                box-shadow: 0 0 0 3px v01;
-            }
-        }
-        & #q {
-            background-color: var(--color-input-bg);
-        }
-    }
-    // recolor search icon svg
-    @css {
-        #q {
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="%23bebebe" fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0013 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 000-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>') no-repeat 6px
-        }
-    }
-
-    .previewable-comment-form .comment-form-head.tabnav {
-        background: bg3
-    }
-
-    .add-markdown-comment {
-    color: fg3
-    border: 1px solid var(--color-border-primary)
-    }
-
-    .tabnav {
-        border-bottom: 1px solid var(--color-border-primary)
-        &-tab {
-            color: fg3
-            &:hover {  color: fg2 }
-        }
-    }
-    .tabnav-tab.selected, .tabnav-tab[aria-selected="true"],
-    .tabnav-tab[aria-current]:not([aria-current="false"]) {
-        border-color: var(--color-border-primary)
-    }
-
-    .bg-gray-light {
-        background-color: var(--color-bg-primary) i;
-    }
-
-    .drag-and-drop {
-        color: var(--color-text-tertiary)
-        background-color: var(--color-bg-primary)
-        border: 1px solid var(--color-border-primary)
     }
 }
 
