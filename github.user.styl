@@ -954,8 +954,7 @@ for c, i in colors[2..length(colors)] {
         --color-diff-blob-comment-button-bg: v06 //#0366d6;
         --color-diff-blob-comment-button-gradient-bg: v08 //#0372ef;
 
-        // Syntax themes
-        // Prettylights
+        // Prettylights.
         --color-prettylights-syntax-comment: fg3 //#6a737d;
         --color-prettylights-syntax-constant: v67 //#005cc5;
         --color-prettylights-syntax-entity: v79 //#6f42c1;
@@ -970,10 +969,10 @@ for c, i in colors[2..length(colors)] {
         --color-prettylights-syntax-carriage-return-text: v99 //#fafbfc;
         --color-prettylights-syntax-carriage-return-bg: v13 //#d73a49;
         --color-prettylights-syntax-string-regexp: v49 //#22863a;
-        --color-prettylights-syntax-markup-list: #735c0f;
+        --color-prettylights-syntax-markup-list: v33 //#735c0f;
         --color-prettylights-syntax-markup-heading: v67 //#005cc5;
-        --color-prettylights-syntax-markup-italic: v99 //#24292e;
-        --color-prettylights-syntax-markup-bold: v99 //#24292e;
+        --color-prettylights-syntax-markup-italic: fg1 //#24292e;
+        --color-prettylights-syntax-markup-bold: fg1 //#24292e;
         --color-prettylights-syntax-markup-deleted-text: v19 //#b31d28;
         --color-prettylights-syntax-markup-deleted-bg: v11 //#ffeef0;
         --color-prettylights-syntax-markup-inserted-text: v49 //#22863a;
@@ -983,11 +982,11 @@ for c, i in colors[2..length(colors)] {
         --color-prettylights-syntax-markup-ignored-text: fg2 //#f6f8fa;
         --color-prettylights-syntax-markup-ignored-bg: v63 //#005cc5;
         --color-prettylights-syntax-meta-diff-range: v87 //#6f42c1;
-        --color-prettylights-syntax-brackethighlighter-angle: #586069;
-        --color-prettylights-syntax-sublimelinter-gutter-mark: #959da5;
+        --color-prettylights-syntax-brackethighlighter-angle: fg3 //#586069;
+        --color-prettylights-syntax-sublimelinter-gutter-mark: fg4 //#959da5;
         --color-prettylights-syntax-constant-other-reference-link: v46 //#032f62;
 
-        // CodeMirror
+        // CodeMirror editor.
         --color-codemirror-text: fg2 //#24292e;
         --color-codemirror-bg: bg0 //#fff;
         --color-codemirror-gutters-bg: bg2 //#fff;
@@ -1008,24 +1007,85 @@ for c, i in colors[2..length(colors)] {
         --color-codemirror-syntax-support: v67 //#005cc5;
         --color-codemirror-syntax-variable: v25 //#e36209;
 
-        // Ansi
-        --color-ansi-black: #24292e;
-        --color-ansi-black-bright: #2f363d;
-        --color-ansi-white: #e1e4e8;
-        --color-ansi-white-bright: #e1e4e8;
-        --color-ansi-gray: #959da5;
-        --color-ansi-red: #f97583;
-        --color-ansi-red-bright: #fdaeb7;
-        --color-ansi-green: #85e89d;
-        --color-ansi-green-bright: #bef5cb;
-        --color-ansi-yellow: #ffea7f;
-        --color-ansi-yellow-bright: #fff5b1;
-        --color-ansi-blue: #79b8ff;
-        --color-ansi-blue-bright: #c8e1ff;
-        --color-ansi-magenta: #b392f0;
-        --color-ansi-magenta-bright: #d1bcf9;
-        --color-ansi-cyan: #76e3ea;
-        --color-ansi-cyan-bright: #b3f0ff;
+        // Ansi terminal colors.
+        --color-ansi-black: v99 //#24292e;
+        --color-ansi-black-bright: v97 //#2f363d;
+        --color-ansi-white: v90 //#e1e4e8;
+        --color-ansi-white-bright: v91 //#e1e4e8;
+        --color-ansi-gray: v95 //#959da5;
+        --color-ansi-red: v16 //#f97583;
+        --color-ansi-red-bright: v19 //#fdaeb7;
+        --color-ansi-green: v46 //#85e89d;
+        --color-ansi-green-bright: v49 //#bef5cb;
+        --color-ansi-yellow: v36 //#ffea7f;
+        --color-ansi-yellow-bright: v39 //#fff5b1;
+        --color-ansi-blue: v66 //#79b8ff;
+        --color-ansi-blue-bright: v69 //#c8e1ff;
+        --color-ansi-magenta: v76 //#b392f0;
+        --color-ansi-magenta-bright: v79 //#d1bcf9;
+        --color-ansi-cyan: v56 //#76e3ea;
+        --color-ansi-cyan-bright: v59 //#b3f0ff;
+
+        // Actions and workflows.
+        --color-workflow-card-connector: var(--color-scale-gray-5);
+        --color-workflow-card-connector-bg: var(--color-scale-gray-5);
+        --color-workflow-card-connector-inactive: var(--color-border-primary);
+        --color-workflow-card-connector-inactive-bg: var(--color-border-primary);
+        --color-workflow-card-connector-highlight: var(--color-scale-blue-5);
+        --color-workflow-card-connector-highlight-bg: var(--color-scale-blue-5);
+        --color-workflow-card-bg: bg2 //var(--color-scale-gray-7);
+        --color-workflow-card-inactive-bg: var(--color-bg-canvas-inset);
+        --color-workflow-card-header-shadow: rgba(27,31,35,0.04);
+        --color-workflow-card-progress-complete-bg: var(--color-scale-blue-5);
+        --color-workflow-card-progress-incomplete-bg: var(--color-scale-gray-6);
+        --color-checks-bg: bg1 //#1e2228;
+        --color-checks-text-primary: fg1 //#adbac7;
+        --color-checks-text-secondary: fg5 //#768390;
+        --color-checks-text-link: ac //#539bf5;
+        --color-checks-btn-icon: fg3 //#636e7b;
+        --color-checks-btn-hover-icon: fg1 //#adbac7;
+        --color-checks-btn-hover-bg: bg3 //#444c56;
+        --color-checks-input-text: fg1 //#768390;
+        --color-checks-input-placeholder-text: fg4 //#545d68;
+        --color-checks-input-focus-text: fg1 //#adbac7;
+        --color-checks-input-bg: bg2 //#22272e;
+        --color-checks-input-shadow: 0 0 0 1px bg5 //#373e47;
+        --color-checks-dropdown-text: fg1 //#adbac7;
+        --color-checks-dropdown-bg: bg3 //#323941;
+        --color-checks-dropdown-border: bg5 //#444c56;
+        --color-checks-dropdown-hover-text: v99 //#cdd9e5;
+        --color-checks-dropdown-hover-bg: v03 //#316dca;
+        --color-checks-dropdown-btn-hover-text: fg1 //#cdd9e5;
+        --color-checks-dropdown-btn-hover-bg: bg3 //#2d333b;
+        --color-checks-header-label-text: fg3 //#768390;
+        --color-checks-header-label-open-text: fg1 //#adbac7;
+        --color-checks-header-border: bg3 //#373e47;
+        --color-checks-header-icon: fg3 //#636e7b;
+        --color-checks-line-text: fg1 //#768390;
+        --color-checks-line-num-text: fg4 //#768390;
+        --color-checks-line-timestamp-text: fg1 //#768390;
+        --color-checks-line-hover-bg: bg3 //#2d333b;
+        --color-checks-line-selected-bg: bg4 //rgba(65,132,228,0.1);
+        --color-checks-line-selected-num-text: ac //#539bf5;
+        --color-checks-line-dt-fm-text: #22272e;
+        --color-checks-line-dt-fm-bg: #c69026;
+        --color-checks-gate-bg: rgba(128,84,0,0.15);
+        --color-checks-gate-text: fg1 //#768390;
+        --color-checks-gate-waiting-text: v36 //#daaa3f;
+        --color-checks-step-header-open-bg: bg4 //#2d333b;
+        --color-checks-step-error-text: v16 //#e5534b;
+        --color-checks-step-warning-text: v36 //#daaa3f;
+        --color-checks-logline-text: fg3 //#636e7b;
+        --color-checks-logline-num-text: fg1 //#768390;
+        --color-checks-logline-debug-text: v77 //#b083f0;
+        --color-checks-logline-error-text: fg1 //#768390;
+        --color-checks-logline-error-num-text: v16 //#768390;
+        --color-checks-logline-error-bg: rgba(229,83,75,0.1);
+        --color-checks-logline-warning-text: fg1 //#768390;
+        --color-checks-logline-warning-num-text: v36 //#daaa3f;
+        --color-checks-logline-warning-bg: rgba(174,124,20,0.1);
+        --color-checks-logline-command-text: v66 //#539bf5;
+        --color-checks-logline-section-text: v46 //#6bc46d;
     }
 
     // Base styles.
@@ -1192,127 +1252,6 @@ for c, i in colors[2..length(colors)] {
                     margin-top: .25rem
                 }
             }
-        }
-    }
-
-    // Actions
-    .CheckStep {
-        & a {
-            &:hover {
-                color: var(--color-text-white) i;
-            }
-        }
-        &[open] {
-            & .CheckStep-header {
-                color: var(--color-text-white)
-                background-color: var(--color-hidden-text-expander-bg-hover)
-                box-shadow: none
-                &-label { color: var(--color-text-white) }
-            }
-        }
-        &-line {
-            color: var(--color-diff-blob-num-text)
-            & .CheckStep {
-                &-line-number {
-                    color: var(--color-diff-blob-num-text)
-                }
-            }
-            &:hover {
-                color: var(--color-text-white)
-                background-color: var(--color-hidden-text-expander-bg-hover);
-            }
-            & .CheckStep {
-                &-line {
-                    &-content {
-                        & a {
-                            color: ac
-                        }
-                    }
-                }
-            }
-            &.selected {
-                color: var(--color-diff-blob-num-text)
-                & .CheckStep {
-                    &-line-number {
-                        color: var(--color-diff-blob-num-text)
-                    }
-                }
-            }
-        }
-        & .log-line-command {
-            color: var(--color-auto-blue-7)
-            & .CheckStep-line-number {
-                color: var(--color-auto-blue-7)
-            }
-        }
-        &-header {
-            background-color: var(--color-hidden-text-expander-bg-hover)
-            box-shadow: none
-            &:hover {
-                background-color: var(--color-hidden-text-expander-bg-hover)
-                box-shadow: none
-            }
-            &-label {
-                color: fg2
-            }
-            &-dropdown {
-                &:hover {
-                    color: var(--color-text-tertiary)
-                    background-color: var(--color-hidden-text-expander-bg-hover) i
-                    & .octicon {
-                        color: var(--color-text-tertiary) i
-                    }
-                }
-            }
-        }
-    }
-    .CheckRun {
-        background-color: var(--color-bg-primary)
-        &-header {
-            border-bottom: 1px solid bg5
-            .CheckRun {
-                &-search-input {
-                    color: var(--color-text-secondary);
-                    background-color: var(--color-input-bg);
-                    &:focus {
-                        color: var(--color-text-primary);
-                    }
-                }
-            }
-            &-counter {
-                color: var(--color-text-secondary);
-                background-color: var(--color-counter-bg);
-            }
-        }
-        &-log-title {
-            color: fg3;
-        }
-        &-header {
-            background-color: var(--color-bg-primary) i
-            border-top: 1px solid var(--color-border-primary)
-            & .btn-link {
-                &:not([disabled]) {
-                    color: var(--color-text-tertiary)
-                    & .octicon {
-                        color: var(--color-text-tertiary)
-                    }
-                }
-            }
-            & .btn {
-                & .btn-link {
-                    &:not([disabled]) {
-                        color: var(--color-text-tertiary)
-                        & .octicon {
-                            color: var(--color-text-tertiary)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .checks-list-item {
-        &.bg-white {
-            background-color: var(--color-bg-secondary) i
         }
     }
 
