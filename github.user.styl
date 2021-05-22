@@ -1158,6 +1158,21 @@ for c, i in colors[2..length(colors)] {
         /// Diff -> 'Display the rich diff' loader. @upstream
         .render-container { c: 0 0 bg1 }
         img.octospinner[src] { filter: opacity(0.6) }
+
+        /// Server error page.
+        > body:not([class]) > div[class='container'] {
+            p, a { font-weight: normal i }
+            #suggestions { c: fg5 }
+            p { c: fg1 }
+            a { c: fg3 }
+        }
+
+        /// Exceeded rate limit.
+        > body > div[class='c'] {
+            > h1 { c: fg1 }
+            > p, > #s { c: fg3 }
+            > #s > a { c: fg1 }
+        }
     }
 
     // Better checkbox/radio inputs.
