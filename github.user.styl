@@ -686,7 +686,7 @@ for c, i in colors[2..length(colors)] {
 
         --color-project-card-bg: bg2 //#fff;
         --color-project-header-bg: bg3 //#24292e;
-        --color-project-sidebar-bg: bg2 //#fff;
+        --color-project-sidebar-bg: bg1 //#fff;
         --color-project-gradient-in: #fff;
         --color-project-gradient-out: hsla(0,0%,100%,0);
 
@@ -1341,14 +1341,28 @@ for c, i in colors[2..length(colors)] {
 
             /// Repository -> Projects.
             .js-project-container {
+                /// Background.
                 > .project-header,
                 > .project-columns {
                     c: 0 0 bg0
                 }
-                .project-column { c: 0 0 bg1 }
+
+                /// Columns.
                 .js-project-column {
-                    &-card:hover { b: 0 2px 4px sh i }
-                    &-automation-footer { c: 0 bg3 bg1 }
+                    c: 0 0 bg1
+
+                    &:focus { c: 0 v65 }
+                    &-automation-footer { c: 0 bg3 bg2 }
+
+                    /// Improve card colors.
+                    &-card {
+                        c: 0 bg3
+                        &:hover:not(:focus) {
+                            c: 0 bg5
+                            b: none i
+                        }
+                        &:focus { c: 0 v66}
+                    }
                 }
             }
         }
