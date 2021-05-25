@@ -1526,11 +1526,14 @@ for c, i in colors[2..length(colors)] {
         }
 
         /// Fix aligntment and colors of sticky navbars.
+        /.notification-shelf.is-stuck { z-index: 98 i }
         /.gh-header {
             /// Issues.
             &-sticky.is-stuck {
+                z-index: 98 i
                 margin-top: 3px i
                 + .gh-header-shadow {
+                    z-index: 97 i
                     height: 63px i
                     c: 0 0 bg2
                 }
