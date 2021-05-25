@@ -1859,6 +1859,13 @@ for c, i in colors[2..length(colors)] {
                 &-deletion &-marker::before { c: v17 }
                 &.selected-line &-marker::before { c: v97 }
             }
+
+            /// Fix rounded corners.
+            &[data-hunk]:last-of-type,
+            &[data-position]:last-of-type {
+                td:first-child { rad: 0 0 0 5px }
+                td:last-child { rad: 0 0 5px 0 }
+            }
         }
 
         /// Code snippet dividers. @upstream
