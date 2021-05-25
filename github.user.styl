@@ -74,6 +74,7 @@
 
 @var text     f_base       'Base font' ''font_name''
 @var text     f_mono       'Monospace font' ''font_name''
+@var range    tab_size     'Set tab size' [4, 2, 8, 2]
 @var text     b_hgwd       'Checkbox width/height' '1rem'
 
 @var checkbox cb_color      'Use accent colors for contributions' 0
@@ -1165,6 +1166,12 @@ for c, i in colors[2..length(colors)] {
         /// Diff -> 'Display the rich diff' loader. @upstream
         .render-container { c: 0 0 bg1 }
         img.octospinner[src] { filter: opacity(0.6) }
+
+        /// Diff -> Tab size.
+        pre, .highlight, .diff-table, .tab-size {
+            -moz-tab-size: tab_size i
+            tab-size: tab_size i
+        }
 
         /// Server error page.
         > body:not([class]) > div[class='container'] {
