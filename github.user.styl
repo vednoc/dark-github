@@ -1087,6 +1087,10 @@ for c, i in colors[2..length(colors)] {
         --color-checks-logline-warning-bg: rgba(174,124,20,0.1);
         --color-checks-logline-command-text: v66 //#539bf5;
         --color-checks-logline-section-text: v46 //#6bc46d;
+
+        // Misc.
+        --color-profile-color-modes-ga-moon: bg4 //var(--color-scale-gray-7);
+        --color-actions-workflow-table-sticky-bg: bg1 //rgba(34,39,46,0.95);
     }
 
     // Base styles.
@@ -1317,6 +1321,9 @@ for c, i in colors[2..length(colors)] {
                 }
                 &:hover .notification-list-item-actions .btn { c: 0 0 t }
             }
+
+            // New notification text.
+            /.js-socket-channel.js-updatable-content > .h6 { c: v65 }
         }
 
         /// Profile/Project/Org -> Navigation.
@@ -1462,6 +1469,18 @@ for c, i in colors[2..length(colors)] {
                 }
             }
         }
+
+        // Project -> Pulse/Insights.
+        .conversation-list-heading .inner { --color-bg-canvas: bg0 }
+
+        // Project -> Edit actions.
+        .file-commit-form--full { c: 0 0 bg0 }
+
+        // Project -> Pull Requests.
+        .stale-files-tab { c: v39 0 v31 }
+
+        // Global -> Inputs.
+        .form-control.input-contrast { c: 0 0 bg2 }
     }
 
     // Navbar.
@@ -1607,6 +1626,7 @@ for c, i in colors[2..length(colors)] {
         }
 
         /// Gist page.
+        .HeaderMenu-link { c: fg1 }
         /.gist-detail-intro.gist-banner { display: none }
         /.gisthead.pagehead.color-bg-secondary {
             c: 0 0 bg1
