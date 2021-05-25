@@ -67,7 +67,7 @@
 @var color    cg_v9        'Base gray color      ' #ffffff
 
 @var range    cg_fg_sat    'Adjust saturation of foreground colors' [0, 0, 100, 0.1, '%']
-@var range    cg_sat       'Adjust saturation of syntax colors' [0, -50, 40, 0.01]
+@var range    cg_sat       'Adjust saturation of syntax colors' [0, -50, 50, 0.01]
 @var range    cg_lig       'Adjust lightness of syntax colors' [0, -30, 30, 0.01]
 @var color    _inverse     'Button inverse color ' #ffffff
 @var color    _shadow      'Shadow color         ' #00000040
@@ -264,11 +264,12 @@ for c, i in colors[2..length(colors)] {
 
         /// Case for syntax colors.
         else {
-            $color = darken($sel.color, (100% - (num+2) * 7.5))
+            $color = darken($sel.color, (100% - (num+3) * 7.5))
             $color = lightness($color, lightness($color) + num)
         }
 
-        /// Convert to HSLA format.
+        $color = lightness($color, lightness($color) + (cg_lig/4))
+        $color = desaturate($color, cg_sat)
         $color = to_hsla($color)
 
         $key = s('%s%s', $sel.key, num)
