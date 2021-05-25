@@ -913,7 +913,7 @@ for c, i in colors[2..length(colors)] {
         --color-diffstat-addition-border: v46 //#28a745;
 
         --color-code-selection-bg: bg2 //#c8e1ff;
-        --color-blob-line-highlight-bg: v30 //#fffbdd;
+        --color-blob-line-highlight-bg: rgba(convert($v31), 0.3) //#fffbdd;
         --color-blob-line-highlight-border: t // rgba(0,0,0,0);
 
         --color-diff-addition-text: v49 //#22863a;
@@ -1860,21 +1860,25 @@ for c, i in colors[2..length(colors)] {
 
         /// View -> Line highlight.
         /table.highlight > tbody > tr {
-            > td.highlighted {
-                &, &::before {
-                    c: 0 0 var(--color-blob-line-highlight-bg)
-                    mix-blend-mode: screen
-                }
-                &::before {
+            &:hover > td {
+                position: relative
+                &::after {
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
                     content: ''
                     position: absolute
-                    top: 0; left: -50px; width: 50px
+                    c: 0 0 #ffffff10
                 }
             }
-            &:hover > td {
-                c: 0 0 bg2
-                &.highlighted { &, &::before { c: 0 0 v31 }}
+
+            > td.highlighted {
+                mix-blend-mode: screen
+                c: 0 0 var(--color-blob-line-highlight-bg)
+                box-shadow: -50px 0 var(--color-blob-line-highlight-bg)
             }
+
             &.divider:hover > td { c: 0 0 bg3 }
         }
 
@@ -1885,7 +1889,7 @@ for c, i in colors[2..length(colors)] {
                 &::after { z-index: -1 }
             }
             &[data-hunk]:hover > td { c: 0 0 bg2 }
-            &:hover > td.selected-line { c: 0 0 v30 }
+            &:hover > td.selected-line { c: 0 0 rgba(convert($v31), 0.2) }
             &:hover > td[class*='addition'] { c: 0 0 v41 }
             &:hover > td[class*='deletion'] { c: 0 0 v11 }
 
