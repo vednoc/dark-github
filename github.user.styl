@@ -1207,12 +1207,11 @@ for c, i in colors[2..length(colors)] {
         }
 
         &[type='radio'] {
-            /// fix border radius at https://github.com/settings/profile Emoji color
             border-radius: 50%
             &:checked {
-                z = '<circle cx="256" cy="256" r="128" fill="white"/>'
+                z = s('<circle cx="256" cy="256" r="128" fill="%s"/>', to_svg($fg1))
                 background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-                c: 0 v05 v03
+                c: 0 bg5 bg4
             }
             &:hover:not(:checked) { c: 0 0 bg3 }
         }
@@ -1220,9 +1219,9 @@ for c, i in colors[2..length(colors)] {
         &[type='checkbox'] {
             border-radius: 2px
             &:checked {
-                z ='<path fill="white" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>'
+                z = s('<path fill="%s" d="M99 213l-1 89 104 102 205-201v-91L203 315 99 213z"/>', to_svg($fg1))
                 background-image: s("url('%s%s</svg>') %s", r(prefix), r(z), i)
-                c: 0 v05 v03
+                c: 0 bg5 bg4
             }
             &:hover:not(:checked):not(:indeterminate) { c: 0 0 bg3 }
             &:indeterminate {
