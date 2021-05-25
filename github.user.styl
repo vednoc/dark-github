@@ -1478,6 +1478,12 @@ for c, i in colors[2..length(colors)] {
         // Project -> Pull Requests.
         .stale-files-tab { c: v39 0 v31 }
 
+        // Project -> Viewed files.
+        .js-reviewed {
+            &-toggle { c: 0 bg4 bg2 }
+            &-file.bg-blue-2 { c: 0 bg5 bg3 }
+        }
+
         // Global -> Inputs.
         .form-control.input-contrast { c: 0 0 bg2 }
     }
