@@ -933,26 +933,25 @@ for c, i in colors[2..length(colors)] {
 
         --color-diff-blob-num-text: fg5 //rgba(27,31,35,0.3);
         --color-diff-blob-num-hover-text: fg1 //rgba(27,31,35,0.6);
-
-        --color-diff-blob-addition-num-bg: v41 //#cdffd8;
-        --color-diff-blob-addition-num-text: fg3 //rgba(27,31,35,0.3);
+        --color-diff-blob-addition-num-bg: rgba(convert($v41), 0.3) //#cdffd8;
+        --color-diff-blob-addition-num-text: fg4 //rgba(27,31,35,0.3);
         --color-diff-blob-addition-num-hover-text: fg1 //rgba(27,31,35,0.6);
-        --color-diff-blob-addition-line-bg: v40 //#e6ffed;
-        --color-diff-blob-addition-word-bg: v42 //#acf2bd;
+        --color-diff-blob-addition-line-bg: rgba(convert($v40), 0.3) //#e6ffed;
+        --color-diff-blob-addition-word-bg: rgba(convert($v43), 0.5) //#acf2bd;
 
-        --color-diff-blob-deletion-num-bg: v11 //#ffdce0;
-        --color-diff-blob-deletion-num-text: fg3 //rgba(27,31,35,0.3);
+        --color-diff-blob-deletion-num-bg: rgba(convert($v11), 0.3) //#ffdce0;
+        --color-diff-blob-deletion-num-text: fg4 //rgba(27,31,35,0.3);
         --color-diff-blob-deletion-num-hover-text: fg1 //rgba(27,31,35,0.6);
-        --color-diff-blob-deletion-line-bg: v10 //#ffeef0;
-        --color-diff-blob-deletion-word-bg: v12 //#fdb8c0;
+        --color-diff-blob-deletion-line-bg: rgba(convert($v10), 0.3) //#ffeef0;
+        --color-diff-blob-deletion-word-bg: rgba(convert($v13), 0.5) //#fdb8c0;
 
         --color-diff-blob-hunk-text: fg4 //rgba(27,31,35,0.7);
         --color-diff-blob-hunk-num-bg: bg4 //#dbedff;
         --color-diff-blob-hunk-line-bg: bg3 //#f1f8ff;
 
         --color-diff-blob-empty-block-bg: bg2 //#fafbfc;
-        --color-diff-blob-selected-line-highlight-bg: v31 //rgba(255,223,93,0.2);
-        --color-diff-blob-selected-line-highlight-border: v34 //#ffd33d;
+        --color-diff-blob-selected-line-highlight-bg: rgba(convert($v31), 0.2) //rgba(255,223,93,0.2);
+        --color-diff-blob-selected-line-highlight-border: rgba(convert($v33), 0.5) //#ffd33d;
         --color-diff-blob-selected-line-highlight-mix-blend-mode: screen //multiply;
 
         --color-diff-blob-expander-icon: fg3 //#586069;
@@ -1895,8 +1894,8 @@ for c, i in colors[2..length(colors)] {
             }
             &[data-hunk]:hover > td { c: 0 0 bg2 }
             &:hover > td.selected-line { c: 0 0 rgba(convert($v31), 0.2) }
-            &:hover > td[class*='addition'] { c: 0 0 v41 }
-            &:hover > td[class*='deletion'] { c: 0 0 v11 }
+            &:hover > td[class*='addition'] { c: 0 0 rgba(convert($v41), 0.4) }
+            &:hover > td[class*='deletion'] { c: 0 0 rgba(convert($v11), 0.4) }
 
             /// Add colors to +/- characters.
             /.blob-code {
