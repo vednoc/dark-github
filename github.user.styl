@@ -768,8 +768,10 @@ for c, i in colors[2..length(colors)] {
         --color-box-row-blue-bg: v61 //#f1f8ff;
         --color-box-header-blue-bg: v61 //#f1f8ff;
         --color-box-header-blue-border: v64 //#c8e1ff;
-        --color-box-border-info: v64 //rgba(3,102,214,0.2);
-        --color-box-bg-info: v61 //#f1f8ff;
+        --color-box-border-info: rgba(convert($v54), 0.6) //rgba(3,102,214,0.2);
+        --color-box-bg-info: rgba(convert($v52), 0.3) //#f1f8ff;
+        --color-box-border-info: mix(convert($v65), convert($bg5), 25%) //rgba(3,102,214,0.2);
+        --color-box-bg-info: mix(convert($v61), convert($bg3), 25%) //#f1f8ff;
         --color-box-border-warning: v34 //rgba(255,211,61,0.4);
         --color-box-bg-warning: v31 //#fffdef;
 
@@ -1155,6 +1157,8 @@ for c, i in colors[2..length(colors)] {
         // Misc.
         --color-profile-color-modes-ga-moon: bg4 //var(--color-scale-gray-7);
         --color-actions-workflow-table-sticky-bg: bg1 //rgba(34,39,46,0.95);
+        --color-current-user-tip-bg: var(--color-box-bg-info);
+        --color-current-user-tip-border: var(--color-box-border-info) //#1f477e;
     }
 
     // Base styles.
