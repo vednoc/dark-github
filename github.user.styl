@@ -1537,8 +1537,10 @@ for c, i in colors[2..length(colors)] {
                 > li:first-of-type { rad: 5px 5px 0 0 }
                 > li:last-of-type { rad: 0 0 5px 5px }
                 &-result {
-                    &:hover { c: 0 0 bg3 }
-                    &[aria-selected="true"] { c: 0 0 bg4 }
+                    c: fg1
+                    &.color-bg-secondary { c: 0 0 bg1 }
+                    &[aria-selected="true"] { c: 0 0 bg3 }
+                    &:hover:not([aria-selected="true"]) { c: 0 0 bg2 }
                 }
             }
         }
