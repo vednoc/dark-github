@@ -251,26 +251,17 @@ for c, i in colors[2..length(colors)] {
     $dbg += ' ' + $sel
 
     for num in 0..9 {
-        /// Case for accent colors.
-        if ($sel.key == v0) {
-            $color = darken($sel.color, (100% - (num+3) * 7.5))
-            $color = lightness($color, lightness($color) + num)
+        /// Generate accent/gray/syntax colors.
+        $color = darken($sel.color, (100% - (num+3) * 7.5))
+        $color = lightness($color, lightness($color) + num)
+
+        /// Skip gray colors.
+        if ($sel.key != v9) {
+            $color = lightness($color, lightness($color) + (cg_lig/4))
+            $color = desaturate($color, cg_sat)
         }
 
-        /// Case for gray colors.
-        else if ($sel.key == v9) {
-            $color = darken($sel.color, (100% - (num+3) * 7.5))
-            $color = lightness($color, lightness($color) + num)
-        }
-
-        /// Case for syntax colors.
-        else {
-            $color = darken($sel.color, (100% - (num+3) * 7.5))
-            $color = lightness($color, lightness($color) + num)
-        }
-
-        $color = lightness($color, lightness($color) + (cg_lig/4))
-        $color = desaturate($color, cg_sat)
+        /// Convert to HSLA format.
         $color = to_hsla($color)
 
         $key = s('%s%s', $sel.key, num)
