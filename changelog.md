@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/vednoc/Dark-GitHub/compare/v1.0.0...v1.1.0) (2021-06-03)
+
+
+### Features
+
+* **gen:** improve correctness of syntax colors ([b8aae4b](https://github.com/vednoc/Dark-GitHub/commit/b8aae4b9928d66cdc751e3e44986ff58fe050000))
+* **vars:** improve colors used for alert elements ([bc86777](https://github.com/vednoc/Dark-GitHub/commit/bc8677785bd693be53a0ac018455213a1de8b4f3))
+* **vars:** tweak colors for project topic tags ([2c819eb](https://github.com/vednoc/Dark-GitHub/commit/2c819ebf561abb1455326e7672418b79d8ef295e))
+
+
+### Bug Fixes
+
+* **diff:** remove pseudo-element pointer events ([fba9cf1](https://github.com/vednoc/Dark-GitHub/commit/fba9cf1a649d1b9f7b64154424746599d8aeb9e6))
+* **navbar:** exclude selector for progress bar ([2381eb5](https://github.com/vednoc/Dark-GitHub/commit/2381eb51d2ae82a1cc3a531b759a22691b263668))
+* **project:** add styles for new ToC readme header ([396d95d](https://github.com/vednoc/Dark-GitHub/commit/396d95d782536788396bc4890f820e71e20e79f9))
+* **project:** improve colors on 'File Finder' page ([53adec4](https://github.com/vednoc/Dark-GitHub/commit/53adec4d48025af0eb16d046122c0ac8e2f0880f))
+* **vars:** improve colors for 'current user' items ([a7e07e3](https://github.com/vednoc/Dark-GitHub/commit/a7e07e301c6005c88d9f5ec21af96fa5a95e866e)), closes [#6](https://github.com/vednoc/Dark-GitHub/issues/6)
+
 ## 1.0.0 (2021-05-27)
 
 
