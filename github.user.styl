@@ -562,22 +562,22 @@ for c, i in colors[2..length(colors)] {
         --color-fade-white-70: #ffffffb3;
         --color-fade-white-85: #ffffffd9;
 
-        --color-alert-info-text: fg1 //#24292e;
+        --color-alert-info-text: v69 //#24292e;
         --color-alert-info-icon: v67 //rgba(4,66,137,0.6);
-        --color-alert-info-bg: v61 //#dbedff;
-        --color-alert-info-border: v63 //rgba(4,66,137,0.2);
-        --color-alert-warn-text: fg1 //#24292e;
+        --color-alert-info-bg: mix(convert($v61), convert($bg2), 25) //#dbedff;
+        --color-alert-info-border: mix(convert($v63), convert($bg5), 35) //rgba(4,66,137,0.2);
+        --color-alert-warn-text: v39 //#24292e;
         --color-alert-warn-icon: v37 //#b08800;
-        --color-alert-warn-bg: v31 //#fffbdd;
-        --color-alert-warn-border: v33 //rgba(176,136,0,0.2);
-        --color-alert-error-text: fg1 //#24292e;
+        --color-alert-warn-bg: mix(convert($v31), convert($bg2), 25) //#fffbdd;
+        --color-alert-warn-border: mix(convert($v33), convert($bg5), 35) //rgba(176,136,0,0.2);
+        --color-alert-error-text: v19 //#24292e;
         --color-alert-error-icon: v17 //rgba(158,28,35,0.6);
-        --color-alert-error-bg: v11 //#ffe3e6;
-        --color-alert-error-border: v13 //rgba(158,28,35,0.2);
-        --color-alert-success-text: fg1 //#24292e;
+        --color-alert-error-bg: mix(convert($v11), convert($bg2), 25) //#ffe3e6;
+        --color-alert-error-border: mix(convert($v13), convert($bg5), 35) //rgba(158,28,35,0.2);
+        --color-alert-success-text: v49 //#24292e;
         --color-alert-success-icon: v47 //rgba(23,111,44,0.8);
-        --color-alert-success-bg: v41 //#dcffe4;
-        --color-alert-success-border: v43 //rgba(23,111,44,0.2);
+        --color-alert-success-bg: mix(convert($v41), convert($bg2), 25) //#dcffe4;
+        --color-alert-success-border: mix(convert($v43), convert($bg5), 35) //rgba(23,111,44,0.2);
 
         --color-autocomplete-bg: bg3 //#fff;
         --color-autocomplete-border: bg5 //#e1e4e8;
