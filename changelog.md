@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/vednoc/Dark-GitHub/compare/v1.1.0...v1.1.1) (2021-06-14)
+
+
+### Features
+
+* **vars:** improve colors for item borders ([ddf7a01](https://github.com/vednoc/Dark-GitHub/commit/ddf7a0140647c6af89f83e7485f8b3b07d274b0a))
+* **vars:** improve colors for state badges ([473d557](https://github.com/vednoc/Dark-GitHub/commit/473d5574a39e35a80da3f515caaa40416ebbc9b4))
+* **vars:** update colors for Gitako v3.1.0 ([49e5f89](https://github.com/vednoc/Dark-GitHub/commit/49e5f8927ebd50662cf0a7ab4ceddb0736e8a653))
+
+
+### Bug Fixes
+
+* **nav:** tweak width of sub-nav while logged out ([11ad489](https://github.com/vednoc/Dark-GitHub/commit/11ad48958688307688edca948c68d56ad1a96df5))
+
 ## [1.1.0](https://github.com/vednoc/Dark-GitHub/compare/v1.0.0...v1.1.0) (2021-06-03)
 
 
