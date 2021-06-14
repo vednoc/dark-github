@@ -947,18 +947,18 @@ for c, i in colors[2..length(colors)] {
         --color-footer-invertocat-octicon-hover: fg5 //#6a737d;
 
         /// State badges.
-        --color-pr-state-draft-text: v96 //#768390;
-        --color-pr-state-draft-bg: rgba(convert($v95), 0.2) //rgba(118,131,144,0.1);
-        --color-pr-state-draft-border: v93 //rgba(118,131,144,0.4);
-        --color-pr-state-open-text: v46 //#57ab5a;
-        --color-pr-state-open-bg: rgba(convert($v45), 0.2) //rgba(87,171,90,0.1);
-        --color-pr-state-open-border: v43 //rgba(87,171,90,0.4);
-        --color-pr-state-merged-text: v76 //#986ee2;
-        --color-pr-state-merged-bg: rgba(convert($v75), 0.2) //rgba(176,131,240,0.1);
-        --color-pr-state-merged-border: v73 //rgba(176,131,240,0.4);
-        --color-pr-state-closed-text: v16 //#e5534b;
-        --color-pr-state-closed-bg: rgba(convert($v15), 0.2) //rgba(201,60,55,0.1);
-        --color-pr-state-closed-border: v13 //rgba(201,60,55,0.4);
+        --color-pr-state-draft-text: v97 //#768390;
+        --color-pr-state-draft-bg: rgba(convert($v97), 0.15) //rgba(118,131,144,0.1);
+        --color-pr-state-draft-border: rgba(convert($v97), 0.4) //rgba(118,131,144,0.4);
+        --color-pr-state-open-text: v47 //#57ab5a;
+        --color-pr-state-open-bg: rgba(convert($v47), 0.15) //rgba(87,171,90,0.1);
+        --color-pr-state-open-border: rgba(convert($v47), 0.4) //rgba(87,171,90,0.4);
+        --color-pr-state-merged-text: v77 //#986ee2;
+        --color-pr-state-merged-bg: rgba(convert($v77), 0.15) //rgba(176,131,240,0.1);
+        --color-pr-state-merged-border: rgba(convert($v77), 0.4) //rgba(176,131,240,0.4);
+        --color-pr-state-closed-text: v17 //#e5534b;
+        --color-pr-state-closed-bg: rgba(convert($v17), 0.15) //rgba(201,60,55,0.1);
+        --color-pr-state-closed-border: rgba(convert($v17), 0.4) //rgba(201,60,55,0.4);
 
         /// Diffs
         --color-diffstat-neutral-bg: bg5 //#d1d5da;
@@ -2079,6 +2079,7 @@ for c, i in colors[2..length(colors)] {
         /// Feat -> Add borders around code blocks and similar elements.
         if (code_borders) {
             /// Add border around code and commit references.
+            .markdown-title code { border: 1px solid bg5 }
             .markdown-body { code, tt, pre { border: 1px solid bg5 }}
             .commit { &-ref, &-sha { border: 1px solid bg5 }}
             .branch-name { border: 1px solid bg5 }
@@ -2108,7 +2109,7 @@ for c, i in colors[2..length(colors)] {
     .gitako-ready {
         /// Gitako variables.
         --gitako-bg-primary: bg1
-        --gitako-bg-secondary: bg1
+        --gitako-bg-secondary: bg2
         --gitako-bg-tertiary: bg2
         --gitako-bg-canvas: bg1
         --gitako-border-overlay: bg5
@@ -2154,6 +2155,8 @@ for c, i in colors[2..length(colors)] {
 
             /// Files.
             .file-explorer {
+                c: 0 0 bg1
+
                 &.freeze { filter: blur(1.5px) opacity(0.6) i }
 
                 /// Search.
@@ -2167,7 +2170,8 @@ for c, i in colors[2..length(colors)] {
 
                 /// Items.
                 .node-item {
-                    c: fg1
+                    c: fg1 0 t
+                    &:hover { c: 0 0 bg2 }
                     &:active, &.focused { c: 0 0 bg3 }
                 }
 
