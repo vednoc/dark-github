@@ -1572,7 +1572,7 @@ for c, i in colors[2..length(colors)] {
         if short_navbars {
             ex  = 'not(.full-width):not(.notifications-v2):not(.page-new-repo)'
             ex += ':not(.project-page)'
-            /body:{ ex } main > .color-bg-secondary.hide-full-screen,
+            /body:{ ex } main > .hide-full-screen,
             /body:{ ex } > .js-header-wrapper {
                 > *:not(.Progress) {
                     max-width: 1280px
