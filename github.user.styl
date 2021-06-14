@@ -945,18 +945,20 @@ for c, i in colors[2..length(colors)] {
 
         --color-footer-invertocat-octicon: fg3 //#d1d5da;
         --color-footer-invertocat-octicon-hover: fg5 //#6a737d;
-        --color-pr-state-draft-text: fg1 //#fff;
-        --color-pr-state-draft-bg: bg5 //#6a737d;
-        --color-pr-state-draft-border: t;
-        --color-pr-state-open-text: v99 //#fff;
-        --color-pr-state-open-bg: v44 //#28a745;
-        --color-pr-state-open-border: t;
-        --color-pr-state-merged-text: v99 //#fff;
-        --color-pr-state-merged-bg: v74 //#6f42c1;
-        --color-pr-state-merged-border: t;
-        --color-pr-state-closed-text: v99 //#fff;
-        --color-pr-state-closed-bg: v14 //#d73a49;
-        --color-pr-state-closed-border: t;
+
+        /// State badges.
+        --color-pr-state-draft-text: v96 //#768390;
+        --color-pr-state-draft-bg: rgba(convert($v95), 0.2) //rgba(118,131,144,0.1);
+        --color-pr-state-draft-border: v93 //rgba(118,131,144,0.4);
+        --color-pr-state-open-text: v46 //#57ab5a;
+        --color-pr-state-open-bg: rgba(convert($v45), 0.2) //rgba(87,171,90,0.1);
+        --color-pr-state-open-border: v43 //rgba(87,171,90,0.4);
+        --color-pr-state-merged-text: v76 //#986ee2;
+        --color-pr-state-merged-bg: rgba(convert($v75), 0.2) //rgba(176,131,240,0.1);
+        --color-pr-state-merged-border: v73 //rgba(176,131,240,0.4);
+        --color-pr-state-closed-text: v16 //#e5534b;
+        --color-pr-state-closed-bg: rgba(convert($v15), 0.2) //rgba(201,60,55,0.1);
+        --color-pr-state-closed-border: v13 //rgba(201,60,55,0.4);
 
         /// Diffs
         --color-diffstat-neutral-bg: bg5 //#d1d5da;
