@@ -1816,7 +1816,7 @@ for c, i in colors[2..length(colors)] {
 
         /// Feat -> Neutral colors in latest commit.
         if (latest_commit) {
-            &-header--blue { c: 0 bg5 bg2 }
+            &-header { c: 0 bg5 bg2 }
 
             /// Commit details.
             /.full-commit {
@@ -1824,14 +1824,6 @@ for c, i in colors[2..length(colors)] {
                 p.commit-title { c: fg1 }
             }
         }
-        else {
-            /.full-commit {
-                p.commit-title {
-                    color: fg3
-                }
-            }
-        }
-
 
         /// Feat -> Shorter headers.
         if (short_headers) {
