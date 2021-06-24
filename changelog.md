@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/vednoc/Dark-GitHub/compare/v1.1.1...v1.2.0) (2021-06-24)
+
+
+### Features
+
+* **gen:** add 'Allure Contrast' color-scheme ([e37afb8](https://github.com/vednoc/Dark-GitHub/commit/e37afb8d0ced5386e3c25904f7b1c46ed3ed8f31))
+* **gen:** add 'Monokai Pro' color-scheme ([c1ad13a](https://github.com/vednoc/Dark-GitHub/commit/c1ad13a0cd752f728ea296d989abe240e8bd2eb7))
+* **md:** invert default white images for stats ([73285b5](https://github.com/vednoc/Dark-GitHub/commit/73285b575b5faae5b0019fc26a6159af5627c064))
+* **navbar:** tweak colors for busy status ([539f0f8](https://github.com/vednoc/Dark-GitHub/commit/539f0f87dfccc53d0e5401650b27c37c028190ce))
+* **project:** add an option to highlight stars ([381a601](https://github.com/vednoc/Dark-GitHub/commit/381a601da8ad71898532ce7005fa8cc1a3e232ed))
+* **vars:** tweak colors for hover/selected states ([8d56311](https://github.com/vednoc/Dark-GitHub/commit/8d56311215579234dda3cd5574dea75febccc765))
+
+
+### Bug Fixes
+
+* **global:** improve contrast for text selection ([b48b20f](https://github.com/vednoc/Dark-GitHub/commit/b48b20fa0d6611575197e2d228a323e19758aa99))
+* **project:** add new selectors for latest commit ([a668b80](https://github.com/vednoc/Dark-GitHub/commit/a668b8020bc51743a6c0a9d1e9bd82f2b7ee7a4e))
+* **project:** resolve a conflict with old headers ([b200fb4](https://github.com/vednoc/Dark-GitHub/commit/b200fb447c5af592d309352db8960f62335265d5))
+
 ### [1.1.1](https://github.com/vednoc/Dark-GitHub/compare/v1.1.0...v1.1.1) (2021-06-14)
 
 
