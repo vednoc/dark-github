@@ -1805,9 +1805,10 @@ for c, i in colors[2..length(colors)] {
         /// Remove background from avatar groups.
         /.AvatarStack-body { c: 0 0 t }
 
-        /// Feat -> Old readme header design.
-        if (readme_header) {
-            /#readme {
+        /// Readme tweaks.
+        /#readme {
+            /// Feat -> Old readme header design.
+            if (readme_header) {
                 > .Box-header.border-bottom-0 {
                     border-bottom: 1px solid bg5 i
                     c: 0 0 bg2
@@ -1822,6 +1823,12 @@ for c, i in colors[2..length(colors)] {
                     min-height: 38px
                     c: 0 0 bg2
                 }
+            }
+
+            /// Invert stats.
+            img[data-canonical-src*='github-readme-stats.vercel.app/api']:not([data-canonical-src*='&theme=']) {
+                filter: invert(1) hue-rotate(180deg) contrast(0.9) i
+                c: 0 0 t
             }
         }
 
