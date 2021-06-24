@@ -91,6 +91,7 @@
 @var checkbox short_navbars 'Use same width for navigation bars and content area' 1
 @var checkbox chbx_a_header 'Fix notifications checkbox on header alignment' 0
 @var checkbox code_borders  'Add borders around code blocks and similar elements' 1
+@var checkbox star_colors   'Highlight star icon if you starred the repository' 1
 ==/UserStyle== */
 
 // {{{ Helpers.
@@ -2085,6 +2086,11 @@ for c, i in colors[2..length(colors)] {
             .markdown-body { code, tt, pre { border: 1px solid bg5 }}
             .commit { &-ref, &-sha { border: 1px solid bg5 }}
             .branch-name { border: 1px solid bg5 }
+        }
+
+        /// Feat -> Highlight star icon if you starred the repository.
+        if (star_colors) {
+            .starred .octicon { c: ac }
         }
 
         /// CodeMirror editor.
