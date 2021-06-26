@@ -986,8 +986,8 @@ for c, i in colors[2..length(colors)] {
 
         /// Code diffs.
         --color-code-selection-bg: bg2 //#c8e1ff;
-        --color-blob-line-highlight-bg: rgba(convert($v31), 0.3) //#fffbdd;
-        --color-blob-line-highlight-border: t // rgba(0,0,0,0);
+        --color-blob-line-highlight-bg: rgba(convert($bg3), 0.5) //#fffbdd;
+        --color-blob-line-highlight-border: v35 // #daaa3f;
 
         --color-diff-blob-num-text: fg5 //rgba(27,31,35,0.3);
         --color-diff-blob-num-hover-text: fg1 //rgba(27,31,35,0.6);
@@ -1946,24 +1946,16 @@ for c, i in colors[2..length(colors)] {
 
         /// View -> Line highlight.
         /table.highlight > tbody > tr {
-            &:hover > td {
+            &:hover {
                 position: relative
+                z-index: 0
                 &::after {
-                    top: 0
-                    left: 0
-                    width: 100%
-                    height: 100%
                     content: ''
                     position: absolute
-                    pointer-events: none
-                    c: 0 0 #ffffff10
+                    top: 0; left: 0; right: 0; bottom: 0
+                    c: 0 0 rgba(convert($bg4), 0.6)
+                    z-index: -1
                 }
-            }
-
-            > td.highlighted {
-                mix-blend-mode: screen
-                c: 0 0 var(--color-blob-line-highlight-bg)
-                box-shadow: -50px 0 var(--color-blob-line-highlight-bg)
             }
 
             &.divider:hover > td { c: 0 0 bg3 }
