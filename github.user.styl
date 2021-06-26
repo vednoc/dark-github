@@ -2242,6 +2242,13 @@ for c, i in colors[2..length(colors)] {
             i { filter: invert(0.8) }
             &:hover { c: 0 0 bg5 }
         }
+
+        /// Append ellipsis to code folds.
+        .highlight tr.active td:last-child::after {
+            content: '...'
+            border-radius: 3px
+            c: fg3 0 rgba(convert($bg5), 0.6)
+        }
     }
 
     // Extension -> GitHub Original Streak.
