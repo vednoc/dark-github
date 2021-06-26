@@ -1834,7 +1834,10 @@ for c, i in colors[2..length(colors)] {
 
         /// Feat -> Neutral colors in latest commit.
         if (latest_commit) {
-            &-header[class*='commit'] { c: 0 bg5 bg2 }
+            &-header--blue.Details,
+            &-header[class*='commit'] {
+                c: 0 bg5 bg2
+            }
 
             /// Commit details.
             /.full-commit {
