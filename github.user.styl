@@ -309,8 +309,11 @@ for c, i in colors[2..length(colors)] {
                 { '--%s-%s' % ((color) (tone)) }: $ + color + tone
             }
         }
+    }
 
-        /// Native CSS variables.
+    /// Native CSS variables.
+    /// NOTE: Fixes mess for #7.
+    * {
         --color-border-default: bg5 //#444c56;
         --color-border-muted: bg4 //#373e47;
         --color-border-subtle: bg3 //#cdd9e51a;
