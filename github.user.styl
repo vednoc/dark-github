@@ -621,9 +621,9 @@ for c, i in colors[2..length(colors)] {
         --color-btn-selected-bg: bg4 //#edeff2;
         --color-btn-focus-bg: bg4 //#fafbfc;
         --color-btn-focus-border: bg5 //rgba(27,31,35,0.15);
-        --color-btn-focus-shadow: 0 0 0 3px v62 //rgba(3,102,214,0.3);
+        --color-btn-focus-shadow: 0 0 0 3px rgba(convert($bg4), 0.5) //rgba(3,102,214,0.3);
         --color-btn-shadow-active: inset 0 0.15em 0.3em #00000010 //rgba(27,31,35,0.15);
-        --color-btn-shadow-input-focus: 0 0 0 0.2em v63 //rgba(3,102,214,0.3);
+        --color-btn-shadow-input-focus: 0 0 0 0.2em rgba(convert($v66), 0.3) //rgba(3,102,214,0.3);
 
         --color-btn-primary-text: v99 //#fff;
         --color-btn-primary-bg: v42 //#2ea44f;
@@ -683,10 +683,19 @@ for c, i in colors[2..length(colors)] {
         --color-counter-text: fg1 //#24292e;
         --color-counter-bg: bg4 //#d1d5da80;
         --color-counter-border: #d1d5da80;
-        --color-topic-tag-text: v09 //#0366d6;
-        --color-topic-tag-bg: mix(AC, BG, 10) //#f1f8ff;
-        --color-topic-tag-hover-bg: mix(AC, BG, 15) //#def;
-        --color-topic-tag-active-bg: mix(AC, BG, 20) //#e7f3ff;
+
+        // NOTE: Is this what insanity looks like?
+        // TODO: Figure out a...decent way to deal with this.
+        /.topic-tag {
+            --color-accent-fg: v09
+            --color-accent-subtle: mix(AC, BG, 10)
+            --color-topic-tag-border: mix(AC, BG, 15)
+            &:hover, &:active {
+                --color-fg-on-emphasis: v99
+                --color-accent-emphasis: mix(AC, BG, 30)
+                border-color: mix(AC, BG, 40)
+            }
+        }
 
         --color-merge-box-success-icon-bg: #28a745;
         --color-merge-box-success-icon-text: #fff;
@@ -1445,7 +1454,7 @@ for c, i in colors[2..length(colors)] {
             }
 
             /// Repository -> Sub-navigation.
-            nav.js-repo-nav { c: 0 0 bg1 }
+            .hx_page-header-bg { c: 0 0 bg1 }
 
             /// Repository -> Projects.
             .js-project-container {
@@ -1469,7 +1478,7 @@ for c, i in colors[2..length(colors)] {
                             c: 0 bg5
                             b: none i
                         }
-                        &:focus { c: 0 v66}
+                        &:focus { c: 0 v66 }
                     }
                 }
             }
@@ -1595,7 +1604,8 @@ for c, i in colors[2..length(colors)] {
         /// Navbar -> Busy status.
         /.user-status-busy {
             --color-text-link: v99
-            c: 0 v22 v21
+            $warn = rgba(convert($v27), 0.15)
+            c: 0 $warn $warn
         }
     }
 
