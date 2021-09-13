@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/vednoc/Dark-GitHub/compare/v1.2.0...v1.2.1) (2021-09-13)
+
+
+### Features
+
+* **code:** append ellipsis to Gitako's code folds ([e20ca5c](https://github.com/vednoc/Dark-GitHub/commit/e20ca5c8d06a56531f24c97caba4cd352ae9150f))
+* **code:** improve line highlights in file views ([6ebc3e3](https://github.com/vednoc/Dark-GitHub/commit/6ebc3e394d9e31229b4165b634abe677224b8dcc))
+* **vars:** add missing icon colors for Gitako ([9b418aa](https://github.com/vednoc/Dark-GitHub/commit/9b418aa752748154af24a7bf2fcf801915c4cf86))
+* **vars:** improve background for popover menus ([12bb062](https://github.com/vednoc/Dark-GitHub/commit/12bb06237c5955107547fad156c8d532846fc203))
+
+
+### Bug Fixes
+
+* **global:** update code blocks and short header ([590f30f](https://github.com/vednoc/Dark-GitHub/commit/590f30f3116008e9fc83619037b32bbf92f46606))
+* **project:** add a new selector for latest commit ([b7a11ac](https://github.com/vednoc/Dark-GitHub/commit/b7a11acdf7c2482f19ba76696aa56ea41f587839))
+* **vars:** add a hack for var overrides in docs ([07f52e0](https://github.com/vednoc/Dark-GitHub/commit/07f52e088e950ba9a0729dcad774364a27da172a)), closes [#7](https://github.com/vednoc/Dark-GitHub/issues/7)
+* **vars:** remap colors for new native variables ([44a0c9f](https://github.com/vednoc/Dark-GitHub/commit/44a0c9f261d7e725e7a158792970a1c868294f6f)), closes [#8](https://github.com/vednoc/Dark-GitHub/issues/8)
+* **vars:** tweak colors for misc elements ([3b6e54c](https://github.com/vednoc/Dark-GitHub/commit/3b6e54c3250b118d64ea8eaeabdd0de1104b2f2d))
+
 ## [1.2.0](https://github.com/vednoc/Dark-GitHub/compare/v1.1.1...v1.2.0) (2021-06-24)
 
 
