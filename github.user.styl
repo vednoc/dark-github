@@ -335,9 +335,6 @@ for c, i in colors[2..length(colors)] {
         --color-accent-muted: v05 //#4184e466;
         --color-accent-subtle: v03 //#4184e426;
 
-        // --color-topic-tag-text: fg1
-        // --color-topic-tag-bg: bg2
-
         /// Before v1.2.1:
         --color-scale-black: v99 //#1b1f23;
         --color-scale-white: v90 //#ffffff;
@@ -1503,7 +1500,10 @@ for c, i in colors[2..length(colors)] {
         }
 
         /// Code blocks.
-        .markdown-body pre { c: 0 0 bg2 }
+        .markdown-body {
+            :not(pre) > code { c: 0 0 bg2 }
+            pre { c: 0 0 bg2 }
+        }
 
         /// Releases.
         .release-timeline-tags {
@@ -1737,7 +1737,7 @@ for c, i in colors[2..length(colors)] {
             --color-text-white: fg1
 
             /// Wrapper max width.
-            /body:not(.project-page) & > .container-xl { max-width: 1250px i }
+            /body:not(.project-page) & > .container-xl { max-width: 1248px i }
 
             /// Search.
             .header-search label {
@@ -2148,8 +2148,9 @@ for c, i in colors[2..length(colors)] {
     }
 
     // Hide "notifications" button while logged out. @upstream
-    .logged-out .pagehead-actions a[aria-label*='notification'] {
-        display: none
+    .logged-out .pagehead-actions {
+        margin-right: -10px
+        a[aria-label*='notification'] { display: none }
     }
 
     // Extension -> Gitako.
