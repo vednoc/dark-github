@@ -1978,7 +1978,7 @@ for c, i in colors[2..length(colors)] {
             &:not(.open) > .file-header--expandable { rad: 6px i }
 
             /// Diff -> Fix rounded corners of image diffs.
-            .render-viewer { rad: 6px i }
+            .render-viewer { rad: 0 0 6px 6px i }
 
             /// Diff -> Tag expander.
             /.branches-tag-list .ellipsis-expander { c: 0 0 bg5 }
@@ -2360,7 +2360,7 @@ for c, i in colors[2..length(colors)] {
     }
 }
 
-@-moz-document regexp('https?://render\.githubusercontent?.com(/.*)?') {
+@-moz-document regexp('https?://(render|viewscreen)\.githubusercontent?.com(/.*)?') {
     :root {
         /// Accent color.
         --ac: AC
