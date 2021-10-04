@@ -2132,16 +2132,19 @@ for c, i in colors[2..length(colors)] {
         /// Feat -> Add borders around code blocks and similar elements.
         if (code_borders) {
             /// Add border around code and commit references.
-            .markdown-title code { border: 1px solid bg5 }
-            .markdown-body { code, tt, pre { border: 1px solid bg5 }}
-            .commit { &-ref, &-sha { border: 1px solid bg5 }}
-            .branch-name { border: 1px solid bg5 }
+            .markdown-title code { border: 1px solid bg4 }
+            .markdown-body { code, tt, pre { border: 1px solid bg4 }}
+            .commit { &-ref, &-sha { border: 1px solid bg4 }}
+            .branch-name { border: 1px solid bg4 }
         }
 
         /// Feat -> Highlight star icon if you starred the repository.
         if (star_colors) {
             .starred .octicon { c: ac }
         }
+
+        /// Inline code blocks.
+        .commit-ref { c: v09 0 bg2 }
 
         /// CodeMirror editor.
         .CodeMirror {
