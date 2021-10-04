@@ -1212,7 +1212,7 @@ for c, i in colors[2..length(colors)] {
 
         body {
             /// Application background.
-            &, .application-main > .bg-gray, &.bg-gray-light { c: 0 0 bg0 }
+            &, .application-main > [class*='color-bg'] { c: 0 0 bg0 }
             &.page-profile .application-main { b: 0 -24px bg1 }
 
             if custom_font {
@@ -1394,7 +1394,7 @@ for c, i in colors[2..length(colors)] {
         /// NOTE: Remaps bg1 to bg0.
         .js-profile-timeline-year-list,
         .tabnav {
-            &.color-bg-primary {
+            &.color-bg-default {
                 c: 0 0 bg0
             }
         }
