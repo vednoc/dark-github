@@ -2033,6 +2033,15 @@ for c, i in colors[2..length(colors)] {
                 td:first-child { rad: 0 0 0 5px }
                 td:last-child { rad: 0 0 5px 0 }
             }
+
+            /// Use old color variables.
+            &[data-position='']:not(#z),
+            &.js-expandable-line:not(#z) {
+                --color-fg-muted: fg2 i
+                > .blob-num { c: 0 0 bg4 }
+                > .blob-code { c: 0 0 bg3 }
+            }
+            > td.blob-code-deletion { c: 0 0 var(--color-diff-blob-deletion-line-bg) }
         }
 
         /// Code snippet dividers. @upstream
