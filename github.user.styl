@@ -327,8 +327,8 @@ for c, i in colors[2..length(colors)] {
         --color-canvas-inset: bg1 //#1c2128;
         --color-canvas-subtle: bg2 //#2d333b;
         --color-neutral-emphasis-plus: #636e7b;
-        --color-neutral-emphasis: #636e7b;
-        --color-neutral-muted: #636e7b66;
+        --color-neutral-emphasis: bg5 //#636e7b;
+        --color-neutral-muted: bg4 //#636e7b66;
         --color-neutral-subtle: #636e7b1a;
         --color-accent-fg: ac //#539bf5;
         --color-accent-emphasis: v07 //#316dca;
@@ -338,6 +338,14 @@ for c, i in colors[2..length(colors)] {
         --color-attention-emphasis: v37 //#f9c513;
         --color-attention-muted: v35 //#ffdf5d;
         --color-attention-subtle: v33 //#fff5b1;
+        --color-primer-shadow-highlight: 0 0 transparent;
+        --color-primer-shadow-inset: 0 0 transparent;
+        --color-primer-shadow-focus: 0 0 0 3px v01 //#143d79;
+        --color-social-reaction-border: bg5 //var(--color-scale-blue-8);
+        --color-social-reaction-bg: bg2 //var(--color-scale-gray-8);
+        --color-social-reaction-bg-hover: bg3 //var(--color-scale-gray-7);
+        --color-social-reaction-bg-reacted-hover: v62 //var(--color-scale-blue-8);
+        /{ .user-has-reacted:not(#z) { c: 0 v04 v01 } }
 
         /// Before v1.2.1:
         --color-scale-black: v99 //#1b1f23;
@@ -1207,7 +1215,7 @@ for c, i in colors[2..length(colors)] {
 
         body {
             /// Application background.
-            &, .application-main > .bg-gray, &.bg-gray-light { c: 0 0 bg0 }
+            &, .application-main > [class*='color-bg'] { c: 0 0 bg0 }
             &.page-profile .application-main { b: 0 -24px bg1 }
 
             if custom_font {
@@ -1389,7 +1397,7 @@ for c, i in colors[2..length(colors)] {
         /// NOTE: Remaps bg1 to bg0.
         .js-profile-timeline-year-list,
         .tabnav {
-            &.color-bg-primary {
+            &.color-bg-default {
                 c: 0 0 bg0
             }
         }
@@ -1726,8 +1734,9 @@ for c, i in colors[2..length(colors)] {
             }
         }
 
-        /// Notifications. @upstream
-        .mail-status {
+        /// Unread indicators. @upstream
+        .mail-status,
+        .feature-preview-indicator {
             background-image: none i
             c: 0 0 ac
         }
@@ -1972,7 +1981,7 @@ for c, i in colors[2..length(colors)] {
             &:not(.open) > .file-header--expandable { rad: 6px i }
 
             /// Diff -> Fix rounded corners of image diffs.
-            .render-viewer { rad: 6px i }
+            .render-viewer { rad: 0 0 6px 6px i }
 
             /// Diff -> Tag expander.
             /.branches-tag-list .ellipsis-expander { c: 0 0 bg5 }
@@ -2027,6 +2036,15 @@ for c, i in colors[2..length(colors)] {
                 td:first-child { rad: 0 0 0 5px }
                 td:last-child { rad: 0 0 5px 0 }
             }
+
+            /// Use old color variables.
+            &[data-position='']:not(#z),
+            &.js-expandable-line:not(#z) {
+                --color-fg-muted: fg2 i
+                > .blob-num { c: 0 0 bg4 }
+                > .blob-code { c: 0 0 bg3 }
+            }
+            > td.blob-code-deletion { c: 0 0 var(--color-diff-blob-deletion-line-bg) }
         }
 
         /// Code snippet dividers. @upstream
@@ -2126,16 +2144,19 @@ for c, i in colors[2..length(colors)] {
         /// Feat -> Add borders around code blocks and similar elements.
         if (code_borders) {
             /// Add border around code and commit references.
-            .markdown-title code { border: 1px solid bg5 }
-            .markdown-body { code, tt, pre { border: 1px solid bg5 }}
-            .commit { &-ref, &-sha { border: 1px solid bg5 }}
-            .branch-name { border: 1px solid bg5 }
+            .markdown-title code { border: 1px solid bg4 }
+            .markdown-body { code, tt, pre { border: 1px solid bg4 }}
+            .commit { &-ref, &-sha { border: 1px solid bg4 }}
+            .branch-name { border: 1px solid bg4 }
         }
 
         /// Feat -> Highlight star icon if you starred the repository.
         if (star_colors) {
             .starred .octicon { c: ac }
         }
+
+        /// Inline code blocks.
+        .commit-ref, .branch-name { c: v09 0 bg2 }
 
         /// CodeMirror editor.
         .CodeMirror {
@@ -2351,7 +2372,7 @@ for c, i in colors[2..length(colors)] {
     }
 }
 
-@-moz-document regexp('https?://render\.githubusercontent?.com(/.*)?') {
+@-moz-document regexp('https?://(render|viewscreen)\.githubusercontent?.com(/.*)?') {
     :root {
         /// Accent color.
         --ac: AC
