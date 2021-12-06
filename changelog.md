@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/vednoc/Dark-GitHub/compare/v1.2.1...v1.3.0) (2021-12-06)
+
+
+### Features
+
+* **code:** improve colors for code blocks ([bbc5df1](https://github.com/vednoc/Dark-GitHub/commit/bbc5df19b7918cf3d3907f3a856b0b07da839c09))
+* **diff:** use neutral colors for expansion bars ([e423160](https://github.com/vednoc/Dark-GitHub/commit/e423160e3a635a79862918eb26c8be34c59ff55c))
+* **vars:** add `--color-attention` variables ([#9](https://github.com/vednoc/Dark-GitHub/issues/9)) ([539c6fc](https://github.com/vednoc/Dark-GitHub/commit/539c6fc98a163c913ce165674d80d444de38cef5))
+* **vars:** update and remap new color variables ([777f154](https://github.com/vednoc/Dark-GitHub/commit/777f154f52e7712f6ee8fb7d354a30e1f7359466))
+
+
+### Bug Fixes
+
+* **code:** use neutral colors for branch names ([3dd8e57](https://github.com/vednoc/Dark-GitHub/commit/3dd8e576ba2beeb5328f08e562db601dec6764bd))
+* **diff:** add subdomain for image diffs ([33ec457](https://github.com/vednoc/Dark-GitHub/commit/33ec45780bc213d87bc0665100826c3b55d657af))
+* **global:** remap new background colors ([1deb3b5](https://github.com/vednoc/Dark-GitHub/commit/1deb3b58561c0be143480ce8002b330c3a67965a))
+* **navbar:** add 'feature preview' indicator ([dce1eef](https://github.com/vednoc/Dark-GitHub/commit/dce1eefd4979e818bd731a5a4ebeb497d38a53dc))
+* **vars:** remap colors for navigation counters ([ab3dc57](https://github.com/vednoc/Dark-GitHub/commit/ab3dc57bf207cf51a4c025dce7cd35be02174a79))
+* **vars:** remap colors for new input shadow focus ([d06f3b0](https://github.com/vednoc/Dark-GitHub/commit/d06f3b02105674b2311b3b4fba2a0109a83ed6fb))
+* **vars:** remap colors for reaction buttons ([23c314a](https://github.com/vednoc/Dark-GitHub/commit/23c314a9895e38f22c45ed1de1086112bd82fb75))
+* **vars:** remap page header color ([#10](https://github.com/vednoc/Dark-GitHub/issues/10)) ([5923113](https://github.com/vednoc/Dark-GitHub/commit/59231135accdaf01fe68bc1a2055dba97c1ea7f7))
+
 ### [1.2.1](https://github.com/vednoc/Dark-GitHub/compare/v1.2.0...v1.2.1) (2021-09-13)
 
 
